@@ -1,0 +1,79 @@
+/* Button Default Styles */
+.btn {
+  @include border-box;
+  @include border-radius(4px);
+  @include background-image(linear-gradient(bottom, #0471ad 0%, #0594d7 48.12%, #06a8ef 100%));
+  display: inline-block;
+  min-width: 144px;
+  padding: 4px 10px;
+  background-color: #0471ad;
+  border: 1px solid #315b6f;
+  color: $bright;
+  font-size: $font-size-normal;
+  text-align: center;
+  vertical-align: middle;
+
+  &:hover {
+    color: $bright;
+    background-color: #06a8ef; // Fallback
+    @include background-image(linear-gradient(bottom, #06a8ef 0%, #0594d7 48.12%, #0471ad 100%));
+  }
+}
+
+/* Button Color */
+.btn.btn-deep-current {
+  background-color: $secondary-color; // Fallback
+  @include background-image(linear-gradient(bottom, $secondary-color 1%, $main-color 100%));
+
+  &:hover {
+    color: $bright;
+    background-color: $main-color; // Fallback
+    @include background-image(linear-gradient(bottom, $main-color 1%, $secondary-color 100%));
+  }
+}
+
+.btn.btn-sky {
+  background-color: $main-color; // Fallback
+  @include background-image(linear-gradient(bottom, $main-color 1%, $fourth-color 100%));
+
+  &:hover {
+    color: $bright;
+    background-color: $fourth-color; // Fallback
+    @include background-image(linear-gradient(bottom, $fourth-color 1%, $main-color 100%));
+  }
+}
+
+/* Button Size */
+.btn.btn-size-s {
+  min-width: inherit;
+  padding: 6px 10px;
+  font-size: $font-size-xs;
+}
+
+/* Special Button - Home Page Login Button */
+.btn.btn-login {
+  @include box-shadow(inset 0 0 4px rgba(255,255,255,.3), 0 2px 2px rgba(0,0,0,.8));
+  border: none;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 24px;
+    margin-left: 8px;
+    background: url(../images/icon_white/icon_lock_white.png) no-repeat;
+    vertical-align: middle;
+  }
+}
+
+/* Button Center Wrapper */
+.btn-center-wrapper {
+  display: block;
+  width: 100%;
+  margin: $spacing-s 0;
+  text-align: center;
+}
+
+* + .btn-center-wrapper {
+  margin-top: $spacing-s;
+}

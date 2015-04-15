@@ -1,0 +1,163 @@
+﻿/* Replace styles in "jquery.fancybox.css "*/
+.fancybox-skin {
+  background-color: $bright;
+}
+
+/* Replace styles in "jquery.fs.selecter.css" */
+.selecter {
+  @include border-box;
+  max-width: 100%;
+  margin: inherit;
+
+  .selecter-item {
+    @include border-box;
+    padding: 10px 10px;
+    font-size: $font-size-s;
+  }
+  
+  .selecter-selected {
+    @include border-radius(4px);
+    padding: 7px 10px;
+    border: 1px solid $disable-color;
+    background-color: $gray;
+    color: $secondary-color;
+    font-size: $font-size-s;
+    line-height: $body-line-height;
+
+    &:hover {
+      background-color: $gray;
+      border-color: $remark-color;
+      color: $dark;
+    }
+  }
+
+  &.open .selecter-selected {
+    @include border-radius(4px 4px 0 0);
+    background-color: $gray;
+  }
+
+  &.focus .selecter-selected {
+    background-color: $gray;
+  }
+}
+
+/* For English Version */
+html[lang="en"] .selecter {
+  .selecter-item {
+    font-size: $font-size-xxs;
+  }
+
+  .selecter-selected {
+    font-size: $font-size-xxs;
+  }
+}
+
+/* Replace styles in "owl.theme.default.css" */
+.owl-theme .owl-dots .owl-dot span {
+  border: 1px solid $remark-color;
+  background: $disable-color;
+}
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
+  background: $bright;
+}
+
+/* Replace styles in "jquery.mmenu.css" */
+.mm-list > li > a,
+.mm-list > li > span {
+  white-space: inherit;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: $words-color;
+  background-color: #fff;
+  font-size: $font-size-xs;
+  line-height: $body-line-height;
+  font-family: '微軟正黑體', 'Microsoft JhengHei', Verdana, Helvetica, Arial, 'LiHei Pro' 'HeitiTC', 'Microsoft YaHei', sans-serif;
+}
+
+html[lang="en"] body {
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 { color: $secondary-color; }
+
+strong { font-weight: bold; }
+
+em { font-style: italic; }
+
+
+button { cursor: pointer; }
+
+a {
+  color: $links-color;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $links-hover-color;
+  text-decoration: none;
+}
+
+
+/* Clear Fix */
+.group:before,
+.group:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+/* CSS Table Cell */
+.table              { display: table; }
+.table-caption      { display: table-caption; }
+.table-header-group { display: table-header-group; }
+.table-footer-group { display: table-footer-group; }
+.table-row-group    { display: table-row-group; }
+.table-row          { display: table-row; }
+.table-cell         { display: table-cell; vertical-align: middle; }
+
+/* Wrapper */
+.wrapper {
+  /*@include border-box;*/
+  width: $grid-full-width;
+  margin: 0 auto;
+  @include box-sizing(border-box);
+
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+/* Show & Hide */
+.show { display: block; }
+.hide { display: none; }
+
+/* RWD - Hidding for desktop */
+.rwd {
+  display: none;
+}
+
+/* Break Point - Break words for responsive screen size */
+.break-point {
+  @include clear-fix;
+  font-size   : 0;
+  line-height : 0;
+}
+
+/* clearfix */
+.b-clearfix {
+  &:after {
+    content : "";
+    width   : 100%;
+    height  : 0;
+    display : block;
+    @include clearfix;
+  }
+}

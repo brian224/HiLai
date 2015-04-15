@@ -1,0 +1,184 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+
+.menu {
+	border-bottom : 1px solid #dedede;
+	box-shadow    : 0 1px 0 #f4f4f4;
+}
+
+.l-main {
+	margin-top : 20px;
+}
+
+.l-content {
+	.m-breadcrumb {
+		margin-bottom : 18px;
+
+		.link {
+			color     : #8f8f8f;
+			font-size : 13px;
+
+			&:before {
+				content : '>';
+			}
+
+			&:first-child:before {
+				display : none;
+			}
+		}
+	}
+
+	.main-title {
+		margin-bottom : 12px;
+		color         : #173853;
+		font-size     : 30px;
+		line-height   : 1.5em;
+	}
+
+	.sub-title {
+		margin-bottom : 10px;
+		color         : #173853;
+		font-size     : 22px;
+		line-height   : 1.5em;
+	}
+
+	.msg-desc {
+		color       : #404040;
+		font-size   : 14px;
+		line-height : 1.5em;
+	}
+
+	.m-tab {
+		@include clearfix;
+		margin-top    : 44px;
+		border-radius : 3px;
+
+		.tab-list {
+			@include box-sizing(border-box);
+			@include background-image(linear-gradient(#e4e4e4, #d6d6d6));
+			width       : 33.33%;
+			height      : 54px;
+			position    : relative;
+			float       : left;
+			cursor      : pointer;
+			color       : #4b4b4b;
+			font-size   : 16px;
+			line-height : 54px;
+			text-align  : center;
+
+			&:before {
+				content    : '';
+				background : #b2b2b2;
+				display    : block;
+				width      : 1px;
+				height     : 100%;
+				position   : absolute;
+				top        : 0;
+				left       : 0;
+			}
+
+			&.curr {
+				@include background-image(linear-gradient(#ccc, #bfbfbf));
+				border-bottom : 5px solid #047eba;
+			}
+
+			&:first-child:before {
+				display : none;
+			}
+		}
+	}
+
+	.m-tab-content {
+		margin-top : 27px;
+
+		.content-title {
+			padding-bottom : 18px;
+			color          : #173853;
+			font-size      : 22px;
+			line-height    : 1.5em;
+		}
+
+		.faq-wrap {
+			.list {
+				min-height : 50px;
+				position   : relative;
+				border-top : 1px solid #e7e7e7;
+
+				&:before {
+					content       : '';
+					background    : #057fbf;
+					display       : block;
+					width         : 18px;
+					height        : 18px;
+					position      : absolute;
+					top           : 17px;
+					right         : 15px;
+					border-radius : 9px;
+				}
+
+				.quest {
+					padding     : 0 48px 0 0;
+					position    : relative;
+					cursor      : pointer;
+					color       : #003f62;
+					font-size   : 16px;
+					line-height : 50px;
+
+					&:hover {
+						text-decoration : underline;
+					}
+
+					&:before, &:after {
+						content    : '';
+						background : #fff;
+						display    : block;
+						width      : 10px;
+						height     : 2px;
+						position   : absolute;
+						top        : 50%;
+						right      : 19px;
+					}
+
+					&:after {
+						@include transform(rotate(90deg));
+					}
+				}
+
+				.ans {
+					@include transition(all .3s ease-in-out);
+					padding     : 0 48px 0 0;
+					max-height  : 0;
+					overflow    : hidden;
+					color       : #404040;
+					font-size   : 14px;
+					line-height : 24px;
+				}
+
+				&.open {
+					.quest:after {
+						@include transform(rotate(0deg));
+					}
+
+					.ans {
+						padding-bottom : 20px;
+						max-height     : 1000px;
+					}
+				}
+			}
+		}
+	}
+}

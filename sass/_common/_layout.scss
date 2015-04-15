@@ -1,0 +1,39 @@
+.l-main {
+	margin   : 0 auto;
+	width    : $product-width;
+	position : relative;
+}
+
+.l-main-content {
+	position : relative;
+
+	&.is-content-left {
+		.l-content {
+			float : left;
+		}
+
+		.l-side {
+			float : right;
+		}
+	}
+
+	&.is-content-right {
+		.l-content {
+			float : right;
+		}
+
+		.l-side {
+			float : left;
+		}
+	}
+}
+
+.l-content {
+	width    : ($product-width - $side-width - 10);
+	position : relative;
+}
+
+.l-side {
+	width    : $side-width;
+	position : relative;
+}

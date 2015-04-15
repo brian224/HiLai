@@ -1,0 +1,123 @@
+// Clear Fix
+@mixin clear-fix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Text Replace
+@mixin text-replace {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// Display Display-Flex
+@mixin display-flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+// Display Flex
+@mixin flex ($felx-values) {
+  -webkit-box-flex : $felx-values;
+  -moz-box-flex : $felx-values;
+  -webkit-flex : $felx-values;
+  -ms-flex : $felx-values;
+  flex : $felx-values;
+}
+
+// Display Flex-Wrap
+@mixin flex-wrap ($flex-wrap-values) {
+  -webkit-flex-wrap : $flex-wrap-values;
+  -moz-flex-wrap : $flex-wrap-values;
+  -ms-flex-wrap : $flex-wrap-values;
+  flex-wrap : $flex-wrap-values;
+}
+
+// Display Flex-Direction-Column
+@mixin flex-direction-column {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+// Display Display-Flex
+@mixin align-self ($align-self-values) {
+  -webkit-align-self: $align-self-values;
+  -ms-flex-item-align: $align-self-values;
+  align-self: $align-self-values;
+}
+
+// Vertical Center
+@mixin vertical-center {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+// Box-sizing: Border-Box
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+// CSS3 Text-Shadow
+@mixin text-shadow ($text-shadow-values...) {
+  -webkit-text-shadow: $text-shadow-values;
+  -moz-text-shadow: $text-shadow-values;
+  text-shadow: $text-shadow-values;
+}
+
+// CSS3 Background-Gradient
+@mixin background-image ($background-image-values...) {
+background-image: -webkit-+$background-image-values;
+background-image: -moz-+$background-image-values;
+background-image: $background-image-values;
+}
+
+// CSS3 Linear Gradient
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor; /* Fallback Color */
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, $fromColor, $toColor); /* FF3.6 */
+  background-image:     -ms-linear-gradient(top, $fromColor, $toColor); /* IE10 */
+  background-image:      -o-linear-gradient(top, $fromColor, $toColor); /* Opera 11.10+ */
+  background-image:         linear-gradient(top, $fromColor, $toColor);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='$fromColor', EndColorStr='$toColor');
+}
+
+// Cross Browser Background-size
+@mixin background-size($background-size-value) {
+  -webkit-background-size: $background-size-value;
+  -moz-background-size: $background-size-value;
+  -o-background-size: $background-size-value;
+  background-size: $background-size-value;
+}
+
+// Cross Browser Animation
+@mixin transition($transition-value) {
+  -webkit-transition: $transition-value;
+  -moz-transition: $transition-value;
+  transition: $transition-value;
+}
+
+@mixin transform($transform-value) {
+  -webkit-transform: $transform-value;
+  -moz-transform: $transform-value;
+  transform: $transform-value;
+}
