@@ -29,15 +29,33 @@
 		margin-bottom : 18px;
 
 		.link {
+			padding   : 0 0 0 10px;
+			position  : relative;
 			color     : #8f8f8f;
 			font-size : 13px;
 
-			&:before {
-				content : '>';
+			&:hover {
+				text-decoration : underline;
 			}
 
-			&:first-child:before {
-				display : none;
+			&:before {
+				content    : '';
+				margin     : -4px 0 0 0;
+				background : image-url('icon_arrow/icon_arrow_right_gray_s.png') 0 0 no-repeat;
+				display    : block;
+				width      : 4px;
+				height     : 7px;
+				position   : absolute;
+				top        : 50%;
+				left       : 2px;
+			}
+
+			&:first-child {
+				padding : 0;
+
+				&:before {
+					display : none;
+				}
 			}
 		}
 	}
@@ -68,8 +86,8 @@
 		border-radius : 3px;
 
 		.tab-list {
-			@include box-sizing(border-box);
 			@include background-image(linear-gradient(#e4e4e4, #d6d6d6));
+			@include box-sizing(border-box);
 			width       : 33.33%;
 			height      : 54px;
 			position    : relative;
@@ -79,6 +97,10 @@
 			font-size   : 16px;
 			line-height : 54px;
 			text-align  : center;
+
+			&:hover {
+				@include background-image(linear-gradient(#ccc, #bfbfbf));
+			}
 
 			&:before {
 				content    : '';
@@ -177,6 +199,115 @@
 						padding-bottom : 20px;
 						max-height     : 1000px;
 					}
+				}
+			}
+		}
+	}
+}
+
+.l-side {
+	.action-box {
+		.login {
+			margin-bottom : 10px;
+			padding       : 20px 20px 5px;
+			background    : #fff;
+			border        : 1px solid #ddd;
+			border-radius : 4px;
+			text-align    : center;
+
+			.selecter {
+				text-align : left;
+			}
+
+			.closed .selecter-options {
+				display : none;
+			}
+
+			.open .selecter-options {
+				display : block;
+			}
+
+			a.btn {
+				margin      : 0 auto 10px;
+				width       : 100%;
+				line-height : 24px;
+			}
+
+			.links a {
+				display      : inline-block;
+				padding-left : 8px;
+				background   : image-url('../images/icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
+				font-size    : 12px;
+			}
+		}
+	}
+
+	.side-title {
+		margin-top  : 5px;
+		color       : #26445e;
+		font-size   : 18px;
+		line-height : 48px;
+	}
+
+	.side-menu-list {
+		border        : 1px solid #ddd;
+		border-radius : 4px;
+
+		li {
+			border-top  : 1px solid #ddd;
+
+			&:first-child {
+				border-top : 0;
+			}
+
+			a {
+				@include box-sizing(border-box);
+				padding     : 5px 18px 5px 52px;
+				display     : block;
+				width       : 100%;
+				min-height  : 36px;
+				position    : relative;
+				color       : #26445e;
+				font-size   : 14px;
+				line-height : 26px;
+
+				&:before {
+					content    : '';
+					margin-top : -8px;
+					background : image-url('../images/icon_ocean_blue/side-menu-icons.png') 0 0 no-repeat;
+					display    : block;
+					width      : 21px;
+					height     : 16px;
+					position   : absolute;
+					top        : 50%;
+					left       : 16px;
+				}
+
+				&.mobile-payment:before {
+					margin-top          : -11px;
+					background-position : 0 -16px;
+					width               : 20px;
+					height              : 22px;
+				}
+
+				&.anz-partner:before {
+					margin-top          : -10px;
+					background-position : 0 -38px;
+					width               : 15px;
+					height              : 21px;
+					left                : 18px;
+				}
+
+				&.tel-bank:before {
+					margin-top          : -9px;
+					background-position : 0 -59px;
+					width               : 18px;
+					height              : 18px;
+					left                : 17px;
+				}
+
+				&:hover {
+					background : #f3f3f3;
 				}
 			}
 		}
