@@ -1,8 +1,10 @@
 $(document).ready(function(){
 	var $quest         = $('.quest'),
+		$mobileTitle   = $('.mobile-title'),
 		$selecter      = $('.selecter'),
 		$tabList       = $('.tab-list'),
-		$switchContent = $('.switch-content');
+		$switchContent = $('.switch-content'),
+		$sideTitle     = $('.side-title');
 
 	$quest.on('click', function(){
 		$(this).parent().toggleClass('open').siblings().removeClass('open');
@@ -13,6 +15,21 @@ $(document).ready(function(){
 
 		$(this).addClass('curr').siblings().removeClass('curr');
 		$switchContent.removeClass('curr').eq(_idx).addClass('curr');
+	});
+
+	$sideTitle.on('click', function(){
+		var _winWidth = $(window).width();
+
+		if (_winWidth < 980) {
+			$(this).parent().toggleClass('open');
+		}
+	});
+
+	$mobileTitle.on('click', function(){
+		var _idx = $(this).parent().index();
+
+		$(this).parent().toggleClass('curr').siblings().removeClass('curr');
+		$tabList.removeClass('curr').eq(_idx).addClass('curr');
 	});
 
 	$selecter.hover(function(){
