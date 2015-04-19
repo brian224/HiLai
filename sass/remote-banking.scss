@@ -1,0 +1,529 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+
+.index-banner {
+	padding    : 53px 0 0 0;
+	min-height : 584px;
+	position   : relative;
+	box-shadow : inset 0 1px 1px rgba(0, 0, 0,0.3);
+
+	.key-visual {
+		@include clearfix;
+		background : $main-color image-url('remote_banking/kv.jpg') no-repeat center 0;
+		width      : 100%;
+		height     : 584px;
+		position   : absolute;
+		top        : 53px;
+		left       : 0;
+	}
+
+	.m-breadcrumb {
+		position    : absolute;
+		top         : -53px;
+		left        : 0;
+		height      : 53px;
+		line-height : 53px;
+
+		.link {
+			padding   : 0 0 0 10px;
+			position  : relative;
+			color     : #8f8f8f;
+			font-size : 13px;
+
+			&:hover {
+				text-decoration : underline;
+			}
+
+			&:before {
+				content    : '';
+				margin     : -4px 0 0 0;
+				background : image-url('icon_arrow/icon_arrow_right_gray_s.png') 0 0 no-repeat;
+				display    : block;
+				width      : 4px;
+				height     : 7px;
+				position   : absolute;
+				top        : 50%;
+				left       : 2px;
+			}
+
+			&:first-child {
+				padding : 0;
+
+				&:before {
+					display : none;
+				}
+			}
+		}
+	}
+
+	.slogan {
+		margin      : 0 0 25px 0;
+		padding     : 48px 0 0 0;
+		color       : $secondary-color;
+		font-size   : 42px;
+		line-height : 48px;
+	}
+
+	.desc {
+		width       : 380px;
+		color       : $secondary-color;
+		font-size   : 17px;
+		line-height : 28px;
+	}
+
+	.fast-links {
+		@include clearfix;
+		padding-top : 312px;
+		position    : relative;
+
+		.list {
+			width      : 20%;
+			float      : left;
+			font-size  : 17px;
+			text-align : center;
+
+			.link {
+				padding  : 125px 0 0 0;
+				display  : block;
+				width    : 100%;
+				height   : 100%;
+				position : relative;
+				color    : #047bb7;
+
+				&:before {
+					content       : '';
+					margin        : 0 0 0 -56px;
+					background    : $bgBlue;
+					display       : block;
+					width         : 102px;
+					height        : 102px;
+					position      : absolute;
+					top           : 0;
+					left          : 50%;
+					border        : 5px solid #c0e4f1;
+					border-radius : 56px;
+					opacity       : 0.8;
+				}
+
+				&:after {
+					content    : '';
+					margin     : 0 0 0 -35px;
+					background : image-url('remote_banking/icons.png') no-repeat 0 0;
+					width      : 70px;
+					height     : 46px;
+					position   : absolute;
+					top        : 33px;
+					left       : 50%;
+				}
+
+				&:hover ~ .image {
+					top     : 48px;
+					opacity : 1;
+				}
+			}
+
+			.image {
+				@include transition(all .3s ease-in-out);
+				background : image-url('remote_banking/hover.png') no-repeat 0 0;
+				display    : block;
+				width      : 304px;
+				height     : 183px;
+				position   : absolute;
+				top        : 78px;
+				left       : 168px;
+				opacity    : 0;
+			}
+
+			&.mobile-payment {
+				.link{
+					&:after {
+						margin-left         : -18px;
+						background-position : 0 -46px;
+						width               : 36px;
+						height              : 57px;
+						top                 : 28px;
+					}
+
+					&:hover ~ .image {
+						top : 13px;
+					}
+				}
+
+				.image {
+					background-position : 0 -183px;
+					width               : 208px;
+					height              : 242px;
+					top                 : 43px;
+					left                : 233px;
+				}
+			}
+
+			&.anz-partner {
+				.link {
+					&:after {
+						margin-left         : -24px;
+						background-position : 0 -103px;
+						width               : 49px;
+						height              : 45px;
+						top                 : 33px;
+					}
+
+					&:hover ~ .image {
+						top : 20px;
+					}
+				}
+
+				.image {
+					background-position : 0 -425px;
+					width               : 177px;
+					height              : 211px;
+					top                 : 50px;
+					left                : 237px;
+				}
+			}
+
+			&.tel-bank {
+				.link {
+					&:after {
+						margin-left         : -24px;
+						background-position : 0 -148px;
+						width               : 48px;
+						height              : 49px;
+						top                 : 32px;
+					}
+
+					&:hover ~ .image {
+						top : 33px;
+					}
+				}
+
+				.image {
+					background-position : 0 -636px;
+					width               : 118px;
+					height              : 213px;
+					top                 : 63px;
+					left                : 288px;
+				}
+			}
+
+			&.atm {
+				.link {
+					&:after {
+						margin-left         : -30px;
+						background-position : 0 -197px;
+						width               : 60px;
+						height              : 34px;
+						top                 : 39px;
+					}
+
+					&:hover ~ .image {
+						top : 19px;
+					}
+				}
+
+				.image {
+					background-position : 0 -849px;
+					width               : 158px;
+					height              : 227px;
+					top                 : 49px;
+					left                : 276px;
+				}
+			}
+		}
+	}
+
+	.promo {
+		@include clearfix;
+		margin  : 40px 0;
+		padding : 0 0 2px 0;
+
+		.list {
+			background    : image-url('remote_banking/promo_01.jpg') no-repeat 0 0;
+			width         : 303px;
+			height        : 282px;
+			float         : left;
+			border        : 1px solid #e1e1e1;
+			border-radius : 4px;
+			box-shadow    : 1px 2px 0 #ccc;
+			overflow      : hidden;
+
+			+ li {
+				margin-left : 23px;
+				background  : image-url('remote_banking/promo_02.jpg') no-repeat 0 0;
+			}
+
+			+ li + li {
+				margin-left : 22px;
+				background  : image-url('remote_banking/promo_03.jpg') no-repeat 0 0;
+			}
+		}
+
+		.link {
+			display     : block;
+			width       : 100%;
+			height      : 100%;
+			position    : relative;
+			color       : #fff;
+			line-height : 26px;
+
+			&:before, &:after {
+				@include transform(rotate(-45deg));
+				content    : '';
+				background : #fff;
+				display    : block;
+				width      : 10px;
+				height     : 2px;
+				position   : absolute;
+				bottom     : 27px;
+				right      : 20px;
+				opacity    : 0.6;
+				z-index    : 2;
+			}
+
+			&:after {
+				@include transform(rotate(45deg));
+				bottom : 33px;
+			}
+
+			&:hover .filter {
+				height     : 160px;
+				max-height : 160px;
+			}
+		}
+
+		.filter {
+			@include box-sizing(border-box);
+			@include transition(all .3s ease-in-out);
+			padding    : 0 40px 0 20px;
+			background : rgba(0,0,0,0.6);
+			width      : 100%;
+			height     : 64px;
+			max-height : 64px;
+			position   : absolute;
+			bottom     : 0;
+			left       : 0;
+
+			&:before {
+				content       : '';
+				background    : transparent;
+				display       : block;
+				width         : 24px;
+				height        : 24px;
+				position      : absolute;
+				bottom        : 17px;
+				right         : 12px;
+				border        : 2px solid #fff;
+				border-radius : 14px;
+				opacity       : 0.6;
+				z-index       : 2;
+			}
+		}
+
+		.promo-title {
+			overflow      : hidden;
+			color         : #fff;
+			font-size     : 20px;
+			line-height   : 64px;
+			text-overflow : ellipsis;
+			white-space   : nowrap;
+		}
+
+		.promo-desc {
+			height    : 78px;
+			overflow  : hidden;
+			font-size : 16px;
+		}
+	}
+}
+
+footer {
+	.pc-footer {
+		@include clearfix;
+		background : $bgBlue;
+
+		.footer-contact-us {
+			@include border-box;
+			margin   : 0 auto;
+			padding  : 45px 0 40px 0;
+			width    : 960px;
+			position : relative;
+
+			&:after {
+				content       : '';
+				margin-left   : -1000px;
+				background    : #359cc4;
+				width         : 2000px;
+				height        : 1px;
+				position      : absolute;
+				bottom        : 0;
+				left          : 50%;
+				border-top    : 1px solid #0280b1;
+				border-bottom : 1px solid #2ba5d2;
+			}
+
+			h4 {
+				margin-bottom : $spacing-xs;
+				color         : $bright;
+				font-size     : $font-size-l;
+			}
+
+			a {
+				margin-top          : $spacing-xs;
+				padding-left        : 24px;
+				background-position : 0 center;
+				background-repeat   : no-repeat;
+				display             : inline-block;
+				color               : $bright;
+			}
+
+			ul {
+				@include clearfix;
+			}
+
+			li {
+				width : 33.33%;
+				float : left;
+			}
+
+			li:nth-child(1) a { background : image-url('icon_white/icon_location.png') no-repeat; }
+			li:nth-child(2) a { background : image-url('icon_white/icon_mail.png') no-repeat; }
+			li:nth-child(3) a { background : image-url('icon_white/icon_tel.png') no-repeat; }
+		}
+	}
+
+	.footer-links {
+		@include clearfix;
+		margin : 16px auto 30px auto;
+		width  : 960px;
+
+		.links-list {
+			width       : 214px;
+			float       : left;
+			line-height : 24px;
+
+			+ ul + ul + ul + ul {
+				width : 104px;
+			}
+		}
+
+		.category {
+			margin    : 24px 0 10px 0;
+			font-size : 17px;
+		}
+
+		.link {
+			color : #fff;
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+	.l-main {
+		width : 100%;
+	}
+
+	.index-banner {
+		.m-breadcrumb, .slogan, .desc {
+			padding-right : 10px;
+			padding-left  : 10px;
+		}
+
+		.promo .list {
+			@include box-sizing(border-box);
+			width : 32%;
+
+			+ li {
+				margin-left : 2%;
+			}
+
+			+ li + li {
+				margin-left : 2%;
+			}
+		}
+	}
+
+	footer .pc-footer {
+		padding : 0 20px;
+
+		.footer-contact-us {
+			background-color : transparent;
+			width            : auto;
+
+			&:after {
+				margin : 0;
+				width  : 100%;
+				left   : 0;
+			}
+
+			li {
+				width : 100%;
+				float : none;
+			}
+		}
+
+		.footer-links {
+			width : auto;
+
+			.links-list {
+				width : 100%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.index-banner {
+		.key-visual {
+			background-color    : #faf4f8;
+			background-position : right 214px;
+			background-size     : 600px;
+		}
+
+		.m-breadcrumb, .slogan, .desc {
+			padding-right : 10px;
+			padding-left  : 10px;
+		}
+
+		.desc {
+			width     : auto;
+			max-width : 380px;
+		}
+
+		.promo {
+			margin  : 0 20px;
+			padding : 0 1px 0 0;
+
+			.list, .list + li, .list + li + li {
+				@include box-sizing(border-box);
+				margin          : 20px auto;
+				background-size : 100%;
+				width           : 100%;
+				float           : none;
+			}
+		}
+	}
+
+	footer .pc-footer {
+		.footer-contact-us:after {
+			display : none;
+		}
+
+		.footer-links {
+			display : none;
+		}
+	}
+}
