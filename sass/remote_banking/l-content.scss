@@ -64,20 +64,20 @@
 
 	.main-title {
 		margin-bottom : 12px;
-		color         : #173853;
+		color         : $secondary-color;
 		font-size     : 30px;
 		line-height   : 1.5em;
 	}
 
 	.sub-title {
 		margin-bottom : 10px;
-		color         : #173853;
+		color         : $secondary-color;
 		font-size     : 22px;
 		line-height   : 1.5em;
 	}
 
 	.msg-desc {
-		color       : #404040;
+		color       : $fontGray;
 		font-size   : 14px;
 		line-height : 1.5em;
 
@@ -154,81 +154,14 @@
 
 		.content-title {
 			padding-bottom : 18px;
-			color          : #173853;
+			color          : $secondary-color;
 			font-size      : 22px;
 			line-height    : 1.5em;
 		}
 
-		.faq-wrap .list {
-			min-height : 50px;
-			position   : relative;
-			border-top : 1px solid #e7e7e7;
-
-			&:before {
-				content       : '';
-				background    : #057fbf;
-				display       : block;
-				width         : 18px;
-				height        : 18px;
-				position      : absolute;
-				top           : 17px;
-				right         : 15px;
-				border-radius : 9px;
-			}
-
-			.quest {
-				padding     : 0 48px 0 0;
-				position    : relative;
-				cursor      : pointer;
-				color       : #003f62;
-				font-size   : 16px;
-				line-height : 50px;
-
-				&:hover {
-					text-decoration : underline;
-				}
-
-				&:before, &:after {
-					content    : '';
-					background : #fff;
-					display    : block;
-					width      : 10px;
-					height     : 2px;
-					position   : absolute;
-					top        : 50%;
-					right      : 19px;
-				}
-
-				&:after {
-					@include transform(rotate(90deg));
-				}
-			}
-
-			.ans {
-				@include transition(all .3s ease-in-out);
-				padding     : 0 48px 0 0;
-				max-height  : 0;
-				overflow    : hidden;
-				color       : #404040;
-				font-size   : 14px;
-				line-height : 24px;
-			}
-
-			&.open {
-				.quest:after {
-					@include transform(rotate(0deg));
-				}
-
-				.ans {
-					padding-bottom : 20px;
-					max-height     : 1000px;
-				}
-			}
-		}
-
 		.content-title {
 			padding-bottom : 18px;
-			color          : #173853;
+			color          : $secondary-color;
 			font-size      : 22px;
 			line-height    : 1.5em;
 		}
@@ -259,7 +192,6 @@
 	.l-main-content.is-content-left .l-content {
 		@include box-sizing(border-box);
 		padding : 184px 20px 0 20px;
-
 
 		.m-tab {
 			display : none;

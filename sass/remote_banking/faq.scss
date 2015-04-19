@@ -1,0 +1,66 @@
+.faq-wrap .list {
+	min-height : 50px;
+	position   : relative;
+	border-top : 1px solid #e7e7e7;
+
+	&:before {
+		content       : '';
+		background    : #057fbf;
+		display       : block;
+		width         : 18px;
+		height        : 18px;
+		position      : absolute;
+		top           : 17px;
+		right         : 15px;
+		border-radius : 9px;
+	}
+
+	.quest {
+		padding     : 0 48px 0 0;
+		position    : relative;
+		cursor      : pointer;
+		color       : #003f62;
+		font-size   : 16px;
+		line-height : 50px;
+
+		&:hover {
+			text-decoration : underline;
+		}
+
+		&:before, &:after {
+			content    : '';
+			background : #fff;
+			display    : block;
+			width      : 10px;
+			height     : 2px;
+			position   : absolute;
+			top        : 50%;
+			right      : 19px;
+		}
+
+		&:after {
+			@include transform(rotate(90deg));
+		}
+	}
+
+	.ans {
+		@include transition(all .3s ease-in-out);
+		padding     : 0 48px 0 0;
+		max-height  : 0;
+		overflow    : hidden;
+		color       : $fontGray;
+		font-size   : 14px;
+		line-height : 24px;
+	}
+
+	&.open {
+		.quest:after {
+			@include transform(rotate(0deg));
+		}
+
+		.ans {
+			padding-bottom : 20px;
+			max-height     : 1000px;
+		}
+	}
+}

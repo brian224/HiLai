@@ -2106,298 +2106,235 @@ footer ul.footer-links + p.copyright {
     text-align: center;
   }
 }
-.faq-wrap .list {
-  min-height: 50px;
-  position: relative;
-  border-top: 1px solid #e7e7e7;
-}
-.faq-wrap .list:before {
-  content: '';
-  background: #057fbf;
-  display: block;
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  top: 17px;
-  right: 15px;
-  border-radius: 9px;
-}
-.faq-wrap .list .quest {
-  padding: 0 48px 0 0;
-  position: relative;
-  cursor: pointer;
-  color: #003f62;
-  font-size: 16px;
-  line-height: 50px;
-}
-.faq-wrap .list .quest:hover {
-  text-decoration: underline;
-}
-.faq-wrap .list .quest:before, .faq-wrap .list .quest:after {
-  content: '';
-  background: #fff;
-  display: block;
-  width: 10px;
-  height: 2px;
-  position: absolute;
-  top: 50%;
-  right: 19px;
-}
-.faq-wrap .list .quest:after {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  transform: rotate(90deg);
-}
-.faq-wrap .list .ans {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  padding: 0 48px 0 0;
-  max-height: 0;
-  overflow: hidden;
-  color: #404040;
-  font-size: 14px;
-  line-height: 24px;
-}
-.faq-wrap .list.open .quest:after {
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  transform: rotate(0deg);
-}
-.faq-wrap .list.open .ans {
-  padding-bottom: 20px;
-  max-height: 1000px;
+.link {
+  display: inline-block;
+  color: #0294c9;
 }
 
-.m-tab-content .procedure {
-  margin: 0 0 36px 0;
+.guide {
+  margin-top: 50px;
+  padding: 55px 35px;
+  position: relative;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  line-height: 24px;
 }
-.m-tab-content .procedure .step {
+.guide .min-title {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 51px 0 0 0;
+  margin: 0 0 0 -73px;
+  background: #0294c9;
   display: inline-block;
-  width: 512px;
-  min-height: 72px;
-  position: relative;
+  height: 36px;
+  min-width: 146px;
+  position: absolute;
+  top: -16px;
+  left: 50%;
   border: 1px solid #e1e1e1;
-  border-radius: 4px;
+  border-radius: 3px;
   box-shadow: 1px 2px 0 #ccc;
-  color: #003f62;
-  font-size: 16px;
-  line-height: 70px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 34px;
   text-align: center;
 }
-.m-tab-content .procedure .step:before {
+.guide .business-ecurity {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 0 36px 0;
+  padding: 15px 0 0 120px;
+  min-height: 118px;
+  position: relative;
+}
+.guide .business-ecurity:before {
   content: '';
-  margin-left: -11px;
+  background: url('../images/remote_banking/mobile_payment.png?1429415685') 0 0 no-repeat;
+  display: block;
+  width: 69px;
+  height: 118px;
+  position: absolute;
+  top: 0;
+  left: 22px;
+}
+.guide .using-step .step-list {
+  overflow: hidden;
+  *zoom: 1;
+  margin: 30px 0 0 0;
+}
+.guide .using-step .step-list .list {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 120px 0 0 0;
+  width: 33.33%;
+  position: relative;
+  float: left;
+  text-align: center;
+}
+.guide .using-step .step-list .list:before {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  content: '';
   background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288529') no-repeat 0 0;
   display: block;
   width: 22px;
   height: 47px;
   position: absolute;
-  top: -50px;
-  left: 49%;
+  top: 34px;
+  left: -11px;
 }
-.m-tab-content .procedure .step:first-child {
-  margin: 36px 0 0 0;
-}
-.m-tab-content .procedure .step:first-child:before {
+.guide .using-step .step-list .list:first-child:before {
   display: none;
 }
-.m-tab-content .procedure .step .highlight {
-  position: absolute;
-  left: 22px;
-  font-size: 30px;
-  font-style: normal;
-}
-.m-tab-content .table-wrap {
-  margin: 0 10px;
-}
-.m-tab-content .info-table {
-  width: 100%;
-}
-.m-tab-content .info-table td {
-  padding: 8px 8px 8px 20px;
-  border-left: 1px solid #fff;
-  line-height: 26px;
-}
-.m-tab-content .info-table .table-head {
-  background: #06a7ef;
-  color: #fff;
-  font-size: 16px;
-}
-.m-tab-content .info-table .table-body {
-  color: #5d5d5d;
-  font-size: 14px;
-}
-.m-tab-content .info-table .table-body .t-tile {
-  width: 128px;
-}
-.m-tab-content .info-table .table-body tr.gray_bg {
-  background: #f6f6f6;
-}
-.m-tab-content .feature-desc {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0 0 60px 0;
-  position: relative;
-}
-.m-tab-content .feature-desc:nth-child(2n+1) {
-  padding: 0 0 0 396px;
-}
-.m-tab-content .feature-desc:nth-child(2n) {
-  padding: 0 392px 0 0;
-}
-.m-tab-content .feature-desc:nth-child(2n) .art-img {
-  left: auto;
-  right: 0;
-}
-.m-tab-content .feature-desc .emphasize {
-  display: inline-block;
-  color: #34a8d3;
-  font-size: 14px;
-  font-style: normal;
-  line-height: 24px;
-}
-.m-tab-content .feature-desc .art-content {
-  margin-bottom: 20px;
-  color: #404040;
-  font-size: 14px;
-  line-height: 24px;
-}
-.m-tab-content .feature-desc .art-img {
-  background: url('../images/remote_banking/web_bank.png?1429354282') 0 0 no-repeat;
+.guide .using-step .step-list .list .emphasize, .guide .using-step .step-list .list .desc {
   display: block;
+}
+.guide .using-step .step-list .list .desc {
+  margin: 0 8px;
+}
+.guide .using-step .step-list .list .image {
+  margin: 0 0 0 -56px;
+  background: #35a9d4;
+  display: block;
+  width: 102px;
+  height: 102px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  border: 5px solid #cde9f4;
+  border-radius: 56px;
 }
-.m-tab-content .feature-desc.multi-desc .emphasize {
-  padding: 0 0 0 20px;
+.guide .using-step .step-list .list .image:before {
+  content: '';
+  margin: -32px 0 0 -20px;
+  background: url('../images/remote_banking/mobile_payment.png?1429415685') 0 -289px no-repeat;
+  display: block;
+  width: 40px;
+  height: 63px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.guide .using-step .step-list .list .image.step2:before {
+  margin: -18px 0 0 -22px;
+  background-position: 0 -352px;
+  width: 44px;
+  height: 37px;
+}
+.guide .using-step .step-list .list .image.step3:before {
+  margin: -16px 0 0 -24px;
+  background-position: 0 -389px;
+  width: 47px;
+  height: 32px;
+}
+.guide .emphasize {
+  color: #004165;
+  font-size: 17px;
+  font-style: normal;
+  line-height: 26px;
+}
+.guide .desc {
+  color: #404040;
+  font-size: 14px;
+}
+.guide.usage {
+  padding-right: 160px;
   position: relative;
 }
-.m-tab-content .feature-desc.multi-desc .emphasize:before {
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  transform: rotate(-90deg);
+.guide.usage:before {
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
+  background: url('../images/remote_banking/mobile_payment.png?1429415685') 0 -118px no-repeat;
   display: block;
-  width: 10px;
-  height: 6px;
+  width: 74px;
+  height: 171px;
   position: absolute;
-  top: 8px;
-  left: 2px;
+  top: 70px;
+  right: 60px;
 }
-.m-tab-content .feature-desc.multi-desc .art-content {
-  padding: 0 0 0 20px;
+.guide.usage .usage-list .list {
+  padding: 0 0 0 32px;
+  position: relative;
+  color: #404040;
+  font-size: 14px;
+  line-height: 38px;
 }
-.m-tab-content .feature-desc.new-ui {
-  padding-top: 50px;
-  min-height: 222px;
+.guide.usage .usage-list .list:before {
+  content: '1.';
+  background: #0294c9;
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  border: 4px solid #cde9f4;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
 }
-.m-tab-content .feature-desc.new-ui .art-img {
-  width: 382px;
-  height: 222px;
+.guide.usage .usage-list .list + li:before {
+  content: '2.';
 }
-.m-tab-content .feature-desc.click-pay {
-  padding-top: 20px;
-  min-height: 165px;
+.guide.usage .usage-list .list + li + li:before {
+  content: '3.';
 }
-.m-tab-content .feature-desc.click-pay .art-img {
-  background-position: 0 -222px;
-  width: 375px;
-  height: 165px;
+.guide.usage .usage-list .list + li + li + li:before {
+  content: '4.';
 }
-.m-tab-content .feature-desc.smart-online-banking {
-  min-height: 207px;
+
+.attention-box {
+  margin-top: 36px;
+  line-height: 38px;
 }
-.m-tab-content .feature-desc.smart-online-banking .art-img {
-  background-position: 0 -387px;
-  width: 380px;
-  height: 207px;
+.attention-box .min-title {
+  color: #004165;
+  font-size: 17px;
 }
-.m-tab-content .feature-desc.reminder-service {
-  min-height: 200px;
+.attention-box .attention-list {
+  list-style: decimal inside;
 }
-.m-tab-content .feature-desc.reminder-service .art-img {
-  background-position: 0 -594px;
-  width: 382px;
-  height: 200px;
-}
-.m-tab-content .feature-desc.trade-deals {
-  min-height: 284px;
-}
-.m-tab-content .feature-desc.trade-deals .art-img {
-  background-position: 0 -794px;
-  width: 410px;
-  height: 284px;
-  left: -70px;
-}
-.m-tab-content .feature-desc.network-security {
-  min-height: 202px;
-}
-.m-tab-content .feature-desc.network-security .art-img {
-  background-position: 0 -1078px;
-  width: 267px;
-  height: 202px;
-  right: 52px;
+.attention-box .attention-list .list {
+  color: #404040;
+  font-size: 14px;
 }
 
 @media only screen and (max-width: 600px) {
-  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure {
-    text-align: center;
+  .guide .business-ecurity {
+    padding: 0 0 125px 0;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .sub-title {
-    text-align: left;
+  .guide .business-ecurity:before {
+    margin: 0 0 0 -35px;
+    top: auto;
+    left: 50%;
+    bottom: 0;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step {
-    padding-left: 100px;
-    width: auto;
-    min-width: 280px;
+  .guide .using-step .step-list .list {
+    margin: 52px 0 0 0;
+    width: 100%;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step .highlight {
-    font-size: 26px;
+  .guide .using-step .step-list .list:first-child {
+    margin: 0;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .info-table .table-body .t-tile {
-    width: 92px;
+  .guide .using-step .step-list .list:before {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    transform: rotate(0deg);
+    margin: 0 0 0 -11px;
+    top: -52px;
+    left: 50%;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc {
-    margin: 0 0 70px 0;
-    padding: 0;
+  .guide.usage {
+    padding: 55px 20px 180px 20px;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc .art-img {
-    margin: 0 auto;
-    background-size: 100%;
-    width: 210px;
-    position: relative;
-    top: 0;
-    left: 0;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.new-ui .art-img {
-    height: 111px;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.click-pay .art-img {
-    background-position: 0 -112px;
-    height: 84px;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.smart-online-banking .art-img {
-    background-position: 9px -197px;
-    height: 91px;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.reminder-service .art-img {
-    background-position: 0 -304px;
-    height: 102px;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.trade-deals .art-img {
-    background-position: 0 -416px;
-    height: 135px;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc.network-security .art-img {
-    background-position: 35px -551px;
-    height: 101px;
+  .guide.usage:before {
+    margin: 0 0 0 -37px;
+    top: auto;
+    bottom: 0;
+    left: 50%;
   }
 }

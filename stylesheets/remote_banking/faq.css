@@ -1,35 +1,28 @@
 /*
-Error: Undefined variable: "$secondary-color".
-        on line 34 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-side.scss
+Error: Undefined mixin 'transform'.
+        on line 42 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss, in `transform'
+        from line 42 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss
 
-29: 
-30: 			.links a {
-31: 				display      : inline-block;
-32: 				padding-left : 8px;
-33: 				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
-34: 				color        : $secondary-color;
-35: 				font-size    : 12px;
-36: 			}
-37: 		}
-38: 	}
-39: 
+37: 			top        : 50%;
+38: 			right      : 19px;
+39: 		}
+40: 
+41: 		&:after {
+42: 			@include transform(rotate(90deg));
+43: 		}
+44: 	}
+45: 
+46: 	.ans {
+47: 		@include transition(all .3s ease-in-out);
 
 Backtrace:
-/Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-side.scss:34
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss:42:in `transform'
+/Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss:42
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:338:in `block in visit_mixin'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:98:in `block in with_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:98:in `with_mixin'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:336:in `visit_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
@@ -100,4 +93,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$secondary-color\".\A         on line 34 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-side.scss\A \A 29: \A 30: 			.links a {\A 31: 				display      : inline-block;\A 32: 				padding-left : 8px;\A 33: 				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;\A 34: 				color        : $secondary-color;\A 35: 				font-size    : 12px;\A 36: 			}\A 37: 		}\A 38: 	}\A 39: "; }
+  content: "Error: Undefined mixin 'transform'.\A         on line 42 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss, in `transform'\A         from line 42 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/faq.scss\A \A 37: 			top        : 50%;\A 38: 			right      : 19px;\A 39: 		}\A 40: \A 41: 		&:after {\A 42: 			@include transform(rotate(90deg));\A 43: 		}\A 44: 	}\A 45: \A 46: 	.ans {\A 47: 		@include transition(all .3s ease-in-out);"; }

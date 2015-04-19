@@ -1,0 +1,212 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "remote_banking/l-side";
+@import "remote_banking/l-content";
+@import "remote_banking/faq";
+
+.m-tab-content {
+	.procedure {
+		text-align : center;
+
+		.sub-title {
+			margin       : 48px 0 36px 0;
+			padding-left : 58px;
+			background   : image-url('icon_ocean_blue/icon_phone.png') no-repeat 0 center;
+			display      : inline-block;
+			line-height  : 48px;
+		}
+
+		.step {
+			@include box-sizing(border-box);
+			margin-bottom : 51px;
+			background    : $bgBlue;
+			display       : inline-block;
+			max-width     : 512px;
+			min-width     : 392px;
+			min-height    : 72px;
+			position      : relative;
+			border        : 1px solid #e1e1e1;
+			border-radius : 4px;
+			box-shadow    : 1px 2px 0 #ccc;
+			color         : #fff;
+			font-size     : 22px;
+			line-height   : 70px;
+
+			&.smallword {
+				padding     : 10px 25px;
+				font-size   : 16px;
+				line-height : 26px;
+
+				.highlight {
+					font-size : 22px;
+				}
+			}
+
+			&.rp-swap {
+				background : #fff;
+				color      : #003f62;
+			}
+
+			&:after {
+				content     : '';
+				margin-left : -11px;
+				background  : image-url('icon_arrow/icon_arrow_down_gradient.png') no-repeat 0 0;
+				display     : block;
+				width       : 22px;
+				height      : 47px;
+				position    : absolute;
+				bottom      : -50px;
+				left        : 49%;
+			}
+
+			.highlight {
+				font-size : 30px;
+			}
+		}
+
+		.step-wrap {
+			@include clearfix;
+			margin      : 18px 0 30px 65px;
+			padding-top : 12px;
+
+			.step-list {
+				@include box-sizing(border-box);
+				margin        : 0 27px 30px 0;
+				padding-top   : 36px;
+				min-width     : 168px;
+				position      : relative;
+				float         : left;
+				border        : 1px solid #e1e1e1;
+				border-radius : 4px;
+				box-shadow    : 1px 2px 0 #ccc;
+				color         : #5d5d5d;
+				font-size     : 14px;
+				line-height   : 26px;
+				text-align    : left;
+			}
+
+			.step-title {
+				@include box-sizing(border-box);
+				padding       : 0 12px;
+				background    : $bgBlue;
+				height        : 36px;
+				min-width     : 142px;
+				position      : absolute;
+				top           : -12px;
+				left          : 8px;
+				border        : 1px solid #e1e1e1;
+				border-radius : 3px;
+				box-shadow    : 1px 2px 0 #ccc;
+				color         : #fff;
+				font-size     : 14px;
+				line-height   : 36px;
+			}
+
+			.step-table {
+				margin : 0 10px 10px 22px;
+				float  : left;
+
+				&.turns {
+					margin   : 0 20px 10px 35px;
+					position : relative;
+					color    : #878787;
+
+					&:after {
+						@include transform(rotate(-90deg));
+						content         : '';
+						background      : image-url('icon_arrow/icon_arrow_down_gradient.png') no-repeat 0 0;
+						background-size : 100%;
+						display         : block;
+						width           : 14px;
+						height          : 30px;
+						position        : absolute;
+						top             : 30px;
+						left            : -30px;
+					}
+				}
+			}
+		}
+	}
+
+	.table-wrap {
+		margin : 0 10px;
+	}
+
+	.info-table {
+		width : 100%;
+
+		td {
+			padding     : 8px 8px 8px 45px;
+			border-left : 1px solid #fff;
+			line-height : 26px;
+		}
+
+		.table-head {
+			background : #06a7ef;
+			color      : #fff;
+			font-size  : 16px;
+		}
+
+		.table-body {
+			color       : #5d5d5d;
+			font-size   : 14px;
+
+			tr.gray_bg {
+				background : #f6f6f6;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+	.l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure {
+		.step-wrap {
+			margin-left : 0;
+
+			.step-list {
+				margin-right : 0;
+				float        : none;
+			}
+
+			.step-table {
+				float : none;
+
+				&.turns {
+					margin : 30px 0 10px 22px;
+
+					&:after {
+						@include transform(rotate(0));
+						position : absolute;
+						top      : -30px;
+						left     : 50px;
+					}
+				}
+			}
+		}
+
+		.sub-title {
+			text-align : left;
+		}
+
+		.step {
+			min-width : 280px;
+		}
+	}
+}
