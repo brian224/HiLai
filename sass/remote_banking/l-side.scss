@@ -30,7 +30,7 @@
 			.links a {
 				display      : inline-block;
 				padding-left : 8px;
-				background   : image-url('../images/icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
+				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
 				font-size    : 12px;
 			}
 		}
@@ -85,7 +85,7 @@
 					&:before {
 						content    : '';
 						margin-top : -8px;
-						background : image-url('../images/icon_ocean_blue/side-menu-icons.png') 0 0 no-repeat;
+						background : image-url('icon_ocean_blue/side-menu-icons.png') 0 0 no-repeat;
 						display    : block;
 						width      : 21px;
 						height     : 16px;
@@ -145,7 +145,7 @@
 					&:before {
 						@include transform(rotate(-90deg));
 						content    : '';
-						background : image-url('../images/icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+						background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
 						display    : block;
 						width      : 10px;
 						height     : 6px;
@@ -161,7 +161,7 @@
 	.qrcode-scan {
 		margin        : 20px 0 0 0;
 		padding       : 152px 25px 20px;
-		background    : #f8f8f8 image-url('../images/qrcode.jpg') no-repeat center 20px;
+		background    : #f8f8f8 image-url('qrcode.jpg') no-repeat center 20px;
 		position      : relative;
 		border        : 1px solid #ddd;
 		border-radius : 4px;
@@ -226,7 +226,8 @@
 
 				li a {
 					padding     : 0;
-					line-height : 36px;
+					font-size   : 18px;
+					line-height : 45px;
 					text-align  : center;
 				}
 			}
@@ -290,7 +291,7 @@
 
 					li {
 						margin-top   : 1em;
-						background   : image-url('../images/icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 6px;
+						background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 6px;
 						padding-left : 10px;
 
 						&:first-child {

@@ -1,0 +1,101 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "remote_banking/l-side";
+@import "remote_banking/l-content";
+
+.service {
+	margin   : 0 0 40px 0;
+	padding  : 0 40px 0 225px;
+	position : relative;
+
+	.art-content {
+		color       : #404040;
+		font-size   : 14px;
+		line-height : 24px;
+	}
+
+	.art-img {
+		background : image-url('home_promo/img_promo_anz_partner.png') 0 0 no-repeat;
+		display    : block;
+		position   : absolute;
+		top        : 0;
+		left       : 0;
+	}
+
+	&.secretary .art-img {
+		width  : 183px;
+		height : 195px;
+	}
+
+	&.bank .art-img {
+		background-position : 0 -245px;
+		width               : 245px;
+		height              : 208px;
+	}
+
+	&.food {
+		height : 165px;
+
+		.art-img {
+			background-position : 0 -453px;
+			width               : 245px;
+			height              : 165px;
+			top                 : -20px;
+			left                : -26px;
+		}
+	}
+
+	&.location {
+		height : 156px;
+
+		.art-img {
+			background-position : 0 -638px;
+			width               : 210px;
+			height              : 156px;
+			top                 : -20px;
+		}
+	}
+
+	&.introduction {
+		height : 171px;
+
+		.art-img {
+			background-position : 0 -794px;
+			width               : 183px;
+			height              : 171px;
+			top                 : -20px;
+			left                : 22px;
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+	.service {
+		padding : 0;
+		height  : auto !important;
+
+		.art-img {
+			margin   : 20px auto 0;
+			position : relative;
+			top      : 0 !important;
+			left     : 0 !important;
+		}
+	}
+}

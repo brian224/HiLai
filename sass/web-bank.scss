@@ -1,0 +1,300 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "remote_banking/l-side";
+@import "remote_banking/l-content";
+
+.m-tab-content {
+	.procedure {
+		margin : 0 0 36px 0;
+
+		.step {
+			@include box-sizing(border-box);
+			margin        : 51px 0 0 0;
+			display       : inline-block;
+			width         : 512px;
+			min-height    : 72px;
+			position      : relative;
+			border        : 1px solid #e1e1e1;
+			border-radius : 4px;
+			box-shadow    : 1px 2px 0 #ccc;
+			color         : #003f62;
+			font-size     : 16px;
+			line-height   : 70px;
+			text-align    : center;
+
+			&:before {
+				content     : '';
+				margin-left : -11px;
+				background  : image-url('../images/icon_arrow/icon_arrow_down_gradient.png') no-repeat 0 0;
+				display     : block;
+				width       : 22px;
+				height      : 47px;
+				position    : absolute;
+				top         : -50px;
+				left        : 49%;
+			}
+
+			&:first-child {
+				margin : 36px 0 0 0;
+
+				&:before {
+					display : none;
+				}
+			}
+
+			.highlight {
+				position   : absolute;
+				left       : 22px;
+				font-size  : 30px;
+				font-style : normal;
+			}
+		}
+	}
+
+	.table-wrap {
+		margin : 0 10px;
+	}
+
+	.info-table {
+		width : 100%;
+
+		td {
+			padding     : 8px 8px 8px 20px;
+			border-left : 1px solid #fff;
+			line-height : 26px;
+		}
+
+		.table-head {
+			background : #06a7ef;
+			color      : #fff;
+			font-size  : 16px;
+		}
+
+		.table-body {
+			color       : #5d5d5d;
+			font-size   : 14px;
+
+			.t-tile {
+				width : 128px;
+			}
+
+			tr.gray_bg {
+				background : #f6f6f6;
+			}
+		}
+	}
+
+	.feature-desc {
+		@include box-sizing(border-box);
+		margin   : 0 0 60px 0;
+		position : relative;
+
+		&:nth-child(2n+1) {
+			padding : 0 0 0 396px;
+		}
+
+		&:nth-child(2n) {
+			padding : 0 392px 0 0;
+
+			.art-img {
+				left  : auto;
+				right : 0;
+			}
+		}
+
+		.emphasize {
+			display     : inline-block;
+			color       : #34a8d3;
+			font-size   : 14px;
+			font-style  : normal;
+			line-height : 24px;
+		}
+
+		.art-content {
+			margin-bottom : 20px;
+			color         : #404040;
+			font-size     : 14px;
+			line-height   : 24px;
+		}
+
+		.art-img {
+			background : image-url('home_promo/img_promo_web_bank.png') 0 0 no-repeat;
+			display    : block;
+			position   : absolute;
+			top        : 0;
+			left       : 0;
+		}
+
+		&.multi-desc {
+			.emphasize {
+				padding  : 0 0 0 20px;
+				position : relative;
+
+				&:before {
+					@include transform(rotate(-90deg));
+					content    : '';
+					background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+					display    : block;
+					width      : 10px;
+					height     : 6px;
+					position   : absolute;
+					top        : 8px;
+					left       : 2px;
+				}
+			}
+
+			.art-content {
+				padding : 0 0 0 20px;
+			}
+		}
+
+		&.new-ui {
+			padding-top : 50px;
+			min-height  : 222px;
+
+			.art-img {
+				width  : 382px;
+				height : 222px;
+			}
+		}
+
+		&.click-pay {
+			padding-top : 20px;
+			min-height  : 165px;
+
+			.art-img {
+				background-position : 0 -222px;
+				width               : 375px;
+				height              : 165px;
+			}
+		}
+
+		&.smart-online-banking {
+			min-height : 207px;
+
+			.art-img {
+				background-position : 0 -387px;
+				width               : 380px;
+				height              : 207px;
+			}
+		}
+
+		&.reminder-service {
+			min-height : 200px;
+
+			.art-img {
+				background-position : 0 -594px;
+				width               : 382px;
+				height              : 200px;
+			}
+		}
+
+		&.trade-deals {
+			min-height : 284px;
+
+			.art-img {
+				background-position : 0 -794px;
+				width               : 410px;
+				height              : 284px;
+				left                : -70px;
+			}
+		}
+
+		&.network-security {
+			min-height : 202px;
+
+			.art-img {
+				background-position : 0 -1078px;
+				width               : 267px;
+				height              : 202px;
+				right               : 52px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+	.l-main-content.is-content-left .l-content .m-tab-content {
+		.switch-content .procedure {
+			text-align : center;
+
+			.sub-title {
+				text-align : left;
+			}
+
+			.step {
+				padding-left : 100px;
+				width        : auto;
+				min-width    : 280px;
+
+				.highlight {
+					font-size : 26px;
+				}
+			}
+		}
+
+		.info-table .table-body .t-tile {
+			width : 92px;
+		}
+
+		.feature-desc {
+			margin  : 0 0 70px 0;
+			padding : 0;
+
+			.art-img {
+				margin          : 0 auto;
+				background-size : 100%;
+				width           : 210px;
+				position        : relative;
+				top             : 0;
+				left            : 0;
+			}
+
+			&.new-ui .art-img {
+				height : 111px;
+			}
+
+			&.click-pay .art-img {
+				background-position : 0 -112px;
+				height              : 84px;
+			}
+
+			&.smart-online-banking .art-img {
+				background-position : 9px -197px;
+				height              : 91px;
+			}
+
+			&.reminder-service .art-img {
+				background-position : 0 -304px;
+				height              : 102px;
+			}
+
+			&.trade-deals .art-img {
+				background-position : 0 -416px;
+				height              : 135px;
+			}
+
+			&.network-security .art-img {
+				background-position : 35px -551px;
+				height              : 101px;
+			}
+		}
+	}
+}
