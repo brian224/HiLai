@@ -1740,21 +1740,7 @@ footer ul.footer-links + p.copyright {
     box-shadow: none;
   }
   .l-side .side-menu.financial {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .l-side .side-menu.financial .side-menu-list {
-    border-bottom: 1px solid #ddd;
-  }
-  .l-side .side-menu.financial .side-title, .l-side .side-menu.financial li a:before {
     display: none;
-  }
-  .l-side .side-menu.financial li a {
-    padding: 0;
-    font-size: 18px;
-    line-height: 45px;
-    text-align: center;
   }
   .l-side .side-menu.tools {
     background-image: -webkit-linear-gradient(#ffffff, #f4f4f4);
@@ -1867,7 +1853,7 @@ footer ul.footer-links + p.copyright {
   }
 }
 .lt-ie9 .l-side .side-menu.tools li a:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429501358') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429517933') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }
@@ -1902,6 +1888,10 @@ footer ul.footer-links + p.copyright {
 
 .l-main {
   margin: 20px auto 70px auto;
+}
+
+.rwd-menu-list {
+  display: none;
 }
 
 .l-content .m-breadcrumb {
@@ -2060,10 +2050,10 @@ footer ul.footer-links + p.copyright {
   font-size: 15px;
 }
 .tools-link.application p {
-  background: url('../images/icon_gray/icon_application.png?1429515112') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429517812') no-repeat 0 center;
 }
 .tools-link.download p {
-  background: url('../images/icon_gray/icon_download.png?1429516911') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429517813') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -2072,9 +2062,26 @@ footer ul.footer-links + p.copyright {
     width: 100%;
   }
 
+  .rwd-menu-list {
+    display: block;
+  }
+  .rwd-menu-list li {
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  .rwd-menu-list a {
+    padding: 0;
+    color: #004165;
+    font-size: 18px;
+    line-height: 45px;
+    text-align: center;
+  }
+  .rwd-menu-list a.curr {
+    color: #007dba;
+  }
+
   .l-main-content.is-content-left .l-content {
     margin: 0 auto;
-    padding: 184px 0 0 0;
     width: 100%;
     max-width: 715px;
     position: initial;
@@ -2097,7 +2104,7 @@ footer ul.footer-links + p.copyright {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 184px 20px 0 20px;
+    padding: 0 20px;
   }
   .l-main-content.is-content-left .l-content .m-tab {
     display: none;
@@ -2611,6 +2618,13 @@ footer .footer-links .link:hover {
     background-position: 35px -551px;
     height: 101px;
   }
+  .l-main-content.is-content-left .l-content .m-tab-content .btn-more {
+    margin: 0 0 30px 0;
+    padding: 0 10px;
+    display: block;
+    height: 45px;
+    line-height: 45px;
+  }
 }
 .lt-ie9 .m-tab-content .btn-more {
   background: #0471ad;
@@ -2619,7 +2633,7 @@ footer .footer-links .link:hover {
   background: #06a8ef;
 }
 .lt-ie9 .m-tab-content .feature-desc.multi-desc .emphasize:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429501358') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429517933') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }

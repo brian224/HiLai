@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$secondary-color".
-        on line 67 of D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss
+        on line 71 of D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss
 
-62: 		}
-63: 	}
-64: 
-65: 	.main-title {
-66: 		margin-bottom : 12px;
-67: 		color         : $secondary-color;
-68: 		font-size     : 30px;
-69: 		line-height   : 1.5em;
-70: 	}
-71: 
-72: 	.sub-title {
+66: 		}
+67: 	}
+68: 
+69: 	.main-title {
+70: 		margin-bottom : 12px;
+71: 		color         : $secondary-color;
+72: 		font-size     : 30px;
+73: 		line-height   : 1.5em;
+74: 	}
+75: 
+76: 	.sub-title {
 
 Backtrace:
-D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss:67
+D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss:71
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.5/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.5/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
@@ -77,4 +77,4 @@ C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$secondary-color\".\A         on line 67 of D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss\A \A 62: 		}\A 63: 	}\A 64: \A 65: 	.main-title {\A 66: 		margin-bottom : 12px;\A 67: 		color         : $secondary-color;\A 68: 		font-size     : 30px;\A 69: 		line-height   : 1.5em;\A 70: 	}\A 71: \A 72: 	.sub-title {"; }
+  content: "Error: Undefined variable: \"$secondary-color\".\A         on line 71 of D:/xampp/htdocs/Brian/anz/sass/remote_banking/l-content.scss\A \A 66: 		}\A 67: 	}\A 68: \A 69: 	.main-title {\A 70: 		margin-bottom : 12px;\A 71: 		color         : $secondary-color;\A 72: 		font-size     : 30px;\A 73: 		line-height   : 1.5em;\A 74: 	}\A 75: \A 76: 	.sub-title {"; }

@@ -213,24 +213,7 @@
 			}
 
 			&.financial {
-				position : absolute;
-				top      : 0;
-				left     : 0;
-
-				.side-menu-list {
-					border-bottom : 1px solid #ddd;
-				}
-
-				.side-title, li a:before {
-					display : none;
-				}
-
-				li a {
-					padding     : 0;
-					font-size   : 18px;
-					line-height : 45px;
-					text-align  : center;
-				}
+				display : none;
 			}
 
 			&.tools {

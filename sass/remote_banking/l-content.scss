@@ -26,6 +26,10 @@
 	margin : 20px auto 70px auto;
 }
 
+.rwd-menu-list {
+	display : none;
+}
+
 .l-content {
 	.m-breadcrumb {
 		margin-bottom : 18px;
@@ -215,9 +219,29 @@
 		width  : 100%;
 	}
 
+	.rwd-menu-list {
+		display : block;
+
+		li {
+			border-bottom : 1px solid #ddd;
+			text-align    : center;
+		}
+
+		a {
+			padding     : 0;
+			color       : $secondary-color;
+			font-size   : 18px;
+			line-height : 45px;
+			text-align  : center;
+
+			&.curr {
+				color : $main-color;
+			}
+		}
+	}
+
 	.l-main-content.is-content-left .l-content {
 		margin    : 0 auto;
-		padding   : 184px 0 0 0;
 		width     : 100%;
 		max-width : 715px;
 		position  : initial;
@@ -243,7 +267,7 @@
 @media only screen and (max-width: 600px) {
 	.l-main-content.is-content-left .l-content {
 		@include box-sizing(border-box);
-		padding : 184px 20px 0 20px;
+		padding : 0 20px;
 
 		.m-tab {
 			display : none;
