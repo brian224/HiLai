@@ -16,6 +16,7 @@
 @import "_common/responsive";
 @import "remote_banking/l-side";
 @import "remote_banking/l-content";
+@import "remote_banking/footer";
 
 .link {
 	display : inline-block;
@@ -43,7 +44,7 @@
 		border        : 1px solid #e1e1e1;
 		border-radius : 3px;
 		box-shadow    : 1px 2px 0 #ccc;
-		color         : #fff;
+		color         : $bright;
 		font-size     : 18px;
 		line-height   : 34px;
 		text-align    : center;
@@ -190,7 +191,7 @@
 				left          : 0;
 				border        : 4px solid #cde9f4;
 				border-radius : 14px;
-				color         : #fff;
+				color         : $bright;
 				font-size     : 12px;
 				line-height   : 20px;
 				text-align    : center;
@@ -271,6 +272,36 @@
 				bottom : 0;
 				left   : 50%;
 			}
+		}
+	}
+}
+
+.lt-ie9 {
+	.guide {
+		.using-step .step-list .list {
+			.image {
+				background : image-url('remote_banking/for-ie8/icons_bg.png') no-repeat 0 0;
+				width      : 112px;
+				height     : 112px;
+				border     : 0;
+			}
+
+			&:before {
+				background : image-url('remote_banking/for-ie8/icon_arrow_right_gradient.png') 0 0 no-repeat;
+				width      : 47px;
+				height     : 22px;
+				top        : 47px;
+				left       : -24px;
+			}
+		}
+
+		&.usage .usage-list .list:before {
+			background  : image-url('remote_banking/for-ie8/list_icon.png') 0 0 no-repeat;
+			width       : 27px;
+			height      : 27px;
+			top         : 6px;
+			border      : none;
+			line-height : 27px;
 		}
 	}
 }

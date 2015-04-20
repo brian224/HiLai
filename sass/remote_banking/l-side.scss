@@ -3,7 +3,7 @@
 		.login {
 			margin-bottom : 10px;
 			padding       : 20px 20px 5px;
-			background    : #fff;
+			background    : $bright;
 			border        : 1px solid #ddd;
 			border-radius : 4px;
 			box-shadow    : 1px 2px 0 #ccc;
@@ -175,7 +175,7 @@
 			height        : 32px;
 			border        : 1px solid #2ba106;
 			border-radius : 4px;
-			color         : #fff;
+			color         : $bright;
 			font-size     : 15px;
 			line-height   : 32px;
 			text-align    : center;
@@ -234,7 +234,7 @@
 			}
 
 			&.tools {
-				@include background-image(linear-gradient(#ffffff, #f4f4f4));
+				@include background-image(linear-gradient($bright, #f4f4f4));
 				@include clearfix;
 				margin-top : 20px;
 				border-top : 1px solid #ddd;
@@ -271,7 +271,7 @@
 						top           : 50%;
 						right         : 20px;
 						border-radius : 50px;
-						color         : #fff;
+						color         : $bright;
 						font-size     : 14px;
 						font-family   : Arial, sans-serif;
 						line-height   : 24px;
@@ -315,7 +315,7 @@
 		}
 
 		.qrcode-scan {
-			@include background-image(linear-gradient(#ffffff, #f4f4f4));
+			@include background-image(linear-gradient($bright, #f4f4f4));
 			@include box-sizing(border-box);
 			@include clearfix;
 			margin-top          : 0;
@@ -349,5 +349,23 @@
 		padding    : 10px 20px 10px 144px;
 		height     : auto;
 		min-height : 55px;
+	}
+}
+
+.lt-ie9 {
+	.l-side {
+		.side-menu.tools li a:before {
+			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+			width      : 6px;
+			height     : 10px;
+		}
+
+		.qrcode-scan .btn-download {
+			background : #119208;
+
+			&:hover {
+				background: #81ce1d;
+			}
+		}
 	}
 }

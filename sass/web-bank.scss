@@ -17,6 +17,7 @@
 @import "remote_banking/l-side";
 @import "remote_banking/l-content";
 @import "remote_banking/faq";
+@import "remote_banking/footer";
 
 .m-tab-content {
 	.procedure {
@@ -75,13 +76,13 @@
 
 		td {
 			padding     : 8px 8px 8px 20px;
-			border-left : 1px solid #fff;
+			border-left : 1px solid $bright;
 			line-height : 26px;
 		}
 
 		.table-head {
 			background : #06a7ef;
-			color      : #fff;
+			color      : $bright;
 			font-size  : 16px;
 		}
 
@@ -226,6 +227,24 @@
 			}
 		}
 	}
+
+	.btn-more {
+		@include box-sizing(border-box);
+		@include background-image(linear-gradient(#06a8ef, #0594d7, #0471ad));
+		padding        : 4px 10px;
+		display        : inline-block;
+		min-width      : 144px;
+		border         : 1px solid #315b6f;
+		border-radius  : 4px;
+		color          : #fff;
+		font-size      : 16px;
+		text-align     : center;
+		vertical-align : middle;
+
+		&:hover {
+			@include background-image(linear-gradient(#0471ad, #0594d7, #06a8ef));
+		}
+	}
 }
 
 @media only screen and (max-width: 980px) {
@@ -296,6 +315,24 @@
 				background-position : 35px -551px;
 				height              : 101px;
 			}
+		}
+	}
+}
+
+.lt-ie9 {
+	.m-tab-content {
+		.btn-more {
+			background: #0471ad;
+
+			&:hover {
+				background : #06a8ef;
+			}
+		}
+
+		.feature-desc.multi-desc .emphasize:before {
+			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+			width      : 6px;
+			height     : 10px;
 		}
 	}
 }
