@@ -508,75 +508,83 @@ footer {
 			padding-left  : 10px;
 		}
 
-		.fast-links .list {
-			padding    : 10px 0;
-			width      : 100%;
-			float      : none;
-			border-top : 1px solid #ccc;
-			text-align : left;
+		.fast-links {
+			padding-top : 278px;
 
-			.link {
-				padding     : 0 0 0 96px;
-				height      : 56px;
-				line-height : 56px;
+			.list {
+				padding       : 10px 0;
+				width         : 100%;
+				float         : none;
+				border-bottom : 1px solid #ccc;
+				text-align    : left;
 
-				&:before {
-					margin        : -28px 0 0 0;
-					display       : inline-block;
-					width         : 52px;
-					height        : 52px;
-					position      : absolute;
-					top           : 50%;
-					left          : 20px;
-					border        : 2px solid #c0e4f1;
-					border-radius : 50%;
+				&:first-child {
+				border-top : 1px solid #ccc;
 				}
 
-				&:after {
-					margin          : -11px 0 0 0;
-					background-size : 35px;
-					width           : 35px;
-					height          : 22px;
-					top             : 50%;
-					left            : 31px;
+				.link {
+					padding     : 0 0 0 96px;
+					height      : 56px;
+					line-height : 56px;
+
+					&:before {
+						margin        : -28px 0 0 0;
+						display       : inline-block;
+						width         : 52px;
+						height        : 52px;
+						position      : absolute;
+						top           : 50%;
+						left          : 20px;
+						border        : 2px solid #c0e4f1;
+						border-radius : 50%;
+					}
+
+					&:after {
+						margin          : -11px 0 0 0;
+						background-size : 35px;
+						width           : 35px;
+						height          : 22px;
+						top             : 50%;
+						left            : 31px;
+					}
 				}
-			}
 
-			.image {
-				display : none;
-			}
+				.image {
+					display : none;
+				}
 
 
-			&.mobile-payment .link:after {
-				margin-top          : -14px;
-				background-position : 0 -23px;
-				width               : 18px;
-				height              : 28px;
-				left                : 57px;
-			}
+				&.mobile-payment .link:after {
+					margin-top          : -14px;
+					background-position : 0 -23px;
+					width               : 18px;
+					height              : 28px;
+					left                : 57px;
+				}
 
-			&.anz-partner .link:after {
-				margin-top         : -15px;
-				background-position : 0 -52px;
-				width               : 24px;
-				height              : 22px;
-				left                : 60px;
-			}
+				&.anz-partner .link:after {
+					margin-top         : -15px;
+					background-position : 0 -52px;
+					width               : 24px;
+					height              : 22px;
+					left                : 60px;
+				}
 
-			&.tel-bank .link:after {
-				margin-top          : -17px;
-				background-position : 0 -74px;
-				width               : 24px;
-				height              : 24px;
-				left                : 60px;
-			}
+				&.tel-bank .link:after {
+					margin-top          : -17px;
+					background-position : 0 -74px;
+					width               : 24px;
+					height              : 24px;
+					left                : 60px;
+				}
 
-			&.atm .link:after {
-				margin-top          : -19px;
-				background-position : 0 -98px;
-				width               : 30px;
-				height              : 17px;
-				left                : 64px;
+				&.atm .link:after {
+					margin-top          : -19px;
+					background-position : 0 -98px;
+					width               : 30px;
+					height              : 17px;
+					left                : 64px;
+				}
 			}
 		}
 

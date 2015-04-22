@@ -355,7 +355,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -502,7 +502,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -1707,7 +1707,7 @@ footer .footer-links .link:hover {
 .index-banner .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1771,7 +1771,7 @@ footer .footer-links .link:hover {
 .index-banner .fast-links .list .link:after {
   content: '';
   margin: 0 0 0 -35px;
-  background: url('../images/remote_banking/icons.png?1429437970') no-repeat 0 0;
+  background: url('../images/remote_banking/icons.png?1429437971') no-repeat 0 0;
   width: 70px;
   height: 46px;
   position: absolute;
@@ -1786,7 +1786,7 @@ footer .footer-links .link:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: url('../images/remote_banking/hover.png?1429437972') no-repeat 0 0;
+  background: url('../images/remote_banking/hover.png?1429437973') no-repeat 0 0;
   display: block;
   width: 304px;
   height: 183px;
@@ -1870,7 +1870,7 @@ footer .footer-links .link:hover {
   padding: 0 0 2px 0;
 }
 .index-banner .promo .list {
-  background: url('../images/remote_banking/promo_01.jpg?1429459120') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_01.jpg?1429528061') no-repeat 0 0;
   width: 303px;
   height: 282px;
   float: left;
@@ -1881,11 +1881,11 @@ footer .footer-links .link:hover {
 }
 .index-banner .promo .list + li {
   margin-left: 23px;
-  background: url('../images/remote_banking/promo_02.jpg?1429459122') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_02.jpg?1429528061') no-repeat 0 0;
 }
 .index-banner .promo .list + li + li {
   margin-left: 22px;
-  background: url('../images/remote_banking/promo_03.jpg?1429459124') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_03.jpg?1429528061') no-repeat 0 0;
 }
 .index-banner .promo .link {
   display: block;
@@ -2104,12 +2104,18 @@ footer .footer-links .link:hover {
     padding-right: 10px;
     padding-left: 10px;
   }
+  .index-banner .fast-links {
+    padding-top: 278px;
+  }
   .index-banner .fast-links .list {
     padding: 10px 0;
     width: 100%;
     float: none;
-    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     text-align: left;
+  }
+  .index-banner .fast-links .list:first-child {
+    border-top: 1px solid #ccc;
   }
   .index-banner .fast-links .list .link {
     padding: 0 0 0 96px;
@@ -2209,7 +2215,7 @@ footer .footer-links .link:hover {
   display: block;
 }
 .lt-ie9 .index-banner .fast-links .list .link:before {
-  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429517934') no-repeat 0 0;
+  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429528061') no-repeat 0 0;
   width: 112px;
   height: 112px;
   border: 0;
@@ -2218,10 +2224,10 @@ footer .footer-links .link:hover {
   display: none;
 }
 .lt-ie9 .index-banner .promo .link .filter {
-  background: url('../images/remote_banking/for-ie8/op60.png?1429517938');
+  background: url('../images/remote_banking/for-ie8/op60.png?1429528061');
 }
 .lt-ie9 .index-banner .promo .link .filter:before {
-  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429517939');
+  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429528061');
   width: 26px;
   height: 26px;
   border: 0;
