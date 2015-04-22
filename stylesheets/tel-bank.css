@@ -2451,9 +2451,8 @@ footer .footer-links .link:hover {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 12px;
+  padding: 9px 12px;
   background: #0294c9;
-  height: 36px;
   min-width: 142px;
   position: absolute;
   top: -12px;
@@ -2463,7 +2462,7 @@ footer .footer-links .link:hover {
   box-shadow: 1px 2px 0 #ccc;
   color: #fff;
   font-size: 14px;
-  line-height: 36px;
+  line-height: 18px;
 }
 .m-tab-content .procedure .step-wrap .step-table {
   margin: 0 10px 10px 22px;
@@ -2487,6 +2486,19 @@ footer .footer-links .link:hover {
   position: absolute;
   top: 30px;
   left: -30px;
+}
+.m-tab-content .procedure .step-wrap .step-list.grid {
+  padding-top: 48px;
+  width: 280px;
+  min-height: 216px;
+}
+.m-tab-content .procedure .step-wrap .step-list.grid .step-title {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 6px 12px 6px 22px;
+  width: 260px;
+  text-indent: -15px;
 }
 .m-tab-content .table-wrap {
   margin: 0 10px;
@@ -2520,6 +2532,10 @@ footer .footer-links .link:hover {
     margin-right: 0;
     float: none;
   }
+  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step-wrap .step-list.grid {
+    width: 100%;
+    min-height: 0;
+  }
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step-wrap .step-table {
     float: none;
   }
@@ -2538,7 +2554,11 @@ footer .footer-links .link:hover {
     text-align: left;
   }
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step {
+    padding: 10px 25px;
     min-width: 280px;
+    min-height: 46px;
+    font-size: 16px;
+    line-height: 26px;
   }
 }
 .lt-ie9 .m-tab-content .procedure .step-wrap .step-table.turns {
