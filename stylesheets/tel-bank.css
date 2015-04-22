@@ -2169,6 +2169,11 @@ footer ul.footer-links + p.copyright {
     text-align: center;
   }
 }
+@-moz-document url-prefix() {
+  .l-main {
+    overflow: hidden;
+  }
+}
 .lt-ie9 .l-content .m-tab .tab-list {
   background: #ddd;
 }

@@ -2104,6 +2104,68 @@ footer .footer-links .link:hover {
     padding-right: 10px;
     padding-left: 10px;
   }
+  .index-banner .fast-links .list {
+    padding: 10px 0;
+    width: 100%;
+    float: none;
+    border-top: 1px solid #ccc;
+    text-align: left;
+  }
+  .index-banner .fast-links .list .link {
+    padding: 0 0 0 96px;
+    height: 56px;
+    line-height: 56px;
+  }
+  .index-banner .fast-links .list .link:before {
+    margin: -28px 0 0 0;
+    display: inline-block;
+    width: 52px;
+    height: 52px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    border: 2px solid #c0e4f1;
+    border-radius: 50%;
+  }
+  .index-banner .fast-links .list .link:after {
+    margin: -11px 0 0 0;
+    background-size: 35px;
+    width: 35px;
+    height: 22px;
+    top: 50%;
+    left: 31px;
+  }
+  .index-banner .fast-links .list .image {
+    display: none;
+  }
+  .index-banner .fast-links .list.mobile-payment .link:after {
+    margin-top: -14px;
+    background-position: 0 -23px;
+    width: 18px;
+    height: 28px;
+    left: 57px;
+  }
+  .index-banner .fast-links .list.anz-partner .link:after {
+    margin-top: -15px;
+    background-position: 0 -52px;
+    width: 24px;
+    height: 22px;
+    left: 60px;
+  }
+  .index-banner .fast-links .list.tel-bank .link:after {
+    margin-top: -17px;
+    background-position: 0 -74px;
+    width: 24px;
+    height: 24px;
+    left: 60px;
+  }
+  .index-banner .fast-links .list.atm .link:after {
+    margin-top: -19px;
+    background-position: 0 -98px;
+    width: 30px;
+    height: 17px;
+    left: 64px;
+  }
   .index-banner .desc {
     width: auto;
     max-width: 380px;
@@ -2147,7 +2209,7 @@ footer .footer-links .link:hover {
   display: block;
 }
 .lt-ie9 .index-banner .fast-links .list .link:before {
-  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429498693') no-repeat 0 0;
+  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429517934') no-repeat 0 0;
   width: 112px;
   height: 112px;
   border: 0;
@@ -2156,10 +2218,10 @@ footer .footer-links .link:hover {
   display: none;
 }
 .lt-ie9 .index-banner .promo .link .filter {
-  background: url('../images/remote_banking/for-ie8/op60.png?1429500075');
+  background: url('../images/remote_banking/for-ie8/op60.png?1429517938');
 }
 .lt-ie9 .index-banner .promo .link .filter:before {
-  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429498732');
+  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429517939');
   width: 26px;
   height: 26px;
   border: 0;

@@ -340,6 +340,12 @@
 	}
 }
 
+@-moz-document url-prefix() {
+	.l-main {
+		overflow : hidden;
+	}
+}
+
 .lt-ie9 {
 	.l-content .m-tab .tab-list {
 		background : #ddd;
