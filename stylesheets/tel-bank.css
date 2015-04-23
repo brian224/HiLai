@@ -355,7 +355,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -502,7 +502,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -1582,7 +1582,7 @@ footer ul.footer-links + p.copyright {
 .l-side .action-box .login .links a {
   display: inline-block;
   padding-left: 8px;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') no-repeat 0 center;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 center;
   color: #004165;
   font-size: 12px;
 }
@@ -1627,7 +1627,7 @@ footer ul.footer-links + p.copyright {
 .l-side .side-menu.financial li a:before {
   content: '';
   margin-top: -8px;
-  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429256764') 0 0 no-repeat;
+  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429256765') 0 0 no-repeat;
   display: block;
   width: 21px;
   height: 16px;
@@ -1680,7 +1680,7 @@ footer ul.footer-links + p.copyright {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027192') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -1799,7 +1799,7 @@ footer ul.footer-links + p.copyright {
   }
   .l-side .side-menu.tools .side-menu-list li {
     margin-top: 1em;
-    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') no-repeat 0 6px;
+    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 6px;
     padding-left: 10px;
   }
   .l-side .side-menu.tools .side-menu-list li:first-child {
@@ -1853,7 +1853,7 @@ footer ul.footer-links + p.copyright {
   }
 }
 .lt-ie9 .l-side .side-menu.tools li a:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429517933') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528061') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }
@@ -1909,7 +1909,7 @@ footer ul.footer-links + p.copyright {
 .l-content .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -2045,15 +2045,54 @@ footer ul.footer-links + p.copyright {
   text-align: center;
 }
 .tools-link .wrapper .accordion-heading p {
-  padding: 20px 0 20px 30px;
+  padding: 20px 0;
   color: #444444;
   font-size: 15px;
 }
+.tools-link .wrapper .accordion-content {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+.tools-link .wrapper .accordion-content .desc {
+  margin: 0 0 10px 0;
+  display: block;
+  font-size: 15px;
+}
+.tools-link .wrapper .accordion-content .explanation {
+  margin-bottom: 20px;
+}
+.tools-link .wrapper .accordion-content .explanation .list {
+  list-style: decimal inside;
+  line-height: 26px;
+}
+.tools-link .wrapper .accordion-content .note {
+  padding: 0 0 0 15px;
+  position: relative;
+}
+.tools-link .wrapper .accordion-content .note:before {
+  content: '';
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
+  display: block;
+  width: 4px;
+  height: 7px;
+  position: absolute;
+  top: 6px;
+  left: 2px;
+}
+.tools-link .wrapper.open .accordion-content {
+  padding: 0 0 20px 0;
+  max-height: 1000px;
+}
 .tools-link.application p {
-  background: url('../images/icon_gray/icon_application.png?1429517812') no-repeat 0 center;
+  padding-left: 30px;
+  background: url('../images/icon_gray/icon_application.png?1429528061') no-repeat 0 center;
 }
 .tools-link.download p {
-  background: url('../images/icon_gray/icon_download.png?1429517813') no-repeat 0 center;
+  padding-left: 30px;
+  background: url('../images/icon_gray/icon_download.png?1429528061') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -2095,8 +2134,15 @@ footer ul.footer-links + p.copyright {
     right: 20px;
   }
   .tools-link .wrapper .accordion-heading p {
-    padding-left: 50px;
+    padding-left: 20px;
     background-position: 20px center;
+  }
+  .tools-link .wrapper .accordion-content {
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+  }
+  .tools-link.application p, .tools-link.download p {
+    padding-left: 50px !important;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -2413,7 +2459,7 @@ footer .footer-links .link:hover {
 .m-tab-content .procedure .step:after {
   content: '';
   margin-left: -11px;
-  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288528') no-repeat 0 0;
+  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288529') no-repeat 0 0;
   display: block;
   width: 22px;
   height: 47px;
@@ -2451,8 +2497,9 @@ footer .footer-links .link:hover {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 9px 12px;
+  padding: 0 12px;
   background: #0294c9;
+  height: 36px;
   min-width: 142px;
   position: absolute;
   top: -12px;
@@ -2462,7 +2509,7 @@ footer .footer-links .link:hover {
   box-shadow: 1px 2px 0 #ccc;
   color: #fff;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 36px;
 }
 .m-tab-content .procedure .step-wrap .step-table {
   margin: 0 10px 10px 22px;
@@ -2478,7 +2525,7 @@ footer .footer-links .link:hover {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288528') no-repeat 0 0;
+  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288529') no-repeat 0 0;
   background-size: 100%;
   display: block;
   width: 14px;
@@ -2486,19 +2533,6 @@ footer .footer-links .link:hover {
   position: absolute;
   top: 30px;
   left: -30px;
-}
-.m-tab-content .procedure .step-wrap .step-list.grid {
-  padding-top: 48px;
-  width: 280px;
-  min-height: 216px;
-}
-.m-tab-content .procedure .step-wrap .step-list.grid .step-title {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 6px 12px 6px 22px;
-  width: 260px;
-  text-indent: -15px;
 }
 .m-tab-content .table-wrap {
   margin: 0 10px;
@@ -2532,10 +2566,6 @@ footer .footer-links .link:hover {
     margin-right: 0;
     float: none;
   }
-  .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step-wrap .step-list.grid {
-    width: 100%;
-    min-height: 0;
-  }
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step-wrap .step-table {
     float: none;
   }
@@ -2554,18 +2584,14 @@ footer .footer-links .link:hover {
     text-align: left;
   }
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure .step {
-    padding: 10px 25px;
     min-width: 280px;
-    min-height: 46px;
-    font-size: 16px;
-    line-height: 26px;
   }
 }
 .lt-ie9 .m-tab-content .procedure .step-wrap .step-table.turns {
   margin-left: 52px;
 }
 .lt-ie9 .m-tab-content .procedure .step-wrap .step-table.turns:after {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_gradient.png?1429517931') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_gradient.png?1429528061') 0 0 no-repeat;
   width: 47px;
   height: 22px;
   left: -52px;

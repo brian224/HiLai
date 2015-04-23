@@ -1964,6 +1964,37 @@ footer .footer-links .link:hover {
   font-size: 16px;
 }
 
+.tools-link {
+  background-color: #ededed;
+  border-top: 1px solid #d5d5d5;
+}
+.tools-link .wrapper .accordion-heading {
+  position: relative;
+  cursor: pointer;
+}
+.tools-link .wrapper .accordion-heading:after {
+  content: '+';
+  margin-top: -12px;
+  background: #007dba;
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+.tools-link .wrapper .accordion-heading p {
+  padding: 20px 0 20px 30px;
+  background: url('../images/icon_gray/icon_download.png?1429528061') no-repeat 0 center;
+  color: #444444;
+  font-size: 15px;
+}
+
 footer .pc-footer {
   overflow: hidden;
   *zoom: 1;
@@ -2068,6 +2099,10 @@ footer .footer-links .link:hover {
   }
   .index-banner .promo .list + li + li {
     margin-left: 2%;
+  }
+
+  .tools-link {
+    padding: 0 20px;
   }
 
   footer .pc-footer {

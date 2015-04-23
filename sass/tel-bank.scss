@@ -102,8 +102,9 @@
 
 			.step-title {
 				@include box-sizing(border-box);
-				padding       : 9px 12px;
+				padding       : 0 12px;
 				background    : $bgBlue;
+				height        : 36px;
 				min-width     : 142px;
 				position      : absolute;
 				top           : -12px;
@@ -113,7 +114,7 @@
 				box-shadow    : 1px 2px 0 #ccc;
 				color         : $bright;
 				font-size     : 14px;
-				line-height   : 18px;
+				line-height   : 36px;
 			}
 
 			.step-table {
@@ -137,19 +138,6 @@
 						top             : 30px;
 						left            : -30px;
 					}
-				}
-			}
-
-			.step-list.grid {
-				padding-top : 48px;
-				width       : 280px;
-				min-height  : 216px;
-
-				.step-title {
-					@include box-sizing(border-box);
-					padding     : 6px 12px 6px 22px;
-					width       : 260px;
-					text-indent : -15px;
 				}
 			}
 		}
@@ -196,11 +184,6 @@
 			.step-list {
 				margin-right : 0;
 				float        : none;
-
-				&.grid {
-					width      : 100%;
-					min-height : 0;
-				}
 			}
 
 			.step-table {
@@ -224,11 +207,7 @@
 		}
 
 		.step {
-			padding     : 10px 25px;
-			min-width   : 280px;
-			min-height  : 46px;
-			font-size   : 16px;
-			line-height : 26px;
+			min-width : 280px;
 		}
 	}
 }
