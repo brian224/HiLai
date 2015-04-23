@@ -355,7 +355,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -502,7 +502,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027192') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -1582,7 +1582,7 @@ footer ul.footer-links + p.copyright {
 .l-side .action-box .login .links a {
   display: inline-block;
   padding-left: 8px;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 center;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') no-repeat 0 center;
   color: #004165;
   font-size: 12px;
 }
@@ -1627,7 +1627,7 @@ footer ul.footer-links + p.copyright {
 .l-side .side-menu.financial li a:before {
   content: '';
   margin-top: -8px;
-  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429256765') 0 0 no-repeat;
+  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429256764') 0 0 no-repeat;
   display: block;
   width: 21px;
   height: 16px;
@@ -1680,7 +1680,7 @@ footer ul.footer-links + p.copyright {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027192') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -1799,7 +1799,7 @@ footer ul.footer-links + p.copyright {
   }
   .l-side .side-menu.tools .side-menu-list li {
     margin-top: 1em;
-    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 6px;
+    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') no-repeat 0 6px;
     padding-left: 10px;
   }
   .l-side .side-menu.tools .side-menu-list li:first-child {
@@ -1853,7 +1853,7 @@ footer ul.footer-links + p.copyright {
   }
 }
 .lt-ie9 .l-side .side-menu.tools li a:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528061') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429517933') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }
@@ -1909,7 +1909,7 @@ footer ul.footer-links + p.copyright {
 .l-content .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027192') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -2045,54 +2045,15 @@ footer ul.footer-links + p.copyright {
   text-align: center;
 }
 .tools-link .wrapper .accordion-heading p {
-  padding: 20px 0;
+  padding: 20px 0 20px 30px;
   color: #444444;
   font-size: 15px;
 }
-.tools-link .wrapper .accordion-content {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  max-height: 0;
-  overflow: hidden;
-}
-.tools-link .wrapper .accordion-content .desc {
-  margin: 0 0 10px 0;
-  display: block;
-  font-size: 15px;
-}
-.tools-link .wrapper .accordion-content .explanation {
-  margin-bottom: 20px;
-}
-.tools-link .wrapper .accordion-content .explanation .list {
-  list-style: decimal inside;
-  line-height: 26px;
-}
-.tools-link .wrapper .accordion-content .note {
-  padding: 0 0 0 15px;
-  position: relative;
-}
-.tools-link .wrapper .accordion-content .note:before {
-  content: '';
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
-  display: block;
-  width: 4px;
-  height: 7px;
-  position: absolute;
-  top: 6px;
-  left: 2px;
-}
-.tools-link .wrapper.open .accordion-content {
-  padding: 0 0 20px 0;
-  max-height: 1000px;
-}
 .tools-link.application p {
-  padding-left: 30px;
-  background: url('../images/icon_gray/icon_application.png?1429528061') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429517812') no-repeat 0 center;
 }
 .tools-link.download p {
-  padding-left: 30px;
-  background: url('../images/icon_gray/icon_download.png?1429528061') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429517813') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -2134,15 +2095,8 @@ footer ul.footer-links + p.copyright {
     right: 20px;
   }
   .tools-link .wrapper .accordion-heading p {
-    padding-left: 20px;
+    padding-left: 50px;
     background-position: 20px center;
-  }
-  .tools-link .wrapper .accordion-content {
-    padding-right: 20px !important;
-    padding-left: 20px !important;
-  }
-  .tools-link.application p, .tools-link.download p {
-    padding-left: 50px !important;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -2418,7 +2372,6 @@ footer .footer-links .link:hover {
 }
 .m-tab-content .procedure {
   margin: 0 0 36px 0;
-  text-align: center;
 }
 .m-tab-content .procedure .step {
   -moz-box-sizing: border-box;
@@ -2440,7 +2393,7 @@ footer .footer-links .link:hover {
 .m-tab-content .procedure .step:before {
   content: '';
   margin-left: -11px;
-  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288529') no-repeat 0 0;
+  background: url('../images/icon_arrow/icon_arrow_down_gradient.png?1429288528') no-repeat 0 0;
   display: block;
   width: 22px;
   height: 47px;
@@ -2517,10 +2470,10 @@ footer .footer-links .link:hover {
   line-height: 24px;
 }
 .m-tab-content .feature-desc .art-img {
-  background: url('../images/remote_banking/web_bank.png?1429437975') 0 0 no-repeat;
+  background: url('../images/remote_banking/web_bank.png?1429437974') 0 0 no-repeat;
   display: block;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
 }
 .m-tab-content .feature-desc.multi-desc .emphasize {
@@ -2532,7 +2485,7 @@ footer .footer-links .link:hover {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027192') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -2544,18 +2497,18 @@ footer .footer-links .link:hover {
   padding: 0 0 0 20px;
 }
 .m-tab-content .feature-desc.new-ui {
-  height: 222px;
+  padding-top: 50px;
+  min-height: 222px;
 }
 .m-tab-content .feature-desc.new-ui .art-img {
-  margin: -111px 0 0 0;
   width: 382px;
   height: 222px;
 }
 .m-tab-content .feature-desc.click-pay {
-  height: 165px;
+  padding-top: 20px;
+  min-height: 165px;
 }
 .m-tab-content .feature-desc.click-pay .art-img {
-  margin: -82px 0 0 0;
   background-position: 0 -222px;
   width: 375px;
   height: 165px;
@@ -2564,16 +2517,14 @@ footer .footer-links .link:hover {
   min-height: 207px;
 }
 .m-tab-content .feature-desc.smart-online-banking .art-img {
-  margin: -103px 0 0 0;
   background-position: 0 -387px;
   width: 380px;
   height: 207px;
 }
 .m-tab-content .feature-desc.reminder-service {
-  height: 200px;
+  min-height: 200px;
 }
 .m-tab-content .feature-desc.reminder-service .art-img {
-  margin: -100px 0 0 0;
   background-position: 0 -594px;
   width: 382px;
   height: 200px;
@@ -2582,7 +2533,6 @@ footer .footer-links .link:hover {
   min-height: 284px;
 }
 .m-tab-content .feature-desc.trade-deals .art-img {
-  margin: -142px 0 0 0;
   background-position: 0 -794px;
   width: 410px;
   height: 284px;
@@ -2592,7 +2542,6 @@ footer .footer-links .link:hover {
   min-height: 202px;
 }
 .m-tab-content .feature-desc.network-security .art-img {
-  margin: -101px 0 0 0;
   background-position: 0 -1078px;
   width: 267px;
   height: 202px;
@@ -2622,10 +2571,6 @@ footer .footer-links .link:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .middleSet:before {
-    display: none;
-  }
-
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content .procedure {
     text-align: center;
   }
@@ -2646,9 +2591,6 @@ footer .footer-links .link:hover {
   .l-main-content.is-content-left .l-content .m-tab-content .feature-desc {
     margin: 0 0 70px 0;
     padding: 0;
-  }
-  .l-main-content.is-content-left .l-content .m-tab-content .feature-desc .sub-title, .l-main-content.is-content-left .l-content .m-tab-content .feature-desc .art-content {
-    display: block;
   }
   .l-main-content.is-content-left .l-content .m-tab-content .feature-desc .art-img {
     margin: 0 auto;
@@ -2696,7 +2638,7 @@ footer .footer-links .link:hover {
   background: #06a8ef;
 }
 .lt-ie9 .m-tab-content .feature-desc.multi-desc .emphasize:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528061') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429517933') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }

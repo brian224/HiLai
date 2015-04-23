@@ -351,40 +351,6 @@
 	}
 }
 
-.tools-link {
-	background-color : #ededed;
-	border-top       : 1px solid #d5d5d5;
-
-	.wrapper .accordion-heading {
-		position : relative;
-		cursor   : pointer;
-
-		&:after {
-			content       : '+';
-			margin-top    : -12px;
-			background    : $main-color;
-			display       : block;
-			width         : 24px;
-			height        : 24px;
-			position      : absolute;
-			top           : 50%;
-			right         : 0;
-			border-radius : 50px;
-			color         : $bright;
-			font-size     : 14px;
-			line-height   : 24px;
-			text-align    : center;
-		}
-
-		p {
-			padding    : 20px 0 20px 30px;
-			background : image-url('icon_gray/icon_download.png') no-repeat 0 center;
-			color      : #444444;
-			font-size  : 15px;
-		}
-	}
-}
-
 footer {
 	.pc-footer {
 		@include clearfix;
@@ -497,10 +463,6 @@ footer {
 				margin-left : 2%;
 			}
 		}
-	}
-
-	.tools-link {
-		padding : 0 20px;
 	}
 
 	footer .pc-footer {

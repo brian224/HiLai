@@ -1,11 +1,10 @@
 $(document).ready(function(){
-	var $quest            = $('.quest'),
-		$mobileTitle      = $('.mobile-title'),
-		$selecter         = $('.selecter'),
-		$tabList          = $('.tab-list'),
-		$switchContent    = $('.switch-content'),
-		$sideTitle        = $('.side-title'),
-		$accordionHeading = $('.accordion-heading');
+	var $quest         = $('.quest'),
+		$mobileTitle   = $('.mobile-title'),
+		$selecter      = $('.selecter'),
+		$tabList       = $('.tab-list'),
+		$switchContent = $('.switch-content'),
+		$sideTitle     = $('.side-title');
 
 	$quest.on('click', function(){
 		$(this).parent().toggleClass('open').siblings().removeClass('open');
@@ -31,10 +30,6 @@ $(document).ready(function(){
 
 		$(this).parent().toggleClass('curr').siblings().removeClass('curr');
 		$tabList.removeClass('curr').eq(_idx).addClass('curr');
-	});
-
-	$accordionHeading.on('click', function(){
-		$(this).parent().toggleClass('open');
 	});
 
 	$selecter.hover(function(){

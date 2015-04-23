@@ -21,8 +21,7 @@
 
 .m-tab-content {
 	.procedure {
-		margin     : 0 0 36px 0;
-		text-align : center;
+		margin : 0 0 36px 0;
 
 		.step {
 			@include box-sizing(border-box);
@@ -138,7 +137,7 @@
 			background : image-url('remote_banking/web_bank.png') 0 0 no-repeat;
 			display    : block;
 			position   : absolute;
-			top        : 50%;
+			top        : 0;
 			left       : 0;
 		}
 
@@ -166,20 +165,20 @@
 		}
 
 		&.new-ui {
-			height : 222px;
+			padding-top : 50px;
+			min-height  : 222px;
 
 			.art-img {
-				margin : -111px 0 0 0;
 				width  : 382px;
 				height : 222px;
 			}
 		}
 
 		&.click-pay {
-			height : 165px;
+			padding-top : 20px;
+			min-height  : 165px;
 
 			.art-img {
-				margin              : -82px 0 0 0;
 				background-position : 0 -222px;
 				width               : 375px;
 				height              : 165px;
@@ -190,7 +189,6 @@
 			min-height : 207px;
 
 			.art-img {
-				margin              : -103px 0 0 0;
 				background-position : 0 -387px;
 				width               : 380px;
 				height              : 207px;
@@ -198,10 +196,9 @@
 		}
 
 		&.reminder-service {
-			height : 200px;
+			min-height : 200px;
 
 			.art-img {
-				margin              : -100px 0 0 0;
 				background-position : 0 -594px;
 				width               : 382px;
 				height              : 200px;
@@ -212,7 +209,6 @@
 			min-height : 284px;
 
 			.art-img {
-				margin              : -142px 0 0 0;
 				background-position : 0 -794px;
 				width               : 410px;
 				height              : 284px;
@@ -224,7 +220,6 @@
 			min-height : 202px;
 
 			.art-img {
-				margin              : -101px 0 0 0;
 				background-position : 0 -1078px;
 				width               : 267px;
 				height              : 202px;
@@ -256,10 +251,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.middleSet:before {
-		display : none;
-	}
-
 	.l-main-content.is-content-left .l-content .m-tab-content {
 		.switch-content .procedure {
 			text-align : center;
@@ -286,10 +277,6 @@
 		.feature-desc {
 			margin  : 0 0 70px 0;
 			padding : 0;
-
-			.sub-title, .art-content {
-				display : block;
-			}
 
 			.art-img {
 				margin          : 0 auto;
