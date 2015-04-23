@@ -1,24 +1,46 @@
 /*
-Error: Undefined variable: "$secondary-color".
-        on line 71 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-content.scss
+Error: Undefined variable: "$main-color".
+        on line 13 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/tools-link.scss
 
-66: 		}
-67: 	}
-68: 
-69: 	.main-title {
-70: 		margin-bottom : 12px;
-71: 		color         : $secondary-color;
-72: 		font-size     : 30px;
-73: 		line-height   : 1.5em;
-74: 	}
-75: 
-76: 	.sub-title {
+8: 			cursor   : pointer;
+9: 
+10: 			&:after {
+11: 				content       : '+';
+12: 				margin-top    : -12px;
+13: 				background    : $main-color;
+14: 				display       : block;
+15: 				width         : 24px;
+16: 				height        : 24px;
+17: 				position      : absolute;
+18: 				top           : 50%;
 
 Backtrace:
-/Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-content.scss:71
+/Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/tools-link.scss:13
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/script/tree/node.rb:50:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.9/lib/sass/stack.rb:79:in `block in with_base'
@@ -78,4 +100,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$secondary-color\".\A         on line 71 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/l-content.scss\A \A 66: 		}\A 67: 	}\A 68: \A 69: 	.main-title {\A 70: 		margin-bottom : 12px;\A 71: 		color         : $secondary-color;\A 72: 		font-size     : 30px;\A 73: 		line-height   : 1.5em;\A 74: 	}\A 75: \A 76: 	.sub-title {"; }
+  content: "Error: Undefined variable: \"$main-color\".\A         on line 13 of /Applications/XAMPP/xamppfiles/htdocs/ANZ/sass/remote_banking/tools-link.scss\A \A 8: 			cursor   : pointer;\A 9: \A 10: 			&:after {\A 11: 				content       : '+';\A 12: 				margin-top    : -12px;\A 13: 				background    : $main-color;\A 14: 				display       : block;\A 15: 				width         : 24px;\A 16: 				height        : 24px;\A 17: 				position      : absolute;\A 18: 				top           : 50%;"; }

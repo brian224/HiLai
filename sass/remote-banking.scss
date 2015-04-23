@@ -15,6 +15,7 @@
 /* import page scss end */
 @import "_common/responsive";
 @import "remote_banking/footer";
+@import "remote_banking/tools-link";
 
 .index-banner {
 	padding    : 53px 0 0 0;
@@ -463,6 +464,10 @@ footer {
 				margin-left : 2%;
 			}
 		}
+	}
+
+	.tools-link .wrapper .accordion-heading p {
+		background-position : 20px center !important;
 	}
 
 	footer .pc-footer {
