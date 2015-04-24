@@ -152,3 +152,11 @@
 		}
 	}
 }
+
+.lt-ie9 {
+	.service.multi-desc .emphasize:before {
+		background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+		width      : 6px;
+		height     : 10px;
+	}
+}

@@ -1,66 +1,109 @@
-.faq-wrap .list {
-	min-height : 50px;
-	position   : relative;
-	border-top : 1px solid #e7e7e7;
+.faq-wrap {
+	margin-bottom : 20px;
 
-	&:before {
-		content       : '';
-		background    : #057fbf;
-		display       : block;
-		width         : 18px;
-		height        : 18px;
-		position      : absolute;
-		top           : 17px;
-		right         : 15px;
-		border-radius : 9px;
-	}
+	.list {
+		min-height : 50px;
+		position   : relative;
+		border-top : 1px solid #e7e7e7;
 
-	.quest {
-		padding     : 0 48px 0 0;
-		position    : relative;
-		cursor      : pointer;
-		color       : #003f62;
-		font-size   : 16px;
-		line-height : 50px;
-
-		&:hover {
-			text-decoration : underline;
+		&:before {
+			content       : '';
+			background    : #057fbf;
+			display       : block;
+			width         : 18px;
+			height        : 18px;
+			position      : absolute;
+			top           : 17px;
+			right         : 15px;
+			border-radius : 9px;
 		}
 
-		&:before, &:after {
-			content    : '';
-			background : $bright;
-			display    : block;
-			width      : 10px;
-			height     : 2px;
-			position   : absolute;
-			top        : 50%;
-			right      : 19px;
-		}
+		.quest {
+			padding     : 0 48px 0 0;
+			position    : relative;
+			cursor      : pointer;
+			color       : #003f62;
+			font-size   : 16px;
+			line-height : 50px;
 
-		&:after {
-			@include transform(rotate(90deg));
-		}
-	}
+			&:hover {
+				text-decoration : underline;
+			}
 
-	.ans {
-		@include transition(all .3s ease-in-out);
-		padding     : 0 48px 0 0;
-		max-height  : 0;
-		overflow    : hidden;
-		color       : $fontGray;
-		font-size   : 14px;
-		line-height : 24px;
-	}
+			&:before, &:after {
+				content    : '';
+				background : $bright;
+				display    : block;
+				width      : 10px;
+				height     : 2px;
+				position   : absolute;
+				top        : 50%;
+				right      : 19px;
+			}
 
-	&.open {
-		.quest:after {
-			@include transform(rotate(0deg));
+			&:after {
+				@include transform(rotate(90deg));
+			}
 		}
 
 		.ans {
-			padding-bottom : 20px;
-			max-height     : 1000px;
+			@include transition(all .3s ease-in-out);
+			padding     : 0 48px 0 0;
+			max-height  : 0;
+			overflow    : hidden;
+			color       : $fontGray;
+			font-size   : 14px;
+			line-height : 24px;
+
+			ul {
+				margin : 0 0 20px 20px;
+			}
+
+			li {
+				list-style : decimal outside;
+			}
+
+			em {
+				font-style  : normal;
+				font-weight : bold;
+			}
+
+			.info-table {
+				width         : 100%;
+				margin-bottom : 20px;
+
+				td {
+					padding     : 8px;
+					border-left : 1px solid $bright;
+					line-height : 26px;
+				}
+
+				.table-head {
+					background : #06a7ef;
+					color      : $bright;
+					font-size  : 16px;
+				}
+
+				.table-body {
+					color     : #5d5d5d;
+					font-size : 14px;
+
+					tr.gray_bg {
+						background : #f6f6f6;
+					}
+				}
+			}
+		}
+
+		&.open {
+			.quest:after {
+				@include transform(rotate(0deg));
+			}
+
+			.ans {
+				padding-bottom : 20px;
+				max-height     : 2000px;
+			}
 		}
 	}
 }
