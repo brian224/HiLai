@@ -53,7 +53,7 @@
 
 	.business-ecurity {
 		@include box-sizing(border-box);
-		margin     : 0 0 36px 0;
+		margin     : 36px 0 0 0;
 		padding    : 15px 0 0 120px;
 		min-height : 118px;
 		position   : relative;
@@ -108,7 +108,7 @@
 
 			.image {
 				margin        : 0 0 0 -56px;
-				background    : #35a9d4;
+				background    : #173853;
 				display       : block;
 				width         : 102px;
 				height        : 102px;
