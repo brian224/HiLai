@@ -2467,7 +2467,7 @@ footer .footer-links .link:hover {
   position: absolute;
   top: 0;
   left: 50%;
-  border: 5px solid #cde9f4;
+  border: 5px solid #e5ecef;
   border-radius: 56px;
 }
 .guide .using-step .step-list .list .image:before {
@@ -2602,7 +2602,7 @@ footer .footer-links .link:hover {
   }
 }
 .lt-ie9 .guide .using-step .step-list .list .image {
-  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429682506') no-repeat 0 0;
+  background: url('../images/remote_banking/for-ie8/icons_bg.png?1429872989') no-repeat 0 0;
   width: 112px;
   height: 112px;
   border: 0;

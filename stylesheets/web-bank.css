@@ -2550,6 +2550,11 @@ footer .footer-links .link:hover {
 .m-tab-content .info-table .table-body tr.gray_bg {
   background: #D8D8D8;
 }
+.m-tab-content .info-table .table-body td > em {
+  font-style: normal;
+  color: #34a8d3;
+  display: block;
+}
 .m-tab-content .feature-desc {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

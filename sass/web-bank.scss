@@ -99,6 +99,14 @@
 			tr.gray_bg {
 				background : #D8D8D8;
 			}
+
+			td {
+				> em {
+					font-style : normal;
+					color      : #34a8d3;
+					display    : block;
+				}
+			}
 		}
 	}
 
