@@ -1588,7 +1588,7 @@ footer ul.footer-links + p.copyright {
 }
 .l-side .side-title {
   margin-top: 5px;
-  color: #007dba;
+  color: #004165;
   font-size: 18px;
   line-height: 48px;
 }
@@ -2536,7 +2536,7 @@ footer .footer-links .link:hover {
   line-height: 26px;
 }
 .m-tab-content .info-table .table-head {
-  background: #06a7ef;
+  background: #004165;
   color: #fff;
   font-size: 16px;
 }
@@ -2552,7 +2552,7 @@ footer .footer-links .link:hover {
 }
 .m-tab-content .info-table .table-body td > em {
   font-style: normal;
-  color: #34a8d3;
+  color: #004165;
   display: block;
 }
 .m-tab-content .feature-desc {
@@ -2574,7 +2574,7 @@ footer .footer-links .link:hover {
 }
 .m-tab-content .feature-desc .emphasize {
   display: inline-block;
-  color: #34a8d3;
+  color: #004165;
   font-size: 14px;
   font-style: normal;
   line-height: 24px;
@@ -2586,7 +2586,7 @@ footer .footer-links .link:hover {
   line-height: 24px;
 }
 .m-tab-content .feature-desc .art-img {
-  background: url('../images/remote_banking/web_bank.png?1429512420') 0 0 no-repeat;
+  background: url('../images/remote_banking/web_bank.png?1430202985') 0 0 no-repeat;
   display: block;
   position: absolute;
   top: 50%;

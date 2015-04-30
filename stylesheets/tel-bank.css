@@ -1588,7 +1588,7 @@ footer ul.footer-links + p.copyright {
 }
 .l-side .side-title {
   margin-top: 5px;
-  color: #007dba;
+  color: #004165;
   font-size: 18px;
   line-height: 48px;
 }
@@ -2622,7 +2622,7 @@ footer .footer-links .link:hover {
   line-height: 26px;
 }
 .m-tab-content .info-table .table-head {
-  background: #06a7ef;
+  background: #0294c9;
   color: #fff;
   font-size: 16px;
 }
@@ -2670,6 +2670,13 @@ footer .footer-links .link:hover {
     font-size: 16px;
     line-height: 26px;
   }
+}
+.lt-ie9 .m-tab-content .procedure .step-wrap .step-list {
+  margin-right: 22px;
+  min-width: 183px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .lt-ie9 .m-tab-content .procedure .step-wrap .step-table.turns {
   margin-left: 52px;
