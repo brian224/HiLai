@@ -22,9 +22,9 @@
 	box-shadow    : 0 1px 0 #f4f4f4;
 }
 
-.l-main {
+/*.l-main {
 	margin : 20px auto 70px auto;
-}
+}*/
 
 .rwd-menu-list {
 	display : none;
@@ -173,10 +173,10 @@
 }
 
 @media only screen and (max-width: 980px) {
-	.l-main {
+	/*.l-main {
 		margin : 0 auto;
 		width  : 100%;
-	}
+	}*/
 
 	.rwd-menu-list {
 		display : block;

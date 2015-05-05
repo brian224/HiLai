@@ -1,24 +1,35 @@
 /*
-Error: Undefined variable: "$bright".
-        on line 6 of E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss
+Error: Undefined variable: "$secondary-color".
+        on line 34 of E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss
 
-1: .l-side {
-2: 	.action-box {
-3: 		.login {
-4: 			margin-bottom : 10px;
-5: 			padding       : 20px 20px 5px;
-6: 			background    : $bright;
-7: 			border        : 1px solid #ddd;
-8: 			border-radius : 4px;
-9: 			box-shadow    : 1px 2px 0 #ccc;
-10: 			text-align    : center;
-11: 
+29: 
+30: 			.links a {
+31: 				display      : inline-block;
+32: 				padding-left : 8px;
+33: 				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
+34: 				color        : $secondary-color;
+35: 				font-size    : 12px;
+36: 			}
+37: 		}
+38: 	}
+39: 
 
 Backtrace:
-E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss:6
+E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss:34
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:384:in `visit_prop'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:36:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/stack.rb:79:in `block in with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/stack.rb:115:in `with_frame'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/stack.rb:79:in `with_base'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:158:in `visit'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:420:in `block (2 levels) in visit_rule'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:420:in `map'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:420:in `block in visit_rule'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:418:in `visit_rule'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/base.rb:36:in `visit'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/lib/sass/stack.rb:79:in `block in with_base'
@@ -88,4 +99,4 @@ C:/Ruby193/lib/ruby/gems/1.9.1/gems/sass-3.4.6/vendor/listen/lib/listen/adapter.
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$bright\".\A         on line 6 of E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss\A \A 1: .l-side {\A 2: 	.action-box {\A 3: 		.login {\A 4: 			margin-bottom : 10px;\A 5: 			padding       : 20px 20px 5px;\A 6: 			background    : $bright;\A 7: 			border        : 1px solid #ddd;\A 8: 			border-radius : 4px;\A 9: 			box-shadow    : 1px 2px 0 #ccc;\A 10: 			text-align    : center;\A 11: "; }
+  content: "Error: Undefined variable: \"$secondary-color\".\A         on line 34 of E:/xampp/htdocs/F2E/ANZ/official/sass/remote_banking/l-side.scss\A \A 29: \A 30: 			.links a {\A 31: 				display      : inline-block;\A 32: 				padding-left : 8px;\A 33: 				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;\A 34: 				color        : $secondary-color;\A 35: 				font-size    : 12px;\A 36: 			}\A 37: 		}\A 38: 	}\A 39: "; }

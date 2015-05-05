@@ -1,0 +1,435 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-step";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "remote_banking/l-side";
+@import "remote_banking/l-content";
+@import "remote_banking/faq";
+@import "remote_banking/footer";
+@import "remote_banking/tools-link";
+
+.m-tab-content {
+	.procedure {
+		margin     : 0 0 36px 0;
+		text-align : center;
+	}
+
+	.table-wrap {
+		margin : 30px 10px 0 10px;
+	}
+
+	.info-table {
+		margin-top : 15px;
+		width      : 100%;
+
+		td {
+			padding     : 8px 8px 8px 20px;
+			border-left : 1px solid $bright;
+			line-height : 26px;
+		}
+
+		.table-head {
+			background : #0294c9;
+			color      : $bright;
+			font-size  : 16px;
+		}
+
+		.table-body {
+			color       : #5d5d5d;
+			font-size   : 14px;
+
+			.t-tile {
+				width : 128px;
+			}
+
+			tr.gray_bg {
+				background : #D8D8D8;
+			}
+
+			td {
+				> em {
+					font-style : normal;
+					color      : #004165;
+					display    : block;
+				}
+			}
+
+			img {
+				max-width : 95px;
+			}
+		}
+
+		.number {
+			width : 25%;
+		}
+
+		.area {
+			width : 15%;
+		}
+
+		.way {
+			width : 30%;
+		}
+
+		.item {
+			text-align : center;
+		}
+	}
+
+	.feature-desc {
+		@include box-sizing(border-box);
+		margin   : 0 0 60px 0;
+		position : relative;
+
+		&.relieved {
+			padding-right: 260px;
+		}
+
+		.desc-content {
+			width : 100%;
+		}
+
+		.emphasize {
+			display     : inline-block;
+			color       : #004165;
+			font-size   : 14px;
+			font-style  : normal;
+			line-height : 24px;
+		}
+
+		.art-content {
+			margin-bottom : 20px;
+			color         : $fontGray;
+			font-size     : 14px;
+			line-height   : 24px;
+		}
+
+		.art-img {
+			top        : 50%;
+			right      : 30px;
+			margin-top : -47px;
+			width      : 156px;
+			height     : 94px;
+			display    : block;
+			position   : absolute;
+			background : image-url('remote_banking/atm.png') 0 0 no-repeat;
+		}
+
+		&.multi-desc {
+			.emphasize {
+				padding     : 0 0 0 20px;
+				display     : block;
+				position    : relative;
+				color       : #004165;
+				font-size   : 14px;
+				font-style  : normal;
+				line-height : 24px;
+
+				&:before {
+					@include transform(rotate(-90deg));
+					content    : '';
+					background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+					display    : block;
+					width      : 10px;
+					height     : 6px;
+					position   : absolute;
+					top        : 8px;
+					left       : 2px;
+				}
+			}
+
+			.art-content {
+				padding : 0 0 0 20px;
+			}
+		}
+
+		&.atm-item {
+			.btn-more {
+				margin-top : 20px;
+			}
+		}
+	}
+
+	.btn-more {
+		@include box-sizing(border-box);
+		@include background-image(linear-gradient(#06a8ef, #0594d7, #0471ad));
+		padding        : 4px 10px;
+		display        : inline-block;
+		min-width      : 144px;
+		border         : 1px solid #315b6f;
+		border-radius  : 4px;
+		color          : #fff;
+		font-size      : 16px;
+		text-align     : center;
+		vertical-align : middle;
+
+		&:hover {
+			@include background-image(linear-gradient(#0471ad, #0594d7, #06a8ef));
+		}
+	}
+}
+
+.attention-box {
+	margin-top  : 36px;
+	line-height : 38px;
+
+	.min-title {
+		color     : $secondary-color;
+		font-size : 17px;
+	}
+
+	.attention-list {
+		list-style : decimal inside;
+
+		.list {
+			color     : $fontGray;
+			font-size : 14px;
+		}
+	}
+}
+
+.card {
+	padding : 25px 0;
+	@include clearfix;
+
+	> ul {
+		width : 50%;
+		float : left;
+
+		> li {
+			position : relative;
+
+			> ol {
+				font-size : 14px;
+
+				> li {
+					padding  : 3px 0 3px 30px;
+					position : relative;
+
+					> i {
+						top         : 3px;
+						left        : 0;
+						width       : 20px;
+						height      : 20px;
+						line-height : 20px;
+						color       : #FFF;
+						text-align  : center;
+						display     : block;
+						background  : image-url('remote_banking/atm-point-2.png') no-repeat center center;
+						position    : absolute;
+					}
+				}
+			}
+		}
+	}
+
+	.card-figure {
+		margin-bottom : 20px;
+		width         : 190px;
+		display       : block;
+		position      : relative;
+
+		img {
+			max-width : 100%;
+		}
+	}
+
+	.card-item {
+		text-align   : left;
+		padding-left : 7px;
+		width        : 27px;
+		height       : 27px;
+		line-height  : 20px;
+		color        : #FFF;
+		position     : absolute;
+		background   : image-url('remote_banking/atm-point.png') no-repeat center center;
+		@include box-sizing(border-box);
+	}
+
+	.card-positive {
+		.card-item-1 {
+			top  : 55px;
+			left : 35px;
+		}
+	}
+
+	.card-negative {
+		.card-item-1 {
+			top  : 40px;
+			left : -10px;
+		}
+
+		.card-item-2 {
+			top  : 15px;
+			left : 175px;
+		}
+
+		.card-item-3 {
+			top  : -15px;
+			left : 50px;
+		}
+
+		.card-item-4 {
+			top  : 70px;
+			left : 175px;
+		}
+
+		.card-item-5 {
+			top  : 100px;
+			left : 175px;
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+	.table-wrap {
+		margin-top : 20px !important;
+	}
+
+	.middleSet:before {
+		display : none;
+	}
+
+	.l-main-content.is-content-left .l-content .m-tab-content {
+		.switch-content .procedure {
+			text-align : center;
+
+			.sub-title {
+				text-align : left;
+			}
+
+			.step {
+				padding-left : 100px;
+				width        : auto;
+				min-width    : 280px;
+
+				.highlight {
+					font-size : 26px;
+				}
+			}
+		}
+
+		.info-table {
+			td {
+				padding : 8px;
+			}
+
+			.table-body {
+				img {
+					max-width : 100%;
+				}
+			}
+		}
+
+		.info-table .table-body .t-tile {
+			width : 92px;
+		}
+
+		.feature-desc {
+			margin  : 0 0 30px 0;
+			padding : 0;
+			height  : auto !important;
+
+			.sub-title, .art-content {
+				display : block;
+			}
+
+			.art-img {
+				margin          : 0 auto;
+				background-size : 100%;
+				position        : relative;
+				top             : 0;
+				left            : 0;
+			}
+
+			&.new-ui .art-img {
+				height : 111px;
+			}
+
+			&.click-pay .art-img {
+				background-position : 0 -112px;
+				height              : 84px;
+			}
+
+			&.smart-online-banking .art-img {
+				background-position : 9px -197px;
+				height              : 91px;
+			}
+
+			&.reminder-service .art-img {
+				background-position : 0 -304px;
+				height              : 102px;
+			}
+
+			&.trade-deals .art-img {
+				background-position : 0 -416px;
+				height              : 135px;
+			}
+
+			&.network-security .art-img {
+				background-position : 35px -551px;
+				height              : 101px;
+			}
+		}
+
+		.btn-more {
+			margin-top    : 20px;
+			margin-bottom : 0;
+			padding       : 0 10px;
+			display       : block;
+			height        : 45px;
+			line-height   : 45px;
+		}
+	}
+
+	.card {
+		> ul {
+			margin-top : 30px;
+			width      : 100%;
+			float      : none;
+
+			&:first-child {
+				margin-top : 0;
+			}
+		}
+
+		.card-figure {
+			margin-right : auto;
+			margin-left  : auto;
+		}
+	}
+}
+
+.lt-ie9 {
+	.m-tab-content {
+		.btn-more {
+			background: #0471ad;
+
+			&:hover {
+				background : #06a8ef;
+			}
+		}
+
+		.feature-desc.multi-desc .emphasize:before {
+			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+			width      : 6px;
+			height     : 10px;
+		}
+	}
+}
