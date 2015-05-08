@@ -35,7 +35,7 @@
 
 	.m-breadcrumb {
 		position    : absolute;
-		top         : -53px;
+		top         : -69px;
 		left        : 0;
 		width       : 100%;
 		height      : 53px;
@@ -463,6 +463,10 @@ footer {
 			padding-left  : 10px;
 		}
 
+		.m-breadcrumb {
+			top : -53px;
+		}
+
 		.promo .list {
 			@include box-sizing(border-box);
 			width : 32%;
@@ -525,7 +529,7 @@ footer {
 		}
 
 		.fast-links {
-			padding-top : 278px;
+			padding-top : 230px;
 
 			.list {
 				padding       : 10px 0;
@@ -630,6 +634,14 @@ footer {
 
 		.footer-links {
 			display : none;
+		}
+	}
+}
+
+@media only screen and (max-width: 376px) {
+	.index-banner {
+		.fast-links {
+			padding-top : 201px;
 		}
 	}
 }
