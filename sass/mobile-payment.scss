@@ -35,7 +35,7 @@
 	.min-title {
 		@include box-sizing(border-box);
 		margin        : 0 0 0 -73px;
-		background    : $bgBlue;
+		background    : #173853;
 		display       : inline-block;
 		height        : 36px;
 		min-width     : 146px;
@@ -223,7 +223,8 @@
 	}
 
 	.attention-list {
-		list-style : decimal inside;
+		margin-left : 20px;
+		list-style  : decimal;
 
 		.list {
 			color     : $fontGray;

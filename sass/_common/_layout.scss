@@ -1,5 +1,5 @@
 .l-main {
-	margin   : 0 auto;
+	margin   : 20px auto 70px auto;
 	width    : $product-width;
 	position : relative;
 }
@@ -36,4 +36,21 @@
 .l-side {
 	width    : $side-width;
 	position : relative;
+}
+
+/* screen width <= 800 */
+@media screen and ( max-width : 800px ) {
+	.l-main {
+		margin : 0 auto;
+		width  : 100%;
+	}
+}
+
+/* screen width <= 800 and width > 768 */
+@media screen and ( min-width : 768px ) and ( max-width : 800px ) {
+	
+}
+
+/* screen width < 768 */
+@media screen and ( max-width : 767px ) {
 }

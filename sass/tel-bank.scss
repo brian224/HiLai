@@ -35,7 +35,7 @@
 		.step {
 			@include box-sizing(border-box);
 			margin-bottom : 51px;
-			background    : $bgBlue;
+			background    : $secondary-color;
 			display       : inline-block;
 			max-width     : 512px;
 			min-width     : 392px;
@@ -104,7 +104,7 @@
 			.step-title {
 				@include box-sizing(border-box);
 				padding       : 9px 12px;
-				background    : $bgBlue;
+				background    : $secondary-color;
 				min-width     : 142px;
 				position      : absolute;
 				top           : -12px;
@@ -170,7 +170,7 @@
 		}
 
 		.table-head {
-			background : #06a7ef;
+			background : $secondary-color;
 			color      : $bright;
 			font-size  : 16px;
 		}
@@ -235,6 +235,18 @@
 }
 
 .lt-ie9 {
+	.m-tab-content {
+		.procedure {
+			.step-wrap {
+				.step-list {
+					margin-right : 22px;
+					min-width    : 183px;
+					@include box-sizing(border-box);
+				}
+			}
+		}
+	}
+
 	.m-tab-content .procedure .step-wrap .step-table.turns {
 		margin-left : 52px;
 

@@ -2063,7 +2063,6 @@ footer ul.footer-links + p.copyright {
   margin-bottom: 10px;
   color: #004165;
   font-size: 22px;
-  width: 100%;
   line-height: 1.5em;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -2207,7 +2206,7 @@ footer ul.footer-links + p.copyright {
   }
   .l-main-content.is-content-left .l-content .m-tab-content .switch-content.curr .rwd-container {
     margin: 0 0 30px 0;
-    max-height: 9000px;
+    max-height: 99999px;
   }
   .l-main-content.is-content-left .l-content .m-tab-content .rwd-container {
     -webkit-transition: all 0.3s ease-in-out;
@@ -2350,7 +2349,7 @@ footer ul.footer-links + p.copyright {
   line-height: 26px;
 }
 .faq-wrap .list .ans .info-table .table-head {
-  background: #06a7ef;
+  background: #004165;
   color: #fff;
   font-size: 16px;
 }
@@ -2359,7 +2358,7 @@ footer ul.footer-links + p.copyright {
   font-size: 14px;
 }
 .faq-wrap .list .ans .info-table .table-body tr.gray_bg {
-  background: #f6f6f6;
+  background: #D8D8D8;
 }
 .faq-wrap .list.open .quest:after {
   -webkit-transform: rotate(0deg);
@@ -2368,7 +2367,7 @@ footer ul.footer-links + p.copyright {
 }
 .faq-wrap .list.open .ans {
   padding-bottom: 20px;
-  max-height: 2000px;
+  max-height: 9999px;
 }
 
 .lt-ie9 .faq-wrap .list .quest:after {
@@ -2630,7 +2629,7 @@ footer .footer-links .link:hover {
   line-height: 26px;
 }
 .m-tab-content .info-table .table-head {
-  background: #0294c9;
+  background: #004165;
   color: #fff;
   font-size: 16px;
 }
@@ -2760,7 +2759,8 @@ footer .footer-links .link:hover {
   font-size: 17px;
 }
 .attention-box .attention-list {
-  list-style: decimal inside;
+  margin-left: 20px;
+  list-style: decimal;
 }
 .attention-box .attention-list .list {
   color: #404040;

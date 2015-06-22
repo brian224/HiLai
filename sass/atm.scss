@@ -42,7 +42,7 @@
 		}
 
 		.table-head {
-			background : #0294c9;
+			background : $secondary-color;
 			color      : $bright;
 			font-size  : 16px;
 		}
@@ -192,7 +192,8 @@
 	}
 
 	.attention-list {
-		list-style : decimal inside;
+		margin-left : 20px;
+		list-style  : decimal;
 
 		.list {
 			color     : $fontGray;

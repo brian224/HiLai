@@ -84,7 +84,7 @@
 				}
 
 				.table-head {
-					background : #06a7ef;
+					background : $secondary-color;
 					color      : $bright;
 					font-size  : 16px;
 				}
@@ -94,7 +94,7 @@
 					font-size : 14px;
 
 					tr.gray_bg {
-						background : #f6f6f6;
+						background : #D8D8D8;
 					}
 				}
 			}
@@ -107,7 +107,7 @@
 
 			.ans {
 				padding-bottom : 20px;
-				max-height     : 2000px;
+				max-height     : 9999px;
 			}
 		}
 	}

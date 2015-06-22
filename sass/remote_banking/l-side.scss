@@ -3,7 +3,7 @@
 		.login {
 			margin-bottom : 10px;
 			padding       : 20px 20px 5px;
-			background    : $bright;
+			background    : #FFF;
 			border        : 1px solid #ddd;
 			border-radius : 4px;
 			box-shadow    : 1px 2px 0 #ccc;
@@ -39,7 +39,7 @@
 
 	.side-title {
 		margin-top  : 5px;
-		color       : $main-color;
+		color       : #004165;
 		font-size   : 18px;
 		line-height : 48px;
 	}
@@ -85,37 +85,30 @@
 
 					&:before {
 						content    : '';
-						margin-top : -8px;
+						margin-top : -11px;
 						background : image-url('icon_ocean_blue/side-menu-icons.png') 0 0 no-repeat;
 						display    : block;
-						width      : 21px;
-						height     : 16px;
+						width      : 22px;
+						height     : 22px;
 						position   : absolute;
 						top        : 50%;
 						left       : 16px;
 					}
 
 					&.mobile-payment:before {
-						margin-top          : -11px;
-						background-position : 0 -16px;
-						width               : 20px;
-						height              : 22px;
+						background-position : 0 -22px;
 					}
 
 					&.anz-partner:before {
-						margin-top          : -10px;
-						background-position : 0 -38px;
-						width               : 15px;
-						height              : 21px;
-						left                : 18px;
+						background-position : 0 -44px;
 					}
 
 					&.tel-bank:before {
-						margin-top          : -9px;
-						background-position : 0 -59px;
-						width               : 18px;
-						height              : 18px;
-						left                : 17px;
+						background-position : 0 -66px;
+					}
+
+					&.atm:before {
+						background-position : 0 -88px;
 					}
 				}
 			}
@@ -175,7 +168,7 @@
 			height        : 32px;
 			border        : 1px solid #2ba106;
 			border-radius : 4px;
-			color         : $bright;
+			color         : #FFF;
 			font-size     : 15px;
 			line-height   : 32px;
 			text-align    : center;
@@ -217,7 +210,7 @@
 			}
 
 			&.tools {
-				@include background-image(linear-gradient($bright, #f4f4f4));
+				@include background-image(linear-gradient(#FFF, #f4f4f4));
 				@include clearfix;
 				margin-top : 20px;
 				border-top : 1px solid #ddd;
@@ -254,7 +247,7 @@
 						top           : 50%;
 						right         : 20px;
 						border-radius : 50px;
-						color         : $bright;
+						color         : #FFF;
 						font-size     : 14px;
 						font-family   : Arial, sans-serif;
 						line-height   : 24px;
@@ -298,7 +291,7 @@
 		}
 
 		.qrcode-scan {
-			@include background-image(linear-gradient($bright, #f4f4f4));
+			@include background-image(linear-gradient(#FFF, #f4f4f4));
 			@include box-sizing(border-box);
 			@include clearfix;
 			margin-top          : 0;
