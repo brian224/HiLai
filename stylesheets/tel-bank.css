@@ -202,7 +202,7 @@ a:hover {
 }
 
 .l-main {
-  margin: 20px auto 70px auto;
+  margin: 0 auto;
   width: 960px;
   position: relative;
 }
@@ -233,15 +233,6 @@ a:hover {
   position: relative;
 }
 
-/* screen width <= 800 */
-@media screen and (max-width: 800px) {
-  .l-main {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-/* screen width <= 800 and width > 768 */
-/* screen width < 768 */
 /* Button Default Styles */
 .btn {
   -webkit-box-sizing: border-box;
@@ -1568,7 +1559,7 @@ footer ul.footer-links + p.copyright {
 .l-side .action-box .login {
   margin-bottom: 10px;
   padding: 20px 20px 5px;
-  background: #FFF;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 1px 2px 0 #ccc;
@@ -1597,7 +1588,7 @@ footer ul.footer-links + p.copyright {
 }
 .l-side .side-title {
   margin-top: 5px;
-  color: #004165;
+  color: #007dba;
   font-size: 18px;
   line-height: 48px;
 }
@@ -1635,26 +1626,34 @@ footer ul.footer-links + p.copyright {
 }
 .l-side .side-menu.financial li a:before {
   content: '';
-  margin-top: -11px;
-  background: url('../images/icon_ocean_blue/side-menu-icons.png?1430709244') 0 0 no-repeat;
+  margin-top: -8px;
+  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429512420') 0 0 no-repeat;
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 16px;
   position: absolute;
   top: 50%;
   left: 16px;
 }
 .l-side .side-menu.financial li a.mobile-payment:before {
-  background-position: 0 -22px;
+  margin-top: -11px;
+  background-position: 0 -16px;
+  width: 20px;
+  height: 22px;
 }
 .l-side .side-menu.financial li a.anz-partner:before {
-  background-position: 0 -44px;
+  margin-top: -10px;
+  background-position: 0 -38px;
+  width: 15px;
+  height: 21px;
+  left: 18px;
 }
 .l-side .side-menu.financial li a.tel-bank:before {
-  background-position: 0 -66px;
-}
-.l-side .side-menu.financial li a.atm:before {
-  background-position: 0 -88px;
+  margin-top: -9px;
+  background-position: 0 -59px;
+  width: 18px;
+  height: 18px;
+  left: 17px;
 }
 .l-side .side-menu.tools .side-menu-list {
   padding: 14px 0 9px 0;
@@ -1707,7 +1706,7 @@ footer ul.footer-links + p.copyright {
   height: 32px;
   border: 1px solid #2ba106;
   border-radius: 4px;
-  color: #FFF;
+  color: #fff;
   font-size: 15px;
   line-height: 32px;
   text-align: center;
@@ -1780,7 +1779,7 @@ footer ul.footer-links + p.copyright {
     top: 50%;
     right: 20px;
     border-radius: 50px;
-    color: #FFF;
+    color: #fff;
     font-size: 14px;
     font-family: Arial, sans-serif;
     line-height: 24px;
@@ -1887,9 +1886,10 @@ footer ul.footer-links + p.copyright {
   box-shadow: 0 1px 0 #f4f4f4;
 }
 
-/*.l-main {
-	margin : 20px auto 70px auto;
-}*/
+.l-main {
+  margin: 20px auto 70px auto;
+}
+
 .rwd-menu-list {
   display: none;
 }
@@ -1933,11 +1933,7 @@ footer ul.footer-links + p.copyright {
   margin-bottom: 10px;
   color: #004165;
   font-size: 22px;
-  width: 100%;
   line-height: 1.5em;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .l-content .msg-desc {
   color: #404040;
@@ -2025,10 +2021,11 @@ footer ul.footer-links + p.copyright {
 }
 
 @media only screen and (max-width: 980px) {
-  /*.l-main {
-  	margin : 0 auto;
-  	width  : 100%;
-  }*/
+  .l-main {
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .rwd-menu-list {
     display: block;
   }
@@ -2625,7 +2622,7 @@ footer .footer-links .link:hover {
   line-height: 26px;
 }
 .m-tab-content .info-table .table-head {
-  background: #0294c9;
+  background: #06a7ef;
   color: #fff;
   font-size: 16px;
 }
@@ -2673,13 +2670,6 @@ footer .footer-links .link:hover {
     font-size: 16px;
     line-height: 26px;
   }
-}
-.lt-ie9 .m-tab-content .procedure .step-wrap .step-list {
-  margin-right: 22px;
-  min-width: 183px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .lt-ie9 .m-tab-content .procedure .step-wrap .step-table.turns {
   margin-left: 52px;

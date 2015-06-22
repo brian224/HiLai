@@ -35,7 +35,7 @@
 	.min-title {
 		@include box-sizing(border-box);
 		margin        : 0 0 0 -73px;
-		background    : #173853;
+		background    : $bgBlue;
 		display       : inline-block;
 		height        : 36px;
 		min-width     : 146px;

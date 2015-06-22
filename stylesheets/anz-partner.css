@@ -202,7 +202,7 @@ a:hover {
 }
 
 .l-main {
-  margin: 20px auto 70px auto;
+  margin: 0 auto;
   width: 960px;
   position: relative;
 }
@@ -233,15 +233,6 @@ a:hover {
   position: relative;
 }
 
-/* screen width <= 800 */
-@media screen and (max-width: 800px) {
-  .l-main {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-/* screen width <= 800 and width > 768 */
-/* screen width < 768 */
 /* Button Default Styles */
 .btn {
   -webkit-box-sizing: border-box;
@@ -364,7 +355,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429153743') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -418,7 +409,7 @@ a:hover {
   right: 10px;
   width: 34px;
   height: 34px;
-  background: #394a58 url('../images/icon_magnifier_sky.png?1429153743') no-repeat center center;
+  background: #394a58 url('../images/icon_magnifier_sky.png?1429027194') no-repeat center center;
   display: block;
   position: absolute;
   -moz-border-radius: 0 4px 4px 0;
@@ -430,7 +421,7 @@ a:hover {
 header {
   font-size: 0;
   height: 50px;
-  background: #004165 url('../images/bg_header.png?1429153743') no-repeat center 0;
+  background: #004165 url('../images/bg_header.png?1429027194') no-repeat center 0;
 }
 header .wrapper {
   height: 100%;
@@ -455,7 +446,7 @@ header .logo {
   width: 266px;
   height: 50px;
   float: left;
-  background: url('../images/bg_header_logo.png?1429153744') no-repeat;
+  background: url('../images/bg_header_logo.png?1429027194') no-repeat;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -511,7 +502,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429153743') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -543,7 +534,7 @@ header .rwd-btn .login {
   position: relative;
 }
 header .rwd-btn .login > a {
-  background-image: url('../images/icon_white/icon_lock2_white.png?1429153744');
+  background-image: url('../images/icon_white/icon_lock2_white.png?1429027194');
 }
 header .rwd-btn .login .dropdown-menu {
   right: 0;
@@ -557,13 +548,13 @@ header .rwd-btn .search {
   display: none;
 }
 header .rwd-btn .search > a {
-  background-image: url('../images/icon_white/icon_magnifier_white.png?1429153744');
+  background-image: url('../images/icon_white/icon_magnifier_white.png?1429027194');
 }
 header .search-bar {
   text-align: left;
   width: 150px;
   height: 32px;
-  background: #004165 url('../images/icon_magnifier_sky.png?1429153743') no-repeat 95% center;
+  background: #004165 url('../images/icon_magnifier_sky.png?1429027194') no-repeat 95% center;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -591,7 +582,7 @@ header .search-bar .search-act-btn {
   position: absolute;
   width: 30px;
   height: 32px;
-  background: url('../images/icon_magnifier_sky.png?1429153743') no-repeat center center;
+  background: url('../images/icon_magnifier_sky.png?1429027194') no-repeat center center;
   display: block;
 }
 
@@ -1159,7 +1150,7 @@ footer ul.footer-links + p.copyright {
   font-size: 0;
   width: 48px;
   height: 68px;
-  background: url('../images/icon_gray/icon_computer_circle.png?1429153744') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_computer_circle.png?1429027194') no-repeat 50% 50%;
   display: table-cell;
 }
 .notification-cookie .wrapper p {
@@ -1176,7 +1167,7 @@ footer ul.footer-links + p.copyright {
 }
 .notification-cookie .wrapper .btn-close {
   width: 24px;
-  background: url('../images/icon_gray/icon_close.png?1429153744') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_close.png?1429027194') no-repeat 50% 50%;
   font-size: 0;
   cursor: pointer;
   display: table-cell;
@@ -1568,7 +1559,7 @@ footer ul.footer-links + p.copyright {
 .l-side .action-box .login {
   margin-bottom: 10px;
   padding: 20px 20px 5px;
-  background: #FFF;
+  background: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;
   box-shadow: 1px 2px 0 #ccc;
@@ -1591,13 +1582,13 @@ footer ul.footer-links + p.copyright {
 .l-side .action-box .login .links a {
   display: inline-block;
   padding-left: 8px;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429153743') no-repeat 0 center;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 center;
   color: #004165;
   font-size: 12px;
 }
 .l-side .side-title {
   margin-top: 5px;
-  color: #004165;
+  color: #007dba;
   font-size: 18px;
   line-height: 48px;
 }
@@ -1635,26 +1626,34 @@ footer ul.footer-links + p.copyright {
 }
 .l-side .side-menu.financial li a:before {
   content: '';
-  margin-top: -11px;
-  background: url('../images/icon_ocean_blue/side-menu-icons.png?1430709244') 0 0 no-repeat;
+  margin-top: -8px;
+  background: url('../images/icon_ocean_blue/side-menu-icons.png?1429256765') 0 0 no-repeat;
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 21px;
+  height: 16px;
   position: absolute;
   top: 50%;
   left: 16px;
 }
 .l-side .side-menu.financial li a.mobile-payment:before {
-  background-position: 0 -22px;
+  margin-top: -11px;
+  background-position: 0 -16px;
+  width: 20px;
+  height: 22px;
 }
 .l-side .side-menu.financial li a.anz-partner:before {
-  background-position: 0 -44px;
+  margin-top: -10px;
+  background-position: 0 -38px;
+  width: 15px;
+  height: 21px;
+  left: 18px;
 }
 .l-side .side-menu.financial li a.tel-bank:before {
-  background-position: 0 -66px;
-}
-.l-side .side-menu.financial li a.atm:before {
-  background-position: 0 -88px;
+  margin-top: -9px;
+  background-position: 0 -59px;
+  width: 18px;
+  height: 18px;
+  left: 17px;
 }
 .l-side .side-menu.tools .side-menu-list {
   padding: 14px 0 9px 0;
@@ -1681,7 +1680,7 @@ footer ul.footer-links + p.copyright {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429153743') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -1692,7 +1691,7 @@ footer ul.footer-links + p.copyright {
 .l-side .qrcode-scan {
   margin: 20px 0 0 0;
   padding: 152px 25px 20px;
-  background: #f8f8f8 url('../images/qrcode.jpg?1429512420') no-repeat center 20px;
+  background: #f8f8f8 url('../images/qrcode.jpg?1429337288') no-repeat center 20px;
   position: relative;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -1707,7 +1706,7 @@ footer ul.footer-links + p.copyright {
   height: 32px;
   border: 1px solid #2ba106;
   border-radius: 4px;
-  color: #FFF;
+  color: #fff;
   font-size: 15px;
   line-height: 32px;
   text-align: center;
@@ -1780,7 +1779,7 @@ footer ul.footer-links + p.copyright {
     top: 50%;
     right: 20px;
     border-radius: 50px;
-    color: #FFF;
+    color: #fff;
     font-size: 14px;
     font-family: Arial, sans-serif;
     line-height: 24px;
@@ -1800,7 +1799,7 @@ footer ul.footer-links + p.copyright {
   }
   .l-side .side-menu.tools .side-menu-list li {
     margin-top: 1em;
-    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429153743') no-repeat 0 6px;
+    background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') no-repeat 0 6px;
     padding-left: 10px;
   }
   .l-side .side-menu.tools .side-menu-list li:first-child {
@@ -1854,7 +1853,7 @@ footer ul.footer-links + p.copyright {
   }
 }
 .lt-ie9 .l-side .side-menu.tools li a:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429682506') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528061') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }
@@ -1887,9 +1886,10 @@ footer ul.footer-links + p.copyright {
   box-shadow: 0 1px 0 #f4f4f4;
 }
 
-/*.l-main {
-	margin : 20px auto 70px auto;
-}*/
+.l-main {
+  margin: 20px auto 70px auto;
+}
+
 .rwd-menu-list {
   display: none;
 }
@@ -1909,7 +1909,7 @@ footer ul.footer-links + p.copyright {
 .l-content .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429153743') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1933,11 +1933,7 @@ footer ul.footer-links + p.copyright {
   margin-bottom: 10px;
   color: #004165;
   font-size: 22px;
-  width: 100%;
   line-height: 1.5em;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .l-content .msg-desc {
   color: #404040;
@@ -2025,10 +2021,11 @@ footer ul.footer-links + p.copyright {
 }
 
 @media only screen and (max-width: 980px) {
-  /*.l-main {
-  	margin : 0 auto;
-  	width  : 100%;
-  }*/
+  .l-main {
+    margin: 0 auto;
+    width: 100%;
+  }
+
   .rwd-menu-list {
     display: block;
   }
@@ -2302,13 +2299,13 @@ footer .pc-footer .footer-contact-us li {
   float: left;
 }
 footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1429153744') no-repeat;
+  background: url('../images/icon_white/icon_location.png?1429027194') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1429153744') no-repeat;
+  background: url('../images/icon_white/icon_mail.png?1429027194') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1429153744') no-repeat;
+  background: url('../images/icon_white/icon_tel.png?1429027194') no-repeat;
 }
 footer .footer-links {
   overflow: hidden;
@@ -2414,7 +2411,7 @@ footer .footer-links .link:hover {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429153743') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -2441,7 +2438,7 @@ footer .footer-links .link:hover {
 }
 .tools-link .wrapper .accordion-content .note:before {
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429153743') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -2455,11 +2452,11 @@ footer .footer-links .link:hover {
 }
 .tools-link.application .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_application.png?1429682507') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429528061') no-repeat 0 center;
 }
 .tools-link.download .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_download.png?1429682507') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429528061') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -2501,7 +2498,7 @@ footer .footer-links .link:hover {
   padding: 0 0 0 20px;
   display: block;
   position: relative;
-  color: #004165;
+  color: #34a8d3;
   font-size: 14px;
   font-style: normal;
   line-height: 24px;
@@ -2511,7 +2508,7 @@ footer .footer-links .link:hover {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429153743') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027193') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -2532,7 +2529,7 @@ footer .footer-links .link:hover {
   display: block;
 }
 .service .art-img {
-  background: url('../images/remote_banking/anz_partner.png?1429512420') 0 0 no-repeat;
+  background: url('../images/remote_banking/anz_partner.png?1429346617') 0 0 no-repeat;
   display: block;
   position: absolute;
   top: 50%;
@@ -2595,7 +2592,7 @@ footer .footer-links .link:hover {
   }
 }
 .lt-ie9 .service.multi-desc .emphasize:before {
-  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429682506') 0 0 no-repeat;
+  background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528061') 0 0 no-repeat;
   width: 6px;
   height: 10px;
 }

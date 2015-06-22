@@ -202,7 +202,7 @@ a:hover {
 }
 
 .l-main {
-  margin: 20px auto 70px auto;
+  margin: 0 auto;
   width: 960px;
   position: relative;
 }
@@ -233,15 +233,6 @@ a:hover {
   position: relative;
 }
 
-/* screen width <= 800 */
-@media screen and (max-width: 800px) {
-  .l-main {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-/* screen width <= 800 and width > 768 */
-/* screen width < 768 */
 /* Button Default Styles */
 .btn {
   -webkit-box-sizing: border-box;
@@ -1806,7 +1797,7 @@ footer .footer-links .link:hover {
 .index-banner .key-visual {
   overflow: hidden;
   *zoom: 1;
-  background: #ebe5e5 url('../images/remote_banking/kv.jpg?1430113756') no-repeat center 0;
+  background: #ebe5e5 url('../images/remote_banking/kv.jpg?1429512420') no-repeat center 0;
   width: 100%;
   height: 584px;
   position: absolute;
@@ -1815,14 +1806,10 @@ footer .footer-links .link:hover {
 }
 .index-banner .m-breadcrumb {
   position: absolute;
-  top: -69px;
+  top: -53px;
   left: 0;
-  width: 100%;
   height: 53px;
   line-height: 53px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
 }
 .index-banner .m-breadcrumb .link {
   padding: 0 0 0 10px;
@@ -1896,11 +1883,8 @@ footer .footer-links .link:hover {
   border: 5px solid #c0e4f1;
   border-radius: 56px;
   opacity: 0.8;
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
 }
-.index-banner .fast-links .list .link .link-icon {
+.index-banner .fast-links .list .link:after {
   content: '';
   margin: 0 0 0 -35px;
   background: url('../images/remote_banking/icons.png?1430112689') no-repeat 0 0;
@@ -1909,11 +1893,6 @@ footer .footer-links .link:hover {
   position: absolute;
   top: 33px;
   left: 50%;
-  z-index: 10;
-  zoom: 1;
-}
-.index-banner .fast-links .list .link:hover:before {
-  background: #01bcff;
 }
 .index-banner .fast-links .list .link:hover ~ .image {
   top: 48px;
@@ -1932,7 +1911,7 @@ footer .footer-links .link:hover {
   left: 168px;
   opacity: 0;
 }
-.index-banner .fast-links .list.mobile-payment .link .link-icon {
+.index-banner .fast-links .list.mobile-payment .link:after {
   margin-left: -25px;
   background-position: 0 -46px;
   /*width               : 36px;*/
@@ -1949,7 +1928,7 @@ footer .footer-links .link:hover {
   top: 43px;
   left: 233px;
 }
-.index-banner .fast-links .list.anz-partner .link .link-icon {
+.index-banner .fast-links .list.anz-partner .link:after {
   margin-left: -18px;
   background-position: 0 -103px;
   width: 36px;
@@ -1966,7 +1945,7 @@ footer .footer-links .link:hover {
   top: 50px;
   left: 237px;
 }
-.index-banner .fast-links .list.tel-bank .link .link-icon {
+.index-banner .fast-links .list.tel-bank .link:after {
   margin-left: -24px;
   background-position: 0 -160px;
   width: 48px;
@@ -1983,7 +1962,7 @@ footer .footer-links .link:hover {
   top: 63px;
   left: 288px;
 }
-.index-banner .fast-links .list.atm .link .link-icon {
+.index-banner .fast-links .list.atm .link:after {
   margin-left: -30px;
   background-position: 0 -209px;
   width: 60px;
@@ -2194,9 +2173,6 @@ footer .footer-links .link:hover {
     padding-right: 10px;
     padding-left: 10px;
   }
-  .index-banner .m-breadcrumb {
-    top: -53px;
-  }
   .index-banner .promo .list {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -2249,7 +2225,7 @@ footer .footer-links .link:hover {
     padding-left: 10px;
   }
   .index-banner .fast-links {
-    padding-top: 230px;
+    padding-top: 278px;
   }
   .index-banner .fast-links .list {
     padding: 10px 0;
@@ -2277,7 +2253,7 @@ footer .footer-links .link:hover {
     border: 2px solid #c0e4f1;
     border-radius: 50%;
   }
-  .index-banner .fast-links .list .link .link-icon {
+  .index-banner .fast-links .list .link:after {
     margin: -11px 0 0 0;
     background-size: 35px;
     width: 35px;
@@ -2288,30 +2264,30 @@ footer .footer-links .link:hover {
   .index-banner .fast-links .list .image {
     display: none;
   }
-  .index-banner .fast-links .list.mobile-payment .link .link-icon {
+  .index-banner .fast-links .list.mobile-payment .link:after {
     margin-top: -14px;
     background-position: 0 -23px;
-    /*width               : 18px;*/
-    height: 28px;
-    left: 61px;
-  }
-  .index-banner .fast-links .list.anz-partner .link .link-icon {
-    margin-top: -15px;
-    background-position: 0 -52px;
-    width: 24px;
+    width: 18px;
     height: 28px;
     left: 57px;
   }
-  .index-banner .fast-links .list.tel-bank .link .link-icon {
+  .index-banner .fast-links .list.anz-partner .link:after {
+    margin-top: -15px;
+    background-position: 0 -52px;
+    width: 24px;
+    height: 22px;
+    left: 60px;
+  }
+  .index-banner .fast-links .list.tel-bank .link:after {
     margin-top: -17px;
-    background-position: 0 -80px;
+    background-position: 0 -74px;
     width: 24px;
     height: 24px;
     left: 60px;
   }
-  .index-banner .fast-links .list.atm .link .link-icon {
+  .index-banner .fast-links .list.atm .link:after {
     margin-top: -19px;
-    background-position: 0 -104px;
+    background-position: 0 -98px;
     width: 30px;
     height: 17px;
     left: 64px;
@@ -2341,11 +2317,6 @@ footer .footer-links .link:hover {
     display: none;
   }
 }
-@media only screen and (max-width: 376px) {
-  .index-banner .fast-links {
-    padding-top: 201px;
-  }
-}
 .lt-ie9 .index-banner:before {
   content: '';
   background: #f8f8f8;
@@ -2360,33 +2331,14 @@ footer .footer-links .link:hover {
 .lt-ie9 .index-banner .fast-links .list .image {
   display: none;
 }
-.lt-ie9 .index-banner .fast-links .list .link {
-  position: relative;
-}
 .lt-ie9 .index-banner .fast-links .list .link:hover ~ .image {
   display: block;
 }
-.lt-ie9 .index-banner .fast-links .list .link .link-bg {
-  top: 0;
-  left: 50%;
-  margin-left: -56px;
+.lt-ie9 .index-banner .fast-links .list .link:before {
+  background: url('../images/remote_banking/for-ie8/icons_bg.png?1430112454') no-repeat 0 0;
   width: 112px;
   height: 112px;
-  display: block;
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1430286893') no-repeat center 0;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-  *zoom: 1;
-}
-.lt-ie9 .index-banner .fast-links .list .link:before {
-  display: none;
-}
-.lt-ie9 .index-banner .fast-links .list .link .link-icon {
-  z-index: 10;
-}
-.lt-ie9 .index-banner .fast-links .list .link:hover .link-bg {
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1430286893') no-repeat 0 -112px;
+  border: 0;
 }
 .lt-ie9 .index-banner .promo .link:before, .lt-ie9 .index-banner .promo .link:after {
   display: none;

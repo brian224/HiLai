@@ -202,7 +202,7 @@ a:hover {
 }
 
 .l-main {
-  margin: 20px auto 70px auto;
+  margin: 0 auto;
   width: 960px;
   position: relative;
 }
@@ -233,15 +233,6 @@ a:hover {
   position: relative;
 }
 
-/* screen width <= 800 */
-@media screen and (max-width: 800px) {
-  .l-main {
-    margin: 0 auto;
-    width: 100%;
-  }
-}
-/* screen width <= 800 and width > 768 */
-/* screen width < 768 */
 /* Button Default Styles */
 .btn {
   -webkit-box-sizing: border-box;
@@ -364,7 +355,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429153743') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -418,7 +409,7 @@ a:hover {
   right: 10px;
   width: 34px;
   height: 34px;
-  background: #394a58 url('../images/icon_magnifier_sky.png?1429153743') no-repeat center center;
+  background: #394a58 url('../images/icon_magnifier_sky.png?1429027194') no-repeat center center;
   display: block;
   position: absolute;
   -moz-border-radius: 0 4px 4px 0;
@@ -430,7 +421,7 @@ a:hover {
 header {
   font-size: 0;
   height: 50px;
-  background: #004165 url('../images/bg_header.png?1429153743') no-repeat center 0;
+  background: #004165 url('../images/bg_header.png?1429027194') no-repeat center 0;
 }
 header .wrapper {
   height: 100%;
@@ -455,7 +446,7 @@ header .logo {
   width: 266px;
   height: 50px;
   float: left;
-  background: url('../images/bg_header_logo.png?1429153744') no-repeat;
+  background: url('../images/bg_header_logo.png?1429027194') no-repeat;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -511,7 +502,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429153743') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027193') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -543,7 +534,7 @@ header .rwd-btn .login {
   position: relative;
 }
 header .rwd-btn .login > a {
-  background-image: url('../images/icon_white/icon_lock2_white.png?1429153744');
+  background-image: url('../images/icon_white/icon_lock2_white.png?1429027194');
 }
 header .rwd-btn .login .dropdown-menu {
   right: 0;
@@ -557,13 +548,13 @@ header .rwd-btn .search {
   display: none;
 }
 header .rwd-btn .search > a {
-  background-image: url('../images/icon_white/icon_magnifier_white.png?1429153744');
+  background-image: url('../images/icon_white/icon_magnifier_white.png?1429027194');
 }
 header .search-bar {
   text-align: left;
   width: 150px;
   height: 32px;
-  background: #004165 url('../images/icon_magnifier_sky.png?1429153743') no-repeat 95% center;
+  background: #004165 url('../images/icon_magnifier_sky.png?1429027194') no-repeat 95% center;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -591,7 +582,7 @@ header .search-bar .search-act-btn {
   position: absolute;
   width: 30px;
   height: 32px;
-  background: url('../images/icon_magnifier_sky.png?1429153743') no-repeat center center;
+  background: url('../images/icon_magnifier_sky.png?1429027194') no-repeat center center;
   display: block;
 }
 
@@ -1159,7 +1150,7 @@ footer ul.footer-links + p.copyright {
   font-size: 0;
   width: 48px;
   height: 68px;
-  background: url('../images/icon_gray/icon_computer_circle.png?1429153744') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_computer_circle.png?1429027194') no-repeat 50% 50%;
   display: table-cell;
 }
 .notification-cookie .wrapper p {
@@ -1176,7 +1167,7 @@ footer ul.footer-links + p.copyright {
 }
 .notification-cookie .wrapper .btn-close {
   width: 24px;
-  background: url('../images/icon_gray/icon_close.png?1429153744') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_close.png?1429027194') no-repeat 50% 50%;
   font-size: 0;
   cursor: pointer;
   display: table-cell;

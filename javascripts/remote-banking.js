@@ -29,11 +29,8 @@ $(document).ready(function(){
 	$mobileTitle.on('click', function(){
 		var _idx = $(this).parent().index();
 
-		// $(this).parent().toggleClass('curr').siblings().removeClass('curr');
-		// $tabList.removeClass('curr').eq(_idx).addClass('curr');
-
-		$(this).parent().toggleClass('curr');
-		$tabList.eq(_idx).addClass('curr');
+		$(this).parent().toggleClass('curr').siblings().removeClass('curr');
+		$tabList.removeClass('curr').eq(_idx).addClass('curr');
 	});
 
 	$accordionHeading.on('click', function(){

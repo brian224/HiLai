@@ -170,7 +170,7 @@
 		}
 
 		.table-head {
-			background : #0294c9;
+			background : #06a7ef;
 			color      : $bright;
 			font-size  : 16px;
 		}
@@ -235,18 +235,6 @@
 }
 
 .lt-ie9 {
-	.m-tab-content {
-		.procedure {
-			.step-wrap {
-				.step-list {
-					margin-right : 22px;
-					min-width    : 183px;
-					@include box-sizing(border-box);
-				}
-			}
-		}
-	}
-
 	.m-tab-content .procedure .step-wrap .step-table.turns {
 		margin-left : 52px;
 
