@@ -1,4 +1,4 @@
-.tools-link {
+﻿.tools-link {
 	background-color : #ededed;
 	border-top       : 1px solid #d5d5d5;
 
@@ -36,55 +36,128 @@
 			max-height : 0;
 			overflow   : hidden;
 
-			.link {
-				padding     : 0 0 0 16px;
-				display     : block;
-				position    : relative;
-				line-height : 26px;
+			.check-area {
+				padding-left : 30px;
 
-				&:before {
-					@include transform(rotate(-90deg));
-					content    : '';
-					background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
-					display    : block;
-					width      : 10px;
-					height     : 6px;
-					position   : absolute;
-					top        : 10px;
-					left       : 0;
+				.lab {
+					margin-right : 28px;
 				}
 			}
 
-			.desc {
-				margin    : 0 0 10px 0;
-				display   : block;
-				font-size : 15px;
-			}
+			.lab {
+				@include box-sizing(border-box);
+				margin      : 0 0 28px 0;
+				display     : inline-block;
+				color       : #444;
+				font-size   : 14px;
+				line-height : 34px;
 
-			.explanation {
-				margin-bottom : 20px;
-				padding-left  : 20px;
-
-				.list {
-					list-style  : decimal outside;
-					line-height : 26px;
+				&.large {
+					padding-left : 30px;
+					display      : block;
+					width        : 320px;
+					float        : left;
 				}
 
-			}
-			
-			.note {
-				padding  : 0 0 0 15px;
-				position : relative;
+				.text {
+					display        : inline-block;
+					width          : 75px;
+					vertical-align : top;
+				}
 
-				&:before {
-					content    : '';
-					background : image-url('icon_arrow/icon_arrow_right_gray_s.png') 0 0 no-repeat;
+				&.radio, &.check {
+					padding  : 0 0 0 20px;
+					position : relative;
+					cursor   : pointer;
+
+					&:before {
+						@include box-sizing(border-box);
+						content       : '';
+						margin-top    : -8px;
+						background    : #fff;
+						display       : block;
+						width         : 16px;
+						height        : 16px;
+						position      : absolute;
+						top           : 50%;
+						left          : 0;
+						border        : 1px solid #bdbdbd;
+						border-radius : 50%;
+					}
+
+					&.is-curr:before {
+						content     : '✓';
+						background  : #06a9f1;
+						border      : 1px solid #06a9f1;
+						color       : #fff;
+						font-size   : 12px;
+						line-height : 12px;
+						text-indent : 2px;
+					}
+
+					.radioBox, .chkBox {
+						display : none;
+					}
+				}
+
+				.inputBox {
+					@include box-sizing(border-box);
+					margin-left   : 5px;
+					display       : inline-block;
+					width         : 208px;
+					height        : 34px;
+					border        : 1px solid #bdbdbd;
+					border-radius : 4px;
+					color         : #444;
+					font-size     : 14px;
+					line-height   : 34px;
+					text-indent   : 10px;
+				}
+
+				.selecter {
+					display : inline-block;
+					width   : 208px;
+
+					.selecter-selected {
+						@include box-sizing(border-box);
+						padding          : 0;
+						background-color : #fff;
+						height           : 34px;
+						border           : 1px solid #bdbdbd;
+						line-height      : 34px;
+						text-indent      : 10px;
+					}
+				}
+
+				.see-clause {
+					color           : #0e8bcb;
+					text-decoration : underline;
+				}
+			}
+
+			.btn-wrap {
+				text-align : center;
+
+				.btn-process {
+					@include background-image(linear-gradient(#81ce1d, #119208));
+					margin         : 10px auto;
+					display        : block;
+					width          : 264px;
+					height         : 36px;
+					border         : 1px solid #36a513;
+					border-radius  : 4px;
+					color          : #fff;
+					font-size      : 15px;
+					font-weight    : bold;
+					letter-spacing : 1px;
+					line-height    : 36px;
+				}
+
+				.desc {
 					display    : block;
-					width      : 4px;
-					height     : 7px;
-					position   : absolute;
-					top        : 6px;
-					left       : 2px;
+					color      : $fontGray;
+					font-size  : 12px;
+					font-style : normal;
 				}
 			}
 		}

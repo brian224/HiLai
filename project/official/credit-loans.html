@@ -515,7 +515,7 @@
           <a class="link" title="信用貸款" href="javascript:;">信用貸款</a>
         </div>
         <h2 class="slogan">澳盛信用貸款<br>貸你圓夢享更多</h2>
-        <a class="btn_sheet" href="javascript:;">馬上試算</a>
+        <a class="btn-sheet" href="javascript:;">馬上試算</a>
         <ul class="fast-links">
           <li class="list mem-favor">
             <a class="link" href="mem-favor.html">
@@ -595,20 +595,30 @@
           <p>申請信用貸款</p>
         </div><!-- End of .accordion-heading -->
         <div class="accordion-content">
-          <label class="lab"><input class="radioBox" type="radio" name="member" value="member" checked>卡友</label>
-          <label class="lab"><input class="radioBox" type="radio" name="member" value="nonMember">非卡友</label>
-          <label class="lab">中文姓名<input class="inputBox" type="text" value="" placeholder=""></label>
-          <label class="lab">身份證字號<input class="inputBox" type="text" value="" placeholder=""></label>
-          <label class="lab">行動電話<input class="inputBox" type="tel" value="" placeholder=""></label>
-          <label class="lab">市內電話<input class="inputBox" type="tel" value="" placeholder=""></label>
-          <label class="lab">電子郵件<input class="inputBox" type="email" value="" placeholder=""></label>
-          <label class="lab">聯絡時間
+          <div class="check-area">
+            <label class="lab radio is-curr"><input class="radioBox" type="radio" name="member" value="member" checked>卡友</label>
+            <label class="lab radio"><input class="radioBox" type="radio" name="member" value="nonMember">非卡友</label>
+          </div>
+          <label class="lab large"><span class="text">中文姓名</span><input class="inputBox" type="text" value="" placeholder=""></label>
+          <label class="lab large"><span class="text">身份證字號</span><input class="inputBox" type="text" value="" placeholder=""></label>
+          <label class="lab large"><span class="text">行動電話</span><input class="inputBox" type="tel" value="" placeholder=""></label>
+          <label class="lab large"><span class="text">市內電話</span><input class="inputBox" type="tel" value="" placeholder=""></label>
+          <label class="lab large"><span class="text">電子郵件</span><input class="inputBox" type="email" value="" placeholder=""></label>
+          <label class="lab large"><span class="text">聯絡時間</span>
             <select class="selector">
+              <option>請選擇方便聯絡時間</option>
               <option>請選擇方便聯絡時間</option>
             </select>
           </label>
-          <label class="lab"><input class="chkBox" type="checkbox" name="" value="" checked>我有扣繳憑單/每月薪資證明</label>
-          <label class="lab"><input class="chkBox" type="checkbox" name="" value="" checked>我對澳盛銀行信用卡有興趣請專人與我聯繫</label>
+          <div class="check-area">
+            <label class="lab check is-curr"><input class="chkBox" type="checkbox" name="" value="" checked>我有扣繳憑單/每月薪資證明</label>
+            <label class="lab check is-curr"><input class="chkBox" type="checkbox" name="" value="" checked>我對澳盛銀行信用卡有興趣請專人與我聯繫</label>
+            <label class="lab check"><input class="chkBox" type="checkbox" name="" value="">我已閱讀並了解ANZ履行<a class="see-clause" href="javascript:;" target="_blank">個資法第8條告知義務內容</a></label>
+          </div>
+          <div class="btn-wrap">
+            <a class="btn-process" href="javascript:;">立即申辦</a>
+            <em class="desc">申請人須年滿20歲，且年收入NT$30萬以上(含)。</em>
+          </div>
         </div>
       </div><!-- End of .wrapper -->
     </div>
@@ -713,6 +723,6 @@
   <script src="../../javascripts/placeholders.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/selectivizr-min.js" type="text/javascript" ></script>
   <script src="../../javascripts/main.js" type="text/javascript" ></script>
-  <script src="../../javascripts/remote-banking.js" type="text/javascript" ></script>
+  <script src="../../javascripts/credit-loans.js" type="text/javascript" ></script>
 </body>
 </html>

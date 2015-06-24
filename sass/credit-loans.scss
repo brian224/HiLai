@@ -88,7 +88,7 @@
 		line-height : 60px;
 	}
 
-	.btn_sheet {
+	.btn-sheet {
 		@include background-image(linear-gradient(#06a8ef 4%, #0594d7 7%, #0471ad 100%));
 		display        : block;
 		width          : 158px;
@@ -522,7 +522,7 @@ footer {
 			line-height : 1.5em;
 		}
 
-		.btn_sheet {
+		.btn-sheet {
 			top  : 150px;
 			left : 20px;
 		}
