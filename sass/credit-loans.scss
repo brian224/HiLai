@@ -658,17 +658,13 @@ footer {
 		.key-visual {
 			background-position : center 0;
 		}
-
-		.fast-links {
-			padding-top : 201px;
-		}
 	}
 }
 
 .lt-ie9 {
 	.index-banner {
 		&:before {
-			content    :'';
+			content    : '';
 			background : #f8f8f8;
 			display    : block;
 			width      : 100%;

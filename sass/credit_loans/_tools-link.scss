@@ -38,6 +38,7 @@
 
 			.check-area {
 				padding-left : 30px;
+				clear        : both;
 
 				.lab {
 					margin-right : 28px;
@@ -73,13 +74,12 @@
 					&:before {
 						@include box-sizing(border-box);
 						content       : '';
-						margin-top    : -8px;
 						background    : #fff;
 						display       : block;
 						width         : 16px;
 						height        : 16px;
 						position      : absolute;
-						top           : 50%;
+						top           : 9px;
 						left          : 0;
 						border        : 1px solid #bdbdbd;
 						border-radius : 50%;
@@ -198,11 +198,6 @@
 					background-position : 20px center;
 				}
 			}
-
-			.accordion-content {
-				padding-right : 20px !important;
-				padding-left  : 20px !important;
-			}
 		}
 
 		&.application p, &.download p {
@@ -212,7 +207,51 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.tools-link .wrapper .accordion-heading p {
-		background-position : 20px center !important;
+	.tools-link .wrapper {
+		.accordion-heading p {
+			background-position : 20px center !important;
+		}
+
+		.accordion-content {
+			.lab {
+				margin-bottom : 16px;
+
+				&.large {
+					@include box-sizing(border-box);
+					padding : 0 30px;
+				}
+
+				&.radio:before, &.check:before {
+					top : 2px;
+				}
+
+				.inputBox {
+					margin : 0;
+					width  : 100%;
+				}
+
+				.selecter {
+					margin  : 0;
+					display : block;
+					width   : 100%;
+
+					.selecter-selected {
+						color : #999;
+					}
+				}
+
+				.text {
+					display : none;
+				}
+			}
+
+			.check-area .lab {
+				line-height : 20px;
+			}
+		}
+
+		.see-clause {
+			display : inline-block;
+		}
 	}
 }
