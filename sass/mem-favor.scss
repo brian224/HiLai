@@ -1,0 +1,161 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "credit_loans/_l-side";
+@import "credit_loans/_l-content";
+@import "credit_loans/_footer";
+@import "credit_loans/_tools-link";
+
+.service {
+	margin   : 0 0 40px 0;
+	position : relative;
+
+	&:nth-child(2n+1) {
+		padding  : 0 40px 0 225px;
+	}
+
+	&:nth-child(2n) {
+		padding  : 0 265px 0 0;
+
+		.art-img {
+			left  : auto;
+			right : 0;
+		}
+	}
+
+	&.multi-desc {
+		.emphasize {
+			padding     : 0 0 0 20px;
+			display     : block;
+			position    : relative;
+			color       : #004165;
+			font-size   : 14px;
+			font-style  : normal;
+			line-height : 24px;
+
+			&:before {
+				@include transform(rotate(-90deg));
+				content    : '';
+				background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+				display    : block;
+				width      : 10px;
+				height     : 6px;
+				position   : absolute;
+				top        : 8px;
+				left       : 2px;
+			}
+		}
+
+		.art-content {
+			padding : 0 0 0 20px;
+		}
+	}
+
+	.art-content {
+		margin-bottom : 20px;
+		color         : $fontGray;
+		font-size     : 14px;
+		line-height   : 24px;
+	}
+
+	.sub-title {
+		display : block;
+	}
+
+	.art-img {
+		background : image-url('remote_banking/anz_partner.png') 0 0 no-repeat;
+		display    : block;
+		position   : absolute;
+		top        : 50%;
+		left       : 0;
+	}
+
+	&.secretary .art-img {
+		margin : -98px 0 0 0;
+		width  : 183px;
+		height : 195px;
+	}
+
+	&.bank .art-img {
+		margin              : -104px 0 0 0;
+		background-position : 0 -245px;
+		width               : 245px;
+		height              : 208px;
+	}
+
+	&.food {
+		padding-left : 265px;
+		height       : 165px;
+
+		.art-img {
+			margin              : -83px 0 0 0;
+			background-position : 0 -453px;
+			width               : 245px;
+			height              : 165px;
+		}
+	}
+
+	&.location {
+		height : 156px;
+
+		.art-img {
+			margin              : -78px 0 0 0;
+			background-position : 0 -638px;
+			width               : 210px;
+			height              : 156px;
+		}
+	}
+
+	&.introduction {
+		height : 171px;
+
+		.art-img {
+			margin              : -85px 0 0 0;
+			background-position : 0 -794px;
+			width               : 183px;
+			height              : 171px;
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+	.middleSet:before {
+		display : none;
+	}
+
+	.service {
+		padding : 0 !important;
+		height  : auto !important;
+
+		.art-img {
+			margin   : 20px auto 0 !important;
+			position : relative;
+			top      : 0 !important;
+			left     : 0 !important;
+		}
+	}
+}
+
+.lt-ie9 {
+	.service.multi-desc .emphasize:before {
+		background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+		width      : 6px;
+		height     : 10px;
+	}
+}
