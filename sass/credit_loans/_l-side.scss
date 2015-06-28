@@ -50,22 +50,20 @@
 			border-radius : 4px;
 			box-shadow    : 1px 2px 0 #ccc;
 
-			li {
-				> a {
-					@include box-sizing(border-box);
-					display     : block;
-					width       : 100%;
-					color       : $secondary-color;
-					font-size   : 14px;
-					line-height : 26px;
+			li > a {
+				@include box-sizing(border-box);
+				display     : block;
+				width       : 100%;
+				color       : $secondary-color;
+				font-size   : 14px;
+				line-height : 26px;
 
-					&.curr {
-						color : $main-color;
-					}
+				&.curr {
+					color : $main-color;
+				}
 
-					&:hover {
-						background : #f3f3f3;
-					}
+				&:hover {
+					background : #f3f3f3;
 				}
 			}
 		}
@@ -78,8 +76,54 @@
 					border-top : 0;
 				}
 
+				&.has-sub-menu {
+					position : relative;
+
+					> a:after {
+						content    : '';
+						background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+						display    : block;
+						width      : 10px;
+						height     : 6px;
+						position   : absolute;
+						top        : 15px;
+						right      : 20px;
+					}
+				}
+
 				.sub-menu {
-					display : none;
+					@include transition(all .3s ease-in-out);
+					background : #f3f3f3;
+					max-height : 0;
+					overflow   : hidden;
+
+					&:before {
+						content    : '';
+						background : #ddd;
+						display    : block;
+						width      : 100%;
+						height     : 1px;
+					}
+
+					li {
+						border : none;
+
+						&:hover a {
+							color : $main-color;
+						}
+					}
+
+					.page-link:before {
+						margin            : -5px 0 0 5px;
+						background        : none;
+						width             : 5px;
+						height            : 5px;
+						border-right      : 2px solid #999;
+						border-bottom     : 2px solid #999;
+						-webkit-transform : rotate(-45deg);
+						-moz-transform    : rotate(-45deg);
+						transform         : rotate(-45deg);
+					}
 				}
 
 				> a {
@@ -105,7 +149,7 @@
 						}
 
 						&.curr ~ .sub-menu {
-							display : block;
+							max-height : 1000px;
 						}
 					}
 
@@ -162,36 +206,142 @@
 		}
 	}
 
-	.qrcode-scan {
-		margin        : 20px 0 0 0;
-		padding       : 152px 25px 20px;
-		background    : #f8f8f8 image-url('qrcode.jpg') no-repeat center 20px;
-		position      : relative;
+	.side-form-list {
+		padding-top   : 20px;
 		border        : 1px solid #ddd;
 		border-radius : 4px;
 		box-shadow    : 1px 2px 0 #ccc;
 
-		.btn-download {
-			@include background-image(linear-gradient(#81ce1d, #119208));
-			margin        : 15px 0 12px 0;
-			display       : block;
-			height        : 32px;
-			border        : 1px solid #2ba106;
-			border-radius : 4px;
-			color         : #FFF;
-			font-size     : 15px;
-			line-height   : 32px;
-			text-align    : center;
+		.check-area {
+			padding : 0 25px;
+			clear   : both;
 
-			&:hover {
-				@include background-image(linear-gradient(#119208, #81ce1d));
+			.lab {
+				line-height : 20px;
+
+				&.radio {
+					margin-right : 28px;
+				}
 			}
 		}
 
-		.desc {
-			color       : $fontGray;
+		.input-area {
+			padding : 0 25px;
+		}
+
+		.lab {
+			@include box-sizing(border-box);
+			margin      : 0 0 16px 0;
+			display     : inline-block;
+			color       : #444;
 			font-size   : 12px;
-			line-height : 20px;
+			line-height : 34px;
+
+			&.large {
+				display : block;
+			}
+
+			.text {
+				display : none;
+			}
+
+			&.radio, &.check {
+				padding  : 0 0 0 20px;
+				position : relative;
+				cursor   : pointer;
+
+				&:before {
+					@include box-sizing(border-box);
+					content       : '';
+					background    : #efefef;
+					display       : block;
+					width         : 16px;
+					height        : 16px;
+					position      : absolute;
+					top           : 2px;
+					left          : 0;
+					border        : 1px solid #bdbdbd;
+					border-radius : 50%;
+				}
+
+				&.is-curr:before {
+					content     : '✓';
+					background  : #06a9f1;
+					border      : 1px solid #06a9f1;
+					color       : #fff;
+					font-size   : 12px;
+					line-height : 12px;
+					text-indent : 2px;
+				}
+
+				.radioBox, .chkBox {
+					display : none;
+				}
+			}
+
+			.inputBox {
+				@include box-sizing(border-box);
+				background    : #efefef;
+				display       : inline-block;
+				width         : 100%;
+				height        : 34px;
+				border        : 1px solid #bdbdbd;
+				border-radius : 4px;
+				color         : #444;
+				font-size     : 14px;
+				line-height   : 34px;
+				text-indent   : 10px;
+			}
+
+			.selecter-selected {
+				@include box-sizing(border-box);
+				padding          : 0;
+				background-color : #efefef;
+				height           : 34px;
+				border           : 1px solid #bdbdbd;
+				color            : #999;
+				line-height      : 34px;
+				text-indent      : 10px;
+			}
+
+			.see-clause {
+				color           : #0e8bcb;
+				text-decoration : underline;
+			}
+		}
+
+		.btn-wrap {
+			padding    : 55px 35px 15px 35px;
+			position   : relative;
+			border-top : 1px solid #ddd;
+
+			.btn-process {
+				@include background-image(linear-gradient(#81ce1d, #119208));
+				margin        : 15px 0 3px 0;
+				display       : block;
+				height        : 32px;
+				border        : 1px solid #2ba106;
+				border-radius : 4px;
+				color         : #FFF;
+				font-size     : 15px;
+				line-height   : 32px;
+				text-align    : center;
+
+				&:hover {
+					@include background-image(linear-gradient(#119208, #81ce1d));
+				}
+			}
+
+			.desc {
+				width       : 163px;
+				position    : absolute;
+				top         : 15px;
+				left        : 35px;
+				color       : $fontGray;
+				font-size   : 12px;
+				font-style  : normal;
+				line-height : 20px;
+			}
 		}
 	}
 }
@@ -222,7 +372,6 @@
 			&.tools {
 				@include background-image(linear-gradient(#FFF, #f4f4f4));
 				@include clearfix;
-				margin-top : 20px;
 				border-top : 1px solid #ddd;
 
 				&.open {
@@ -300,58 +449,229 @@
 			}
 		}
 
-		.qrcode-scan {
-			@include background-image(linear-gradient(#FFF, #f4f4f4));
-			@include box-sizing(border-box);
-			@include clearfix;
-			margin-top          : 0;
-			padding             : 0 20px 0 144px;
-			background-position : 0 0;
-			height              : 55px;
-			position            : relative;
-			border              : 0;
-			border-top          : 1px solid #ddd;
-			border-radius       : 0;
-			box-shadow          : none;
+		.application {
+			background-color : #ededed;
+			border-top       : 1px solid #d5d5d5;
 
-			&:after {
-				display : none;
+			.side-title {
+				margin-top   : 0;
+				padding-left : 50px;
+				background   : image-url('icon_gray/icon_application.png') no-repeat 20px center;
+				position     : relative;
+				cursor       : pointer;
+				font-size    : 15px;
+				line-height  : 59px;
+
+				&:after {
+					content       : '+';
+					margin-top    : -12px;
+					background    : $main-color;
+					display       : block;
+					width         : 24px;
+					height        : 24px;
+					position      : absolute;
+					top           : 50%;
+					right         : 20px;
+					border-radius : 50px;
+					color         : $bright;
+					font-size     : 14px;
+					line-height   : 24px;
+					text-align    : center;
+				}
 			}
 
-			.btn-download {
-				margin   : -16px 0 0 0;
-				padding  : 0 20px;
-				display  : inline-block;
-				position : absolute;
-				top      : 50%;
-				left     : 20px;
+			.side-form-list {
+				@include box-sizing(border-box);
+				@include transition(all .3s ease-in-out);
+				padding       : 0;
+				max-height    : 0;
+				border        : none;
+				border-radius : none;
+				box-shadow    : none;
+				overflow      : hidden;
+
+				.check-area {
+					padding-left : 30px;
+					clear        : both;
+				}
+
+				.input-area {
+					padding : 0;
+				}
+
+				.lab {
+					margin-bottom : 28px;
+					font-size     : 14px;
+					line-height   : 34px;
+
+					&.radio, &.check {
+						margin-right : 28px;
+
+                        &:before {
+							background : #fff;
+							top        : 9px;
+						}
+
+						&.is-curr:before {
+							background : #06a9f1;
+						}
+					}
+
+					&.large {
+						padding-left : 30px;
+						display      : block;
+						width        : 320px;
+						float        : left;
+					}
+
+					.inputBox {
+						margin-left : 5px;
+						background  : #fff;
+						display     : inline-block;
+						width       : 208px;
+						height      : 34px;
+
+						&::-webkit-input-placeholder {
+							color : #fff;
+						}
+
+						&:-moz-placeholder {
+							color : #fff;
+						}
+
+						&::-moz-placeholder {
+							color : #fff;
+						}
+
+						&:-ms-input-placeholder {
+							color : #fff;
+						}
+					}
+
+					.text {
+						display        : inline-block;
+						width          : 75px;
+						vertical-align : top;
+					}
+
+					.selecter {
+						display : inline-block;
+						width   : 208px;
+
+						.selecter-selected {
+							background-color : #fff;
+							border           : 1px solid #bdbdbd;
+							color            : #004165;
+						}
+					}
+				}
+
+				.btn-wrap {
+					padding    : 0;
+					border-top : 0;
+
+					.btn-process {
+						margin         : 10px auto;
+						width          : 264px;
+						height         : 36px;
+						letter-spacing : 1px;
+						line-height    : 36px;
+					}
+
+					.desc {
+						display     : block;
+						width       : 100%;
+						position    : relative;
+						top         : auto;
+						left        : auto;
+						line-height : auto;
+						text-align  : center;
+					}
+				}
+			}
+
+			&.open {
+				.side-title:after {
+					content : '\2013';
+				}
+
+				.side-form-list {
+					padding    : 0 0 20px 0;
+					max-height : 1000px;
+				}
 			}
 		}
 	}
 }
 
 @media only screen and (max-width: 600px) {
-	.l-side .qrcode-scan {
-		padding    : 10px 20px 10px 144px;
-		height     : auto;
-		min-height : 55px;
+	.l-side .application .side-form-list {
+		.lab {
+			margin-bottom : 16px;
+
+			&.large {
+				@include box-sizing(border-box);
+				padding : 0 30px;
+			}
+
+			&.radio:before, &.check:before {
+				top : 2px;
+			}
+
+			.inputBox {
+				margin : 0;
+				width  : 100%;
+
+				&::-webkit-input-placeholder {
+					color : #999;
+				}
+
+				&:-moz-placeholder {
+					color : #999;
+				}
+
+				&::-moz-placeholder {
+					color : #999;
+				}
+
+				&:-ms-input-placeholder {
+					color : #999;
+				}
+			}
+
+			.selecter {
+				margin  : 0;
+				display : block;
+				width   : 100%;
+
+				.selecter-selected {
+					color : #999;
+				}
+			}
+
+			.text {
+				display : none;
+			}
+		}
+
+		.check-area {
+			padding-right : 0;
+
+			.lab {
+				line-height : 20px;
+			}
+		}
+
+		.see-clause {
+			display : inline-block;
+		}
 	}
 }
 
 .lt-ie9 {
-	.l-side {
-		.side-menu.tools li a:before {
-			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
-			width      : 6px;
-			height     : 10px;
-		}
-
-		.qrcode-scan .btn-download {
-			background : #119208;
-
-			&:hover {
-				background: #81ce1d;
-			}
-		}
+	.l-side .side-menu.tools li a:before {
+		background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+		width      : 6px;
+		height     : 10px;
 	}
 }

@@ -1,10 +1,24 @@
 $(document).ready(function(){
-	var $accordionHeading = $('.accordion-heading'),
-		$radioLab         = $('.lab.radio'),
-		$checkLab         = $('.lab.check'),
-		$selecter         = $('.selecter');
+	var $switchBar   = $('.accordion-heading, .feature-desc'),
+		$radioLab    = $('.lab.radio'),
+		$checkLab    = $('.lab.check'),
+		$selecter    = $('.selecter'),
+		$rwdMenuList = $('.rwd-menu-list'),
+		$hasSubMenu  = $('.has-sub-menu'),
+		$sideTitle   = $('.side-title'),
+		_rwdMenu     = $('.credit-loans .side-menu-list').html();
 
-	$accordionHeading.on('click', function(){
+	$rwdMenuList.html(_rwdMenu);
+
+	$sideTitle.on('click', function(){
+		var _winWidth = $(window).width();
+
+		if (_winWidth < 980) {
+			$(this).parent().toggleClass('open');
+		}
+	});
+
+	$switchBar.on('click', function(){
 		$(this).parent().toggleClass('open');
 	});
 
@@ -18,6 +32,14 @@ $(document).ready(function(){
 		} else {
 			$(this).parent().removeClass('is-curr');
 		}
+	});
+
+	$hasSubMenu.on('click', function(){
+		$(this).find('>a').toggleClass('curr');
+	});
+
+	$rwdMenuList.on('click', '.has-sub-menu', function(){
+		$(this).find('>a').toggleClass('curr');
 	});
 
 	$selecter.hover(function(){

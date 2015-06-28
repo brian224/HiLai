@@ -181,7 +181,7 @@
 
 		&.open {
 			.accordion-heading:after {
-				content : '-';
+				content : '\2013';
 			}
 
 			.accordion-content {
