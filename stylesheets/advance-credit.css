@@ -2853,153 +2853,78 @@ footer .footer-links .link:hover {
     display: inline-block;
   }
 }
-.sheet-calculate {
+.form-step {
   margin-bottom: 40px;
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
 }
-.sheet-calculate .calculate-input {
-  padding: 20px 25px;
-  border-bottom: 1px solid #ddd;
-}
-.sheet-calculate .calculate-input .text {
-  color: #26445e;
-  font-size: 18px;
-  line-height: 1.6em;
-}
-.sheet-calculate .calculate-input .slider-wrap {
-  overflow: hidden;
-  *zoom: 1;
-  margin: 0 0 35px 0;
-  padding: 30px 120px;
-  position: relative;
-}
-.sheet-calculate .calculate-input .slider-wrap .min-text, .sheet-calculate .calculate-input .slider-wrap .max-text {
-  width: 80px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: #26445e;
-  font-size: 18px;
-  line-height: 81px;
-  text-align: right;
-}
-.sheet-calculate .calculate-input .slider-wrap .max-text {
-  left: auto;
-  right: 0;
-  text-align: left;
-}
-.sheet-calculate .calculate-input .slider-wrap .amount {
-  color: #404040;
-  font-size: 24px;
-}
-.sheet-calculate .calculate-input .slider-range {
-  background: #bebebe;
-  height: 21px;
-  position: relative;
-  border-radius: 10px;
-}
-.sheet-calculate .calculate-input .slider-range:before, .sheet-calculate .calculate-input .slider-range:after {
-  content: '';
+.form-step .step-progress {
   background: #0294c9;
-  display: block;
-  width: 42px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: -22px;
-  border-radius: 10px;
-}
-.sheet-calculate .calculate-input .slider-range:after {
-  background: #bebebe;
-  left: auto;
-  right: -22px;
-  border-radius: 10px;
-}
-.sheet-calculate .calculate-input .ui-widget-header {
-  background: #0294c9;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 10px;
-}
-.sheet-calculate .calculate-input .ui-slider-handle {
-  margin: -32px 0 0 -32px;
-  background: #fff;
-  width: 64px;
-  height: 64px;
-  position: absolute;
-  top: 50%;
-  border-radius: 32px;
-  box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.47);
-  cursor: pointer;
-  z-index: 2;
-  color: #26445e;
-  font-size: 22px;
-  line-height: 64px;
+  height: 92px;
+  color: #fff;
+  line-height: 92px;
   text-align: center;
 }
-.sheet-calculate .calculate-results {
+.form-step .step-progress .list {
+  margin: 0 49px;
+  display: inline-block;
+  width: 58px;
+  height: 58px;
+  position: relative;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.form-step .step-progress .list.curr {
+  border-width: 5px;
+}
+.form-step .step-progress .list.curr:after {
+  right: -107px;
+}
+.form-step .step-progress .list:before {
+  content: '';
+  margin: -29px 0 0 -29px;
+  display: block;
+  width: 58px;
+  height: 58px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 30px;
+  line-height: 46px;
+}
+.form-step .step-progress .list:after {
+  content: '';
+  margin: -1px 0 0 0;
+  background: #fff;
+  display: block;
+  width: 104px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  right: -104px;
+}
+.form-step .step-progress .list:nth-child(1):before {
+  content: "1";
+}
+.form-step .step-progress .list:nth-child(2):before {
+  content: "2";
+}
+.form-step .step-progress .list:nth-child(3):before {
+  content: "3";
+}
+.form-step .step-progress .list:nth-child(4):before {
+  content: "4";
+}
+.form-step .step-progress .list:last-child {
   overflow: hidden;
-  *zoom: 1;
-  padding: 0 25px;
-  background: #0294c9;
-  height: 76px;
-  color: #fff;
-  line-height: 76px;
-  text-align: right;
+  text-indent: -100%;
 }
-.sheet-calculate .calculate-results .result-title {
-  padding: 0 0 0 40px;
-  background: url('../images/icon_white/icon_count.png?1435588640') 0 center no-repeat;
-  float: left;
-  font-size: 18px;
-  font-style: normal;
-}
-.sheet-calculate .calculate-results .text {
-  margin-right: 10px;
+.form-step .step-progress .list:last-child:before {
+  content: '結果';
   font-size: 14px;
-}
-.sheet-calculate .calculate-results .result-price {
-  font-size: 48px;
-  font-weight: bold;
-}
-
-.l-content .promo-list .hint {
-  line-height: 24px;
-}
-
-@media only screen and (max-width: 600px) {
-  .sheet-calculate .calculate-input {
-    padding: 20px 25px 0 25px;
-  }
-  .sheet-calculate .calculate-input .slider-wrap {
-    margin: 0 0 50px 0;
-    padding: 20px 34px 70px 34px;
-  }
-  .sheet-calculate .calculate-input .slider-wrap .min-text, .sheet-calculate .calculate-input .slider-wrap .max-text {
-    top: 80px;
-    line-height: 30px;
-    text-align: left;
-  }
-  .sheet-calculate .calculate-input .slider-wrap .max-text {
-    text-align: right;
-  }
-  .sheet-calculate .calculate-results .result-price {
-    font-size: 24px;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .sheet-calculate .calculate-results {
-    padding: 10px 25px;
-    height: 72px;
-    line-height: 36px;
-  }
-  .sheet-calculate .calculate-results .result-title {
-    display: block;
-    float: none;
-    text-align: left;
-  }
+  letter-spacing: 1px;
+  line-height: 58px;
+  text-indent: 0;
 }

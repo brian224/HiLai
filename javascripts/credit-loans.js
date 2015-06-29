@@ -67,8 +67,11 @@ $(document).ready(function(){
 		value : 6,
 		min   : 6,
 		max   : 300,
+		create : function( event, ui ) {
+			$('.money .ui-slider-handle').text(6);
+		},
 		slide : function( event, ui ) {
-			// $( "#amount" ).val( "$" + ui.value );
+			$('.money .ui-slider-handle').text(ui.value);
 		}
 	});
 
@@ -77,8 +80,11 @@ $(document).ready(function(){
 		value : 1,
 		min   : 1,
 		max   : 7,
+		create : function( event, ui ) {
+			$('.year .ui-slider-handle').text(1);
+		},
 		slide : function( event, ui ) {
-			// $( "#amount" ).val( "$" + ui.value );
+			$('.year .ui-slider-handle').text(ui.value);
 		}
 	});
 
@@ -87,8 +93,11 @@ $(document).ready(function(){
 		value : 0,
 		min   : 0,
 		max   : 1800,
+		create : function( event, ui ) {
+			$('.apr .ui-slider-handle').text('0.00');
+		},
 		slide : function( event, ui ) {
-			// $( "#amount" ).val( "$" + ui.value );
+			$('.apr .ui-slider-handle').text((ui.value/100).toFixed(2));
 		}
 	});
 });

@@ -1,0 +1,98 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-nav";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+@import "credit_loans/_l-side";
+@import "credit_loans/_l-content";
+@import "credit_loans/_footer";
+@import "credit_loans/_tools-link";
+
+.form-step {
+	margin-bottom : 40px;
+	border        : 1px solid #ddd;
+	border-radius : 10px;
+	overflow      : hidden;
+
+	.step-progress {
+		background  : #0294c9;
+		height      : 92px;
+		color       : #fff;
+		line-height : 92px;
+		text-align  : center;
+
+		.list {
+			margin         : 0 49px;
+			display        : inline-block;
+			width          : 58px;
+			height         : 58px;
+			position       : relative;
+			border         : 2px solid #fff;
+			border-radius  : 50%;
+			vertical-align : middle;
+
+			&.curr {
+				border-width : 5px;
+
+				&:after {
+					right : -107px;
+				}
+			}
+
+			&:before {
+				content     : '';
+				margin      : -29px 0 0 -29px;
+				display     : block;
+				width       : 58px;
+				height      : 58px;
+				position    : absolute;
+				top         : 50%;
+				left        : 50%;
+				font-size   : 30px;
+				line-height : 46px;
+			}
+
+			&:after {
+				content    : '';
+				margin     : -1px 0 0 0;
+				background : #fff;
+				display    : block;
+				width      : 104px;
+				height     : 2px;
+				position   : absolute;
+				top        : 50%;
+				right      : -104px;
+			}
+
+			@for $i from 1 through 4 {
+				&:nth-child(#{$i}):before {
+					content : '#{$i}';
+				}
+			}
+
+			&:last-child {
+				overflow    : hidden;
+				text-indent : -100%;
+
+				&:before {
+					content        : '結果';
+					font-size      : 14px;
+					letter-spacing : 1px;
+					line-height    : 58px;
+					text-indent    : 0;
+				}
+			}
+		}
+	}
+}
