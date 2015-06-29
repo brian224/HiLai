@@ -364,7 +364,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1434608852') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -418,7 +418,7 @@ a:hover {
   right: 10px;
   width: 34px;
   height: 34px;
-  background: #394a58 url('../images/icon_magnifier_sky.png?1434608852') no-repeat center center;
+  background: #394a58 url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
   position: absolute;
   -moz-border-radius: 0 4px 4px 0;
@@ -430,7 +430,7 @@ a:hover {
 header {
   font-size: 0;
   height: 50px;
-  background: #004165 url('../images/bg_header.png?1434608852') no-repeat center 0;
+  background: #004165 url('../images/bg_header.png?1429027001') no-repeat center 0;
 }
 header .wrapper {
   height: 100%;
@@ -455,7 +455,7 @@ header .logo {
   width: 266px;
   height: 50px;
   float: left;
-  background: url('../images/bg_header_logo.png?1434608852') no-repeat;
+  background: url('../images/bg_header_logo.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -511,7 +511,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1434608852') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -543,7 +543,7 @@ header .rwd-btn .login {
   position: relative;
 }
 header .rwd-btn .login > a {
-  background-image: url('../images/icon_white/icon_lock2_white.png?1434608854');
+  background-image: url('../images/icon_white/icon_lock2_white.png?1429027001');
 }
 header .rwd-btn .login .dropdown-menu {
   right: 0;
@@ -557,13 +557,13 @@ header .rwd-btn .search {
   display: none;
 }
 header .rwd-btn .search > a {
-  background-image: url('../images/icon_white/icon_magnifier_white.png?1434608854');
+  background-image: url('../images/icon_white/icon_magnifier_white.png?1429027001');
 }
 header .search-bar {
   text-align: left;
   width: 150px;
   height: 32px;
-  background: #004165 url('../images/icon_magnifier_sky.png?1434608852') no-repeat 95% center;
+  background: #004165 url('../images/icon_magnifier_sky.png?1429027001') no-repeat 95% center;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -591,7 +591,7 @@ header .search-bar .search-act-btn {
   position: absolute;
   width: 30px;
   height: 32px;
-  background: url('../images/icon_magnifier_sky.png?1434608852') no-repeat center center;
+  background: url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
 }
 
@@ -1159,7 +1159,7 @@ footer ul.footer-links + p.copyright {
   font-size: 0;
   width: 48px;
   height: 68px;
-  background: url('../images/icon_gray/icon_computer_circle.png?1434608854') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_computer_circle.png?1429027001') no-repeat 50% 50%;
   display: table-cell;
 }
 .notification-cookie .wrapper p {
@@ -1176,7 +1176,7 @@ footer ul.footer-links + p.copyright {
 }
 .notification-cookie .wrapper .btn-close {
   width: 24px;
-  background: url('../images/icon_gray/icon_close.png?1434608854') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 50% 50%;
   font-size: 0;
   cursor: pointer;
   display: table-cell;
@@ -1616,13 +1616,13 @@ footer .pc-footer .footer-contact-us li {
   float: left;
 }
 footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_location.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_mail.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_tel.png?1429027001') no-repeat;
 }
 footer .footer-links {
   overflow: hidden;
@@ -1858,11 +1858,11 @@ footer .footer-links .link:hover {
 }
 .tools-link.application .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_application.png?1434608854') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429528477') no-repeat 0 center;
 }
 .tools-link.download .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_download.png?1434608855') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429528477') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -1933,15 +1933,85 @@ footer .footer-links .link:hover {
   position: relative;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
 }
-.index-banner .key-visual {
-  overflow: hidden;
-  *zoom: 1;
-  background: #dcdcdc url('../images/credit_loans/kv.jpg?1434989468') no-repeat center 0;
+.index-banner .key-visual-slider {
   width: 100%;
   height: 456px;
   position: absolute;
   top: 53px;
   left: 0;
+}
+.index-banner .key-visual-slider .key-visual {
+  overflow: hidden;
+  *zoom: 1;
+  background-color: #dcdcdc;
+  background-position: center 0;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 456px;
+}
+.index-banner .owl-controls {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.index-banner .owl-controls .owl-prev, .index-banner .owl-controls .owl-next {
+  margin: 0 20px;
+  padding: 0;
+  background: transparent;
+  display: block;
+  width: 29px;
+  height: 58px;
+  position: absolute;
+  top: 199px;
+  left: 0;
+  overflow: hidden;
+}
+.index-banner .owl-controls .owl-prev:hover, .index-banner .owl-controls .owl-next:hover {
+  background: transparent;
+}
+.index-banner .owl-controls .owl-prev:before, .index-banner .owl-controls .owl-prev:after, .index-banner .owl-controls .owl-next:before, .index-banner .owl-controls .owl-next:after {
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  transform: rotate(40deg);
+  content: '';
+  margin: -6px 0 0 -2px;
+  background: #289dce;
+  display: block;
+  width: 4px;
+  height: 41px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
+.index-banner .owl-controls .owl-prev:after, .index-banner .owl-controls .owl-next:after {
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+  margin-top: 2px;
+  top: auto;
+  bottom: -6px;
+}
+.index-banner .owl-controls .owl-next {
+  left: auto;
+  right: 0;
+}
+.index-banner .owl-controls .owl-next:before, .index-banner .owl-controls .owl-next:after {
+  -webkit-transform: rotate(-40deg);
+  -moz-transform: rotate(-40deg);
+  transform: rotate(-40deg);
+  margin-right: -2px;
+  left: auto;
+  right: 50%;
+}
+.index-banner .owl-controls .owl-next:after {
+  -webkit-transform: rotate(40deg);
+  -moz-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+.index-banner .owl-dots {
+  visibility: hidden;
 }
 .index-banner .l-main {
   margin-top: 0;
@@ -1970,7 +2040,7 @@ footer .footer-links .link:hover {
 .index-banner .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1434608852') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1988,11 +2058,13 @@ footer .footer-links .link:hover {
   position: absolute;
   top: 144px;
   left: 72px;
+  z-index: 1;
   color: #004165;
   font-size: 42px;
   line-height: 60px;
 }
 .index-banner .btn-sheet {
+  background: #007dba;
   background-image: -webkit-linear-gradient(#06a8ef 4%, #0594d7 7%, #0471ad 100%);
   background-image: -moz-linear-gradient(#06a8ef 4%, #0594d7 7%, #0471ad 100%);
   background-image: linear-gradient(#06a8ef 4%, #0594d7 7%, #0471ad 100%);
@@ -2004,6 +2076,7 @@ footer .footer-links .link:hover {
   left: 72px;
   border: 1px solid #3d6476;
   border-radius: 4px;
+  z-index: 1;
   color: #fff;
   font-size: 16px;
   font-weight: bold;
@@ -2017,11 +2090,13 @@ footer .footer-links .link:hover {
   background-image: linear-gradient(#0471ad, #06a8ef);
   line-height: 38px;
 }
-.index-banner .desc {
-  width: 380px;
-  color: #004165;
-  font-size: 17px;
-  line-height: 28px;
+.index-banner .wording {
+  margin-top: 30px;
+  display: block;
+  color: #047bb7;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
 }
 .index-banner .fast-links {
   overflow: hidden;
@@ -2064,7 +2139,7 @@ footer .footer-links .link:hover {
 .index-banner .fast-links .list .link .link-icon {
   content: '';
   margin: 0 0 0 -48px;
-  background: url('../images/credit_loans/icons.png?1435060198') no-repeat 0 0;
+  background: url('../images/credit_loans/icons.png?1435051863') no-repeat 0 0;
   width: 95px;
   height: 76px;
   position: absolute;
@@ -2134,7 +2209,7 @@ footer .footer-links .link:hover {
   padding: 0 0 2px 0;
 }
 .index-banner .promo .list {
-  background: url('../images/remote_banking/promo_01.jpg?1434608854') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_01.jpg?1429528477') no-repeat 0 0;
   width: 303px;
   height: 282px;
   float: left;
@@ -2145,11 +2220,11 @@ footer .footer-links .link:hover {
 }
 .index-banner .promo .list + li {
   margin-left: 23px;
-  background: url('../images/remote_banking/promo_02.jpg?1434608854') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_02.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .list + li + li {
   margin-left: 22px;
-  background: url('../images/remote_banking/promo_03.jpg?1434608854') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_03.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .link {
   display: block;
@@ -2279,13 +2354,13 @@ footer .pc-footer .footer-contact-us li {
   float: left;
 }
 footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_location.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_mail.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1434608854') no-repeat;
+  background: url('../images/icon_white/icon_tel.png?1429027001') no-repeat;
 }
 footer .footer-links {
   overflow: hidden;
@@ -2374,10 +2449,23 @@ footer .footer-links .link:hover {
   .index-banner .l-main {
     padding-top: 228px;
   }
-  .index-banner .key-visual {
+  .index-banner .key-visual-slider {
+    height: 228px;
+    overflow: hidden;
+  }
+  .index-banner .key-visual-slider .key-visual {
     background-position: right 0;
     background-size: 535px;
-    height: 228px;
+  }
+  .index-banner .owl-nav {
+    display: none;
+  }
+  .index-banner .owl-dots {
+    width: 100%;
+    position: absolute;
+    top: 202px;
+    left: 0;
+    visibility: visible;
   }
   .index-banner .m-breadcrumb {
     padding-right: 10px;
@@ -2387,11 +2475,11 @@ footer .footer-links .link:hover {
     padding: 0;
     top: 36px;
     left: 18px;
-    font-size: 30px;
+    font-size: 24px;
     line-height: 1.5em;
   }
   .index-banner .btn-sheet {
-    top: 150px;
+    top: 120px;
     left: 20px;
   }
   .index-banner .fast-links {
@@ -2412,7 +2500,7 @@ footer .footer-links .link:hover {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    padding: 0 0 0 126px;
+    padding: 0 20px 0 126px;
     min-height: 86px;
   }
   .index-banner .fast-links .list .link:before {
@@ -2505,60 +2593,35 @@ footer .footer-links .link:hover {
   }
 }
 @media only screen and (max-width: 376px) {
-  .index-banner .key-visual {
+  .index-banner .key-visual-slider .key-visual {
     background-position: center 0;
   }
-}
-.lt-ie9 .index-banner:before {
-  content: '';
-  background: #f8f8f8;
-  display: block;
-  width: 100%;
-  height: 1px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-top: 1px solid #dadada;
-}
-.lt-ie9 .index-banner .fast-links .list .image {
-  display: none;
-}
-.lt-ie9 .index-banner .fast-links .list .link {
-  position: relative;
-}
-.lt-ie9 .index-banner .fast-links .list .link:hover ~ .image {
-  display: block;
-}
-.lt-ie9 .index-banner .fast-links .list .link .link-bg {
-  top: 0;
-  left: 50%;
-  margin-left: -56px;
-  width: 112px;
-  height: 112px;
-  display: block;
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1434608853') no-repeat center 0;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-  *zoom: 1;
+  .index-banner .btn-sheet {
+    width: 142px;
+  }
+  .index-banner .wording {
+    margin: 0;
+    font-size: 16px;
+  }
 }
 .lt-ie9 .index-banner .fast-links .list .link:before {
-  display: none;
+  margin: 0 0 0 -88px;
+  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435560615') no-repeat 0 0;
+  width: 176px;
+  height: 177px;
+  border: 0;
 }
-.lt-ie9 .index-banner .fast-links .list .link .link-icon {
-  z-index: 10;
-}
-.lt-ie9 .index-banner .fast-links .list .link:hover .link-bg {
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1434608853') no-repeat 0 -112px;
+.lt-ie9 .index-banner .fast-links .list .link:hover:before {
+  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435560615') no-repeat 0 -177px;
 }
 .lt-ie9 .index-banner .promo .link:before, .lt-ie9 .index-banner .promo .link:after {
   display: none;
 }
 .lt-ie9 .index-banner .promo .link .filter {
-  background: url('../images/remote_banking/for-ie8/op60.png?1434608854');
+  background: url('../images/remote_banking/for-ie8/op60.png?1429528477');
 }
 .lt-ie9 .index-banner .promo .link .filter:before {
-  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1434608854');
+  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429528477');
   width: 26px;
   height: 26px;
   border: 0;

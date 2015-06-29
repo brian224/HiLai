@@ -2853,3 +2853,17 @@ footer .footer-links .link:hover {
     display: inline-block;
   }
 }
+.sheet-calculate {
+  margin-bottom: 40px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+.sheet-calculate .calculate-input {
+  padding: 20px 25px;
+  border-bottom: 1px solid #ddd;
+}
+.sheet-calculate .calculate-input .text {
+  color: #26445e;
+  font-size: 18px;
+  line-height: 1.6em;
+}

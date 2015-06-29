@@ -14,6 +14,7 @@
   <meta name="apple-itunes-app" content="app-id=407935489">
   <title>ANZ澳盛銀行</title>
   <link href="../../favicon.ico" rel="icon">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href="../../javascripts/fs.selecter/jquery.fs.selecter.css" rel="stylesheet">
   <link href="../../javascripts/fancyBox/source/jquery.fancybox.css" rel="stylesheet">
   <link href="../../javascripts/owl.carousel.2/owl.carousel.css" rel="stylesheet">
@@ -21,7 +22,7 @@
   <link href="../../javascripts/owl.carousel.2/animate.css" rel="stylesheet">
   <link href="../../javascripts/jquery.mmenu/jquery.mmenu.css" rel="stylesheet">
   <link href="../../stylesheets/reset.css" rel="stylesheet">
-  <link href="../../stylesheets/credit-goods.css" rel="stylesheet">
+  <link href="../../stylesheets/spreadsheet.css" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="../../javascripts/html5shiv.js" type="text/javascript" ></script>
   <![endif]-->
@@ -514,101 +515,47 @@
             <a class="link" title="首頁" href="javascript:;">首頁</a>
             <a class="link" title="個人金融" href="javascript:;">個人金融</a>
             <a class="link" title="信用貸款" href="javascript:;">信用貸款</a>
-            <a class="link" title="卡友專屬優惠" href="javascript:;">所有信貸商品</a>
+            <a class="link" title="個人信貸試算" href="javascript:;">個人信貸試算</a>
           </div>
           <div class="m-content">
-            <h2 class="main-title">所有信貸商品</h2>
-            <h3 class="sub-title">一般個人信貸</h3>
+            <h2 class="main-title">個人信貸試算</h2>
+            <div class="sheet-calculate">
+              <div class="calculate-input">
+                <span class="text money">貨款總金額 (萬元)</span>
+                <div class="slider-range slider-money"></div>
+                <span class="text year">貨款總期間 (年)</span>
+                <div class="slider-range slider-year"></div>
+                <span class="text apr">貨款年利率 (%)</span>
+                <div class="slider-range slider-apr"></div>
+              </div>
+              <em class="calculate-results">試算結果<span class="text">每月期付金$</span></em>
+            </div>
             <ul class="promo-list">
-              <li class="unit-list open">
-                <article class="feature-desc middleSet">
-                  <span class="art-img">
-                    <img src="../../images/credit_loans/credit_goods_01.jpg" alt="菁英階梯式利率信貸">
-                  </span>
-                  <div class="desc-content">
-                    <h3 class="promo-title">菁英階梯式利率信貸</h3>
-                    <p class="desc">5000大企業員工、專業人士及軍公教人士的最好選擇！連結TAIBOR指數型信用貸款，免保人、免開戶，最高可貸300萬。獻給年收30萬以上(含)之菁英人士，助您精準掌握!</p>
-                  </div>
-                </article>
-                <ul class="slide-content">
-                  <li class="list">
-                    <h3 class="detail-title">產品特色</h3>
-                    <p class="desc"><em>前3期利率最優1.98%起 馬上靈活理財</em>前3期固定利率最優1.98%起，自第4期後4.08%起 (機動計息）<em>最高300萬　還款有彈性</em>最高NT$300萬，可選擇24、36、48、60、72或84期攤還。<em>3項全免　申請簡便</em>免保人、免信用保險，免開戶，傳真即可申請<em>專案期間</em>即日起 - 104年6月2日</p>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <ul class="detail-list">
-                      <li>年收入NT$30萬以上(含)，但企業負責人年收入須大於NT$42萬。</li>
-                      <li>申請人須年滿20～63歲</li>
-                    </ul>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <p class="desc">公職：任職於公務或行政機關，以及特定公(國)營事業正式員工。(注意事項2&3)<br>教職：公私立學校正式教職人員(不含私立幼稚園)及行政人員(不含約聘人員)。(注意事項2)<br>軍人：校級以上(含)。(注意事項2)<br>醫療人員：公私立醫院(不含診所)正職醫療及行政人員(不含約聘人員)。(注意事項2)<br>5000大企業之正職員工：中華徵信所TOP3000且成立時間超過5年(含)之企業、中華徵信所TOP3001~5000且成立時間超過8年(含)之企業、天下雜誌Top1600企業、財星500大企業、特定優質外商、特定財團法人之正職員工；惟實際5000大企業正職員工之認定，仍以本行授信部門對個案實際授信條件之最後審核結果為準。(注意事項2)<br>專業人士：於醫院、四大會計師事務、法律事務所、建築事務所工作之專業人士。(注意事項2&4)<br>國際財金證照持有人(注意事項2&5)</p>
-                  </li>
-                </ul>
+              <li class="hint">本金和利息每月同時償還</li>
+              <li class="hint">本試算計算結果為一近似值，僅供參考。實際貸款金額、適用利率及每月還款期付金，需依申請人信用及資力狀況而核定，本行保留最終核准與否及核准金額之權利。</li>
+              <li class="hint">本行無委託任何代辦公司行銷或辦理本行個人信用貸款,如有貸款需求請電洽02-8101-6600由信貸諮詢窗口提供服務</li>
+            </ul>
+            <h3 class="sub-title">其他人也看了以下產品</h3>
+            <ul class="recommend-list">
+              <li class="unit-list middleSet">
+                <span class="art-img">
+                  <img src="../../images/remote_banking/promo_03.jpg" alt="夢實貸階梯式利率信貸">
+                </span>
+                <div class="desc-content">
+                  <h3 class="promo-title">夢實貸階梯式利率信貸</h3>
+                  <p class="desc">5000大企業員工、專業人士及軍公教人士的最好選擇！連結TAIBOR指數型信用貸款，免保人、免開戶，最高可貸300萬。獻給年收30萬以上(含)之菁英人士，助您精準掌握!</p>
+                </div>
               </li>
-              <li class="unit-list">
-                <article class="feature-desc middleSet">
-                  <span class="art-img">
-                    <img src="../../images/credit_loans/credit_goods_02.jpg" alt="夢實貸階梯式利率信貸">
-                  </span>
-                  <div class="desc-content">
-                    <h3 class="promo-title">夢實貸階梯式利率信貸</h3>
-                    <p class="desc">5000大企業員工、專業人士及軍公教人士的最好選擇！連結TAIBOR指數型信用貸款，免保人、免開戶，最高可貸300萬。獻給年收30萬以上(含)之菁英人士，助您精準掌握!</p>
-                  </div>
-                </article>
-                <ul class="slide-content">
-                  <li class="list">
-                    <h3 class="detail-title">產品介紹</h3>
-                    <p class="desc"><em>利率優惠</em>7.48%~18.38%。<em>手續簡單</em>免對保，免保人，免開戶，郵寄申請即可。<em>還款多元</em>自動轉帳扣款，ATM繳款，銀行電匯，郵局劃撥皆可還款。<em>最高額度</em>最高新臺幣二百萬<em>期數4選1</em>18/24/36/48期。</p>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <p class="desc">持有澳盛銀行信用卡6個月以上之正卡持卡人</p>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <p class="desc">好時貸申辦專線: (02)8726-8212, 由專人為您服務。<br>下載並填妥好時貸申請書，附上匯款帳號影本，郵寄至10012台北郵政1836號信箱 「澳盛銀行好時貸小組」收</p>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">注意事項</h3>
-                  </li>
-                </ul>
+              <li class="unit-list middleSet">
+                <span class="art-img">
+                  <img src="../../images/remote_banking/promo_01.jpg" alt="夢實貸階梯式利率信貸">
+                </span>
+                <div class="desc-content">
+                  <h3 class="promo-title">預借現金</h3>
+                  <p class="desc">滿足資金急需，立即提領現金</p>
+                </div>
               </li>
             </ul>
-            <h3 class="sub-title">卡友專屬個人信貸</h3>
-            <ul class="promo-list">
-              <li class="unit-list">
-                <article class="feature-desc middleSet">
-                  <span class="art-img">
-                    <img src="../../images/credit_loans/credit_goods_01.jpg" alt="菁英階梯式利率信貸">
-                  </span>
-                  <div class="desc-content">
-                    <h3 class="promo-title">菁英階梯式利率信貸</h3>
-                    <p class="desc">5000大企業員工、專業人士及軍公教人士的最好選擇！連結TAIBOR指數型信用貸款，免保人、免開戶，最高可貸300萬。獻給年收30萬以上(含)之菁英人士，助您精準掌握!</p>
-                  </div>
-                </article>
-                <ul class="slide-content">
-                  <li class="list">
-                    <h3 class="detail-title">產品特色</h3>
-                    <p class="desc"><em>前3期利率最優1.98%起 馬上靈活理財</em>前3期固定利率最優1.98%起，自第4期後4.08%起 (機動計息）<em>最高300萬　還款有彈性</em>最高NT$300萬，可選擇24、36、48、60、72或84期攤還。<em>3項全免　申請簡便</em>免保人、免信用保險，免開戶，傳真即可申請<em>專案期間</em>即日起 - 104年6月2日</p>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <ul class="detail-list">
-                      <li>年收入NT$30萬以上(含)，但企業負責人年收入須大於NT$42萬。</li>
-                      <li>申請人須年滿20～63歲</li>
-                    </ul>
-                  </li>
-                  <li class="list">
-                    <h3 class="detail-title">申請資格</h3>
-                    <p class="desc">公職：任職於公務或行政機關，以及特定公(國)營事業正式員工。(注意事項2&3)<br>教職：公私立學校正式教職人員(不含私立幼稚園)及行政人員(不含約聘人員)。(注意事項2)<br>軍人：校級以上(含)。(注意事項2)<br>醫療人員：公私立醫院(不含診所)正職醫療及行政人員(不含約聘人員)。(注意事項2)<br>5000大企業之正職員工：中華徵信所TOP3000且成立時間超過5年(含)之企業、中華徵信所TOP3001~5000且成立時間超過8年(含)之企業、天下雜誌Top1600企業、財星500大企業、特定優質外商、特定財團法人之正職員工；惟實際5000大企業正職員工之認定，仍以本行授信部門對個案實際授信條件之最後審核結果為準。(注意事項2)<br>專業人士：於醫院、四大會計師事務、法律事務所、建築事務所工作之專業人士。(注意事項2&4)<br>國際財金證照持有人(注意事項2&5)</p>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <h3 class="sub-title">我的輕鬆還款計畫<a class="btn-blue" href="javascript:;">馬上試算</a></h3>
           </div>
         </div>
         <div class="l-side">

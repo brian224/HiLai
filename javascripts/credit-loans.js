@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	var $switchBar   = $('.accordion-heading, .feature-desc'),
+		$kvSlider    = $('.key-visual-slider'),
 		$radioLab    = $('.lab.radio'),
 		$checkLab    = $('.lab.check'),
 		$selecter    = $('.selecter'),
@@ -7,6 +8,19 @@ $(document).ready(function(){
 		$hasSubMenu  = $('.has-sub-menu'),
 		$sideTitle   = $('.side-title'),
 		_rwdMenu     = $('.credit-loans .side-menu-list').html();
+
+	$kvSlider.owlCarousel({
+		items              : 1,
+		nav                : true,
+		navText            : ['', ''],
+		loop               : true,
+		dots               : true,
+		autoplay           : true,
+		autoplayTimeout    : 3500,
+		autoplayHoverPause : true,
+		animateOut         : 'fadeOut',
+		animateIn          : 'fadeIn'
+	});
 
 	$rwdMenuList.html(_rwdMenu);
 
@@ -19,7 +33,7 @@ $(document).ready(function(){
 	});
 
 	$switchBar.on('click', function(){
-		$(this).parent().toggleClass('open');
+		$(this).parent().toggleClass('open').siblings().removeClass('open');
 	});
 
 	$radioLab.on('click', 'input[type="radio"]', function(){
@@ -46,5 +60,35 @@ $(document).ready(function(){
 		$(this).addClass('focus open').removeClass('closed').find('.selecter-options').show();
 	}, function(){
 		$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
+	});
+
+	$('.slider-money').slider({
+		range : 'min',
+		value : 6,
+		min   : 6,
+		max   : 300,
+		slide : function( event, ui ) {
+			// $( "#amount" ).val( "$" + ui.value );
+		}
+	});
+
+	$('.slider-year').slider({
+		range : 'min',
+		value : 1,
+		min   : 1,
+		max   : 7,
+		slide : function( event, ui ) {
+			// $( "#amount" ).val( "$" + ui.value );
+		}
+	});
+
+	$('.slider-apr').slider({
+		range : 'min',
+		value : 0,
+		min   : 0,
+		max   : 1800,
+		slide : function( event, ui ) {
+			// $( "#amount" ).val( "$" + ui.value );
+		}
 	});
 });

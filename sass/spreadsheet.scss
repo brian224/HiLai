@@ -18,3 +18,20 @@
 @import "credit_loans/_l-content";
 @import "credit_loans/_footer";
 @import "credit_loans/_tools-link";
+
+.sheet-calculate {
+	margin-bottom : 40px;
+	border        : 1px solid #ddd;
+	border-radius : 10px;
+
+	.calculate-input {
+		padding       : 20px 25px;
+		border-bottom : 1px solid #ddd;
+
+		.text {
+			color       : #26445e;
+			font-size   : 18px;
+			line-height : 1.6em;
+		}
+	}
+}

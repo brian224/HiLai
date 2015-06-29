@@ -23,14 +23,86 @@
 	position   : relative;
 	box-shadow : inset 0 1px 1px rgba(0, 0, 0,0.3);
 
-	.key-visual {
-		@include clearfix;
-		background : #dcdcdc image-url('credit_loans/kv.jpg') no-repeat center 0;
-		width      : 100%;
-		height     : 456px;
-		position   : absolute;
-		top        : 53px;
-		left       : 0;
+	.key-visual-slider {
+		width    : 100%;
+		height   : 456px;
+		position : absolute;
+		top      : 53px;
+		left     : 0;
+
+		.key-visual {
+			@include clearfix;
+			background-color    : #dcdcdc;
+			background-position : center 0;
+			background-repeat   : no-repeat;
+			width               : 100%;
+			height              : 456px;
+		}
+	}
+
+	.owl-controls {
+		width    : 100%;
+		height   : 0;
+		position : absolute;
+		top      : 0;
+		left     : 0;
+
+		.owl-prev, .owl-next {
+			margin     : 0 20px;
+			padding    : 0;
+			background : transparent;
+			display    : block;
+			width      : 29px;
+			height     : 58px;
+			position   : absolute;
+			top        : 199px;
+			left       : 0;
+			overflow   : hidden;
+
+			&:hover {
+				background : transparent;
+			}
+
+			&:before, &:after {
+				@include transform(rotate(40deg));
+				content    : '';
+				margin     : -6px 0 0 -2px;
+				background : #289dce;
+				display    : block;
+				width      : 4px;
+				height     : 41px;
+				position   : absolute;
+				top        : 0;
+				left       : 50%;
+			}
+
+			&:after {
+				@include transform(rotate(-40deg));
+				margin-top : 2px;
+				top        : auto;
+				bottom     : -6px;
+			}
+		}
+
+		.owl-next {
+			left  : auto;
+			right : 0;
+
+			&:before, &:after {
+				@include transform(rotate(-40deg));
+				margin-right : -2px;
+				left         : auto;
+				right        : 50%;
+			}
+
+			&:after {
+				@include transform(rotate(40deg));
+			}
+		}
+	}
+
+	.owl-dots {
+		visibility : hidden;
 	}
 
 	.l-main {
@@ -83,12 +155,14 @@
 		position    : absolute;
 		top         : 144px;
 		left        : 72px;
+		z-index     : 1;
 		color       : #004165;
 		font-size   : 42px;
 		line-height : 60px;
 	}
 
 	.btn-sheet {
+		background     : #007dba;
 		@include background-image(linear-gradient(#06a8ef 4%, #0594d7 7%, #0471ad 100%));
 		display        : block;
 		width          : 158px;
@@ -98,6 +172,7 @@
 		left           : 72px;
 		border         : 1px solid #3d6476;
 		border-radius  : 4px;
+		z-index        : 1;
 		color          : #fff;
 		font-size      : 16px;
 		font-weight    : bold;
@@ -111,11 +186,13 @@
 		}
 	}
 
-	.desc {
-		width       : 380px;
-		color       : #004165;
-		font-size   : 17px;
-		line-height : 28px;
+	.wording {
+		margin-top  : 30px;
+		display     : block;
+		color       : #047bb7;
+		font-size   : 20px;
+		line-height : 30px;
+		text-align  : center;
 	}
 
 	.fast-links {
@@ -503,10 +580,26 @@ footer {
 			padding-top : 228px;
 		}
 
-		.key-visual {
-			background-position : right 0;
-			background-size     : 535px;
-			height              : 228px;
+		.key-visual-slider {
+			height   : 228px;
+			overflow : hidden;
+
+			.key-visual {
+				background-position : right 0;
+				background-size     : 535px;
+			}
+		}
+
+		.owl-nav {
+			display : none;
+		}
+
+		.owl-dots {
+			width      : 100%;
+			position   : absolute;
+			top        : 202px;
+			left       : 0;
+			visibility : visible;
 		}
 
 		.m-breadcrumb {
@@ -518,12 +611,12 @@ footer {
 			padding     : 0;
 			top         : 36px;
 			left        : 18px;
-			font-size   : 30px;
+			font-size   : 24px;
 			line-height : 1.5em;
 		}
 
 		.btn-sheet {
-			top  : 150px;
+			top  : 120px;
 			left : 20px;
 		}
 
@@ -544,7 +637,7 @@ footer {
 				.link {
 					@include box-sizing(border-box);
 					margin     : 0;
-					padding    : 0 0 0 126px;
+					padding    : 0 20px 0 126px;
 					min-height : 86px;
 
 					&:before {
@@ -655,64 +748,34 @@ footer {
 
 @media only screen and (max-width: 376px) {
 	.index-banner {
-		.key-visual {
+		.key-visual-slider .key-visual {
 			background-position : center 0;
+		}
+
+		.btn-sheet {
+			width : 142px;
+		}
+
+		.wording {
+			margin    : 0;
+			font-size : 16px;
 		}
 	}
 }
 
 .lt-ie9 {
 	.index-banner {
-		&:before {
-			content    : '';
-			background : #f8f8f8;
-			display    : block;
-			width      : 100%;
-			height     : 1px;
-			position   : absolute;
-			top        : 0;
-			left       : 0;
-			border-top : 1px solid #dadada;
-		}
-
-		.fast-links .list {
-			.image {
-				display : none;
+		.fast-links .list .link {
+			&:before {
+				margin     : 0 0 0 -88px;
+				background : image-url('credit_loans/for-ie8/index_icons_bg.png') no-repeat 0 0;
+				width      : 176px;
+				height     : 177px;
+				border     : 0;
 			}
 
-			.link {
-				position : relative;
-
-				&:hover ~ .image {
-					display : block;
-				}
-
-				.link-bg {
-					top         : 0;
-					left        : 50%;
-					margin-left : -56px;
-					width       : 112px;
-					height      : 112px;
-					display     : block;
-					background  : image-url('remote_banking/for-ie8/index_icons_bg.png') no-repeat center 0;
-					position    : absolute;
-					z-index     : 1;
-					@include clearfix;
-				}
-
-				&:before {
-					display : none;
-				}
-
-				.link-icon {
-					z-index : 10;
-				}
-
-				&:hover {
-					.link-bg {
-						background : image-url('remote_banking/for-ie8/index_icons_bg.png') no-repeat 0 -112px;
-					}
-				}
+			&:hover:before {
+				background : image-url('credit_loans/for-ie8/index_icons_bg.png') no-repeat 0 -177px;
 			}
 		}
 
