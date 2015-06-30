@@ -316,6 +316,7 @@
 			border-top : 1px solid #ddd;
 
 			.btn-process {
+				background    : #119208;
 				@include background-image(linear-gradient(#81ce1d, #119208));
 				margin        : 15px 0 3px 0;
 				display       : block;
@@ -668,10 +669,49 @@
 	}
 }
 
+@-moz-document url-prefix() {
+	.l-side .side-form-list .lab {
+		&.radio, &.check {
+			&.is-curr:before {
+				line-height : 16px;
+			}
+		}
+	}
+}
+
 .lt-ie9 {
-	.l-side .side-menu.tools li a:before {
-		background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
-		width      : 6px;
-		height     : 10px;
+	.l-side {
+		.side-menu {
+			&.credit-loans .sub-menu .page-link:before {
+				margin     : -2px 0 0 10px;
+				background : image-url('icon_arrow/icon_arrow_right_gray_s.png') 0 0 no-repeat;
+				width      : 4px;
+				height     : 7px;
+				border     : 0;
+			}
+
+			&.tools li a:before {
+				background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+				width      : 6px;
+				height     : 10px;
+			}
+		}
+
+		.side-form-list .lab {
+			&.radio, &.check {
+				&:before {
+					display : none;
+				}
+
+				.radioBox, .chkBox {
+					display  : block;
+					width    : 16px;
+					height   : 16px;
+					position : absolute;
+					top      : 2px;
+					left     : 0;
+				}
+			}
+		}
 	}
 }

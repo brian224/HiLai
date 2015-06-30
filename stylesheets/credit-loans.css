@@ -1927,6 +1927,24 @@ footer .footer-links .link:hover {
     display: inline-block;
   }
 }
+@-moz-document url-prefix() {
+  .tools-link .wrapper .accordion-content .lab.radio.is-curr:before, .tools-link .wrapper .accordion-content .lab.check.is-curr:before {
+    line-height: 16px;
+  }
+}
+.lt-ie9 .tools-link .wrapper .accordion-content .lab.radio:before, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check:before {
+  display: none;
+}
+.lt-ie9 .tools-link .wrapper .accordion-content .lab.radio .radioBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.radio .chkBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check .radioBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check .chkBox {
+  margin: -8px 0 0 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+
 .index-banner {
   padding: 53px 0 0 0;
   min-height: 584px;
@@ -2139,7 +2157,7 @@ footer .footer-links .link:hover {
 .index-banner .fast-links .list .link .link-icon {
   content: '';
   margin: 0 0 0 -48px;
-  background: url('../images/credit_loans/icons.png?1435051863') no-repeat 0 0;
+  background: url('../images/credit_loans/icons.png?1435629006') no-repeat 0 0;
   width: 95px;
   height: 76px;
   position: absolute;
@@ -2482,6 +2500,9 @@ footer .footer-links .link:hover {
     top: 120px;
     left: 20px;
   }
+  .index-banner .wording {
+    margin: 0;
+  }
   .index-banner .fast-links {
     padding-top: 0;
   }
@@ -2600,19 +2621,27 @@ footer .footer-links .link:hover {
     width: 142px;
   }
   .index-banner .wording {
-    margin: 0;
     font-size: 16px;
   }
 }
+.lt-ie9 .index-banner .owl-controls .owl-prev, .lt-ie9 .index-banner .owl-controls .owl-next {
+  background: url('../images/credit_loans/for-ie8/index_arrow.png?1435654843') no-repeat 0 0;
+}
+.lt-ie9 .index-banner .owl-controls .owl-prev:before, .lt-ie9 .index-banner .owl-controls .owl-prev:after, .lt-ie9 .index-banner .owl-controls .owl-next:before, .lt-ie9 .index-banner .owl-controls .owl-next:after {
+  display: none;
+}
+.lt-ie9 .index-banner .owl-controls .owl-next {
+  background-position: -29px 0;
+}
 .lt-ie9 .index-banner .fast-links .list .link:before {
   margin: 0 0 0 -88px;
-  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435560615') no-repeat 0 0;
+  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435629027') no-repeat 0 0;
   width: 176px;
   height: 177px;
   border: 0;
 }
 .lt-ie9 .index-banner .fast-links .list .link:hover:before {
-  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435560615') no-repeat 0 -177px;
+  background: url('../images/credit_loans/for-ie8/index_icons_bg.png?1435629027') no-repeat 0 -177px;
 }
 .lt-ie9 .index-banner .promo .link:before, .lt-ie9 .index-banner .promo .link:after {
   display: none;

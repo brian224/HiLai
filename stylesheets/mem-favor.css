@@ -1841,6 +1841,7 @@ footer ul.footer-links + p.copyright {
   border-top: 1px solid #ddd;
 }
 .l-side .side-form-list .btn-wrap .btn-process {
+  background: #119208;
   background-image: -webkit-linear-gradient(#81ce1d, #119208);
   background-image: -moz-linear-gradient(#81ce1d, #119208);
   background-image: linear-gradient(#81ce1d, #119208);
@@ -2143,10 +2144,33 @@ footer ul.footer-links + p.copyright {
     display: inline-block;
   }
 }
+@-moz-document url-prefix() {
+  .l-side .side-form-list .lab.radio.is-curr:before, .l-side .side-form-list .lab.check.is-curr:before {
+    line-height: 16px;
+  }
+}
+.lt-ie9 .l-side .side-menu.credit-loans .sub-menu .page-link:before {
+  margin: -2px 0 0 10px;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
+  width: 4px;
+  height: 7px;
+  border: 0;
+}
 .lt-ie9 .l-side .side-menu.tools li a:before {
   background: url('../images/remote_banking/for-ie8/icon_arrow_right_oceanblue.png?1429528477') 0 0 no-repeat;
   width: 6px;
   height: 10px;
+}
+.lt-ie9 .l-side .side-form-list .lab.radio:before, .lt-ie9 .l-side .side-form-list .lab.check:before {
+  display: none;
+}
+.lt-ie9 .l-side .side-form-list .lab.radio .radioBox, .lt-ie9 .l-side .side-form-list .lab.radio .chkBox, .lt-ie9 .l-side .side-form-list .lab.check .radioBox, .lt-ie9 .l-side .side-form-list .lab.check .chkBox {
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 2px;
+  left: 0;
 }
 
 .middleSet {
@@ -2852,4 +2876,21 @@ footer .footer-links .link:hover {
   .tools-link .wrapper .see-clause {
     display: inline-block;
   }
+}
+@-moz-document url-prefix() {
+  .tools-link .wrapper .accordion-content .lab.radio.is-curr:before, .tools-link .wrapper .accordion-content .lab.check.is-curr:before {
+    line-height: 16px;
+  }
+}
+.lt-ie9 .tools-link .wrapper .accordion-content .lab.radio:before, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check:before {
+  display: none;
+}
+.lt-ie9 .tools-link .wrapper .accordion-content .lab.radio .radioBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.radio .chkBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check .radioBox, .lt-ie9 .tools-link .wrapper .accordion-content .lab.check .chkBox {
+  margin: -8px 0 0 0;
+  display: block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 0;
 }

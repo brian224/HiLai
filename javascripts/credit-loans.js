@@ -63,41 +63,70 @@ $(document).ready(function(){
 	});
 
 	$('.slider-money').slider({
-		range : 'min',
-		value : 6,
-		min   : 6,
-		max   : 300,
+		range  : 'min',
+		value  : 6,
+		min    : 6,
+		max    : 300,
 		create : function( event, ui ) {
 			$('.money .ui-slider-handle').text(6);
 		},
-		slide : function( event, ui ) {
+		slide  : function( event, ui ) {
 			$('.money .ui-slider-handle').text(ui.value);
+			PMT($('.apr .ui-slider-handle').text(), $('.year .ui-slider-handle').text(), ui.value);
 		}
 	});
 
 	$('.slider-year').slider({
-		range : 'min',
-		value : 1,
-		min   : 1,
-		max   : 7,
+		range  : 'min',
+		value  : 1,
+		min    : 1,
+		max    : 7,
 		create : function( event, ui ) {
 			$('.year .ui-slider-handle').text(1);
 		},
-		slide : function( event, ui ) {
+		slide  : function( event, ui ) {
 			$('.year .ui-slider-handle').text(ui.value);
+			PMT($('.apr .ui-slider-handle').text(), ui.value, $('.money .ui-slider-handle').text());
 		}
 	});
 
 	$('.slider-apr').slider({
-		range : 'min',
-		value : 0,
-		min   : 0,
-		max   : 1800,
+		range  : 'min',
+		value  : 0,
+		min    : 0,
+		max    : 1800,
 		create : function( event, ui ) {
 			$('.apr .ui-slider-handle').text('0.00');
 		},
 		slide : function( event, ui ) {
 			$('.apr .ui-slider-handle').text((ui.value/100).toFixed(2));
+			PMT((ui.value/100).toFixed(2), $('.year .ui-slider-handle').text(), $('.money .ui-slider-handle').text());
 		}
 	});
+
+	// 計算貸款金額
+	function PMT(i, n, p) {
+		// I 利率, N 期數, P 價格
+		var _total = Math.ceil((i/100/12)*(-p*10000)*Math.pow((1+(i/100/12)),(n*12))/(1-Math.pow((1+(i/100/12)),(n*12))));
+
+		if (isNaN(_total) === true) {
+			$('.result-price').text(0);
+		} else {
+			$('.result-price').text(setPercentile(_total));
+		}
+	}
+
+	// 記算百分位
+	function setPercentile(num) {
+		num = num.toString().replace(/\$|\,/g, '');
+		if (isNaN(num)) num = '0';
+		sign = (num == (num = Math.abs(num)));
+		num = Math.floor(num * 100 + 0.50000000001);
+		cents = num % 100;
+		num = Math.floor(num / 100).toString();
+		if (cents < 10) cents = '0' + cents;
+		for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3) ; i++)
+			num = num.substring(0, num.length - (4 * i + 3)) + ',' + num.substring(num.length - (4 * i + 3));
+		return (((sign) ? '' : '-') + num);
+	}
 });

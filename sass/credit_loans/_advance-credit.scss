@@ -1,0 +1,219 @@
+﻿.l-content .sub-title {
+	margin : 20px 0 36px 0;
+}
+
+.form-step {
+	margin-bottom : 40px;
+	border        : 1px solid #ddd;
+	border-radius : 10px;
+	overflow      : hidden;
+
+	.step-progress {
+		background  : #0294c9;
+		height      : 92px;
+		color       : #fff;
+		line-height : 92px;
+		text-align  : center;
+
+		.list {
+			margin         : 0 49px;
+			display        : inline-block;
+			width          : 58px;
+			height         : 58px;
+			position       : relative;
+			border         : 2px solid #fff;
+			border-radius  : 50%;
+			vertical-align : middle;
+
+			&.curr {
+				border-width : 5px;
+
+				&:after {
+					right : -107px;
+				}
+			}
+
+			&:before {
+				content     : '';
+				margin      : -29px 0 0 -29px;
+				display     : block;
+				width       : 58px;
+				height      : 58px;
+				position    : absolute;
+				top         : 50%;
+				left        : 50%;
+				font-size   : 30px;
+				line-height : 46px;
+			}
+
+			&:after {
+				content    : '';
+				margin     : -1px 0 0 0;
+				background : #fff;
+				display    : block;
+				width      : 104px;
+				height     : 2px;
+				position   : absolute;
+				top        : 50%;
+				right      : -104px;
+			}
+
+			@for $i from 1 through 4 {
+				&:nth-child(#{$i}):before {
+					content : '#{$i}';
+				}
+			}
+
+			&:last-child {
+				overflow    : hidden;
+				text-indent : -200%;
+
+				&:before {
+					content        : '結果';
+					font-size      : 14px;
+					letter-spacing : 1px;
+					line-height    : 58px;
+					text-indent    : 0;
+				}
+			}
+		}
+	}
+
+	.form-fill-in {
+		padding : 0 26px;
+
+		.form-list li {
+			@include clear-fix;
+			margin-bottom : 24px;
+			padding-left  : 234px;
+			position      : relative;
+		}
+
+		.term {
+			width       : 234px;
+			height      : 100%;
+			position    : absolute;
+			top         : 0;
+			left        : 0;
+			color       : #26445e;
+			font-size   : 18px;
+			line-height : 36px;
+		}
+
+		.text {
+			margin-right : 12px;
+		}
+	}
+
+	.btn-wrap {
+		margin     : 0 0 35px 0;
+		text-align : center;
+
+		.btn-blue {
+			margin : 0;
+		}
+	}
+}
+
+.inputBox {
+	@include box-sizing(border-box);
+	margin        : 0 12px 12px 0;
+	background    : #efefef;
+	display       : inline-block;
+	width         : 168px;
+	height        : 34px;
+	border        : 1px solid #bdbdbd;
+	border-radius : 4px;
+	color         : #26445e;
+	font-size     : 14px;
+	font-weight   : bold;
+	line-height   : 34px;
+	text-indent   : 10px;
+}
+
+.selecter {
+	margin  : 0 14px 12px 0;
+	display : inline-block;
+	width   : 196px;
+
+	.selecter-selected {
+		@include box-sizing(border-box);
+		padding          : 0;
+		background-color : #efefef;
+		height           : 34px;
+		border           : 1px solid #bdbdbd;
+		line-height      : 34px;
+		text-indent      : 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.l-content .sub-title {
+		margin : 20px 0 24px 0;
+	}
+
+	.form-step {
+		.step-progress .list {
+			margin : 0 24px;
+
+			&:after {
+				width : 52px;
+				right : -54px;
+			}
+
+			&.curr:after {
+				right : -57px;
+			}
+		}
+
+		.form-fill-in {
+			.form-list li {
+				margin-bottom : 12px;
+				padding-left  : 0;
+			}
+
+			.term {
+				display  : block;
+				position : relative;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 420px) {
+	.form-step .step-progress .list {
+		margin      : 0 16px;
+		width       : 48px;
+		height      : 48px;
+		line-height : 70px;
+
+		&:before {
+			margin      : -24px 0 0 -24px;
+			width       : 48px;
+			height      : 48px;
+			font-size   : 24px;
+			line-height : 29px;
+		}
+
+		&:after {
+			width : 36px;
+			right : -37px;
+		}
+
+		&.curr:after {
+			right : -40px;
+		}
+
+		&:first-child {
+			margin-left : 0;
+		}
+
+		&:last-child {
+			margin-right : 0;
+
+			&:before {
+				line-height : 48px;
+			}
+		}
+	}
+}

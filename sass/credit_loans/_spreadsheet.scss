@@ -1,0 +1,194 @@
+.sheet-calculate {
+	margin-bottom : 40px;
+	border        : 1px solid #ddd;
+	border-radius : 10px;
+	overflow      : hidden;
+
+	.calculate-input {
+		padding       : 20px 25px;
+		border-bottom : 1px solid #ddd;
+
+		.text {
+			color       : #26445e;
+			font-size   : 18px;
+			line-height : 1.6em;
+		}
+
+		.slider-wrap {
+			@include clearfix;
+			margin   : 0 0 35px 0;
+			padding  : 30px 120px;
+			position : relative;
+
+			.min-text, .max-text {
+				width       : 80px;
+				position    : absolute;
+				top         : 0;
+				left        : 0;
+				color       : #26445e;
+				font-size   : 18px;
+				line-height : 81px;
+				text-align  : right;
+			}
+
+			.max-text {
+				left       : auto;
+				right      : 0;
+				text-align : left;
+			}
+
+			.amount {
+				color     : $fontGray;
+				font-size : 24px;
+			}
+		}
+
+		.slider-range {
+			background    : #bebebe;
+			height        : 21px;
+			position      : relative;
+			border-radius : 10px;
+
+			&:before, &:after {
+				content       : '';
+				background    : #0294c9;
+				display       : block;
+				width         : 42px;
+				height        : 100%;
+				position      : absolute;
+				top           : 0;
+				left          : -22px;
+				border-radius : 10px;
+			}
+
+			&:after {
+				background    : #bebebe;
+				left          : auto;
+				right         : -22px;
+				border-radius : 10px;
+			}
+		}
+
+		.ui-widget-header {
+			background    : #0294c9;
+			height        : 100%;
+			position      : absolute;
+			top           : 0;
+			left          : 0;
+			border-radius : 10px;
+		}
+
+		.ui-slider-handle {
+			margin        : -32px 0 0 -32px;
+			background    : #fff;
+			width         : 64px;
+			height        : 64px;
+			position      : absolute;
+			top           : 50%;
+			border-radius : 32px;
+			box-shadow    : -1px 2px 4px rgba(0,0,0,0.47);
+			cursor        : pointer;
+			z-index       : 2;
+			color         : #26445e;
+			font-size     : 22px;
+			line-height   : 64px;
+			text-align    : center;
+		}
+	}
+
+	.calculate-results {
+		@include clearfix;
+		padding     : 0 25px;
+		background  : #0294c9;
+		height      : 76px;
+		color       : #fff;
+		line-height : 76px;
+		text-align  : right;
+
+		.result-title {
+			padding    : 0 0 0 40px;
+			background : image-url('icon_white/icon_count.png') 0 center no-repeat;
+			float      : left;
+			font-size  : 18px;
+			font-style : normal;
+		}
+
+		.text {
+			margin-right : 10px;
+			font-size    : 14px;
+		}
+
+		.result-price {
+			font-size   : 48px;
+			font-weight : bold;
+		}
+	}
+}
+
+.l-content .promo-list .hint {
+	line-height : 24px;
+}
+
+@media only screen and (max-width: 600px) {
+	.sheet-calculate {
+		.calculate-input {
+			padding : 20px 25px 0 25px;
+			.slider-wrap {
+				margin  : 0 0 50px 0;
+				padding : 20px 34px 70px 34px;
+
+				.min-text, .max-text {
+					top         : 80px;
+					line-height : 30px;
+					text-align  : left;
+				}
+
+				.max-text {
+					text-align : right;
+				}
+			}
+		}
+
+		.calculate-results .result-price {
+			font-size : 24px;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.sheet-calculate .calculate-results {
+		padding     : 10px 25px;
+		height      : 72px;
+		line-height : 36px;
+
+		.result-title {
+			display    : block;
+			float      : none;
+			text-align : left;
+		}
+	}
+}
+
+.lt-ie9 {
+	.sheet-calculate .calculate-input {
+		.ui-slider-handle {
+			margin      : -35px 0 0 -35px;
+			background  : image-url('credit_loans/for-ie8/btn_count.png') no-repeat 0 0;
+			width       : 70px;
+			height      : 70px;
+			line-height : 70px;
+		}
+
+		.slider-range:before, .slider-range:after {
+			background : image-url('credit_loans/for-ie8/progress_corner.png') no-repeat 0 0;
+			width      : 10px;
+			left       : -10px;
+		}
+
+		.slider-range:after {
+			background-position : -10px 0;
+			left                : auto;
+			right               : -10px;
+		}
+	}
+}

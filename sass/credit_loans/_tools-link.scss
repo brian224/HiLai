@@ -289,6 +289,32 @@
 	}
 }
 
-.lt-ie9 {
+@-moz-document url-prefix() {
+	.tools-link .wrapper .accordion-content .lab {
+		&.radio, &.check {
+			&.is-curr:before {
+				line-height : 16px;
+			}
+		}
+	}
+}
 
+.lt-ie9 {
+	.tools-link .wrapper .accordion-content .lab {
+		&.radio, &.check {
+			&:before {
+				display : none;
+			}
+
+			.radioBox, .chkBox {
+				margin   : -8px 0 0 0;
+				display  : block;
+				width    : 16px;
+				height   : 16px;
+				position : absolute;
+				top      : 50%;
+				left     : 0;
+			}
+		}
+	}
 }
