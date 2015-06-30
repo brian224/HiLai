@@ -17,7 +17,7 @@
 		.slider-wrap {
 			@include clearfix;
 			margin   : 0 0 35px 0;
-			padding  : 30px 120px;
+			padding  : 30px 100px;
 			position : relative;
 
 			.min-text, .max-text {
@@ -43,33 +43,14 @@
 			}
 		}
 
-		.slider-range {
+		.rangeslider-bar {
 			background    : #bebebe;
 			height        : 21px;
 			position      : relative;
 			border-radius : 10px;
-
-			&:before, &:after {
-				content       : '';
-				background    : #0294c9;
-				display       : block;
-				width         : 42px;
-				height        : 100%;
-				position      : absolute;
-				top           : 0;
-				left          : -22px;
-				border-radius : 10px;
-			}
-
-			&:after {
-				background    : #bebebe;
-				left          : auto;
-				right         : -22px;
-				border-radius : 10px;
-			}
 		}
 
-		.ui-widget-header {
+		.rangeslider-fill {
 			background    : #0294c9;
 			height        : 100%;
 			position      : absolute;
@@ -78,17 +59,27 @@
 			border-radius : 10px;
 		}
 
-		.ui-slider-handle {
-			margin        : -32px 0 0 -32px;
+		.rangeslider-handle {
+			margin   : -32px 0 0 0;
+			width    : 64px;
+			height   : 64px;
+			position : absolute;
+			top      : 50%;
+			cursor   : pointer;
+			z-index  : 2;
+		}
+
+		output {
+			margin        : -32px 0 0 0;
 			background    : #fff;
+			display       : block;
 			width         : 64px;
 			height        : 64px;
 			position      : absolute;
 			top           : 50%;
+			left          : 100px;
 			border-radius : 32px;
 			box-shadow    : -1px 2px 4px rgba(0,0,0,0.47);
-			cursor        : pointer;
-			z-index       : 2;
 			color         : #26445e;
 			font-size     : 22px;
 			line-height   : 64px;
@@ -133,9 +124,10 @@
 	.sheet-calculate {
 		.calculate-input {
 			padding : 20px 25px 0 25px;
+
 			.slider-wrap {
 				margin  : 0 0 50px 0;
-				padding : 20px 34px 70px 34px;
+				padding : 20px 3px 70px 3px;
 
 				.min-text, .max-text {
 					top         : 80px;
@@ -147,6 +139,10 @@
 					text-align : right;
 				}
 			}
+
+			output {
+				margin-top : -54px;
+			}
 		}
 
 		.calculate-results .result-price {
@@ -155,16 +151,18 @@
 	}
 }
 
-@media only screen and (max-width: 600px) {
-	.sheet-calculate .calculate-results {
-		padding     : 10px 25px;
-		height      : 72px;
-		line-height : 36px;
+@media only screen and (max-width: 400px) {
+	.sheet-calculate {
+		.calculate-results {
+			padding     : 10px 25px;
+			height      : 72px;
+			line-height : 36px;
 
-		.result-title {
-			display    : block;
-			float      : none;
-			text-align : left;
+			.result-title {
+				display    : block;
+				float      : none;
+				text-align : left;
+			}
 		}
 	}
 }

@@ -7,6 +7,8 @@ $(document).ready(function(){
 		$rwdMenuList = $('.rwd-menu-list'),
 		$hasSubMenu  = $('.has-sub-menu'),
 		$sideTitle   = $('.side-title'),
+		$document    = $(document),
+		$element     = $('[data-rangeslider]'),
 		_rwdMenu     = $('.credit-loans .side-menu-list').html();
 
 	$kvSlider.owlCarousel({
@@ -62,45 +64,57 @@ $(document).ready(function(){
 		$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
 	});
 
-	$('.slider-money').slider({
-		range  : 'min',
-		value  : 6,
-		min    : 6,
-		max    : 300,
-		create : function( event, ui ) {
-			$('.money .ui-slider-handle').text(6);
-		},
-		slide  : function( event, ui ) {
-			$('.money .ui-slider-handle').text(ui.value);
-			PMT($('.apr .ui-slider-handle').text(), $('.year .ui-slider-handle').text(), ui.value);
+	function valueOutput(element) {
+		var value  = element.value,
+			output = element.parentNode.getElementsByTagName('output')[0];
+
+		output.innerHTML = value;
+	}
+
+	for (var i = $element.length - 1; i >= 0; i--) {
+		valueOutput($element[i]);
+	}
+
+	$document.on('input', 'input[type="range"]', function(e) {
+		valueOutput(e.target);
+	});
+
+	$('.slider-money').rangeslider({
+		polyfill    : false,
+		rangeClass  : 'rangeslider-bar',
+		fillClass   : 'rangeslider-fill',
+		handleClass : 'rangeslider-handle',
+		onSlide     : function(position, value) {
+			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			
+			$('.slider-wrap.money').find('output').css({'left' : (position + _sliderWrap) + 'px'});
+			PMT($('.apr output').text(), $('.year output').text(), value);
 		}
 	});
 
-	$('.slider-year').slider({
-		range  : 'min',
-		value  : 1,
-		min    : 1,
-		max    : 7,
-		create : function( event, ui ) {
-			$('.year .ui-slider-handle').text(1);
-		},
-		slide  : function( event, ui ) {
-			$('.year .ui-slider-handle').text(ui.value);
-			PMT($('.apr .ui-slider-handle').text(), ui.value, $('.money .ui-slider-handle').text());
+	$('.slider-year').rangeslider({
+		polyfill    : false,
+		rangeClass  : 'rangeslider-bar',
+		fillClass   : 'rangeslider-fill',
+		handleClass : 'rangeslider-handle',
+		onSlide     : function(position, value) {
+			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			
+			$('.slider-wrap.year').find('output').css({'left' : (position + _sliderWrap) + 'px'});
+			PMT($('.apr output').text(), value, $('.money output').text());
 		}
 	});
 
-	$('.slider-apr').slider({
-		range  : 'min',
-		value  : 0,
-		min    : 0,
-		max    : 1800,
-		create : function( event, ui ) {
-			$('.apr .ui-slider-handle').text('0.00');
-		},
-		slide : function( event, ui ) {
-			$('.apr .ui-slider-handle').text((ui.value/100).toFixed(2));
-			PMT((ui.value/100).toFixed(2), $('.year .ui-slider-handle').text(), $('.money .ui-slider-handle').text());
+	$('.slider-apr').rangeslider({
+		polyfill    : false,
+		rangeClass  : 'rangeslider-bar',
+		fillClass   : 'rangeslider-fill',
+		handleClass : 'rangeslider-handle',
+		onSlide     : function(position, value) {
+			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			
+			$('.slider-wrap.apr').find('output').css({'left' : (position + _sliderWrap) + 'px'});
+			PMT(value, $('.year output').text(), $('.money output').text());
 		}
 	});
 
