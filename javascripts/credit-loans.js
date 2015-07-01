@@ -7,8 +7,6 @@ $(document).ready(function(){
 		$rwdMenuList = $('.rwd-menu-list'),
 		$hasSubMenu  = $('.has-sub-menu'),
 		$sideTitle   = $('.side-title'),
-		$document    = $(document),
-		$element     = $('[data-rangeslider]'),
 		_rwdMenu     = $('.credit-loans .side-menu-list').html();
 
 	$kvSlider.owlCarousel({
@@ -64,31 +62,16 @@ $(document).ready(function(){
 		$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
 	});
 
-	function valueOutput(element) {
-		var value  = element.value,
-			output = element.parentNode.getElementsByTagName('output')[0];
-
-		output.innerHTML = value;
-	}
-
-	for (var i = $element.length - 1; i >= 0; i--) {
-		valueOutput($element[i]);
-	}
-
-	$document.on('input', 'input[type="range"]', function(e) {
-		valueOutput(e.target);
-	});
-
 	$('.slider-money').rangeslider({
 		polyfill    : false,
 		rangeClass  : 'rangeslider-bar',
 		fillClass   : 'rangeslider-fill',
 		handleClass : 'rangeslider-handle',
 		onSlide     : function(position, value) {
-			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
 			
-			$('.slider-wrap.money').find('output').css({'left' : (position + _sliderWrap) + 'px'});
-			PMT($('.apr output').text(), $('.year output').text(), value);
+			$('.slider-wrap.money').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+			PMT($('.slider-apr').val(), $('.slider-year').val(), value);
 		}
 	});
 
@@ -98,10 +81,10 @@ $(document).ready(function(){
 		fillClass   : 'rangeslider-fill',
 		handleClass : 'rangeslider-handle',
 		onSlide     : function(position, value) {
-			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
 			
-			$('.slider-wrap.year').find('output').css({'left' : (position + _sliderWrap) + 'px'});
-			PMT($('.apr output').text(), value, $('.money output').text());
+			$('.slider-wrap.year').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+			PMT($('.slider-apr').val(), value, $('.slider-money').val());
 		}
 	});
 
@@ -111,10 +94,10 @@ $(document).ready(function(){
 		fillClass   : 'rangeslider-fill',
 		handleClass : 'rangeslider-handle',
 		onSlide     : function(position, value) {
-			var _sliderWrap  = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
 			
-			$('.slider-wrap.apr').find('output').css({'left' : (position + _sliderWrap) + 'px'});
-			PMT(value, $('.year output').text(), $('.money output').text());
+			$('.slider-wrap.apr').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+			PMT(value, $('.slider-year').val(), $('.slider-money').val());
 		}
 	});
 

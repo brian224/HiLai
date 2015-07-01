@@ -169,24 +169,12 @@
 
 .lt-ie9 {
 	.sheet-calculate .calculate-input {
-		.ui-slider-handle {
-			margin      : -35px 0 0 -35px;
+		output {
+			margin      : -35px 0 0 0;
 			background  : image-url('credit_loans/for-ie8/btn_count.png') no-repeat 0 0;
 			width       : 70px;
 			height      : 70px;
 			line-height : 70px;
-		}
-
-		.slider-range:before, .slider-range:after {
-			background : image-url('credit_loans/for-ie8/progress_corner.png') no-repeat 0 0;
-			width      : 10px;
-			left       : -10px;
-		}
-
-		.slider-range:after {
-			background-position : -10px 0;
-			left                : auto;
-			right               : -10px;
 		}
 	}
 }
