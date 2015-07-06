@@ -23,6 +23,7 @@ $(document).ready(function(){
 	});
 
 	$rwdMenuList.html(_rwdMenu);
+	$rwdMenuList.find('.loan-purpose').removeClass('curr');
 
 	$sideTitle.on('click', function(){
 		var _winWidth = $(window).width();
@@ -33,7 +34,7 @@ $(document).ready(function(){
 	});
 
 	$switchBar.on('click', function(){
-		$(this).parent().toggleClass('open').siblings().removeClass('open');
+		$(this).parent().toggleClass('open');
 	});
 
 	$radioLab.on('click', 'input[type="radio"]', function(){

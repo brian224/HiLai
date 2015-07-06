@@ -1,8 +1,4 @@
-﻿.l-content .sub-title {
-	margin : 20px 0 36px 0;
-}
-
-.form-step {
+﻿.form-step {
 	margin-bottom : 40px;
 	border        : 1px solid #ddd;
 	border-radius : 10px;
@@ -26,7 +22,14 @@
 			vertical-align : middle;
 
 			&.curr {
+				background   : #fff;
 				border-width : 5px;
+				box-shadow   : 0 2px 3px rgba(0,0,0,0.3);
+				color        : #0294c9;
+
+				&:before {
+					color : #0294c9;
+				}
 
 				&:after {
 					right : -107px;
@@ -148,10 +151,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-	.l-content .sub-title {
-		margin : 20px 0 24px 0;
-	}
-
 	.form-step {
 		.step-progress .list {
 			margin : 0 24px;
@@ -170,13 +169,32 @@
 			.form-list li {
 				margin-bottom : 12px;
 				padding-left  : 0;
+
+				&.set-box {
+					padding-right : 35px;
+					position: relative;
+				}
 			}
 
 			.term {
 				display  : block;
 				position : relative;
 			}
+
+			.text {
+				margin      : 0;
+				width       : 26px;
+				height      : 100%;
+				position    : absolute;
+				right       : 0;
+				line-height : 32px;
+			}
 		}
+	}
+
+	.selecter, .inputBox {
+		margin-right : 0;
+		width        : 100%;
 	}
 }
 

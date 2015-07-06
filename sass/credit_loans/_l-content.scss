@@ -167,6 +167,7 @@
 					}
 
 					em {
+						margin-top  : 12px;
 						display     : block;
 						color       : #26445e;
 						font-style  : normal;
@@ -176,6 +177,11 @@
 					ul {
 						padding    : 0 0 0 22px;
 						list-style : decimal outside;
+					}
+
+					ol {
+						padding    : 0 0 0 22px;
+						list-style : disc outside;
 					}
 				}
 			}
@@ -202,7 +208,7 @@
 	}
 
 	.sub-title {
-		margin      : 30px 0 10px 0;
+		margin      : 50px 0 20px 0;
 		color       : #26445e;
 		font-size   : 20px;
 		line-height : 30px;
@@ -210,6 +216,10 @@
 		.btn-blue {
 			margin : 0 20px;
 		}
+	}
+
+	.promo-list {
+		margin-bottom : 30px;
 	}
 
 	.recommend-list .unit-list {
@@ -250,9 +260,9 @@
 
 	.btn-blue {
 		@include box-sizing(border-box);
-		@include background-image(linear-gradient(#06a8ef, #0594d7, #0471ad));
 		margin-top     : 20px;
 		padding        : 4px 10px;
+		background     : #0471ad;
 		display        : inline-block;
 		min-width      : 144px;
 		border         : 1px solid #315b6f;
@@ -261,6 +271,7 @@
 		font-size      : 16px;
 		text-align     : center;
 		vertical-align : middle;
+		@include background-image(linear-gradient(#06a8ef, #0594d7, #0471ad));
 
 		&:hover {
 			@include background-image(linear-gradient(#0471ad, #0594d7, #06a8ef));
@@ -278,7 +289,7 @@
 	.rwd-menu-list {
 		display : block;
 
-		li {
+		> li {
 			border-bottom : 1px solid #ddd;
 			text-align    : center;
 		}
@@ -318,6 +329,10 @@
 				background : #f3f3f3;
 				max-height : 0;
 				overflow   : hidden;
+
+				li {
+					border-top : 1px solid #ddd;
+				}
 			}
 		}
 	}
