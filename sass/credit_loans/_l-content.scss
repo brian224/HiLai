@@ -403,4 +403,7 @@
 }
 
 .lt-ie9 {
+	.l-content .promo-list .unit-list .feature-desc:after {
+		background : image-url('credit_loans/for-ie8/switch_dot.png') center center no-repeat;
+	}
 }

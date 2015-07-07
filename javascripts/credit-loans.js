@@ -63,44 +63,56 @@ $(document).ready(function(){
 		$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
 	});
 
-	$('.slider-money').rangeslider({
-		polyfill    : false,
-		rangeClass  : 'rangeslider-bar',
-		fillClass   : 'rangeslider-fill',
-		handleClass : 'rangeslider-handle',
-		onSlide     : function(position, value) {
-			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
-			
-			$('.slider-wrap.money').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
-			PMT($('.slider-apr').val(), $('.slider-year').val(), value);
-		}
-	});
+	if ($('.slider-wrap').length !== 0) {
+		$('.slider-money').rangeslider({
+			polyfill    : false,
+			rangeClass  : 'rangeslider-bar',
+			fillClass   : 'rangeslider-fill',
+			handleClass : 'rangeslider-handle',
+			onSlide     : function(position, value) {
+				var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+				
+				$('.slider-wrap.money').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+				PMT($('.slider-apr').val(), $('.slider-year').val(), value);
+			}
+		});
 
-	$('.slider-year').rangeslider({
-		polyfill    : false,
-		rangeClass  : 'rangeslider-bar',
-		fillClass   : 'rangeslider-fill',
-		handleClass : 'rangeslider-handle',
-		onSlide     : function(position, value) {
-			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
-			
-			$('.slider-wrap.year').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
-			PMT($('.slider-apr').val(), value, $('.slider-money').val());
-		}
-	});
+		$('.slider-year').rangeslider({
+			polyfill    : false,
+			rangeClass  : 'rangeslider-bar',
+			fillClass   : 'rangeslider-fill',
+			handleClass : 'rangeslider-handle',
+			onSlide     : function(position, value) {
+				var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+				
+				$('.slider-wrap.year').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+				PMT($('.slider-apr').val(), value, $('.slider-money').val());
+			}
+		});
 
-	$('.slider-apr').rangeslider({
-		polyfill    : false,
-		rangeClass  : 'rangeslider-bar',
-		fillClass   : 'rangeslider-fill',
-		handleClass : 'rangeslider-handle',
-		onSlide     : function(position, value) {
-			var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
-			
-			$('.slider-wrap.apr').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
-			PMT(value, $('.slider-year').val(), $('.slider-money').val());
-		}
-	});
+		$('.slider-apr').rangeslider({
+			polyfill    : false,
+			rangeClass  : 'rangeslider-bar',
+			fillClass   : 'rangeslider-fill',
+			handleClass : 'rangeslider-handle',
+			onSlide     : function(position, value) {
+				var _sliderWrap = parseInt($('.slider-wrap').css('paddingLeft'), 10);
+				
+				$('.slider-wrap.apr').find('output').css({'left' : (position + _sliderWrap) + 'px'}).text(value);
+				PMT(value, $('.slider-year').val(), $('.slider-money').val());
+			}
+		});
+	}
+
+	if (navigator.userAgent.indexOf('MSIE 8.0') > 0) {
+		$('.fast-links .link').each(function(){
+			$(this).hover(function(){
+				$(this).addClass('hover');
+			}, function(){
+				$(this).removeClass('hover');
+			});
+		});
+	}
 
 	// 計算貸款金額
 	function PMT(i, n, p) {

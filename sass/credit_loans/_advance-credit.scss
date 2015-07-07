@@ -235,3 +235,65 @@
 		}
 	}
 }
+
+.lt-ie9 {
+	.form-step .step-progress .list {
+		margin     : 0 49px;
+		background : image-url('credit_loans/for-ie8/step_bg.png') 0 center no-repeat;
+		display    : inline-block;
+		width      : 62px;
+		height     : 62px;
+		position   : relative;
+		border     : 0;
+
+		&:before {
+			content     : '1';
+			margin      : -31px 0 0 -31px;
+			display     : block;
+			width       : 62px;
+			height      : 62px;
+			position    : absolute;
+			top         : 50%;
+			left        : 50%;
+			color       : #fff;
+			font-size   : 30px;
+			line-height : 46px;
+			text-align  : center;
+		}
+
+		&:after {
+			left : -102px;
+		}
+
+		&.curr {
+			background-position : right center;
+			width               : 70px;
+			height              : 70px;
+			line-height         : 100px;
+
+			&:before {
+				color : #0294c9;
+			}
+		}
+
+		&:first-child:after {
+			display : none;
+		}
+
+		&:first-child + li:before {
+			content : '2';
+		}
+
+		&:first-child + li + li {
+			text-indent : 120%;
+
+			&:before {
+				content        : '結果';
+				font-size      : 14px;
+				letter-spacing : 1px;
+				line-height    : 62px;
+				text-indent    : 0;
+			}
+		}
+	}
+}
