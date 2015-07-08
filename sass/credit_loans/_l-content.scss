@@ -83,7 +83,7 @@
 
 				.slide-content {
 					margin-bottom : 20px;
-					max-height    : 2000px;
+					max-height    : 3000px;
 				}
 			}
 
@@ -213,6 +213,71 @@
 				top           : 6px;
 				left          : 0;
 				border-radius : 4px;
+			}
+		}
+
+		.procedure {
+			margin     : 0 0 36px 0;
+			padding    : 0 !important;
+			list-style : none;
+
+			.step {
+				@include box-sizing(border-box);
+				margin        : 51px 0 0 0;
+				padding-left  : 140px;
+				background    : #fff;
+				display       : inline-block;
+				width         : 100%;
+				min-height    : 72px;
+				position      : relative;
+				border        : 1px solid #e1e1e1;
+				border-radius : 4px;
+				box-shadow    : 1px 2px 0 #ccc;
+				color         : #003f62;
+				font-size     : 16px;
+				line-height   : 70px;
+				text-align    : left;
+
+				&:before {
+					content     : '';
+					margin-left : -11px;
+					background  : image-url('icon_arrow/icon_arrow_down_gradient.png') no-repeat 0 0;
+					display     : block;
+					width       : 22px;
+					height      : 47px;
+					position    : absolute;
+					top         : -50px;
+					left        : 49%;
+				}
+
+				&:first-child {
+					margin-top : 30px;
+
+					&:before {
+						display : none;
+					}
+				}
+
+				.highlight {
+					margin      : -36px 0 0 0 !important;
+					height      : 72px;
+					position    : absolute;
+					top         : 50%;
+					left        : 22px;
+					font-size   : 30px;
+					font-style  : normal;
+					font-weight : normal !important;
+					line-height : 72px;
+				}
+
+				span {
+					line-height : 1.5em;
+				}
+
+				img {
+					margin         : 0 10px;
+					vertical-align : middle;
+				}
 			}
 		}
 	}
