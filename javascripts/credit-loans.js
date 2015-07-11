@@ -107,6 +107,7 @@ $(document).ready(function(){
 	if (navigator.userAgent.indexOf('MSIE 8.0') > 0) {
 		$('.fast-links .link').each(function(){
 			$(this).hover(function(){
+				$('.fast-links .link').removeClass('hover');
 				$(this).addClass('hover');
 			}, function(){
 				$(this).removeClass('hover');
