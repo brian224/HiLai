@@ -1,7 +1,6 @@
 var Ploan = function () {
 	
 	function initStep1(){
-
 		$('#goStep2').click(function (e) {
 			e.preventDefault() ;
 			var title = $("#title").find(":selected").val();
@@ -50,14 +49,19 @@ var Ploan = function () {
 			//}
 			
 			$(this).tab('show');
-			$(document).scrollTop( $("#services").offset().top );
+			$('.step-progress').find('.list').removeClass('curr');
+			$('.step-progress').find('.list').eq(1).addClass('curr');
+		});
 
-		}) ;
-		
+		$('a[data-toggle="tab"]').on('click', function(){
+			var _step = $(this).attr('href').split('#step-')[1];
+
+			$('.step-progress').find('.list').removeClass('curr');
+			$('.step-progress').find('.list').eq(_step - 1).addClass('curr');
+		});
 	}
 	
 	function initStep2(){
-
 		$('#annualIncome').blur(function (e) {
 			checkAnnualIncome();
 		});
@@ -67,8 +71,7 @@ var Ploan = function () {
 			if(!$.isNumeric(age) || age>63 || age <20 ){
 				$('#alert_age').show();
 				$('#alert_box').show();
-			}
-			else{
+			} else {
 				$('#alert_age').hide();
 				if($('#alert_income42:visible').length == 0 && $('#alert_income30:visible').length == 0){
 					$('#alert_box').hide();
@@ -83,10 +86,7 @@ var Ploan = function () {
 				checkAnnualIncome();
 			}
 		});
-		
-					
 
-		
 		$('#calculateCreditsBtn').click(function (e) {
 			
 			if(!validateStep2()) return false ;
@@ -122,9 +122,7 @@ var Ploan = function () {
 			if(credit==2){
 				creditRateC = titleObj.creditRateC /100 ;
 			}
-			
-			
-			
+
 			var reject = false;
 			//E = Round ((A/12* DIM倍數*年收入認列%*信用認列A%*信用認列B%- (B+C+D) ),0) 
 			var totalAmount =  Math.round(factor_A/12*dim*incomeRate*creditRateA*creditRateB*creditRateC -(factor_B+factor_C+factor_D));
@@ -140,8 +138,7 @@ var Ploan = function () {
 				$('.loandableResult').addClass('hidden');
 				$('.rejectMessage').removeClass('hidden');
 				alert("依您目前填寫資訊暫無法試算信用貸款可貸金額，建議您重新檢視填寫資訊，或點選網頁「與專人聯絡」將有專員為您服務。");
-			}
-			else{
+			} else {
 				/*
 				   1. 請詳 "表1"該職位相對應之年限
 				   2. 如果可貸金額小於31萬, 請參考"表一" 最短年限
@@ -160,8 +157,6 @@ var Ploan = function () {
 				$('.loandableResult').removeClass('hidden');
 				$(this).tab('show');
 			}				
-			$(document).scrollTop( $("#services").offset().top );	
-
 		});
 
 		$('#creditCards').change(function (e){
@@ -169,26 +164,22 @@ var Ploan = function () {
 			if(creditCards>0){
 				$("#q6_1").show();
 				$("#q6_2").show();
-			}
-			else {
+			} else {
 				$("#q6_1").hide();
 				$("#revolvingCredit").val('false');
 				$("#q6_2").hide();
 				$("#creditCardAmount").val('');
-				
 			}
-				
 		});
 		
 		$('#homeLoans').change(function (e){
 			var homeLoans = $("#homeLoans").find(":selected").val();
-			if(homeLoans>0)
+			if(homeLoans>0) {
 				$("#q7_1").show();
-			else {
+			} else {
 				$("#q7_1").hide();
 				$("#homeLoansAmount").val('');
 			}
-				
 		});    		
 		
 		$('#creditLoans').change(function (e){
@@ -196,13 +187,11 @@ var Ploan = function () {
 			if(creditLoans>0){
 				$("#q8_1").show();
 				$("#q8_2").show();
-			}
-			else{
+			} else{
 				$("#q8_1").hide();
 				$("#creditLoansAmount").val('');
 				$("#q8_2").hide();    				
 				$("#needCreditLoan").val('false');
-				
 			}
 		});   
 		
@@ -214,109 +203,13 @@ var Ploan = function () {
 			$("#cashCardAmount").val('');
 		});    
 	}
-	
-	function contactANZ(){
 		
-		$('#hasANZCreadCardTrue').click(function (e) {
-			$("#hasANZCreadCardFalse").prop("checked", false);
-		});
-		$('#hasANZCreadCardFalse').click(function (e) {
-			$("#hasANZCreadCardTrue").prop("checked", false);
-		});
-		
-		$('#form_submit_btn').click(function (e) {
-			
-			$('#form_data_age').val(getInputValue("#age")) ;
-			$('#form_data_income').val(getInputValue("#annualIncome")) ;
-			var career = '' ;
-			var jobIndex = $("#job").find(":selected").val() ;
-			if(jobIndex>-1){
-				career = jobs[jobIndex].name ;
-				var titleId = $("#title").find(":selected").val();
-				if(titleId!=-1){
-					career += "_"+  titles[titleId].name;
-				}
-			}
-			$('#form_data_career').val(career) ;
-			
-			
-			$.ajax({
-				url:'co_record.jsp',   
-				type:'post',   
-				dataType:'html',   
-				data:$('#contactusForm').serialize(),   
-				error: function(){
-					alert("系統繁忙中, 請稍後再試");
-				},
-				success: function(data){
-				  	if(data.indexOf("error") != -1){
-				  		alert("系統繁忙中, 請稍後再試");
-				  	}else{
-				        alert("謝謝您,我們已經收到您的資料,我們將儘快跟您聯絡!!");
-						var campaigncode = $("#campaigncode").val() ;
-				        window.location.href="index.jsp?campaigncode="+campaigncode;
-				  	}
-				},
-				beforeSend: function(){
-					 
-	    			if(!$('#hasANZCreadCardTrue').prop('checked') && !$('#hasANZCreadCardFalse').prop('checked')){
-	    				alert("請勾選卡友或非卡友！");
-	    				return false ;
-	    			}
-	    			
-					var cname =  getInputValue("#cname");
-	    			if(cname==''){
-	    				alert("請輸入真實姓名！");
-	    				return false ;
-	    			}
-	    			
-	    			if(!validIdNumber()){
-	    				return false ;
-	    			}
-	    			
-	    			
-	    			var contactTel =  getInputValue("#contactTel");
-	    			if(contactTel==''){
-	    				alert("請輸入行動電話！");
-	    				return false ;
-	    			}
-	    			var contactTime =   $("#contactTime").find(":selected").val();
-	    			if(contactTime==0){
-	    				alert("請選擇方便聯絡時間！");
-	    				return false ;
-	    			}
-	    			if(!$('#salary_certificate').prop('checked')){
-	    				alert("提醒您, 申請人須有扣繳憑單/薪資證明！");
-	    				return false ;
-	    			}	  
-	    			if(!$('#understand_ANZ_PIPA').prop('checked')){
-	    				alert("請先勾選我已閱讀並了解ANZ履行 個資法第8條 告知義務內容！");
-	    				return false ;
-	    			}
-  			
-
-					return true;
-					
-				},
-				complete: function(){
-					//alert("complete");
-				}
-			});       			
-		});	
-	}
-	
-	
     return {
-
         init: function () {
         	initStep1();
         	initStep2();
-        	contactANZ();
-            // trialValidate();
             changeJobs();        	
         },
-
-
     };
 }();
 
@@ -342,7 +235,6 @@ function checkAnnualIncome(){
 		}
 	}
 }
-
 
 function validateStep2(){
 	var credit = $("#credit").find(":selected").val();
@@ -401,7 +293,6 @@ function getInputFloatValue(id){
 	return value=='' ? 0 : parseFloat(value) ;
 }
 
-
 function trialValidate(isAprKeyPress){
 	var totalAmount = $('#totalAmount').val();//貨款總金額
 	var period = $('#period').val();//貨款總期間
@@ -436,10 +327,8 @@ function trialValidate(isAprKeyPress){
 		}
 		$('#apr').val(parseFloat($('#apr').val()));			
 	}
-	
 	trial();
 }
-
 
 function validateNumber(input, isApr){
 	if(isApr){
@@ -471,7 +360,6 @@ function pmt(totalAmount, period ,apr){
 	// 信貸試算公式
 	// 貸款金額 ×{[(1+月利率)^月數]× 月利率｝÷ {[(1+月利率)^月數]-1}
 	return Math.round(totalAmount*((apr * Math.pow(1+apr , period))/( Math.pow(1 + apr,period) - 1 )));
-			
 }
 
 function newPMT(money, month, percent){
@@ -483,7 +371,6 @@ function newPMT(money, month, percent){
 
 	return formatNumber(Math.round(m1_1 / m1_2 * y)) ;
 }
-
 
 function formatNumber(n) { 
     n += ""; 
@@ -507,7 +394,7 @@ var jobs = [
             {	id:	4,name:'軍警',titles:[{id:'j0401',name:'校級以上軍官'}, {id:'j0402',name:'普考以上警察'},{id:'j0403',name:'其他'}]},	
             {	id:	5,name:'一般公司',titles:[{id:'j0501',name:'白領主管'}, {id:'j0502',name:'其他'}]},	
             {	id:	6,name:'業主或其他',titles:[{id:'j0601',name:'中小企業主'}, {id:'j0602',name:'小商號負責人'},{id:'j0603',name:'其他'}]},			                   
-           ]
+        ]
 var titles = {
 		j0101:{name:'主管' 				,rate: 7.37,maxPeriod:7,minPeriod:5,minAmount:10,maxAmount:300,dim:22.00,incomeRate:100.0,creditRateA:100.0,creditRateB:100.0,creditRateC:100.0},
 		j0102:{name:'固定薪白領員工' 	,rate: 9.87,maxPeriod:7,minPeriod:5,minAmount:10,maxAmount:200,dim:22.00,incomeRate:100.0,creditRateA:100.0,creditRateB:100.0,creditRateC:100.0},
@@ -536,7 +423,6 @@ var titles = {
 		j0603:{name:'其他' 				,rate:17.27,maxPeriod:5,minPeriod:5,minAmount:10,maxAmount: 80,dim:11.00,incomeRate:100.0,creditRateA:100.0,creditRateB:  0.0,creditRateC:0.0}			
 	}
 
-
 function initializeTitles() {
 	$("#title option").remove();
 	$("#title").append("<option value='-1' selected disabled>職稱</option>");
@@ -561,136 +447,4 @@ function changeJobs() {
 			$("#title").selecter("refresh");
 		}
 	}
-}
-
-	
-function validIdNumber(){
-
-	var nationalid =  getInputValue("#nationalid");
-
-	if(nationalid==''){
-		alert("請輸入身分證字號！");
-		return false ;
-	}
-	else{
-		nationalid = nationalid.toUpperCase();
-		$("#nationalid").val(nationalid);
-		var chk_no ;
-		var chk_str ;
-		var chk_count;
-		if (nationalid.length!=10){
-			alert("身分證字號應為10碼");
-			return false ;
-		}
-		if ((nationalid.charAt(0)<'A') || (nationalid.charAt(0)>'Z')){
-			alert("身分證字號第一碼應為英文字母");
-			return false ;
-		}
-		if (isNaN(nationalid.substring(1,10)) || (nationalid.substring(1,10).indexOf('-')>=0) || (nationalid.substring(1,10).indexOf('.')>=0) || (nationalid.substring(1,10).indexOf('+')>=0)){
-			alert("身分證字號後九碼應為1~9的數字");
-			return false ;
-		}
-		if ((nationalid.charAt(1)<'1') || (nationalid.charAt(1)>'2')){
-			alert("身分證第二碼性別碼只能為1或2");
-			return false ;
-		}
-	        
-		//進行驗證檢查碼的動作
-		//轉換第一碼
-		switch(nationalid.charAt(0).toUpperCase()){
-				  case 'A':{
-						  chk_no='10';
-						  break;        }
-				  case 'B':{
-						  chk_no='11';
-						  break;        }
-				  case 'C':{
-						  chk_no='12';
-						  break;        }
-				  case 'D':{
-						  chk_no='13';
-						  break;        }
-				  case 'E':{
-						  chk_no='14';
-						  break;        }
-				  case 'F':{
-						  chk_no='15';
-						  break;        }
-				  case 'G':{
-						  chk_no='16';
-						  break;        }
-				  case 'H':{
-						  chk_no='17';
-						  break;        }
-				  case 'J':{
-						  chk_no='18';
-						  break;        }
-				  case 'K':{
-						  chk_no='19';
-						  break;        }
-				  case 'L':{
-						  chk_no='20';
-						  break;        }
-				  case 'M':{
-						  chk_no='21';
-						  break;        }
-				  case 'N':{
-						  chk_no='22';
-						  X2=2;
-						  break;        }
-				  case 'P':{
-						  chk_no='23';
-						  break;        }
-				  case 'Q':{
-						  chk_no='24';
-						  break;        }
-				  case 'R':{
-						  chk_no='25';
-						  break;        }
-				  case 'S':{
-						  chk_no='26';
-						  break;        }
-				  case 'T':{
-						  chk_no='27';
-						  break;        }
-				  case 'U':{
-						  chk_no='28';
-						  break;        }
-				  case 'V':{
-						  chk_no='29';
-						  break;        }
-				  case 'X':{
-						  chk_no='30';
-						  break;        }
-				  case 'Y':{
-						  chk_no='31';
-						  break;        }
-				  case 'W':{
-						  chk_no='32';
-						  break;        }
-				  case 'Z':{
-						  chk_no='33';
-						  break;        }
-				  case 'I':{
-						  chk_no='34';
-						  break;        }
-				  case 'O':{
-						  chk_no='35';
-						  break;        }
-		}
-		chk_str=chk_no + nationalid.substring(1,10);
-		chk_count=0;
-		for (var i=1;i<=9;i++) {
-			chk_count+=parseInt(chk_str.charAt(i))*(10-i);
-		}
-		chk_count+=parseInt(chk_str.charAt(0));
-		chk_count+=parseInt(chk_str.charAt(10));
-
-		if ((chk_count % 10)!=0){
-			alert("身分證字號驗證錯誤,請重新輸入!");
-			return false ;
-		}
-		
-	}
-	return true ;	
 }

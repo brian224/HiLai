@@ -58,6 +58,7 @@ $(document).ready(function(){
 	});
 
 	$selecter.hover(function(){
+		$(this).focus();
 		$(this).addClass('focus open').removeClass('closed').find('.selecter-options').show();
 	}, function(){
 		$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
