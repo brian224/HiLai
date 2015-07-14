@@ -1,0 +1,320 @@
+﻿.tools-link {
+	background-color : #ededed;
+	border-top       : 1px solid #d5d5d5;
+
+	.wrapper {
+		.accordion-heading {
+			position : relative;
+			cursor   : pointer;
+
+			&:after {
+				content       : '+';
+				margin-top    : -12px;
+				background    : $main-color;
+				display       : block;
+				width         : 24px;
+				height        : 24px;
+				position      : absolute;
+				top           : 50%;
+				right         : 0;
+				border-radius : 50px;
+				color         : $bright;
+				font-size     : 14px;
+				line-height   : 24px;
+				text-align    : center;
+			}
+
+			p {
+				padding    : 20px 0;
+				color      : #444444;
+				font-size  : 15px;
+			}
+		}
+
+		.accordion-content {
+			@include transition(all .3s ease-in-out);
+			max-height : 0;
+			overflow   : hidden;
+
+			.check-area {
+				padding-left : 30px;
+				clear        : both;
+
+				.lab {
+					margin-right : 28px;
+				}
+			}
+
+			.lab {
+				@include box-sizing(border-box);
+				margin      : 0 0 28px 0;
+				display     : inline-block;
+				color       : #444;
+				font-size   : 14px;
+				line-height : 34px;
+
+				&.large {
+					padding-left : 30px;
+					display      : block;
+					width        : 320px;
+					float        : left;
+				}
+
+				.text {
+					display        : inline-block;
+					width          : 75px;
+					vertical-align : top;
+				}
+
+				&.radio, &.check {
+					padding  : 0 0 0 20px;
+					position : relative;
+					cursor   : pointer;
+
+					&:before {
+						@include box-sizing(border-box);
+						content       : '';
+						background    : #fff;
+						display       : block;
+						width         : 16px;
+						height        : 16px;
+						position      : absolute;
+						top           : 9px;
+						left          : 0;
+						border        : 1px solid #bdbdbd;
+						border-radius : 50%;
+					}
+
+					&.is-curr:before {
+						content     : '✓';
+						background  : #06a9f1;
+						border      : 1px solid #06a9f1;
+						color       : #fff;
+						font-size   : 12px;
+						line-height : 12px;
+						text-indent : 2px;
+					}
+
+					.radioBox, .chkBox {
+						display : none;
+					}
+				}
+
+				.inputBox {
+					@include box-sizing(border-box);
+					margin-left   : 5px;
+					display       : inline-block;
+					width         : 208px;
+					height        : 34px;
+					border        : 1px solid #bdbdbd;
+					border-radius : 4px;
+					color         : #444;
+					font-size     : 14px;
+					line-height   : 34px;
+					text-indent   : 10px;
+
+					&::-webkit-input-placeholder {
+						color : #fff;
+					}
+
+					&:-moz-placeholder {
+						color : #fff;
+					}
+
+					&::-moz-placeholder {
+						color : #fff;
+					}
+
+					&:-ms-input-placeholder {
+						color : #fff;
+					}
+				}
+
+				.selecter {
+					display : inline-block;
+					width   : 208px;
+
+					.selecter-selected {
+						@include box-sizing(border-box);
+						padding          : 0;
+						background-color : #fff;
+						height           : 34px;
+						border           : 1px solid #bdbdbd;
+						line-height      : 34px;
+						text-indent      : 10px;
+					}
+				}
+
+				.see-clause {
+					color           : #0e8bcb;
+					text-decoration : underline;
+				}
+			}
+
+			.btn-wrap {
+				text-align : center;
+
+				.btn-process {
+					background     : #41ad04;
+					margin         : 10px auto;
+					display        : block;
+					width          : 264px;
+					height         : 36px;
+					border         : 1px solid #36a513;
+					border-radius  : 4px;
+					color          : #fff;
+					font-size      : 15px;
+					font-weight    : bold;
+					letter-spacing : 1px;
+					line-height    : 36px;
+					@include background-image(linear-gradient(#81ce1d, #119208));
+				}
+
+				.desc {
+					display    : block;
+					color      : $fontGray;
+					font-size  : 12px;
+					font-style : normal;
+				}
+			}
+		}
+
+		&.open {
+			.accordion-heading:after {
+				content : '\2013';
+			}
+
+			.accordion-content {
+				padding    : 0 0 20px 0;
+				max-height : 1000px;
+			}
+		}
+	}
+
+	&.application .wrapper .accordion-heading p {
+		padding-left : 30px;
+		background   : image-url('icon_gray/icon_application.png') no-repeat 0 center;
+	}
+
+	&.download .wrapper .accordion-heading p {
+		padding-left : 30px;
+		background   : image-url('icon_gray/icon_download.png') no-repeat 0 center;
+	}
+}
+
+@media only screen and (max-width: 980px) {
+	.tools-link {
+		.wrapper {
+			.accordion-heading {
+				&:after {
+					right : 20px;
+				}
+
+				p {
+					padding-left        : 20px;
+					background-position : 20px center;
+				}
+			}
+		}
+
+		&.application p, &.download p {
+			padding-left : 50px !important;
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.tools-link .wrapper {
+		.accordion-heading p {
+			background-position : 20px center !important;
+		}
+
+		.accordion-content {
+			.lab {
+				margin-bottom : 16px;
+
+				&.large {
+					@include box-sizing(border-box);
+					padding : 0 30px;
+				}
+
+				&.radio:before, &.check:before {
+					top : 2px;
+				}
+
+				.inputBox {
+					margin : 0;
+					width  : 100%;
+
+					&::-webkit-input-placeholder {
+						color : #999;
+					}
+
+					&:-moz-placeholder {
+						color : #999;
+					}
+
+					&::-moz-placeholder {
+						color : #999;
+					}
+
+					&:-ms-input-placeholder {
+						color : #999;
+					}
+				}
+
+				.selecter {
+					margin  : 0;
+					display : block;
+					width   : 100%;
+
+					.selecter-selected {
+						color : #999;
+					}
+				}
+
+				.text {
+					display : none;
+				}
+			}
+
+			.check-area .lab {
+				line-height : 20px;
+			}
+		}
+
+		.see-clause {
+			display : inline-block;
+		}
+	}
+}
+
+@-moz-document url-prefix() {
+	.tools-link .wrapper .accordion-content .lab {
+		&.radio, &.check {
+			&.is-curr:before {
+				line-height : 16px;
+			}
+		}
+	}
+}
+
+.lt-ie9 {
+	.tools-link .wrapper .accordion-content .lab {
+		&.radio, &.check {
+			&:before {
+				display : none;
+			}
+
+			.radioBox, .chkBox {
+				margin   : -8px 0 0 0;
+				display  : block;
+				width    : 16px;
+				height   : 16px;
+				position : absolute;
+				top      : 50%;
+				left     : 0;
+			}
+		}
+	}
+}

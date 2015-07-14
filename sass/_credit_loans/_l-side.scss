@@ -1,0 +1,734 @@
+﻿.l-side {
+	.action-box {
+		.login {
+			margin-bottom : 10px;
+			padding       : 20px 20px 5px;
+			background    : #FFF;
+			border        : 1px solid #ddd;
+			border-radius : 4px;
+			box-shadow    : 1px 2px 0 #ccc;
+			text-align    : center;
+
+			.selecter {
+				text-align : left;
+			}
+
+			.closed .selecter-options {
+				display : none;
+			}
+
+			.open .selecter-options {
+				display : block;
+			}
+
+			a.btn {
+				margin      : 0 auto 10px;
+				width       : 100%;
+				line-height : 24px;
+			}
+
+			.links a {
+				display      : inline-block;
+				padding-left : 8px;
+				background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 center;
+				color        : $secondary-color;
+				font-size    : 12px;
+			}
+		}
+	}
+
+	.side-title {
+		margin-top  : 5px;
+		color       : #004165;
+		font-size   : 18px;
+		line-height : 48px;
+	}
+
+	.side-menu {
+		.side-menu-list {
+			border        : 1px solid #ddd;
+			border-radius : 4px;
+			box-shadow    : 1px 2px 0 #ccc;
+
+			li > a {
+				@include box-sizing(border-box);
+				display     : block;
+				width       : 100%;
+				color       : $secondary-color;
+				font-size   : 14px;
+				line-height : 26px;
+
+				&.curr {
+					color : $main-color;
+				}
+
+				&:hover {
+					background : #f3f3f3;
+				}
+			}
+		}
+
+		&.credit-loans {
+			li {
+				border-top : 1px solid #ddd;
+
+				&:first-child {
+					border-top : 0;
+				}
+
+				&.has-sub-menu {
+					position : relative;
+
+					> a:after {
+						content    : '';
+						background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+						display    : block;
+						width      : 10px;
+						height     : 6px;
+						position   : absolute;
+						top        : 15px;
+						right      : 20px;
+					}
+				}
+
+				.sub-menu {
+					@include transition(all .3s ease-in-out);
+					background : #f3f3f3;
+					max-height : 0;
+					overflow   : hidden;
+
+					&:before {
+						content    : '';
+						background : #ddd;
+						display    : block;
+						width      : 100%;
+						height     : 1px;
+					}
+
+					li {
+						border : none;
+
+						&:hover a {
+							color : $main-color;
+						}
+					}
+
+					.page-link:before {
+						margin            : -5px 0 0 5px;
+						background        : none;
+						width             : 5px;
+						height            : 5px;
+						border-right      : 2px solid #999;
+						border-bottom     : 2px solid #999;
+						-webkit-transform : rotate(-45deg);
+						-moz-transform    : rotate(-45deg);
+						transform         : rotate(-45deg);
+					}
+				}
+
+				> a {
+					padding    : 5px 18px 5px 52px;
+					min-height : 36px;
+					position   : relative;
+
+					&:before {
+						content    : '';
+						margin-top : -11px;
+						background : image-url('icon_ocean_blue/side-menu-icons.png') 0 0 no-repeat;
+						display    : block;
+						width      : 22px;
+						height     : 22px;
+						position   : absolute;
+						top        : 50%;
+						left       : 16px;
+					}
+
+					&.loan-purpose {
+						&:before {
+							background-position : 0 -110px;
+						}
+
+						&.curr ~ .sub-menu {
+							max-height : 1000px;
+						}
+					}
+
+					&.credit-goods:before {
+						background-position : 0 -132px;
+					}
+
+					&.spreadsheet:before {
+						background-position : 0 -154px;
+					}
+
+					&.advance-credit:before {
+						background-position : 0 -176px;
+					}
+				}
+			}
+		}
+
+		&.tools {
+			.side-menu-list {
+				padding  : 14px 0 9px 0;
+				position : relative;
+				overflow : hidden;
+
+				&:before {
+					content       : '';
+					background    : #4eacd3;
+					display       : block;
+					width         : 100%;
+					height        : 4px;
+					position      : absolute;
+					top           : 0;
+					left          : 0;
+					border-bottom : 1px solid #ddd
+				}
+
+				li a {
+					padding  : 0 18px 0 32px;
+					position : relative;
+
+					&:before {
+						@include transform(rotate(-90deg));
+						content    : '';
+						background : image-url('icon_arrow/icon_arrow_down_oceanblue.png') 0 0 no-repeat;
+						display    : block;
+						width      : 10px;
+						height     : 6px;
+						position   : absolute;
+						top        : 8px;
+						left       : 11px;
+					}
+				}
+			}
+		}
+	}
+
+	.side-form-list {
+		padding-top   : 20px;
+		border        : 1px solid #ddd;
+		border-radius : 4px;
+		box-shadow    : 1px 2px 0 #ccc;
+
+		.check-area {
+			padding : 0 25px;
+			clear   : both;
+
+			.lab {
+				line-height : 20px;
+
+				&.radio {
+					margin-right : 28px;
+				}
+			}
+		}
+
+		.input-area {
+			padding : 0 25px;
+		}
+
+		.lab {
+			@include box-sizing(border-box);
+			margin      : 0 0 16px 0;
+			display     : inline-block;
+			color       : #444;
+			font-size   : 12px;
+			line-height : 34px;
+
+			&.large {
+				display : block;
+			}
+
+			.text {
+				display : none;
+			}
+
+			&.radio, &.check {
+				padding  : 0 0 0 20px;
+				position : relative;
+				cursor   : pointer;
+
+				&:before {
+					@include box-sizing(border-box);
+					content       : '';
+					background    : #efefef;
+					display       : block;
+					width         : 16px;
+					height        : 16px;
+					position      : absolute;
+					top           : 2px;
+					left          : 0;
+					border        : 1px solid #bdbdbd;
+					border-radius : 50%;
+				}
+
+				&.is-curr:before {
+					content     : '✓';
+					background  : #06a9f1;
+					border      : 1px solid #06a9f1;
+					color       : #fff;
+					font-size   : 12px;
+					line-height : 12px;
+					text-indent : 2px;
+				}
+
+				.radioBox, .chkBox {
+					display : none;
+				}
+			}
+
+			.inputBox {
+				@include box-sizing(border-box);
+				background    : #efefef;
+				display       : inline-block;
+				width         : 100%;
+				height        : 34px;
+				border        : 1px solid #bdbdbd;
+				border-radius : 4px;
+				color         : #444;
+				font-size     : 14px;
+				font-weight   : normal;
+				line-height   : 34px;
+				text-indent   : 10px;
+
+				&::-webkit-input-placeholder {
+					color : #999;
+				}
+
+				&:-moz-placeholder {
+					color : #999;
+				}
+
+				&::-moz-placeholder {
+					color : #999;
+				}
+
+				&:-ms-input-placeholder {
+					color : #999;
+				}
+			}
+
+			.selecter-selected {
+				@include box-sizing(border-box);
+				padding          : 0;
+				background-color : #efefef;
+				height           : 34px;
+				border           : 1px solid #bdbdbd;
+				color            : #999;
+				line-height      : 34px;
+				text-indent      : 10px;
+			}
+
+			.see-clause {
+				color           : #0e8bcb;
+				text-decoration : underline;
+			}
+		}
+
+		.btn-wrap {
+			padding    : 55px 35px 15px 35px;
+			position   : relative;
+			border-top : 1px solid #ddd;
+
+			.btn-process {
+				background    : #119208;
+				@include background-image(linear-gradient(#81ce1d, #119208));
+				margin        : 15px 0 3px 0;
+				display       : block;
+				height        : 32px;
+				border        : 1px solid #2ba106;
+				border-radius : 4px;
+				color         : #FFF;
+				font-size     : 15px;
+				line-height   : 32px;
+				text-align    : center;
+
+				&:hover {
+					@include background-image(linear-gradient(#119208, #81ce1d));
+				}
+			}
+
+			.desc {
+				width       : 163px;
+				position    : absolute;
+				top         : 15px;
+				left        : 35px;
+				color       : $fontGray;
+				font-size   : 12px;
+				font-style  : normal;
+				line-height : 20px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+	.l-side {
+		width    : 100%;
+		position : initial;
+		float    : none;
+
+		.login {
+			display : none;
+		}
+
+		.side-menu {
+			width : 100%;
+
+			.side-menu-list {
+				border        : 0;
+				border-radius : 0;
+				box-shadow    : none;
+			}
+
+			&.credit-loans {
+				display : none;
+			}
+
+			&.tools {
+				@include background-image(linear-gradient(#FFF, #f4f4f4));
+				@include clearfix;
+				border-top : 1px solid #ddd;
+
+				&.open {
+					.side-title:after {
+						content     : '\2013';
+						line-height : 23px;
+					}
+
+					.side-menu-list {
+						margin-bottom : 40px;
+						max-height    : 1000px;
+					}
+				}
+
+				.side-title {
+					padding     : 0 20px;
+					height      : 55px;
+					position    : relative;
+					cursor      : pointer;
+					color       : #004165;
+					font-size   : 18px;
+					line-height : 55px;
+
+					&:after {
+						content       : '+';
+						margin-top    : -12px;
+						background    : #007dba;
+						display       : block;
+						width         : 24px;
+						height        : 24px;
+						position      : absolute;
+						top           : 50%;
+						right         : 20px;
+						border-radius : 50px;
+						color         : #FFF;
+						font-size     : 14px;
+						font-family   : Arial, sans-serif;
+						line-height   : 24px;
+						text-align    : center;
+					}
+				}
+
+				.side-menu-list {
+					@include transition(all .3s ease-in-out);
+					margin     : 0 20px;
+					padding    : 0 48px 0 0;
+					max-height : 0;
+					overflow   : hidden;
+
+					&:before, li a:before {
+						display : none;
+					}
+
+					li {
+						margin-top   : 1em;
+						background   : image-url('icon_arrow/icon_arrow_right_gray_s.png') no-repeat 0 6px;
+						padding-left : 10px;
+
+						&:first-child {
+							margin-top : 0;
+						}
+
+						a {
+							padding-left : 0;
+							color        : #444;
+							line-height  : 19px;
+
+							&:hover {
+								background : none;
+								color      : #21a0cf;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.application {
+			background-color : #ededed;
+			border-top       : 1px solid #d5d5d5;
+
+			.side-title {
+				margin-top   : 0;
+				padding-left : 50px;
+				background   : image-url('icon_gray/icon_application.png') no-repeat 20px center;
+				position     : relative;
+				cursor       : pointer;
+				font-size    : 15px;
+				line-height  : 59px;
+
+				&:after {
+					content       : '+';
+					margin-top    : -12px;
+					background    : $main-color;
+					display       : block;
+					width         : 24px;
+					height        : 24px;
+					position      : absolute;
+					top           : 50%;
+					right         : 20px;
+					border-radius : 50px;
+					color         : $bright;
+					font-size     : 14px;
+					line-height   : 24px;
+					text-align    : center;
+				}
+			}
+
+			.side-form-list {
+				@include box-sizing(border-box);
+				@include transition(all .3s ease-in-out);
+				padding       : 0;
+				max-height    : 0;
+				border        : none;
+				border-radius : none;
+				box-shadow    : none;
+				overflow      : hidden;
+
+				.check-area {
+					padding-left : 30px;
+					clear        : both;
+				}
+
+				.input-area {
+					padding : 0;
+				}
+
+				.lab {
+					margin-bottom : 28px;
+					font-size     : 14px;
+					line-height   : 34px;
+
+					&.radio, &.check {
+						margin-right : 28px;
+
+                        &:before {
+							background : #fff;
+							top        : 9px;
+						}
+
+						&.is-curr:before {
+							background : #06a9f1;
+						}
+					}
+
+					&.large {
+						padding-left : 30px;
+						display      : block;
+						width        : 320px;
+						float        : left;
+					}
+
+					.inputBox {
+						margin-left : 5px;
+						background  : #fff;
+						display     : inline-block;
+						width       : 208px;
+						height      : 34px;
+
+						&::-webkit-input-placeholder {
+							color : #fff;
+						}
+
+						&:-moz-placeholder {
+							color : #fff;
+						}
+
+						&::-moz-placeholder {
+							color : #fff;
+						}
+
+						&:-ms-input-placeholder {
+							color : #fff;
+						}
+					}
+
+					.text {
+						display        : inline-block;
+						width          : 75px;
+						vertical-align : top;
+					}
+
+					.selecter {
+						display : inline-block;
+						width   : 208px;
+
+						.selecter-selected {
+							background-color : #fff;
+							border           : 1px solid #bdbdbd;
+							color            : #004165;
+						}
+					}
+				}
+
+				.btn-wrap {
+					padding    : 0;
+					border-top : 0;
+
+					.btn-process {
+						margin         : 10px auto;
+						width          : 264px;
+						height         : 36px;
+						letter-spacing : 1px;
+						line-height    : 36px;
+					}
+
+					.desc {
+						display     : block;
+						width       : 100%;
+						position    : relative;
+						top         : auto;
+						left        : auto;
+						line-height : auto;
+						text-align  : center;
+					}
+				}
+			}
+
+			&.open {
+				.side-title:after {
+					content : '\2013';
+				}
+
+				.side-form-list {
+					padding    : 0 0 20px 0;
+					max-height : 1000px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.l-side .application .side-form-list {
+		.lab {
+			margin-bottom : 16px;
+
+			&.large {
+				@include box-sizing(border-box);
+				padding : 0 30px;
+			}
+
+			&.radio:before, &.check:before {
+				top : 2px;
+			}
+
+			.inputBox {
+				margin : 0;
+				width  : 100%;
+
+				&::-webkit-input-placeholder {
+					color : #999;
+				}
+
+				&:-moz-placeholder {
+					color : #999;
+				}
+
+				&::-moz-placeholder {
+					color : #999;
+				}
+
+				&:-ms-input-placeholder {
+					color : #999;
+				}
+			}
+
+			.selecter {
+				margin  : 0;
+				display : block;
+				width   : 100%;
+
+				.selecter-selected {
+					color : #999;
+				}
+			}
+
+			.text {
+				display : none;
+			}
+		}
+
+		.check-area {
+			padding-right : 0;
+
+			.lab {
+				line-height : 20px;
+			}
+		}
+
+		.see-clause {
+			display : inline-block;
+		}
+	}
+}
+
+@-moz-document url-prefix() {
+	.l-side .side-form-list .lab {
+		&.radio, &.check {
+			&.is-curr:before {
+				line-height : 16px;
+			}
+		}
+	}
+}
+
+.lt-ie9 {
+	.l-side {
+		.side-menu {
+			&.credit-loans .sub-menu .page-link:before {
+				margin     : -2px 0 0 10px;
+				background : image-url('icon_arrow/icon_arrow_right_gray_s.png') 0 0 no-repeat;
+				width      : 4px;
+				height     : 7px;
+				border     : 0;
+			}
+
+			&.tools li a:before {
+				background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+				width      : 6px;
+				height     : 10px;
+			}
+		}
+
+		.side-form-list .lab {
+			&.radio, &.check {
+				&:before {
+					display : none;
+				}
+
+				.radioBox, .chkBox {
+					display  : block;
+					width    : 16px;
+					height   : 16px;
+					position : absolute;
+					top      : 2px;
+					left     : 0;
+				}
+			}
+		}
+	}
+}

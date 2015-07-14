@@ -533,27 +533,27 @@
                   <li class="list set-box"><span class="term">您的年齡</span><input class="inputBox" type="num" value="" placeholder=""><span class="text">歲</span></li>
                 </ul> -->
                 <div class="tab-content">
-                  <div id="step-1" class="tab-pane fade in active">
+                  <div id="step-1" class="tab-pane fade in">
                     <fieldset>
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                          <h3>目前工作狀況</h3>
+                          <h3 class="sub-title">目前工作狀況</h3>
                           <section class="col col-5">
-                            <label class="label question-text">Q1：請選擇您的工作狀況</label>
+                            <label class="label question-text">請選擇您的工作狀況</label>
                           </section>
                           <section class="col col-3">
-                          <!--[if IE 7]><label class="label">職業</label><![endif]-->  
-                             <label class="select">
-                                <select id="job" name="job" class="rounded" onchange="changeJobs()">
-                                  <option value="-1" selected disabled>職業</option>
-                                  <option value="0">績優公司</option>
-                                  <option value="1">專業人士</option>
-                                  <option value="2">公教人員</option>
-                                  <option value="3">軍警</option>
-                                  <option value="4">一般公司</option>
-                                  <option value="5">業主或其他</option>
-                                 </select>
-                                <i></i>
+                            <!--[if IE 7]><label class="label">職業</label><![endif]-->  
+                            <label class="select">
+                              <select id="job" name="job" class="rounded" onchange="changeJobs()">
+                                <option value="-1" selected disabled>職業</option>
+                                <option value="0">績優公司</option>
+                                <option value="1">專業人士</option>
+                                <option value="2">公教人員</option>
+                                <option value="3">軍警</option>
+                                <option value="4">一般公司</option>
+                                <option value="5">業主或其他</option>
+                              </select>
+                              <i></i>
                             </label>
                           </section>
                           <section class="col col-4">
@@ -570,28 +570,16 @@
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                           <section class="col col-4">
-                            <label class="label question-text">Q2：您現職的工作年資</label>
+                            <label class="label question-text">您現職的工作年資</label>
                           </section>
                           <section class="col col-4">
                             <label class="input">
-                              <input type="text" class="rounded" id="seniorityYesrs" name="seniorityYesrs" placeholder="年資"><i class="icon-append">年</i>
+                              <input type="text" class="rounded inputBox" id="seniorityYesrs" name="seniorityYesrs" placeholder=""><i class="icon-append">年</i>
                             </label>
                           </section>
                           <section class="col col-4">
                             <label class="input">
-                              <input type="text" class="rounded" id="seniorityMonths" name="seniorityMonths" placeholder="年資"><i class="icon-append">月</i>
-                            </label>
-                          </section>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8 col-md-offset-2">
-                          <section class="col col-4">
-                            <label class="label question-text">Q3：您的年收入</label>
-                          </section>
-                          <section class="col col-4">
-                            <label class="input">
-                              <input type="text" class="rounded" id="annualIncome" name="annualIncome" placeholder="年收入"><i class="icon-append">萬元</i>
+                              <input type="text" class="rounded inputBox" id="seniorityMonths" name="seniorityMonths" placeholder=""><i class="icon-append">月</i>
                             </label>
                           </section>
                         </div>
@@ -599,11 +587,23 @@
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                           <section class="col col-4">
-                            <label class="label question-text">Q4：您的年齡</label>
+                            <label class="label question-text">您的年收入</label>
                           </section>
                           <section class="col col-4">
                             <label class="input">
-                              <input type="text" class="rounded" id="age" name="age" placeholder="年齡"><i class="icon-append ">歲</i>
+                              <input type="text" class="rounded inputBox" id="annualIncome" name="annualIncome" placeholder=""><i class="icon-append">萬元</i>
+                            </label>
+                          </section>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                          <section class="col col-4">
+                            <label class="label question-text">您的年齡</label>
+                          </section>
+                          <section class="col col-4">
+                            <label class="input">
+                              <input type="text" class="rounded inputBox" id="age" name="age" placeholder=""><i class="icon-append ">歲</i>
                             </label>
                           </section>
                         </div>
@@ -621,15 +621,15 @@
                         </div>
                       </div>
                     </fieldset>
-                    <footer>
+                    <footer class="form-footer">
                       <div class="row">
                         <div class="col-xs-12 col-sm-3 col-sm-offset-5" style="text-align:center"> 
-                          <a id="goStep2"  href="#step-2" class="btn-u btn-u-dark-blue rounded"><span class="txt-base"><i class="icon-anz-ico06"></i> 下一步</span></a>
+                          <a id="goStep2" href="#step-2" class="btn-blue">下一步</a>
                         </div>
                       </div>
-                              </footer>
+                    </footer>
                   </div>
-                  <div id="step-2" class="tab-pane fade in">
+                  <div id="step-2" class="tab-pane fade in active">
                     <fieldset style="padding:0;">
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
@@ -690,8 +690,8 @@
                             <label class="label question-text">Q6-2：您目前各家信用卡帳單餘額合計 (含當期、分期以及循環信用) </label>
                           </section>
                           <section class="col col-md-3">
-                                      <label class="input">
-                              <input type="text" class="rounded" id="creditCardAmount" name="creditCardAmount" placeholder=""><i class="icon-append">萬元</i>
+                            <label class="input">
+                              <input type="text" class="rounded inputBox" id="creditCardAmount" name="creditCardAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
                         </div>
@@ -720,8 +720,8 @@
                             <label class="label question-text">Q7-1：您目前名下所有房屋貸款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                                      <label class="input">
-                              <input type="text" class="rounded" id="homeLoansAmount" name="homeLoansAmount" placeholder=""><i class="icon-append">萬元</i>
+                            <label class="input">
+                              <input type="text" class="rounded inputBox" id="homeLoansAmount" name="homeLoansAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
                         </div>
@@ -750,8 +750,8 @@
                             <label class="label question-text">Q8-1：您目前名下所有個人信用貸款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                                      <label class="input">
-                              <input type="text" class="rounded" id="creditLoansAmount" name="creditLoansAmount" placeholder=""><i class="icon-append">萬元</i>
+                            <label class="input">
+                              <input type="text" class="rounded inputBox" id="creditLoansAmount" name="creditLoansAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
                         </div>
@@ -793,14 +793,14 @@
                             <label class="label question-text">Q9-1：您目前名下所有現金卡借款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                                      <label class="input">
-                              <input type="text" class="rounded" id="cashCardAmount" name="cashCardAmount" placeholder=""><i class="icon-append">萬元</i>
+                            <label class="input">
+                              <input type="text" class="rounded inputBox" id="cashCardAmount" name="cashCardAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
                         </div>
                       </div>                  
                     </fieldset>
-                    <footer>
+                    <footer class="form-footer">
                       <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-2 col-sm-offset-2 col-md-offset-4 margin-bottom-20" style="text-align:center"> 
                           <a data-toggle="tab" href="#step-1" class="btn-u btn-u-dark-blue rounded"><span class="txt-base"><i class="icon-anz-ico06"></i> 回上一步</span>
@@ -848,7 +848,7 @@
                           </section>
                           <section class="col col-5">
                             <label class="input">
-                                  <input id="repaymentAmount" type="text" class="end-resault" name="totalsum" placeholder="0">
+                              <input id="repaymentAmount" type="text" class="end-resault" name="totalsum" placeholder="0">
                               <i class="icon-append ">元</i>
                             </label>
                           </section>
@@ -863,18 +863,17 @@
                           <section class="col">
                             <p class="text-danger">依您目前填寫資訊暫無法試算信用貸款可貸金額，建議您重新檢視填寫資訊，或點選網頁「與專人聯絡」將有專員為您服務。</p>
                           </section>
-       
                         </div>
                       </div>                
                     </fieldset>
-                    <footer>
+                    <footer class="form-footer">
                       <div class="row">
-                                          <div class="col-xs-12 col-sm-4 col-md-2 col-md-offset-3" style="text-align:center">  
+                        <div class="col-xs-12 col-sm-4 col-md-2 col-md-offset-3" style="text-align:center">  
                           <a data-toggle="tab" href="#step-2" class="btn-u btn-u-dark-blue rounded">
                             <span class="txt-base"><i class="icon-anz-ico06"></i> 回上一步</span>
                           </a> 
                         </div>
-                                          <div class="col-xs-12 col-sm-4 col-md-2" style="text-align:center"> 
+                        <div class="col-xs-12 col-sm-4 col-md-2" style="text-align:center"> 
                           <a data-toggle="tab" href="#step-1" class="btn-u btn-u-dark-blue rounded">
                             <span class="txt-base"><i class="icon-anz-ico06"></i> 重新試算</span>
                           </a> 
@@ -889,9 +888,9 @@
                     </div>
                 </div>
               </div>
-              <div class="btn-wrap">
+              <!-- <div class="btn-wrap">
                 <a class="btn-blue" href="javascript:;">下一步</a>
-              </div>
+              </div> -->
             </div>
             <h3 class="sub-title">其他人也看了以下產品</h3>
             <ul class="recommend-list">
@@ -1094,6 +1093,7 @@
 
   <script src="../../javascripts/jquery-1.10.2.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/jquery-ui-1.10.4.min.js" type="text/javascript" ></script>
+  <script src="../../javascripts/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="../../javascripts/fs.selecter/jquery.fs.selecter.3.1.2.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/fancybox/source/jquery.fancybox.pack.js" type="text/javascript" ></script>
   <script src="../../javascripts/owl.carousel.2/owl.carousel.min.js" type="text/javascript" ></script>
@@ -1102,5 +1102,11 @@
   <script src="../../javascripts/selectivizr-min.js" type="text/javascript" ></script>
   <script src="../../javascripts/main.js" type="text/javascript" ></script>
   <script src="../../javascripts/credit-loans.js" type="text/javascript" ></script>
+  <script src="../../javascripts/ploan.js" type="text/javascript"></script>    
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      Ploan.init();
+    });
+  </script>
 </body>
 </html>
