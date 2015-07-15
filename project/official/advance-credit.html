@@ -21,6 +21,7 @@
   <link href="../../javascripts/owl.carousel.2/animate.css" rel="stylesheet">
   <link href="../../javascripts/jquery.mmenu/jquery.mmenu.css" rel="stylesheet">
   <link href="../../stylesheets/reset.css" rel="stylesheet">
+  <link href="../../stylesheets/footer.css" rel="stylesheet">
   <link href="../../stylesheets/advance-credit.css" rel="stylesheet">
   <!--[if lt IE 9]>
     <script src="../../javascripts/html5shiv.js" type="text/javascript" ></script>
@@ -525,20 +526,13 @@
                 <li class="list">Step</li>
               </ul>
               <div class="form-fill-in">
-                <!-- <h3 class="sub-title">目前工作狀況</h3>
-                <ul class="form-list">
-                  <li class="list"><span class="term">請選擇您的工作狀況</span><select class="selecter"><option>職業</option></select><select class="selecter"><option>職稱</option></select></li>
-                  <li class="list set-box"><span class="term">您現職的工作年資</span><input class="inputBox" type="num" value="" placeholder=""><span class="text">年</span><input class="inputBox" type="num" value="" placeholder=""><span class="text">月</span></li>
-                  <li class="list set-box"><span class="term">您的年收入</span><input class="inputBox" type="num" value="" placeholder=""><span class="text">萬元</span></li>
-                  <li class="list set-box"><span class="term">您的年齡</span><input class="inputBox" type="num" value="" placeholder=""><span class="text">歲</span></li>
-                </ul> -->
                 <div class="tab-content">
-                  <div id="step-1" class="tab-pane fade in">
+                  <div id="step-1" class="tab-pane fade in active">
                     <fieldset>
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                           <h3 class="sub-title">目前工作狀況</h3>
-                          <section class="col col-5">
+                          <section class="col col-5 term">
                             <label class="label question-text">請選擇您的工作狀況</label>
                           </section>
                           <section class="col col-3">
@@ -569,16 +563,16 @@
                       </div>
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                          <section class="col col-4">
+                          <section class="col col-4 term">
                             <label class="label question-text">您現職的工作年資</label>
                           </section>
                           <section class="col col-4">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="seniorityYesrs" name="seniorityYesrs" placeholder=""><i class="icon-append">年</i>
                             </label>
                           </section>
                           <section class="col col-4">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="seniorityMonths" name="seniorityMonths" placeholder=""><i class="icon-append">月</i>
                             </label>
                           </section>
@@ -586,11 +580,11 @@
                       </div>
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                          <section class="col col-4">
+                          <section class="col col-4 term">
                             <label class="label question-text">您的年收入</label>
                           </section>
                           <section class="col col-4">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="annualIncome" name="annualIncome" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
@@ -598,12 +592,12 @@
                       </div>
                       <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-                          <section class="col col-4">
+                          <section class="col col-4 term">
                             <label class="label question-text">您的年齡</label>
                           </section>
                           <section class="col col-4">
-                            <label class="input">
-                              <input type="text" class="rounded inputBox" id="age" name="age" placeholder=""><i class="icon-append ">歲</i>
+                            <label class="input set-box">
+                              <input type="text" class="rounded inputBox" id="age" name="age" placeholder=""><i class="icon-append">歲</i>
                             </label>
                           </section>
                         </div>
@@ -690,7 +684,7 @@
                             <label class="label question-text">您目前各家信用卡帳單餘額合計 (含當期、分期以及循環信用) </label>
                           </section>
                           <section class="col col-md-3">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="creditCardAmount" name="creditCardAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
@@ -720,7 +714,7 @@
                             <label class="label question-text">您目前名下所有房屋貸款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="homeLoansAmount" name="homeLoansAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
@@ -750,7 +744,7 @@
                             <label class="label question-text">您目前名下所有個人信用貸款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="creditLoansAmount" name="creditLoansAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
@@ -793,7 +787,7 @@
                             <label class="label question-text">您目前名下所有現金卡借款餘額合計 </label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
+                            <label class="input set-box">
                               <input type="text" class="rounded inputBox" id="cashCardAmount" name="cashCardAmount" placeholder=""><i class="icon-append">萬元</i>
                             </label>
                           </section>
@@ -807,7 +801,7 @@
                       </div>
                     </footer>
                   </div>
-                  <div id="step-3" class="tab-pane fade in active">
+                  <div id="step-3" class="tab-pane fade in">
                     <fieldset>
                       <div class="row loandableResult">
                         <div class="col-md-8 col-md-offset-3">
@@ -816,9 +810,9 @@
                             <label class="label question-text">您的可貸金額</label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
-                              <input id="loanableAmount" type="text" class="end-resault" placeholder="30" name="loanableAmount" >
-                              <i class="icon-append ">萬元</i>
+                            <label class="input set-box">
+                              <input id="loanableAmount" type="text" class="end-resault inputBox" placeholder="30" name="loanableAmount" >
+                              <i class="icon-append">萬元</i>
                             </label>
                           </section>
                         </div>
@@ -829,9 +823,9 @@
                             <label class="label question-text">貸款最長期限</label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
-                            <input  id="loanablePeriod" type="text" class="end-resault" placeholder="7" name="loanablePeriod">
-                            <i class="icon-append ">年</i>
+                            <label class="input set-box">
+                              <input  id="loanablePeriod" type="text" class="end-resault inputBox" placeholder="7" name="loanablePeriod">
+                            <i class="icon-append">年</i>
                           </label>
                           </section>
                         </div>
@@ -842,9 +836,9 @@
                             <label class="label question-text">每月還款金額</label>
                           </section>
                           <section class="col col-5">
-                            <label class="input">
-                              <input id="repaymentAmount" type="text" class="end-resault" name="totalsum" placeholder="0">
-                              <i class="icon-append ">元</i>
+                            <label class="input set-box">
+                              <input id="repaymentAmount" type="text" class="end-resault inputBox" name="totalsum" placeholder="0">
+                              <i class="icon-append">元</i>
                             </label>
                           </section>
                           <section class="col col-8">
@@ -922,7 +916,7 @@
               <h4 class="side-title">信用貸款</h4>
               <ul class="side-menu-list">
                 <li class="has-sub-menu">
-                  <a class="loan-purpose curr" href="javascript:;"><span>借款目的</span></a>
+                  <a class="loan-purpose" href="javascript:;"><span>借款目的</span></a>
                   <ul class="sub-menu">
                     <li><a class="page-link" href="mem-favor.html">卡友專屬優惠</a></li>
                     <li><a class="page-link" href="debt-consoli.html">債務整合</a></li>
@@ -934,7 +928,7 @@
                 </li>
                 <li><a class="credit-goods" href="credit-goods.html"><span>所有信貸商品</span></a></li>
                 <li><a class="spreadsheet" href="spreadsheet.html"><span>貸款金額試算</span></a></li>
-                <li><a class="advance-credit" href="advance-credit.html"><span>預支額度</span></a></li>
+                <li><a class="advance-credit curr" href="advance-credit.html"><span>預支額度</span></a></li>
               </ul><!-- End of .side-menu -->
             </div>
             <!-- End of .credit-loans -->
@@ -954,13 +948,16 @@
                   <label class="lab large"><span class="text">聯絡時間</span>
                     <select class="selector">
                       <option>請選擇方便聯絡時間</option>
-                      <option>請選擇方便聯絡時間</option>
+                      <option>上午</option>
+                      <option>下午</option>
+                      <option>晚上</option>
+                      <option>全天皆可</option>
                     </select>
                   </label>
                 </div>
                 <div class="check-area">
-                  <label class="lab check"><input class="chkBox" type="checkbox" name="" value="" checked>我有扣繳憑單/每月薪資證明</label>
-                  <label class="lab check"><input class="chkBox" type="checkbox" name="" value="" checked>我對澳盛銀行信用卡有興趣請專人與我聯繫</label>
+                  <label class="lab check"><input class="chkBox" type="checkbox" name="" value="">我有扣繳憑單/每月薪資證明</label>
+                  <label class="lab check"><input class="chkBox" type="checkbox" name="" value="">我對澳盛銀行信用卡有興趣請專人與我聯繫</label>
                   <label class="lab check"><input class="chkBox" type="checkbox" name="" value="">我已閱讀並了解ANZ履行<a class="see-clause" href="javascript:;" target="_blank">個資法第8條告知義務內容</a></label>
                 </div>
                 <div class="btn-wrap">

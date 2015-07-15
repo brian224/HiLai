@@ -199,7 +199,7 @@
 				&:before {
 					content       : '';
 					margin        : 0 0 0 -86px;
-					background    : #5dbadd;
+					background    : #258ec1;
 					display       : block;
 					width         : 172px;
 					height        : 172px;
@@ -227,7 +227,7 @@
 
 				&:hover {
 					&:before {
-						background : #258ec1;
+						background : #5dbadd;
 					}
 				}
 			}
@@ -619,6 +619,8 @@
 
 .lt-ie9 {
 	.index-banner {
+		border-top : 1px solid #dadada;
+
 		.owl-controls {
 			.owl-prev, .owl-next {
 				background : image-url('credit_loans/for-ie8/index_arrow.png') no-repeat 0 0;
@@ -636,18 +638,18 @@
 		.fast-links .list .link {
 			&:before {
 				margin     : 0 0 0 -88px;
-				background : image-url('credit_loans/for-ie8/index_icons_bg.png') no-repeat 0 0;
+				background : image-url('credit_loans/for-ie8/index_icons_bg.png') no-repeat 0 -177px;
 				width      : 176px;
 				height     : 177px;
 				border     : 0;
 			}
 
 			&:hover:before {
-				background-position : 0 0;
+				background-position : 0 -177px;
 			}
 
 			&.hover:before {
-				background-position : 0 -177px;
+				background-position : 0 0;
 			}
 		}
 

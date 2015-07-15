@@ -2,14 +2,15 @@
 	margin-bottom : 40px;
 	border        : 1px solid #ddd;
 	border-radius : 10px;
-	overflow      : hidden;
 
 	.step-progress {
-		background  : #0294c9;
-		height      : 92px;
-		color       : #fff;
-		line-height : 92px;
-		text-align  : center;
+		background    : #0294c9;
+		height        : 92px;
+		border-radius : 9px 9px 0 0;
+		overflow      : hidden;
+		color         : #fff;
+		line-height   : 92px;
+		text-align    : center;
 
 		.list {
 			margin         : 0 49px;
@@ -200,6 +201,32 @@
 				}
 			}
 		}
+
+		#step-3 {
+			.end-resault {
+				margin-bottom  : 0;
+				padding-right  : 10px;
+				color          : #004165;
+				font-size      : 16px;
+				letter-spacing : 1px;
+				text-align     : right;
+			}
+
+			.icon-append {
+				font-size : 16px;
+			}
+
+			.text-danger {
+				color       : #a94442;
+				font-size   : 16px;
+				line-height : 1.5em;
+			}
+
+			.hidden {
+				display    : none!important;
+				visibility : hidden!important;
+			}
+		}
 	}
 
 	.btn-wrap {
@@ -275,7 +302,25 @@
 	}
 }
 
+@media only screen and (max-width: 768px) {
+	.form-step .form-fill-in {
+		.term {
+			width : 100%;
+			float : none;
+		}
+
+		.col-md-8, .col {
+			display : inline-block;
+			float   : none;
+		}
+	}
+}
+
 @media only screen and (max-width: 600px) {
+	.l-content .sub-title {
+		margin : 30px 0 10px 0;
+	}
+
 	.form-step {
 		.step-progress .list {
 			margin : 0 24px;
@@ -294,25 +339,54 @@
 			.form-list li {
 				margin-bottom : 12px;
 				padding-left  : 0;
+			}
 
-				&.set-box {
+			.col-md-8, .col {
+				margin  : 0;
+				display : block;
+
+				.set-box {
 					padding-right : 35px;
-					position: relative;
+					display       : block;
+					position      : relative;
+
+					.icon-append {
+						margin-right : 0;
+						width        : 26px;
+						position     : absolute;
+						top          : 0;
+						right        : 0;
+						font-size    : 13px;
+						line-height  : 32px;
+					}
+
+					#step-3 .icon-append {
+						font-size : 13px;
+					}
 				}
 			}
 
-			.term {
-				display  : block;
-				position : relative;
+			.question-text {
+				margin-top : 20px;
+				width      : 100%;
 			}
 
-			.text {
-				margin      : 0;
-				width       : 26px;
-				height      : 100%;
-				position    : absolute;
-				right       : 0;
-				line-height : 32px;
+			#step-2 .question-text {
+				width : 100%;
+			}
+
+			#step-3 {
+				.text-danger {
+					margin : 20px 0 0 0;
+				}
+
+				.icon-append {
+					font-size : 13px;
+				}
+			}
+
+			.form-footer {
+				margin-top : 20px;
 			}
 		}
 	}
@@ -320,6 +394,20 @@
 	.selecter, .inputBox {
 		margin-right : 0;
 		width        : 100%;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.form-step .form-fill-in .form-footer {
+		margin : 0;
+
+		.btn-blue {
+			margin      : 20px 0 0 0;
+			padding     : 0;
+			width       : 100%;
+			height      : 45px;
+			line-height : 45px;
+		}
 	}
 }
 
@@ -362,62 +450,79 @@
 }
 
 .lt-ie9 {
-	.form-step .step-progress .list {
-		margin     : 0 49px;
-		background : image-url('credit_loans/for-ie8/step_bg.png') 0 center no-repeat;
-		display    : inline-block;
-		width      : 62px;
-		height     : 62px;
-		position   : relative;
-		border     : 0;
-
-		&:before {
-			content     : '1';
-			margin      : -31px 0 0 -31px;
-			display     : block;
-			width       : 62px;
-			height      : 62px;
-			position    : absolute;
-			top         : 50%;
-			left        : 50%;
-			color       : #fff;
-			font-size   : 30px;
-			line-height : 46px;
-			text-align  : center;
-		}
-
-		&:after {
-			left : -102px;
-		}
-
-		&.curr {
-			background-position : right center;
-			width               : 70px;
-			height              : 70px;
-			line-height         : 100px;
+	.form-step {
+		.step-progress .list {
+			margin     : 0 49px;
+			background : image-url('credit_loans/for-ie8/step_bg.png') 0 center no-repeat;
+			display    : inline-block;
+			width      : 62px;
+			height     : 62px;
+			position   : relative;
+			border     : 0;
 
 			&:before {
-				color : #0294c9;
+				content     : '1';
+				margin      : -31px 0 0 -31px;
+				display     : block;
+				width       : 62px;
+				height      : 62px;
+				position    : absolute;
+				top         : 50%;
+				left        : 50%;
+				color       : #fff;
+				font-size   : 30px;
+				line-height : 46px;
+				text-align  : center;
+			}
+
+			&:after {
+				left : -102px;
+			}
+
+			&.curr {
+				background-position : right center;
+				width               : 70px;
+				height              : 70px;
+				line-height         : 100px;
+
+				&:before {
+					color : #0294c9;
+				}
+			}
+
+			&:first-child:after {
+				display : none;
+			}
+
+			&:first-child + li:before {
+				content : '2';
+			}
+
+			&:first-child + li + li {
+				text-indent : 120%;
+
+				&:before {
+					content        : '結果';
+					font-size      : 14px;
+					letter-spacing : 1px;
+					line-height    : 62px;
+					text-indent    : 0;
+				}
 			}
 		}
 
-		&:first-child:after {
-			display : none;
-		}
-
-		&:first-child + li:before {
-			content : '2';
-		}
-
-		&:first-child + li + li {
-			text-indent : 120%;
-
+		.form-fill-in #step-2 .lab.radio {
 			&:before {
-				content        : '結果';
-				font-size      : 14px;
-				letter-spacing : 1px;
-				line-height    : 62px;
-				text-indent    : 0;
+				display : none;
+			}
+
+			.radioBox {
+				display  : block;
+				width    : 16px;
+				height   : 16px;
+				position : absolute;
+				top      : 2px;
+				left     : 0;
 			}
 		}
 	}

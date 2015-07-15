@@ -1,3 +1,11 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+
 footer {
 	.pc-footer {
 		@include clearfix;
@@ -109,10 +117,6 @@ footer {
 
 		.footer-links {
 			width : auto;
-
-			.links-list {
-				width : 100%;
-			}
 		}
 	}
 }

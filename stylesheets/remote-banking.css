@@ -364,7 +364,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1435838951') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -418,7 +418,7 @@ a:hover {
   right: 10px;
   width: 34px;
   height: 34px;
-  background: #394a58 url('../images/icon_magnifier_sky.png?1435838951') no-repeat center center;
+  background: #394a58 url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
   position: absolute;
   -moz-border-radius: 0 4px 4px 0;
@@ -430,7 +430,7 @@ a:hover {
 header {
   font-size: 0;
   height: 50px;
-  background: #004165 url('../images/bg_header.png?1435838951') no-repeat center 0;
+  background: #004165 url('../images/bg_header.png?1429027001') no-repeat center 0;
 }
 header .wrapper {
   height: 100%;
@@ -455,7 +455,7 @@ header .logo {
   width: 266px;
   height: 50px;
   float: left;
-  background: url('../images/bg_header_logo.png?1435838951') no-repeat;
+  background: url('../images/bg_header_logo.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -511,7 +511,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1435838951') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -543,7 +543,7 @@ header .rwd-btn .login {
   position: relative;
 }
 header .rwd-btn .login > a {
-  background-image: url('../images/icon_white/icon_lock2_white.png?1435838951');
+  background-image: url('../images/icon_white/icon_lock2_white.png?1429027001');
 }
 header .rwd-btn .login .dropdown-menu {
   right: 0;
@@ -557,13 +557,13 @@ header .rwd-btn .search {
   display: none;
 }
 header .rwd-btn .search > a {
-  background-image: url('../images/icon_white/icon_magnifier_white.png?1435838951');
+  background-image: url('../images/icon_white/icon_magnifier_white.png?1429027001');
 }
 header .search-bar {
   text-align: left;
   width: 150px;
   height: 32px;
-  background: #004165 url('../images/icon_magnifier_sky.png?1435838951') no-repeat 95% center;
+  background: #004165 url('../images/icon_magnifier_sky.png?1429027001') no-repeat 95% center;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -591,7 +591,7 @@ header .search-bar .search-act-btn {
   position: absolute;
   width: 30px;
   height: 32px;
-  background: url('../images/icon_magnifier_sky.png?1435838951') no-repeat center center;
+  background: url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
 }
 
@@ -1159,7 +1159,7 @@ footer ul.footer-links + p.copyright {
   font-size: 0;
   width: 48px;
   height: 68px;
-  background: url('../images/icon_gray/icon_computer_circle.png?1435838952') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_computer_circle.png?1429027001') no-repeat 50% 50%;
   display: table-cell;
 }
 .notification-cookie .wrapper p {
@@ -1176,7 +1176,7 @@ footer ul.footer-links + p.copyright {
 }
 .notification-cookie .wrapper .btn-close {
   width: 24px;
-  background: url('../images/icon_gray/icon_close.png?1435838951') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 50% 50%;
   font-size: 0;
   cursor: pointer;
   display: table-cell;
@@ -1565,122 +1565,6 @@ footer ul.footer-links + p.copyright {
     line-height: 1em;
   }
 }
-footer .pc-footer {
-  overflow: hidden;
-  *zoom: 1;
-  background: #0294c9;
-}
-footer .pc-footer .footer-contact-us {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 45px 0 40px 0;
-  width: 960px;
-  position: relative;
-}
-footer .pc-footer .footer-contact-us:after {
-  content: '';
-  margin-left: -1000px;
-  background: #359cc4;
-  width: 2000px;
-  height: 1px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  border-top: 1px solid #0280b1;
-  border-bottom: 1px solid #2ba5d2;
-}
-footer .pc-footer .footer-contact-us h4 {
-  margin-bottom: 10px;
-  color: #fff;
-  font-size: 18px;
-}
-footer .pc-footer .footer-contact-us a {
-  margin-top: 10px;
-  padding-left: 24px;
-  background-position: 0 center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  color: #fff;
-}
-footer .pc-footer .footer-contact-us a:hover {
-  color: #c6dfea;
-}
-footer .pc-footer .footer-contact-us ul {
-  overflow: hidden;
-  *zoom: 1;
-}
-footer .pc-footer .footer-contact-us li {
-  width: 33.33%;
-  float: left;
-}
-footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1435838951') no-repeat;
-}
-footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1435838951') no-repeat;
-}
-footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1435838951') no-repeat;
-}
-footer .footer-links {
-  overflow: hidden;
-  *zoom: 1;
-  margin: 16px auto 30px auto;
-  width: 960px;
-}
-footer .footer-links .links-list {
-  width: 214px;
-  float: left;
-  line-height: 24px;
-}
-footer .footer-links .links-list + ul + ul + ul + ul {
-  width: 104px;
-}
-footer .footer-links .category {
-  margin: 24px 0 10px 0;
-  font-size: 17px;
-}
-footer .footer-links .link {
-  color: #fff;
-}
-footer .footer-links .link:hover {
-  color: #c6dfea;
-}
-
-@media only screen and (max-width: 980px) {
-  footer .pc-footer {
-    padding: 0 20px;
-  }
-  footer .pc-footer .footer-contact-us {
-    background-color: transparent;
-    width: auto;
-  }
-  footer .pc-footer .footer-contact-us:after {
-    margin: 0;
-    width: 100%;
-    left: 0;
-  }
-  footer .pc-footer .footer-contact-us li {
-    width: 100%;
-    float: none;
-  }
-  footer .pc-footer .footer-links {
-    width: auto;
-  }
-  footer .pc-footer .footer-links .links-list {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 600px) {
-  footer .pc-footer .footer-contact-us:after {
-    display: none;
-  }
-  footer .pc-footer .footer-links {
-    display: none;
-  }
-}
 .tools-link {
   background-color: #ededed;
   border-top: 1px solid #d5d5d5;
@@ -1728,7 +1612,7 @@ footer .footer-links .link:hover {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1435838951') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -1755,7 +1639,7 @@ footer .footer-links .link:hover {
 }
 .tools-link .wrapper .accordion-content .note:before {
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1435838951') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1769,11 +1653,11 @@ footer .footer-links .link:hover {
 }
 .tools-link.application .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_application.png?1435838951') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429528477') no-repeat 0 center;
 }
 .tools-link.download .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_download.png?1435838952') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429528477') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -1806,7 +1690,7 @@ footer .footer-links .link:hover {
 .index-banner .key-visual {
   overflow: hidden;
   *zoom: 1;
-  background: #ebe5e5 url('../images/remote_banking/kv.jpg?1435838951') no-repeat center 0;
+  background: #ebe5e5 url('../images/remote_banking/kv.jpg?1430114119') no-repeat center 0;
   width: 100%;
   height: 584px;
   position: absolute;
@@ -1836,7 +1720,7 @@ footer .footer-links .link:hover {
 .index-banner .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1435838951') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1903,7 +1787,7 @@ footer .footer-links .link:hover {
 .index-banner .fast-links .list .link .link-icon {
   content: '';
   margin: 0 0 0 -35px;
-  background: url('../images/remote_banking/icons.png?1435838951') no-repeat 0 0;
+  background: url('../images/remote_banking/icons.png?1430113081') no-repeat 0 0;
   width: 70px;
   height: 46px;
   position: absolute;
@@ -1923,7 +1807,7 @@ footer .footer-links .link:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: url('../images/remote_banking/hover.png?1435838951') no-repeat 0 0;
+  background: url('../images/remote_banking/hover.png?1429873014') no-repeat 0 0;
   display: block;
   width: 304px;
   height: 183px;
@@ -2007,7 +1891,7 @@ footer .footer-links .link:hover {
   padding: 0 0 2px 0;
 }
 .index-banner .promo .list {
-  background: url('../images/remote_banking/promo_01.jpg?1435838951') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_01.jpg?1429528477') no-repeat 0 0;
   width: 303px;
   height: 282px;
   float: left;
@@ -2018,11 +1902,11 @@ footer .footer-links .link:hover {
 }
 .index-banner .promo .list + li {
   margin-left: 23px;
-  background: url('../images/remote_banking/promo_02.jpg?1435838951') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_02.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .list + li + li {
   margin-left: 22px;
-  background: url('../images/remote_banking/promo_03.jpg?1435838951') no-repeat 0 0;
+  background: url('../images/remote_banking/promo_03.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .link {
   display: block;
@@ -2152,13 +2036,13 @@ footer .pc-footer .footer-contact-us li {
   float: left;
 }
 footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1435838951') no-repeat;
+  background: url('../images/icon_white/icon_location.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1435838951') no-repeat;
+  background: url('../images/icon_white/icon_mail.png?1429027001') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1435838951') no-repeat;
+  background: url('../images/icon_white/icon_tel.png?1429027001') no-repeat;
 }
 footer .footer-links {
   overflow: hidden;
@@ -2373,7 +2257,7 @@ footer .footer-links .link:hover {
   width: 112px;
   height: 112px;
   display: block;
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1435838951') no-repeat center 0;
+  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1434965190') no-repeat center 0;
   position: absolute;
   z-index: 1;
   overflow: hidden;
@@ -2386,16 +2270,16 @@ footer .footer-links .link:hover {
   z-index: 10;
 }
 .lt-ie9 .index-banner .fast-links .list .link:hover .link-bg {
-  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1435838951') no-repeat 0 -112px;
+  background: url('../images/remote_banking/for-ie8/index_icons_bg.png?1434965190') no-repeat 0 -112px;
 }
 .lt-ie9 .index-banner .promo .link:before, .lt-ie9 .index-banner .promo .link:after {
   display: none;
 }
 .lt-ie9 .index-banner .promo .link .filter {
-  background: url('../images/remote_banking/for-ie8/op60.png?1435838951');
+  background: url('../images/remote_banking/for-ie8/op60.png?1429528477');
 }
 .lt-ie9 .index-banner .promo .link .filter:before {
-  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1435838951');
+  background: url('../images/remote_banking/for-ie8/promo_arrow.png?1429528477');
   width: 26px;
   height: 26px;
   border: 0;

@@ -134,6 +134,10 @@
 					display : inline-block;
 					width   : 208px;
 
+					.selecter-item {
+						padding : 0 10px;
+					}
+
 					.selecter-selected {
 						@include box-sizing(border-box);
 						padding          : 0;

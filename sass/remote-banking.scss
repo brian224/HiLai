@@ -14,8 +14,7 @@
 /* import page scss begin */
 /* import page scss end */
 @import "_common/responsive";
-@import "remote_banking/footer";
-@import "remote_banking/tools-link";
+@import "_remote_banking/_tools-link";
 
 .index-banner {
 	padding    : 53px 0 0 0;

@@ -310,6 +310,10 @@
 				}
 			}
 
+			.selecter-item {
+				padding : 0 10px;
+			}
+
 			.selecter-selected {
 				@include box-sizing(border-box);
 				padding          : 0;
@@ -728,6 +732,10 @@
 					top      : 2px;
 					left     : 0;
 				}
+			}
+
+			.inputBox {
+				color : #999;
 			}
 		}
 	}
