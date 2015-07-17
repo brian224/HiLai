@@ -237,68 +237,68 @@
 			margin : 0;
 		}
 	}
-}
 
-.inputBox {
-	@include box-sizing(border-box);
-	margin         : 0 12px 12px 0;
-	background     : #efefef;
-	display        : inline-block;
-	width          : 168px;
-	height         : 34px;
-	border         : 1px solid #bdbdbd;
-	border-radius  : 4px;
-	color          : #26445e;
-	font-size      : 14px;
-	letter-spacing : 1px;
-	line-height    : 34px;
-	text-indent    : 10px;
-}
-
-.selecter {
-	margin  : 0 14px 12px 0;
-	display : inline-block;
-	width   : 196px;
-
-	.selecter-options {
-		max-height : 400px;
-	}
-
-	.selecter-selected {
+	.inputBox {
 		@include box-sizing(border-box);
-		padding          : 0;
-		background-color : #efefef;
-		height           : 34px;
-		border           : 1px solid #bdbdbd;
-		line-height      : 34px;
-		text-indent      : 10px;
-	}
-}
-
-#alert_box {
-	> * {
-		display     : block;
-		width       : 100%;
-		font-size   : 16px;
-		line-height : 1.5em;
+		margin         : 0 12px 12px 0;
+		background     : #efefef;
+		display        : inline-block;
+		width          : 168px;
+		height         : 34px;
+		border         : 1px solid #bdbdbd;
+		border-radius  : 4px;
+		color          : #26445e;
+		font-size      : 14px;
+		letter-spacing : 1px;
+		line-height    : 34px;
+		text-indent    : 10px;
 	}
 
-	ul {
-		padding-left : 24px;
-		list-style   : disc;
+	.selecter {
+		margin  : 0 14px 12px 0;
+		display : inline-block;
+		width   : 196px;
+
+		.selecter-options {
+			max-height : 400px;
+		}
+
+		.selecter-selected {
+			@include box-sizing(border-box);
+			padding          : 0;
+			background-color : #efefef;
+			height           : 34px;
+			border           : 1px solid #bdbdbd;
+			line-height      : 34px;
+			text-indent      : 10px;
+		}
 	}
 
-	.alert-danger {
-		color            : #a94442;
-		background-color : #f2dede;
-		border-color     : #ebccd1;
-	}
+	#alert_box {
+		> * {
+			display     : block;
+			width       : 100%;
+			font-size   : 16px;
+			line-height : 1.5em;
+		}
 
-	.alert {
-		padding       : 15px;
-		margin-bottom : 20px;
-		border        : 1px solid transparent;
-		border-radius : 4px;
+		ul {
+			padding-left : 24px;
+			list-style   : disc;
+		}
+
+		.alert-danger {
+			color            : #a94442;
+			background-color : #f2dede;
+			border-color     : #ebccd1;
+		}
+
+		.alert {
+			padding       : 15px;
+			margin-bottom : 20px;
+			border        : 1px solid transparent;
+			border-radius : 4px;
+		}
 	}
 }
 
@@ -389,11 +389,11 @@
 				margin-top : 20px;
 			}
 		}
-	}
 
-	.selecter, .inputBox {
-		margin-right : 0;
-		width        : 100%;
+		.selecter, .inputBox {
+			margin-right : 0;
+			width        : 100%;
+		}
 	}
 }
 

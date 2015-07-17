@@ -3094,8 +3094,7 @@ footer ul.footer-links + p.copyright {
 .form-step .btn-wrap .btn-blue {
   margin: 0;
 }
-
-.inputBox {
+.form-step .inputBox {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -3112,16 +3111,15 @@ footer ul.footer-links + p.copyright {
   line-height: 34px;
   text-indent: 10px;
 }
-
-.selecter {
+.form-step .selecter {
   margin: 0 14px 12px 0;
   display: inline-block;
   width: 196px;
 }
-.selecter .selecter-options {
+.form-step .selecter .selecter-options {
   max-height: 400px;
 }
-.selecter .selecter-selected {
+.form-step .selecter .selecter-selected {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -3132,23 +3130,22 @@ footer ul.footer-links + p.copyright {
   line-height: 34px;
   text-indent: 10px;
 }
-
-#alert_box > * {
+.form-step #alert_box > * {
   display: block;
   width: 100%;
   font-size: 16px;
   line-height: 1.5em;
 }
-#alert_box ul {
+.form-step #alert_box ul {
   padding-left: 24px;
   list-style: disc;
 }
-#alert_box .alert-danger {
+.form-step #alert_box .alert-danger {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
-#alert_box .alert {
+.form-step #alert_box .alert {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -3221,8 +3218,7 @@ footer ul.footer-links + p.copyright {
   .form-step .form-fill-in .form-footer {
     margin-top: 20px;
   }
-
-  .selecter, .inputBox {
+  .form-step .selecter, .form-step .inputBox {
     margin-right: 0;
     width: 100%;
   }
