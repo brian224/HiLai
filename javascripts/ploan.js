@@ -426,7 +426,7 @@ var titles = {
 function initializeTitles() {
 	$("#title option").remove();
 	$("#title").append("<option value='-1' selected disabled>職稱</option>");
-	$("#title").selecter("refresh");
+	selectUI();
 }
 
 function changeJobs() {
@@ -444,7 +444,7 @@ function changeJobs() {
 			for (var i = 0; i < job.titles.length; i++) {
 				$("#title").append($("<option></option>").attr("value", job.titles[i].id).text( job.titles[i].name));
 			}
-			$("#title").selecter("refresh");
+			selectUI();
 		}
 	}
 }

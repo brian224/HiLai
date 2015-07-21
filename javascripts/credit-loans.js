@@ -3,7 +3,6 @@ $(document).ready(function(){
 		$kvSlider    = $('.key-visual-slider'),
 		$radioLab    = $('.lab.radio'),
 		$checkLab    = $('.lab.check'),
-		$selecter    = $('.selecter'),
 		$rwdMenuList = $('.rwd-menu-list'),
 		$hasSubMenu  = $('.has-sub-menu'),
 		$sideTitle   = $('.side-title'),
@@ -24,6 +23,12 @@ $(document).ready(function(){
 
 	$rwdMenuList.html(_rwdMenu);
 	$rwdMenuList.find('.loan-purpose').removeClass('curr');
+
+	$('.select').on('click', '.selecter-item', function(){
+		if ($(this).parent().siblings().attr('id') === 'job') {
+			changeJobs();
+		}
+	});
 
 	$sideTitle.on('click', function(){
 		var _winWidth = $(window).width();
@@ -106,23 +111,6 @@ $(document).ready(function(){
 			}, function(){
 				$(this).removeClass('hover');
 			});
-		});
-
-		$selecter.hover(function(){
-			$(this).focus().addClass('focus').removeClass('closed').css({'z-index':3}).find('.selecter-options').show();
-		}, function(){
-			$(this).addClass('closed').removeClass('focus').removeAttr('style').find('.selecter-options').hide();
-		});
-
-		$selecter.on('click', '.selecter-item', function(){
-			$(this).parent().fadeOut();
-		});
-	} else {
-		$selecter.hover(function(){
-			$(this).focus();
-			$(this).addClass('focus open').removeClass('closed').find('.selecter-options').show();
-		}, function(){
-			$(this).addClass('closed').removeClass('focus open').find('.selecter-options').hide();
 		});
 	}
 

@@ -8,7 +8,7 @@ $(document).ready(function(){
   });
 
   // 套用自定樣式下拉選單 JS Plugin - fs.selecter
-  $('select').selecter();
+  selectUI();
 
   //首頁 Login Box 下拉選單 Mouse Enter/Leave 追加展開收合功能
   $('.login > .selecter > .selecter-selected').mouseenter(function(){
