@@ -132,3 +132,19 @@ footer {
 		}
 	}
 }
+
+.lt-ie9 {
+	footer .pc-footer .footer-contact-us li {
+		&:first-child a {
+			background : image-url('icon_white/icon_location.png') no-repeat;
+		}
+
+		& + li a {
+			background : image-url('icon_white/icon_mail.png') no-repeat;
+		}
+
+		& + li + li a {
+			background : image-url('icon_white/icon_tel.png') no-repeat;
+		}
+	}
+}

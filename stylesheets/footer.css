@@ -51,13 +51,13 @@ footer .pc-footer .footer-contact-us li {
   float: left;
 }
 footer .pc-footer .footer-contact-us li:nth-child(1) a {
-  background: url('../images/icon_white/icon_location.png?1429027001') no-repeat;
+  background: url('../images/icon_white/icon_location.png?1437406898') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(2) a {
-  background: url('../images/icon_white/icon_mail.png?1429027001') no-repeat;
+  background: url('../images/icon_white/icon_mail.png?1437406898') no-repeat;
 }
 footer .pc-footer .footer-contact-us li:nth-child(3) a {
-  background: url('../images/icon_white/icon_tel.png?1429027001') no-repeat;
+  background: url('../images/icon_white/icon_tel.png?1437406898') no-repeat;
 }
 footer .footer-links {
   overflow: hidden;
@@ -112,4 +112,13 @@ footer .footer-links .link:hover {
   footer .pc-footer .footer-links {
     display: none;
   }
+}
+.lt-ie9 footer .pc-footer .footer-contact-us li:first-child a {
+  background: url('../images/icon_white/icon_location.png?1437406898') no-repeat;
+}
+.lt-ie9 footer .pc-footer .footer-contact-us li + li a {
+  background: url('../images/icon_white/icon_mail.png?1437406898') no-repeat;
+}
+.lt-ie9 footer .pc-footer .footer-contact-us li + li + li a {
+  background: url('../images/icon_white/icon_tel.png?1437406898') no-repeat;
 }
