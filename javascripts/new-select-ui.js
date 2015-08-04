@@ -40,6 +40,7 @@ function selectUI(){
 			if (!$this.hasClass('disabled')) { // 不可選時不做事
 				$('#select-'+i+'').find('.selecter-selected').addClass('selected').text($this.text());
 				$('#select-'+i+'').find('select option:eq('+ $index +')').prop('selected' , true);
+				$('#select-'+i+'').find('select').trigger('change');
 				$this.addClass('selected').siblings().removeClass('selected');
 			}
 		});
