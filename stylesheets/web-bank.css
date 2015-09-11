@@ -2661,3 +2661,13 @@ footer ul.footer-links + p.copyright {
   width: 6px;
   height: 10px;
 }
+.lt-ie9 .m-tab-content .feature-desc.new-ui, .lt-ie9 .m-tab-content .feature-desc.smart-online-banking, .lt-ie9 .m-tab-content .feature-desc.trade-deals {
+  padding: 0 0 0 396px;
+}
+.lt-ie9 .m-tab-content .feature-desc.click-pay, .lt-ie9 .m-tab-content .feature-desc.reminder-service, .lt-ie9 .m-tab-content .feature-desc.network-security {
+  padding: 0 392px 0 0;
+}
+.lt-ie9 .m-tab-content .feature-desc.click-pay .art-img, .lt-ie9 .m-tab-content .feature-desc.reminder-service .art-img, .lt-ie9 .m-tab-content .feature-desc.network-security .art-img {
+  left: auto;
+  right: 0;
+}

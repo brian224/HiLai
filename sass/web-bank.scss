@@ -365,10 +365,25 @@
 			}
 		}
 
-		.feature-desc.multi-desc .emphasize:before {
-			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
-			width      : 6px;
-			height     : 10px;
+		.feature-desc {
+			&.multi-desc .emphasize:before {
+				background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+				width      : 6px;
+				height     : 10px;
+			}
+
+			&.new-ui, &.smart-online-banking, &.trade-deals {
+				padding : 0 0 0 396px;
+			}
+
+			&.click-pay, &.reminder-service, &.network-security {
+				padding : 0 392px 0 0;
+
+				.art-img {
+					left  : auto;
+					right : 0;
+				}
+			}
 		}
 	}
 }
