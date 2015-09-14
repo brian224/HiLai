@@ -1,0 +1,162 @@
+@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+@import "_common/m-button";
+@import "_common/m-header";
+@import "_common/m-footer";
+/* import page scss begin */
+/* import page scss end */
+@import "_common/responsive";
+
+.index-banner {
+	min-height : 662px;
+	position   : relative;
+	box-shadow : inset 0 1px 1px rgba(0, 0, 0,0.3);
+
+	&:after {
+		content    : '';
+		background : rgba(255, 255, 255, 0.5);
+		display    : block;
+		width      : 100%;
+		height     : 124px;
+		position   : absolute;
+		left       : 0;
+		bottom     : 0;
+		z-index    : 0;
+	}
+
+	.key-visual {
+		@include clearfix;
+		background : #ebe5e5 image-url('index/kv.jpg') no-repeat center 0;
+		width      : 100%;
+		height     : 662px;
+		position   : absolute;
+		top        : 0;
+		left       : 0;
+	}
+
+	.l-main {
+		margin : 0 auto;
+	}
+
+	.slogan {
+		margin      : 0 0 25px 0;
+		padding     : 48px 0 0 0;
+		color       : #004165;
+		font-size   : 42px;
+		line-height : 48px;
+	}
+
+	.desc {
+		width       : 380px;
+		color       : #004165;
+		font-size   : 17px;
+		line-height : 28px;
+	}
+
+	.fast-links {
+		@include clearfix;
+		width    : 100%;
+		position : absolute;
+		top      : 495px;
+		left     : 0;
+		z-index  : 1;
+
+		.list {
+			width      : 20%;
+			float      : left;
+			font-size  : 17px;
+			text-align : center;
+
+			.link {
+				padding  : 125px 0 0 0;
+				display  : block;
+				width    : 100%;
+				height   : 100%;
+				position : relative;
+				color    : #003d5e;
+
+				&:before {
+					content       : '';
+					margin        : 0 0 0 -56px;
+					background    : $bgBlue;
+					display       : block;
+					width         : 102px;
+					height        : 102px;
+					position      : absolute;
+					top           : 0;
+					left          : 50%;
+					border        : 5px solid #c0e4f1;
+					border-radius : 56px;
+					opacity       : 0.8;
+					@include transition(all .3s ease-in-out);
+				}
+
+				.link-icon {
+					content    : '';
+					margin     : -36px 0 0 -20px;
+					background : image-url('index/icon-menu.png') no-repeat 0 0;
+					width      : 41px;
+					height     : 41px;
+					position   : absolute;
+					top        : 50%;
+					left       : 50%;
+					z-index    : 10;
+					zoom       : 1;
+				}
+
+				&:hover {
+					&:before {
+						background : #01bcff;
+					}
+				}
+			}
+
+			&.mobile-payment .link-icon {
+				margin              : -38px 0 0 -21px;
+				background-position : 0 -41px;
+				width               : 42px;
+				height              : 45px;
+			}
+
+			&.anz-partner .link-icon {
+				margin              : -39px 0 0 -25px;
+				background-position : 0 -86px;
+				width               : 50px;
+				height              : 47px;
+			}
+
+			&.tel-bank .link-icon {
+				margin              : -42px 0 0 -19px;
+				background-position : 0 -133px;
+				width               : 38px;
+				height              : 52px;
+			}
+
+			&.atm .link-icon {
+				margin              : -46px 0 0 -28px;
+				background-position : 0 -185px;
+				width               : 57px;
+				height              : 59px;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 980px) {
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-width: 376px) {
+}
+
+.lt-ie9 {
+}
