@@ -1101,10 +1101,18 @@ footer ul.footer-links + p.copyright {
     line-height: 1em;
   }
 }
+.option-links > li.highlight {
+  border: 0;
+}
+.option-links > li.highlight > a {
+  padding: 0;
+  font-size: 20px;
+  line-height: 1em;
+}
+
 .index-banner {
   min-height: 662px;
   position: relative;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 .index-banner:after {
   content: '';
@@ -1115,33 +1123,149 @@ footer ul.footer-links + p.copyright {
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 0;
+  z-index: 1;
 }
 .index-banner .key-visual {
   overflow: hidden;
   *zoom: 1;
-  background: #ebe5e5 url('../images/index/kv.jpg?1442220142') no-repeat center 0;
-  width: 100%;
+  margin-left: -650px;
+  width: 1300px;
   height: 662px;
   position: absolute;
   top: 0;
+  left: 50%;
+}
+.index-banner .key-visual .kv-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index-banner .key-visual .wording {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.5);
+  display: block;
+  width: 350px;
+  position: absolute;
+  bottom: 206px;
+  left: 170px;
+  color: #fff;
+}
+.index-banner .key-visual .wording .slogan {
+  color: #fff;
+  font-size: 30px;
+  line-height: 45px;
+}
+.index-banner .key-visual .wording .desc {
+  font-size: 16px;
+  line-height: 26px;
+}
+.index-banner .key-visual .owl-controls {
+  display: none;
+}
+.index-banner .key-visual .owl-dots {
+  visibility: hidden;
+}
+.index-banner .login-wrap {
+  margin-left: 164px;
+  background: rgba(255, 255, 255, 0.85);
+  position: absolute;
+  top: 76px;
+  left: 50%;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+}
+.index-banner .login-wrap .switch-title {
+  height: 60px;
+  color: #003f63;
+  font-size: 26px;
+  line-height: 60px;
+  text-align: center;
+}
+.index-banner .login-wrap .service-title {
+  overflow: hidden;
+  *zoom: 1;
+  height: 45px;
+  position: relative;
+  color: #0294c9;
+  font-size: 16px;
+  line-height: 45px;
+}
+.index-banner .login-wrap .service-title:before {
+  content: '';
+  width: 50%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
   left: 0;
+  border-right: 4px solid transparent;
+  border-bottom: 5px solid #0076b3;
+}
+.index-banner .login-wrap .service-title:after {
+  content: '';
+  background: #d3d3d3;
+  width: 50%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+.index-banner .login-wrap .service-title em, .index-banner .login-wrap .service-title .link {
+  width: 50%;
+  float: left;
+  color: #0294c9;
+  font-style: normal;
+  text-indent: 18px;
+}
+.index-banner .login-wrap .service-title em:before, .index-banner .login-wrap .service-title .link:before {
+  content: '';
+  margin-right: 5px;
+  background: url('../images/icon_ocean_blue/icon_38.png?1442226876') 0 0 no-repeat;
+  display: inline-block;
+  width: 16px;
+  height: 17px;
+}
+.index-banner .login-wrap .service-title .link {
+  cursor: pointer;
+  text-indent: 6px;
+}
+.index-banner .login-wrap .service-title .link:before {
+  margin-right: 7px;
+  background: url('../images/icon_ocean_blue/icon_39.png?1442226877') 0 0 no-repeat;
+  width: 18px;
+  height: 12px;
+}
+.index-banner .login-wrap .switch-body {
+  padding: 24px 27px;
+}
+.index-banner .login-wrap .switch-body .inputBox {
+  margin-bottom: 16px;
+  background: #fff;
+  display: block;
+  width: 256px;
+  height: 40px;
+  border: 1px solid #d3d3d3;
+  color: #888;
+  font-size: 16px;
+  line-height: 40px;
+  text-indent: 10px;
+}
+.index-banner .login-wrap .switch-body .btn {
+  width: 122px;
+  min-width: 0;
+  height: 44px;
+  font-family: '微軟正黑體';
+}
+.index-banner .login-wrap .switch-body .btn.btn-login-normal {
+  margin-right: 11px;
 }
 .index-banner .l-main {
   margin: 0 auto;
-}
-.index-banner .slogan {
-  margin: 0 0 25px 0;
-  padding: 48px 0 0 0;
-  color: #004165;
-  font-size: 42px;
-  line-height: 48px;
-}
-.index-banner .desc {
-  width: 380px;
-  color: #004165;
-  font-size: 17px;
-  line-height: 28px;
+  min-height: 662px;
+  z-index: 2;
 }
 .index-banner .fast-links {
   overflow: hidden;
@@ -1166,27 +1290,33 @@ footer ul.footer-links + p.copyright {
   position: relative;
   color: #003d5e;
 }
-.index-banner .fast-links .list .link:before {
+.index-banner .fast-links .list .link:before, .index-banner .fast-links .list .link:after {
   content: '';
   margin: 0 0 0 -56px;
   background: #0294c9;
   display: block;
-  width: 102px;
-  height: 102px;
+  width: 112px;
+  height: 112px;
   position: absolute;
   top: 0;
   left: 50%;
-  border: 5px solid #c0e4f1;
   border-radius: 56px;
-  opacity: 0.8;
+  opacity: 0.25;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
+.index-banner .fast-links .list .link:after {
+  margin: 5px 0 0 -51px;
+  width: 102px;
+  height: 102px;
+  border-radius: 51px;
+  opacity: 1;
+}
 .index-banner .fast-links .list .link .link-icon {
   content: '';
   margin: -36px 0 0 -20px;
-  background: url('../images/index/icon-menu.png?1442212825') no-repeat 0 0;
+  background: url('../images/index/icon-menu.png?1442226876') no-repeat 0 0;
   width: 41px;
   height: 41px;
   position: absolute;
@@ -1195,30 +1325,46 @@ footer ul.footer-links + p.copyright {
   z-index: 10;
   zoom: 1;
 }
-.index-banner .fast-links .list .link:hover:before {
+.index-banner .fast-links .list .link:hover:after {
   background: #01bcff;
 }
-.index-banner .fast-links .list.mobile-payment .link-icon {
+.index-banner .fast-links .list.activities .link-icon {
   margin: -38px 0 0 -21px;
   background-position: 0 -41px;
   width: 42px;
   height: 45px;
 }
-.index-banner .fast-links .list.anz-partner .link-icon {
+.index-banner .fast-links .list.favorable .link-icon {
   margin: -39px 0 0 -25px;
   background-position: 0 -86px;
   width: 50px;
   height: 47px;
 }
-.index-banner .fast-links .list.tel-bank .link-icon {
+.index-banner .fast-links .list.protect .link-icon {
   margin: -42px 0 0 -19px;
   background-position: 0 -133px;
   width: 38px;
   height: 52px;
 }
-.index-banner .fast-links .list.atm .link-icon {
+.index-banner .fast-links .list.download .link-icon {
   margin: -46px 0 0 -28px;
   background-position: 0 -185px;
   width: 57px;
   height: 59px;
+}
+
+.lt-ie9 .index-banner:after {
+  background: url('../images/index/for-ie8/op70-w.png?1442226884');
+}
+.lt-ie9 .index-banner .key-visual .wording {
+  background: url('../images/index/for-ie8/op50-b.png?1442226882');
+}
+.lt-ie9 .index-banner .fast-links .list .link:before {
+  background: url('../images/index/for-ie8/index-icons-bg.png?1442302348');
+}
+.lt-ie9 .index-banner .fast-links .list .link:after {
+  display: none;
+}
+.lt-ie9 .index-banner .fast-links .list .link:hover:before {
+  background-position: 0 -112px;
 }
