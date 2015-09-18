@@ -1239,7 +1239,32 @@ footer ul.footer-links + p.copyright {
   height: 12px;
 }
 .index-banner .login-wrap .switch-body {
+  width: 312px;
+  height: 252px;
+  position: relative;
+  overflow: hidden;
+}
+.index-banner .login-wrap .switch-body .switch-area {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 2000px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.index-banner .login-wrap .switch-body .switch-area.next-step {
+  left: -312px;
+}
+.index-banner .login-wrap .switch-body .switch-area .step {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   padding: 24px 27px;
+  height: 100%;
+  position: relative;
+  float: left;
 }
 .index-banner .login-wrap .switch-body .inputBox {
   margin-bottom: 16px;
@@ -1253,6 +1278,29 @@ footer ul.footer-links + p.copyright {
   line-height: 40px;
   text-indent: 10px;
 }
+.index-banner .login-wrap .switch-body .inputBox.password {
+  margin-top: 58px;
+}
+.index-banner .login-wrap .switch-body .links-list {
+  overflow: hidden;
+  *zoom: 1;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.index-banner .login-wrap .switch-body .links-list .list {
+  display: inline-block;
+}
+.index-banner .login-wrap .switch-body .links-list .list:before {
+  content: '|';
+  padding: 0 5px;
+  color: #0294c9;
+}
+.index-banner .login-wrap .switch-body .links-list .list:first-child:before {
+  display: none;
+}
+.index-banner .login-wrap .switch-body .links-list .list .link {
+  color: #0294c9;
+}
 .index-banner .login-wrap .switch-body .btn {
   width: 122px;
   min-width: 0;
@@ -1261,6 +1309,12 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .login-wrap .switch-body .btn.btn-login-normal {
   margin-right: 11px;
+}
+.index-banner .login-wrap .switch-body .btn.btn-confirm {
+  width: 256px;
+  position: absolute;
+  bottom: 24px;
+  left: 27px;
 }
 .index-banner .l-main {
   margin: 0 auto;
@@ -1355,6 +1409,9 @@ footer ul.footer-links + p.copyright {
 
 .lt-ie9 .index-banner:after {
   background: url('../images/index/for-ie8/op70-w.png?1442226884');
+}
+.lt-ie9 .index-banner .login-wrap {
+  background: url('../images/index/for-ie8/op85-w.png?1442460693');
 }
 .lt-ie9 .index-banner .key-visual .wording {
   background: url('../images/index/for-ie8/op50-b.png?1442226882');

@@ -167,7 +167,31 @@
 		}
 
 		.switch-body {
-			padding : 24px 27px;
+			width    : 312px;
+			height   : 252px;
+			position : relative;
+			overflow : hidden;
+
+			.switch-area {
+				@include transition(all 0.3s ease-in-out);
+				width    : 2000px;
+				height   : 100%;
+				position : absolute;
+				top      : 0;
+				left     : 0;
+
+				&.next-step {
+					left : -312px;
+				}
+
+				.step {
+					@include box-sizing(border-box);
+					padding  : 24px 27px;
+					height   : 100%;
+					position : relative;
+					float    : left;
+				}
+			}
 
 			.inputBox {
 				margin-bottom : 16px;
@@ -180,6 +204,34 @@
 				font-size     : 16px;
 				line-height   : 40px;
 				text-indent   : 10px;
+
+				&.password {
+					margin-top : 58px;
+				}
+			}
+
+			.links-list {
+				@include clearfix;
+				margin-bottom : 25px;
+				text-align    : center;
+
+				.list {
+					display : inline-block;
+
+					&:before {
+						content : '|';
+						padding : 0 5px;
+						color   : #0294c9;
+					}
+
+					&:first-child:before {
+						display : none;
+					}
+
+					.link {
+						color : #0294c9;
+					}
+				}
 			}
 
 			.btn {
@@ -190,6 +242,13 @@
 
 				&.btn-login-normal {
 					margin-right : 11px;
+				}
+
+				&.btn-confirm {
+					width    : 256px;
+					position : absolute;
+					bottom   : 24px;
+					left     : 27px;
 				}
 			}
 		}
@@ -307,6 +366,10 @@
 	.index-banner {
 		&:after {
 			background : image-url('index/for-ie8/op70-w.png');
+		}
+
+		.login-wrap {
+			background : image-url('index/for-ie8/op85-w.png');
 		}
 
 		.key-visual .wording {
