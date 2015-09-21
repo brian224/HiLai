@@ -307,12 +307,12 @@
 
 				.link-icon {
 					content    : '';
-					margin     : -36px 0 0 -20px;
+					margin     : 35.5px 0 0 -20px;
 					background : image-url('index/icon-menu.png') no-repeat 0 0;
 					width      : 41px;
 					height     : 41px;
 					position   : absolute;
-					top        : 50%;
+					top        : 0;
 					left       : 50%;
 					z-index    : 10;
 					zoom       : 1;
@@ -326,28 +326,28 @@
 			}
 
 			&.activities .link-icon {
-				margin              : -38px 0 0 -21px;
+				margin              : 33.5px 0 0 -21px;
 				background-position : 0 -41px;
 				width               : 42px;
 				height              : 45px;
 			}
 
 			&.favorable .link-icon {
-				margin              : -39px 0 0 -25px;
+				margin              : 32.5px 0 0 -25px;
 				background-position : 0 -86px;
 				width               : 50px;
 				height              : 47px;
 			}
 
 			&.protect .link-icon {
-				margin              : -42px 0 0 -19px;
+				margin              : 30px 0 0 -19px;
 				background-position : 0 -133px;
 				width               : 38px;
 				height              : 52px;
 			}
 
 			&.download .link-icon {
-				margin              : -46px 0 0 -28px;
+				margin              : 26.5px 0 0 -28px;
 				background-position : 0 -185px;
 				width               : 57px;
 				height              : 59px;
@@ -357,9 +357,144 @@
 }
 
 @media only screen and (max-width: 980px) {
+	header {
+		background-color    : #3e3e3e;
+		background-position : center bottom;
+		height              : 100px;
+		position            : relative;
+
+		.logo {
+			margin-top : 50px;
+		}
+
+		ul.option-links {
+			display  : block;
+			position : absolute;
+			top      : 13px;
+			right    : 0;
+
+			li {
+				border-left : 0;
+			}
+		}
+	}
+
+	.l-main {
+		width : 100%;
+	}
 }
 
 @media only screen and (max-width: 600px) {
+	.index-banner {
+		min-height : 0;
+
+		.key-visual {
+			margin   : 0;
+			width    : 100%;
+			height   : auto;
+			position : relative;
+			left     : 0;
+
+			.wording {
+				padding : 6px 8px;
+				width   : auto;
+				bottom  : 0;
+				left    : 0;
+
+				.slogan {
+					font-size   : 15px;
+					font-weight : bold;
+					line-height : 1.6em;
+				}
+
+				.desc {
+					font-size   : 12px;
+					line-height : 18px;
+				}
+			}
+		}
+
+		.l-main {
+			min-height : 0;
+		}
+
+		.fast-links {
+			background : #fff;
+			position   : relative;
+			top        : 0;
+	
+			.list {
+				padding       : 10px 0;
+				width         : 100%;
+				float         : none;
+				border-bottom : 1px solid #ccc;
+				text-align    : left;
+		
+				.link {
+					padding     : 0 0 0 96px;
+					min-height  : 56px;
+					line-height : 56px;
+		
+					&:before, &:after {
+						margin : -28px 0 0 0;
+						width  : 56px;
+						height : 56px;
+						top    : 50%;
+						left   : 20px;
+					}
+	
+					&:after {
+						margin : -25px 0 0 3px;
+						width  : 50px;
+						height : 50px;
+					}
+	
+					.link-icon {
+						margin          : -10.25px 0 0 -10.25px;
+						background-size : 29px 122px;
+						width           : 20.5px;
+						height          : 20.5px;
+						top             : 50%;
+						left            : 48px;
+					}
+				}
+	
+				&.activities .link-icon {
+					margin              : -11.25px 0 0 -10.25px;
+					background-position : 0 -21px;
+					width               : 21px;
+					height              : 22.5px;
+				}
+	
+				&.favorable .link-icon {
+					margin              : -11.75px 0 0 -12.5px;
+					background-position : 0 -43px;
+					width               : 25px;
+					height              : 23.5px;
+				}
+	
+				&.protect .link-icon {
+					margin              : -13px 0 0 -9.5px;
+					background-position : 0 -67px;
+					width               : 19px;
+					height              : 25px;
+				}
+	
+				&.download .link-icon {
+					margin              : -14.75px 0 0 -14.5px;
+					background-position : 0 -92px;
+					width               : 29px;
+					height              : 29.5px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	header .option-links > li {
+		padding: 0 8px;
+	}
 }
 
 .lt-ie9 {

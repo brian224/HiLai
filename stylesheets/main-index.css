@@ -1369,12 +1369,12 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .fast-links .list .link .link-icon {
   content: '';
-  margin: -36px 0 0 -20px;
-  background: url('../images/index/icon-menu.png?1442226876') no-repeat 0 0;
+  margin: 35.5px 0 0 -20px;
+  background: url('../images/index/icon-menu.png?1442826773') no-repeat 0 0;
   width: 41px;
   height: 41px;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
   z-index: 10;
   zoom: 1;
@@ -1383,30 +1383,150 @@ footer ul.footer-links + p.copyright {
   background: #01bcff;
 }
 .index-banner .fast-links .list.activities .link-icon {
-  margin: -38px 0 0 -21px;
+  margin: 33.5px 0 0 -21px;
   background-position: 0 -41px;
   width: 42px;
   height: 45px;
 }
 .index-banner .fast-links .list.favorable .link-icon {
-  margin: -39px 0 0 -25px;
+  margin: 32.5px 0 0 -25px;
   background-position: 0 -86px;
   width: 50px;
   height: 47px;
 }
 .index-banner .fast-links .list.protect .link-icon {
-  margin: -42px 0 0 -19px;
+  margin: 30px 0 0 -19px;
   background-position: 0 -133px;
   width: 38px;
   height: 52px;
 }
 .index-banner .fast-links .list.download .link-icon {
-  margin: -46px 0 0 -28px;
+  margin: 26.5px 0 0 -28px;
   background-position: 0 -185px;
   width: 57px;
   height: 59px;
 }
 
+@media only screen and (max-width: 980px) {
+  header {
+    background-color: #3e3e3e;
+    background-position: center bottom;
+    height: 100px;
+    position: relative;
+  }
+  header .logo {
+    margin-top: 50px;
+  }
+  header ul.option-links {
+    display: block;
+    position: absolute;
+    top: 13px;
+    right: 0;
+  }
+  header ul.option-links li {
+    border-left: 0;
+  }
+
+  .l-main {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .index-banner {
+    min-height: 0;
+  }
+  .index-banner .key-visual {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 0;
+  }
+  .index-banner .key-visual .wording {
+    padding: 6px 8px;
+    width: auto;
+    bottom: 0;
+    left: 0;
+  }
+  .index-banner .key-visual .wording .slogan {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1.6em;
+  }
+  .index-banner .key-visual .wording .desc {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .index-banner .l-main {
+    min-height: 0;
+  }
+  .index-banner .fast-links {
+    background: #fff;
+    position: relative;
+    top: 0;
+  }
+  .index-banner .fast-links .list {
+    padding: 10px 0;
+    width: 100%;
+    float: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+  }
+  .index-banner .fast-links .list .link {
+    padding: 0 0 0 96px;
+    min-height: 56px;
+    line-height: 56px;
+  }
+  .index-banner .fast-links .list .link:before, .index-banner .fast-links .list .link:after {
+    margin: -28px 0 0 0;
+    width: 56px;
+    height: 56px;
+    top: 50%;
+    left: 20px;
+  }
+  .index-banner .fast-links .list .link:after {
+    margin: -25px 0 0 3px;
+    width: 50px;
+    height: 50px;
+  }
+  .index-banner .fast-links .list .link .link-icon {
+    margin: -10.25px 0 0 -10.25px;
+    background-size: 29px 122px;
+    width: 20.5px;
+    height: 20.5px;
+    top: 50%;
+    left: 48px;
+  }
+  .index-banner .fast-links .list.activities .link-icon {
+    margin: -11.25px 0 0 -10.25px;
+    background-position: 0 -21px;
+    width: 21px;
+    height: 22.5px;
+  }
+  .index-banner .fast-links .list.favorable .link-icon {
+    margin: -11.75px 0 0 -12.5px;
+    background-position: 0 -43px;
+    width: 25px;
+    height: 23.5px;
+  }
+  .index-banner .fast-links .list.protect .link-icon {
+    margin: -13px 0 0 -9.5px;
+    background-position: 0 -67px;
+    width: 19px;
+    height: 25px;
+  }
+  .index-banner .fast-links .list.download .link-icon {
+    margin: -14.75px 0 0 -14.5px;
+    background-position: 0 -92px;
+    width: 29px;
+    height: 29.5px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  header .option-links > li {
+    padding: 0 8px;
+  }
+}
 .lt-ie9 .index-banner:after {
   background: url('../images/index/for-ie8/op70-w.png?1442226884');
 }
