@@ -26,7 +26,15 @@ $(document).ready(function(){
 
 			if (_ss_numbers !== _ss_numbers_hint && _user_id !== _user_id_hint) {
 				$switchArea.addClass('next-step');
+			} else if (_ss_numbers === _ss_numbers_hint) {
+				alert('請填寫身分證字號');
+			} else if (_user_id === _user_id_hint) {
+				alert('請填寫使用者代號');
 			}
+		} else if (_ss_numbers === '') {
+			alert('請填寫身分證字號');
+		} else if (_user_id === '') {
+			alert('請填寫使用者代號');
 		} else if (_ss_numbers !== '' && _user_id !== '') {
 			$switchArea.addClass('next-step');
 		}
