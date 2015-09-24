@@ -187,6 +187,10 @@
 
 				&.next-step {
 					left : -312px;
+
+					.step.step2 {
+						display : block;
+					}
 				}
 
 				.step {
@@ -195,6 +199,10 @@
 					height   : 100%;
 					position : relative;
 					float    : left;
+
+					&.step2 {
+						display : none;
+					}
 				}
 			}
 
@@ -460,12 +468,17 @@
 
 					&.next-step {
 						left : -100%;
+
+						.step2 {
+							display : block;
+						}
 					}
 
 					.step {
 						width : 100%;
 
 						&.step2 {
+							display  : none;
 							position : absolute;
 							right    : -100%;
 						}
