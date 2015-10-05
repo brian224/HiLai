@@ -64,13 +64,6 @@
 		line-height : 63px;
 	}
 
-	.desc {
-		width       : 380px;
-		color       : #004165;
-		font-size   : 17px;
-		line-height : 28px;
-	}
-
 	.fast-links {
 		@include clearfix;
 		padding-top : 120px;
@@ -449,18 +442,21 @@
 		}
 
 		.btn-close {
-			margin-left   : 450px;
-			background    : #ccc;
-			display       : block;
-			width         : 30px;
-			height        : 30px;
-			position      : absolute;
-			top           : 25px;
-			left          : 50%;
-			border-radius : 50%;
-			color         : #fff;
-			font-weight   : bold;
-			line-height   : 30px;
+			margin-left : 456px;
+			background  : image-url('icon_gray/icon_close.png') no-repeat 0 0;
+			display     : block;
+			width       : 24px;
+			height      : 24px;
+			position    : absolute;
+			top         : 25px;
+			left        : 50%;
+			overflow    : hidden;
+			text-indent : 200%;
+			@include opacity(.2);
+
+			&:hover {
+				@include opacity(1);
+			}
 		}
 	}
 
@@ -470,7 +466,7 @@
 		padding : 0 0 2px 0;
 
 		.list {
-			background    : image-url('remote_banking/promo_01.jpg') no-repeat 0 0;
+			background    : image-url('credit_card/promo_01.jpg') no-repeat 0 0;
 			width         : 303px;
 			height        : 282px;
 			float         : left;
@@ -481,12 +477,12 @@
 
 			+ li {
 				margin-left : 23px;
-				background  : image-url('remote_banking/promo_02.jpg') no-repeat 0 0;
+				background  : image-url('credit_card/promo_02.jpg') no-repeat 0 0;
 			}
 
 			+ li + li {
 				margin-left : 22px;
-				background  : image-url('remote_banking/promo_03.jpg') no-repeat 0 0;
+				background  : image-url('credit_card/promo_03.jpg') no-repeat 0 0;
 			}
 		}
 
@@ -739,16 +735,8 @@
 		}
 
 		.fast-links .list {
-			.image {
-				display : none;
-			}
-
-			.link {
+			.detail-info {
 				position : relative;
-
-				&:hover ~ .image {
-					display : block;
-				}
 
 				.link-bg {
 					top         : 0;
@@ -757,7 +745,7 @@
 					width       : 112px;
 					height      : 112px;
 					display     : block;
-					background  : image-url('remote_banking/for-ie8/index_icons_bg.png') no-repeat center 0;
+					background  : image-url('credit_card/for-ie8/index_icons_bg.png') no-repeat center 0;
 					position    : absolute;
 					z-index     : 1;
 					@include clearfix;
@@ -773,7 +761,138 @@
 
 				&:hover {
 					.link-bg {
-						background : image-url('remote_banking/for-ie8/index_icons_bg.png') no-repeat 0 -112px;
+						background : image-url('credit_card/for-ie8/index_icons_bg.png') no-repeat 0 -112px;
+					}
+				}
+			}
+		}
+
+		.collapse-wrap {
+			.intro-list {
+				&:before {
+					left : 80px;
+				}
+
+				+ li:before {
+					left : 272px;
+				}
+
+				+ li + li:before {
+					left : 464px;
+				}
+
+				+ li + li + li:before {
+					left : 656px;
+				}
+
+				+ li + li + li + li:before {
+					left : 848px;
+				}
+
+				&:after {
+					left : 81px;
+				}
+
+				+ li:after {
+					left : 273px;
+				}
+
+				+ li + li:after {
+					left : 465px;
+				}
+
+				+ li + li + li:after {
+					left : 657px;
+				}
+
+				+ li + li + li + li:after {
+					left : 849px;
+				}
+			}
+
+			.item-list {
+				+ li + li, + li + li + li + li, + li + li + li + li + li + li {
+					clear : both;
+				}
+
+				+ li, + li + li + li, + li + li + li + li + li, + li + li + li + li + li + li + li {
+					clear : none;
+				}
+			}
+
+			&.bargain-plan .bargain-plan {
+				.item-list {
+					+ li:before {
+						background-position : 0 -69px;
+						width               : 88px;
+						height              : 42px;
+						left                : 65px;
+					}
+
+					+ li + li:before {
+						background-position : 0 -111px;
+						width               : 70px;
+						height              : 63px;
+					}
+
+					+ li + li + li:before {
+						background-position : 0 -174px;
+						width               : 83px;
+						height              : 56px;
+						left                : 62px;
+					}
+				}
+			}
+
+			&.banking-paying .banking-paying {
+				.item-list {
+					+ li:before {
+						background-position : 0 -275px;
+						width               : 64px;
+						height              : 64px;
+						left                : 72px;
+					}
+
+					+ li + li:before {
+						background-position : 0 -339px;
+						width               : 68px;
+						height              : 68px;
+						left                : 52px;
+					}
+
+					+ li + li + li:before {
+						background-position : 0 -407px;
+						width               : 57px;
+						height              : 56px;
+						left                : 74px;
+					}
+
+					+ li + li + li + li:before {
+						background-position : 0 -463px;
+						width               : 60px;
+						height              : 60px;
+						left                : 59px;
+					}
+
+					+ li + li + li + li + li:before {
+						background-position : 0 -523px;
+						width               : 71px;
+						height              : 69px;
+						left                : 72px;
+					}
+
+					+ li + li + li + li + li + li:before {
+						background-position : 0 -592px;
+						width               : 66px;
+						height              : 69px;
+						left                : 54px;
+					}
+
+					+ li + li + li + li + li + li + li:before {
+						background-position : 0 -661px;
+						width               : 64px;
+						height              : 53px;
+						left                : 72px;
 					}
 				}
 			}
@@ -785,10 +904,10 @@
 			}
 
 			.filter {
-				background : image-url('remote_banking/for-ie8/op60.png');
+				background : image-url('credit_card/for-ie8/op60.png');
 
 				&:before {
-					background : image-url('remote_banking/for-ie8/promo_arrow.png');
+					background : image-url('credit_card/for-ie8/promo_arrow.png');
 					width      : 26px;
 					height     : 26px;
 					border     : 0;
