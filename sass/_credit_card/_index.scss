@@ -102,6 +102,46 @@
 					@include transition(all .3s ease-in-out);
 				}
 
+				&.last-news {
+					.link-icon {
+						margin-left         : -20.5px;
+						background-position : 0 -31px;
+						width               : 41px;
+						height              : 44px;
+						top                 : 34px;
+					}
+				}
+
+				&.bargain-plan {
+					.link-icon {
+						margin-left         : -21px;
+						background-position : 0 -75px;
+						width               : 42px;
+						height              : 45px;
+						top                 : 34.5px;
+					}
+				}
+
+				&.banking-paying{
+					.link-icon {
+						margin-left         : -26px;
+						background-position : 0 -120px;
+						width               : 52px;
+						height              : 50px;
+						top                 : 31px;
+					}
+				}
+
+				&.apply-now {
+					.link-icon {
+						margin-left         : -21.5px;
+						background-position : 0 -170px;
+						width               : 43px;
+						height              : 38px;
+						top                 : 37px;
+					}
+				}
+
 				.link-icon {
 					content    : '';
 					margin     : 0 0 0 -24.5px;
@@ -121,77 +161,34 @@
 					}
 				}
 			}
-
-			&.last-news {
-				.detail-info {
-					.link-icon {
-						margin-left         : -20.5px;
-						background-position : 0 -31px;
-						width               : 41px;
-						height              : 44px;
-						top                 : 34px;
-					}
-				}
-			}
-
-			&.bargain-plan {
-				.detail-info {
-					.link-icon {
-						margin-left         : -21px;
-						background-position : 0 -75px;
-						width               : 42px;
-						height              : 45px;
-						top                 : 34.5px;
-					}
-				}
-			}
-
-			&.banking-paying{
-				.detail-info {
-					.link-icon {
-						margin-left         : -26px;
-						background-position : 0 -120px;
-						width               : 52px;
-						height              : 50px;
-						top                 : 31px;
-					}
-				}
-			}
-
-			&.apply-now {
-				.detail-info {
-					.link-icon {
-						margin-left         : -21.5px;
-						background-position : 0 -170px;
-						width               : 43px;
-						height              : 38px;
-						top                 : 37px;
-					}
-				}
-			}
 		}
 	}
 
 	.collapse-wrap {
+		@include transition(all .3s ease-in-out);
 		background : #eeebe8;
-		max-height : 0;
 		position   : relative;
 		overflow   : hidden;
 
 		&.open {
 			margin        : 36px 0 0 0;
-			max-height    : 2000px;
 			border-top    : 1px solid #ddd;
 			border-bottom : 1px solid #ddd;
 			overflow      : visible;
 		}
 
 		&.introduce .introduce {
-			display : block;
+			max-height : 1000px;
+			opacity    : 1;
+			overflow   : visible;
+			z-index    : 0;
 		}
 
 		&.last-news .last-news {
-			display : block;
+			max-height : 1000px;
+			opacity    : 1;
+			overflow   : visible;
+			z-index    : 0;
 
 			.btn-more {
 				@include box-sizing(border-box);
@@ -214,7 +211,10 @@
 		}
 
 		&.bargain-plan .bargain-plan {
-			display : block;
+			max-height : 1000px;
+			opacity    : 1;
+			overflow   : visible;
+			z-index    : 0;
 
 			.item-list {
 				&:before {
@@ -251,7 +251,10 @@
 		}
 
 		&.banking-paying .banking-paying {
-			display : block;
+			max-height : 1000px;
+			opacity    : 1;
+			overflow   : visible;
+			z-index    : 0;
 
 			.item-list {
 				&:before {
@@ -317,10 +320,152 @@
 		}
 
 		&.apply-now .apply-now {
-			display : block;
+			max-height : 1000px;
+			opacity    : 1;
+			overflow   : visible;
+			z-index    : 0;
+
+			.input-area {
+				@include clearfix;
+				padding-top : 70px;
+			}
+
+			.check-area {
+				clear : both;
+
+				.lab {
+					line-height : 1.5em;
+				}
+			}
+
+			.lab {
+				@include box-sizing(border-box);
+				margin      : 0 0 28px 0;
+				display     : inline-block;
+				color       : #444;
+				font-size   : 14px;
+				line-height : 34px;
+
+				&.large {
+					display : block;
+					width   : 320px;
+					float   : left;
+				}
+
+				.text {
+					display        : inline-block;
+					width          : 75px;
+					vertical-align : top;
+				}
+
+				&.check {
+					padding  : 0 0 0 20px;
+					position : relative;
+					cursor   : pointer;
+
+					&:before {
+						@include box-sizing(border-box);
+						content       : '';
+						background    : #fff;
+						display       : block;
+						width         : 16px;
+						height        : 16px;
+						position      : absolute;
+						top           : 3px;
+						left          : 0;
+						border        : 1px solid #bdbdbd;
+						border-radius : 50%;
+					}
+
+					&.is-curr:before {
+						content     : '✓';
+						background  : #06a9f1;
+						border      : 1px solid #06a9f1;
+						color       : #fff;
+						font-size   : 12px;
+						line-height : 12px;
+						text-indent : 2px;
+					}
+
+					.chkBox {
+						display : none;
+					}
+				}
+
+				.inputBox {
+					@include box-sizing(border-box);
+					margin-left   : 5px;
+					display       : inline-block;
+					width         : 208px;
+					height        : 34px;
+					border        : 1px solid #bdbdbd;
+					border-radius : 4px;
+					color         : #444;
+					font-size     : 14px;
+					line-height   : 34px;
+					text-indent   : 10px;
+
+					&::-webkit-input-placeholder {
+						color : #fff;
+					}
+
+					&:-moz-placeholder {
+						color : #fff;
+					}
+
+					&::-moz-placeholder {
+						color : #fff;
+					}
+
+					&:-ms-input-placeholder {
+						color : #fff;
+					}
+				}
+
+				.selecter {
+					margin  : 0;
+					display : block;
+					width   : 208px;
+
+					.selecter-item {
+						padding : 0 10px;
+					}
+
+					.selecter-selected {
+						@include box-sizing(border-box);
+						padding          : 0;
+						background-color : #fff;
+						height           : 34px;
+						border           : 1px solid #bdbdbd;
+						line-height      : 34px;
+						text-indent      : 10px;
+					}
+				}
+			}
+
+			.btn-wrap {
+				text-align : center;
+
+				.btn-process {
+					background     : #41ad04;
+					@include background-image(linear-gradient(#81ce1d, #119208));
+					margin         : 10px auto;
+					display        : block;
+					width          : 264px;
+					height         : 36px;
+					border         : 1px solid #36a513;
+					border-radius  : 4px;
+					color          : #fff;
+					font-size      : 15px;
+					font-weight    : bold;
+					letter-spacing : 1px;
+					line-height    : 36px;
+				}
+			}
 		}
 
 		&:before, &:after {
+			@include transition(all .3s ease-in-out);
 			content       : '';
 			background    : #eeebe8;
 			display       : block;
@@ -339,8 +484,12 @@
 		}
 
 		.intro-list {
-			position : relative;
-			display  : none;
+			@include transition(all .3s ease-in-out);
+			max-height : 0;
+			position   : relative;
+			opacity    : 0;
+			overflow   : hidden;
+			z-index    : -1;
 
 			&:before, &:after {
 				content       : '';
