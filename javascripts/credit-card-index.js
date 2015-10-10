@@ -1,13 +1,20 @@
 $(document).ready(function(){
 	var $switchBar     = $('.accordion-heading'),
-		$btnDetailInfo = $('.detail-info'),
 		$collapseWrap  = $('.collapse-wrap'),
+		$fastLinksList = $('.fast-links .list'),
+		$introList     = $collapseWrap.find('.intro-list'),
 		$slideshow     = $collapseWrap.find('.slideshow'),
 		$checkLab      = $collapseWrap.find('.lab.check'),
-		$btnApply      = $collapseWrap.find('.btn-apply'),
-		$btnClose      = $collapseWrap.find('.btn-close'),
+		$btnClose      = $collapseWrap.find('.btn-close, .btn-m-close'),
 		$introTitle    = $slideshow.find('.intro-title'),
+		_timer         = null,
 		_titleArray    = [];
+
+	$introList.each(function(){
+		var _idx = $(this).index();
+
+		$(this).prepend($fastLinksList.eq(_idx).html());
+	});
 
 	$introTitle.each(function(){
 		_titleArray.push($(this).text());
@@ -25,19 +32,43 @@ $(document).ready(function(){
 	});
 
 	$slideshow.on('changed.owl.carousel', function(event) {
-		// $('.owl-prev').text(_titleArray[event.item.index + 1]);
-		// $('.owl-next').text(_titleArray[event.item.index - 1]);
+		var _idx   = event.page.index,
+			_count = event.page.count;
+
+		if (_idx === _count - 1) {
+			$('.owl-prev').text(_titleArray[_idx - 1]);
+			$('.owl-next').text(_titleArray[0]);
+		} else if (_idx === 0) {
+			$('.owl-prev').text(_titleArray[_count - 1]);
+			$('.owl-next').text(_titleArray[_idx + 1]);
+		} else {
+			$('.owl-prev').text(_titleArray[_idx - 1]);
+			$('.owl-next').text(_titleArray[_idx + 1]);
+		}
 	});
 
 	$switchBar.on('click', function(){
 		$(this).parent().toggleClass('open');
 	});
 
-	$btnDetailInfo.on('click', function(){
+	$('.l-main').on('click', '.detail-info', function(){
+		if ($(window).width() <= 600) {
+			$(this).parent().addClass('is-curr');
+		} else {
+			$(this).parent().addClass('is-curr').siblings().removeClass('is-curr');
+		}
+
 		$collapseWrap.attr('class', 'collapse-wrap open ' + $(this).attr('class').split('detail-info ')[1]);
+		$collapseWrap.find('.' + $(this).attr('class').split('detail-info ')[1]).addClass('is-curr');
 	});
 
 	$btnClose.on('click', function(){
+		if ($(window).width() <= 600) {
+			$(this).parents('.intro-list').removeClass('is-curr');
+		} else {
+			$('.detail-info').parent().removeClass('is-curr');
+		}
+
 		$collapseWrap.attr('class', 'collapse-wrap');
 	});
 

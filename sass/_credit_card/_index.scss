@@ -16,13 +16,13 @@
 	}
 
 	.m-breadcrumb {
+		@include box-sizing(border-box);
 		position    : absolute;
 		top         : -69px;
 		left        : 0;
 		width       : 100%;
 		height      : 53px;
 		line-height : 53px;
-		@include box-sizing(border-box);
 
 		.link {
 			padding   : 0 0 0 10px;
@@ -65,102 +65,127 @@
 	}
 
 	.fast-links {
-		@include clearfix;
-		padding-top : 120px;
-		position    : relative;
+		margin-bottom : -1px;
+		padding-top   : 120px;
+		position      : relative;
+		z-index       : 1;
+		font-size     : 0;
+		line-height   : 0;
 
 		.list {
+			padding    : 0 0 36px 0;
+			display    : inline-block;
 			width      : 20%;
-			float      : left;
+			position   : relative;
 			font-size  : 17px;
 			text-align : center;
 
-			.detail-info {
-				padding     : 125px 0 0 0;
-				background  : transparent;
-				display     : block;
-				width       : 100%;
-				height      : 100%;
-				position    : relative;
-				border      : 0;
-				color       : #047bb7;
-				font-size   : 16px;
-				font-family : '微軟正黑體';
+			&.is-curr:before, &.is-curr:after {
+				content       : '';
+				margin-left   : -16px;
+				display       : block;
+				position      : absolute;
+				bottom        : 0px;
+				left          : 50%;
+				border-right  : 16px solid transparent;
+				border-bottom : 16px solid #ddd;
+				border-left   : 16px solid transparent;
+			}
 
-				&:before {
-					content       : '';
-					margin        : 0 0 0 -56px;
-					background    : $bgBlue;
-					display       : block;
-					width         : 102px;
-					height        : 102px;
-					position      : absolute;
-					top           : 0;
-					left          : 50%;
-					border        : 5px solid #c0e4f1;
-					border-radius : 56px;
-					opacity       : 0.8;
-					@include transition(all .3s ease-in-out);
-				}
+			&.is-curr:after {
+				margin-left   : -15px;
+				bottom        : -1px;
+				border-right  : 15px solid transparent;
+				border-bottom : 15px solid #eeebe8;
+				border-left   : 15px solid transparent;
+			}
+		}
+	}
 
-				&.last-news {
-					.link-icon {
-						margin-left         : -20.5px;
-						background-position : 0 -31px;
-						width               : 41px;
-						height              : 44px;
-						top                 : 34px;
-					}
-				}
+	.detail-info {
+		padding     : 125px 0 0 0;
+		background  : transparent;
+		display     : block;
+		width       : 100%;
+		height      : 100%;
+		position    : relative;
+		border      : 0;
+		color       : #047bb7;
+		font-size   : 16px;
+		font-family : '微軟正黑體';
 
-				&.bargain-plan {
-					.link-icon {
-						margin-left         : -21px;
-						background-position : 0 -75px;
-						width               : 42px;
-						height              : 45px;
-						top                 : 34.5px;
-					}
-				}
+		&:before {
+			content       : '';
+			margin        : 0 0 0 -56px;
+			background    : $bgBlue;
+			display       : block;
+			width         : 102px;
+			height        : 102px;
+			position      : absolute;
+			top           : 0;
+			left          : 50%;
+			border        : 5px solid #c0e4f1;
+			border-radius : 56px;
+			opacity       : 0.8;
+			@include transition(all .3s ease-in-out);
+		}
 
-				&.banking-paying{
-					.link-icon {
-						margin-left         : -26px;
-						background-position : 0 -120px;
-						width               : 52px;
-						height              : 50px;
-						top                 : 31px;
-					}
-				}
+		&.last-news {
+			.link-icon {
+				margin-left         : -20.5px;
+				background-position : 0 -31px;
+				width               : 41px;
+				height              : 44px;
+				top                 : 34px;
+			}
+		}
 
-				&.apply-now {
-					.link-icon {
-						margin-left         : -21.5px;
-						background-position : 0 -170px;
-						width               : 43px;
-						height              : 38px;
-						top                 : 37px;
-					}
-				}
+		&.bargain-plan {
+			.link-icon {
+				margin-left         : -21px;
+				background-position : 0 -75px;
+				width               : 42px;
+				height              : 45px;
+				top                 : 34.5px;
+			}
+		}
 
-				.link-icon {
-					content    : '';
-					margin     : 0 0 0 -24.5px;
-					background : image-url('credit_card/icons.png') no-repeat 0 0;
-					width      : 49px;
-					height     : 31px;
-					position   : absolute;
-					top        : 40.5px;
-					left       : 50%;
-					z-index    : 10;
-					zoom       : 1;
-				}
+		&.banking-paying{
+			.link-icon {
+				margin-left         : -26px;
+				background-position : 0 -120px;
+				width               : 52px;
+				height              : 50px;
+				top                 : 31px;
+			}
+		}
 
-				&:hover {
-					&:before {
-						background : #01bcff;
-					}
-				}
+		&.apply-now {
+			.link-icon {
+				margin-left         : -21.5px;
+				background-position : 0 -170px;
+				width               : 43px;
+				height              : 38px;
+				top                 : 37px;
+			}
+		}
+
+		.link-icon {
+			content    : '';
+			margin     : 0 0 0 -24.5px;
+			background : image-url('credit_card/icons.png') no-repeat 0 0;
+			width      : 49px;
+			height     : 31px;
+			position   : absolute;
+			top        : 40.5px;
+			left       : 50%;
+			z-index    : 10;
+			zoom       : 1;
+		}
+
+		&:hover {
+			&:before {
+				background : #01bcff;
 			}
 		}
 	}
@@ -172,20 +197,21 @@
 		overflow   : hidden;
 
 		&.open {
-			margin        : 36px 0 0 0;
 			border-top    : 1px solid #ddd;
 			border-bottom : 1px solid #ddd;
 			overflow      : visible;
 		}
 
-		&.introduce .introduce {
+		&.introduce .introduce, &.last-news .last-news, &.bargain-plan .bargain-plan, &.banking-paying .banking-paying, &.apply-now .apply-now {
 			max-height : 1000px;
 			opacity    : 1;
 			overflow   : visible;
 			z-index    : 0;
+		}
 
+		.introduce {
 			.showcase {
-				padding  : 70px 0 0 460px;
+				padding  : 70px 80px 95px 460px;
 				position : relative;
 			}
 
@@ -250,25 +276,13 @@
 			}
 
 			.img-wrap {
-				margin   : -80px 0 0 -128px;
+				margin   : -80px 0 0 0;
 				display  : block;
 				width    : 257px;
 				height   : 161px;
 				position : absolute;
 				top      : 50%;
-				left     : 230px;
-				-webkit-box-reflect: below 1px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(70%, transparent) , to(rgba(250, 250, 250, 0.1)));
-
-				&:before {
-					content  : '';
-					width    : 100%;
-					height   : 100%;
-					position : absolute;
-					top      : 100%;
-					left     : 0;
-					-webkit-transform: scaleY(-1);
-					transform: scaleY(-1);
-				}
+				left     : 132px;
 
 				img {
 					display : block;
@@ -276,226 +290,190 @@
 				}
 			}
 
-			.owl-controls {
-				width    : 100%;
-				height   : 100%;
-				position : absolute;
-				top      : 0;
-				left     : 0;
-
-				.owl-nav {
-					margin : 0;
-
-					.owl-prev, .owl-next {
-						margin      : -50px 0 0 0;
-						padding     : 80px 0 0 0;
-						background  : transparent;
-						display     : block;
-						width       : 80px;
-						height      : 20px;
-						position    : absolute;
-						top         : 50%;
-						left        : 0;
-						overflow    : hidden;
-						color       : #289dce;
-						font-size   : 14px;
-						line-height : 20px;
-						white-space : nowrap;
-
-						&:hover {
-							background : transparent;
-						}
-
-						&:before, &:after {
-							@include transform(rotate(40deg));
-							content    : '';
-							margin     : -6px 0 0 -2px;
-							background : #289dce;
-							display    : block;
-							width      : 4px;
-							height     : 41px;
-							position   : absolute;
-							top        : 2px;
-							left       : 50%;
-						}
-
-						&:after {
-							@include transform(rotate(-40deg));
-							margin-top : 2px;
-							top        : 23px;
-						}
-					}
-
-					.owl-next {
-						left  : auto;
-						right : 0;
-
-						&:before, &:after {
-							@include transform(rotate(-40deg));
-							margin-right : -2px;
-							left         : auto;
-							right        : 50%;
-						}
-
-						&:after {
-							@include transform(rotate(40deg));
-						}
-					}
-				}
-
-				.owl-dots {
-					width    : 100%;
-					position : absolute;
-					bottom   : 0;
-					left     : 0;
-				}
+			.owl-nav {
+				margin : 0;
 			}
-		}
 
-		&.last-news .last-news {
-			max-height : 1000px;
-			opacity    : 1;
-			overflow   : visible;
-			z-index    : 0;
-
-			.btn-more {
-				@include box-sizing(border-box);
-				margin          : 10px 0 0 25px;
-				background      : #ccc;
-				background      : linear-gradient(#fff, #ccc);
-				display         : block;
-				width           : 98px;
-				height          : 34px;
-				border          : 1px solid #b9b9b9;
-				border-radius   : 4px;
-				color           : #163753;
-				font-size       : 13px;
-				line-height     : 34px;
-				text-align      : center;
-				text-decoration : none;
+			.owl-prev, .owl-next {
+				margin      : -50px 0 0 0;
+				padding     : 80px 0 0 0;
+				background  : transparent;
+				display     : block;
+				width       : 80px;
+				position    : absolute;
+				top         : 50%;
+				left        : 0;
+				color       : #289dce;
+				font-size   : 14px;
+				line-height : 20px;
 
 				&:hover {
-					background : linear-gradient(#ccc, #fff);
+					background : transparent;
 				}
-			}
-		}
 
-		&.bargain-plan .bargain-plan {
-			max-height : 1000px;
-			opacity    : 1;
-			overflow   : visible;
-			z-index    : 0;
-
-			.item-list {
-				&:before {
+				&:before, &:after {
+					@include transform(rotate(40deg));
 					content    : '';
-					background : image-url('credit_card/icon-item.png') no-repeat 0 0;
+					margin     : -6px 0 0 -2px;
+					background : #289dce;
 					display    : block;
-					width      : 69px;
-					height     : 69px;
+					width      : 4px;
+					height     : 41px;
 					position   : absolute;
-					top        : 12px;
-					left       : 48px;
+					top        : 2px;
+					left       : 50%;
 				}
 
-				&:nth-child(2):before {
-					background-position : 0 -69px;
-					width               : 88px;
-					height              : 42px;
-					left                : 65px;
+				&:after {
+					@include transform(rotate(-40deg));
+					margin-top : 2px;
+					top        : 23px;
+				}
+			}
+
+			.owl-next {
+				left  : auto;
+				right : 0;
+
+				&:before, &:after {
+					@include transform(rotate(-40deg));
+					margin-right : -2px;
+					left         : auto;
+					right        : 50%;
 				}
 
-				&:nth-child(3):before {
-					background-position : 0 -111px;
-					width               : 70px;
-					height              : 63px;
+				&:after {
+					@include transform(rotate(40deg));
 				}
+			}
 
-				&:nth-child(4):before {
-					background-position : 0 -174px;
-					width               : 83px;
-					height              : 56px;
-					left                : 62px;
-				}
+			.owl-dots {
+				width    : 100%;
+				position : absolute;
+				bottom   : 18px;
+				left     : 0;
 			}
 		}
 
-		&.banking-paying .banking-paying {
-			max-height : 1000px;
-			opacity    : 1;
-			overflow   : visible;
-			z-index    : 0;
+		.last-news .item-list .btn-more {
+			@include box-sizing(border-box);
+			margin          : 10px 0 0 25px;
+			background      : #ccc;
+			background      : linear-gradient(#fff, #ccc);
+			display         : block;
+			width           : 98px;
+			height          : 34px;
+			border          : 1px solid #b9b9b9;
+			border-radius   : 4px;
+			color           : #163753;
+			font-size       : 13px;
+			line-height     : 34px;
+			text-align      : center;
+			text-decoration : none;
 
-			.item-list {
-				&:before {
-					content    : '';
-					background : image-url('credit_card/icon-item.png') no-repeat 0 -230px;
-					display    : block;
-					width      : 73px;
-					height     : 45px;
-					position   : absolute;
-					top        : 12px;
-					left       : 46px;
-				}
-
-				&:nth-child(2):before {
-					background-position : 0 -275px;
-					width               : 64px;
-					height              : 64px;
-					left                : 72px;
-				}
-
-				&:nth-child(3):before {
-					background-position : 0 -339px;
-					width               : 68px;
-					height              : 68px;
-					left                : 52px;
-				}
-
-				&:nth-child(4):before {
-					background-position : 0 -407px;
-					width               : 57px;
-					height              : 56px;
-					left                : 74px;
-				}
-
-				&:nth-child(5):before {
-					background-position : 0 -463px;
-					width               : 60px;
-					height              : 60px;
-					left                : 59px;
-				}
-
-				&:nth-child(6):before {
-					background-position : 0 -523px;
-					width               : 71px;
-					height              : 69px;
-					left                : 72px;
-				}
-
-				&:nth-child(7):before {
-					background-position : 0 -592px;
-					width               : 66px;
-					height              : 69px;
-					left                : 54px;
-				}
-
-				&:nth-child(8):before {
-					background-position : 0 -661px;
-					width               : 64px;
-					height              : 53px;
-					left                : 72px;
-				}
+			&:hover {
+				background : linear-gradient(#ccc, #fff);
 			}
 		}
 
-		&.apply-now .apply-now {
-			max-height : 1000px;
-			opacity    : 1;
-			overflow   : visible;
-			z-index    : 0;
+		.bargain-plan .item-list {
+			&:before {
+				content    : '';
+				background : image-url('credit_card/icon-item.png') no-repeat 0 0;
+				display    : block;
+				width      : 69px;
+				height     : 69px;
+				position   : absolute;
+				top        : 12px;
+				left       : 48px;
+			}
 
+			&:nth-child(2):before {
+				background-position : 0 -69px;
+				width               : 88px;
+				height              : 42px;
+				left                : 65px;
+			}
+
+			&:nth-child(3):before {
+				background-position : 0 -111px;
+				width               : 70px;
+				height              : 63px;
+			}
+
+			&:nth-child(4):before {
+				background-position : 0 -174px;
+				width               : 83px;
+				height              : 56px;
+				left                : 62px;
+			}
+		}
+
+		.banking-paying .item-list {
+			&:before {
+				content    : '';
+				background : image-url('credit_card/icon-item.png') no-repeat 0 -230px;
+				display    : block;
+				width      : 73px;
+				height     : 45px;
+				position   : absolute;
+				top        : 12px;
+				left       : 46px;
+			}
+
+			&:nth-child(2):before {
+				background-position : 0 -275px;
+				width               : 64px;
+				height              : 64px;
+				left                : 72px;
+			}
+
+			&:nth-child(3):before {
+				background-position : 0 -339px;
+				width               : 68px;
+				height              : 68px;
+				left                : 52px;
+			}
+
+			&:nth-child(4):before {
+				background-position : 0 -407px;
+				width               : 57px;
+				height              : 56px;
+				left                : 74px;
+			}
+
+			&:nth-child(5):before {
+				background-position : 0 -463px;
+				width               : 60px;
+				height              : 60px;
+				left                : 59px;
+			}
+
+			&:nth-child(6):before {
+				background-position : 0 -523px;
+				width               : 71px;
+				height              : 69px;
+				left                : 72px;
+			}
+
+			&:nth-child(7):before {
+				background-position : 0 -592px;
+				width               : 66px;
+				height              : 69px;
+				left                : 54px;
+			}
+
+			&:nth-child(8):before {
+				background-position : 0 -661px;
+				width               : 64px;
+				height              : 53px;
+				left                : 72px;
+			}
+		}
+
+		.apply-now {
 			.input-area {
+				@include clearfix;
 				padding-top : 70px;
 			}
 
@@ -663,6 +641,10 @@
 			right : -480px;
 		}
 
+		.detail-info {
+			display : none;
+		}
+
 		.intro-list {
 			@include transition(all .3s ease-in-out);
 			max-height : 0;
@@ -670,33 +652,6 @@
 			opacity    : 0;
 			overflow   : hidden;
 			z-index    : -1;
-
-			&:before, &:after {
-				content       : '';
-				display       : block;
-				position      : absolute;
-				top           : -16px;
-				border-right  : 16px solid transparent;
-				border-bottom : 16px solid #ddd;
-				border-left   : 16px solid transparent;
-			}
-
-			&:after {
-				top           : -15px;
-				border-right  : 15px solid transparent;
-				border-bottom : 15px solid #eeebe8;
-				border-left   : 15px solid transparent;
-			}
-
-			@for $i from 1 through 5 {
-				&:nth-child(#{$i}):before {
-					left: 81px + (192px * ($i - 1)) - 1px;
-				}
-
-				&:nth-child(#{$i}):after {
-					left: 81px + (192px * ($i - 1));
-				}
-			}
 		}
 
 		.item-ul {
@@ -707,7 +662,7 @@
 		.item-list {
 			@include box-sizing(border-box);
 			margin-bottom : 40px;
-			padding-left  : 175px;
+			padding       : 0 10px 0 175px;
 			width         : 50%;
 			min-height    : 150px;
 			float         : left;
@@ -734,13 +689,12 @@
 
 					&:before {
 						content       : '';
-						margin-top    : -3px;
 						background    : #163753;
 						display       : block;
 						width         : 6px;
 						height        : 6px;
 						position      : absolute;
-						top           : 50%;
+						top           : 12px;
 						left          : -16px;
 						border-radius : 50%;
 					}
@@ -764,9 +718,16 @@
 
 			.img-wrap {
 				display  : block;
+				width    : 150px;
+				height   : 150px;
 				position : absolute;
 				top      : 0;
 				left     : 5px;
+
+				img {
+					display : block;
+					width   : 100%;
+				}
 			}
 		}
 
@@ -786,6 +747,10 @@
 			&:hover {
 				@include opacity(1);
 			}
+		}
+
+		.btn-m-close {
+			display : none;
 		}
 	}
 
@@ -894,33 +859,16 @@
 	}
 }
 
-#card-1:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-1) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
-}
-
-#card-2:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-2) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
-}
-
-#card-3:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-3) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
-}
-
-#card-4:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-4) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
-}
-
-#card-5:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-5) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
-}
-
-#card-6:before {
-	background : -moz-linear-gradient(center top, #eeebe8, #eeebe8 30%, rgba(238, 235, 232, 0.9) 65%, rgba(238, 235, 232, 0.7)) repeat scroll 0 0 padding-box, -moz-element(#card-6) no-repeat scroll 0 -1px content-box rgba(0, 0, 0, 0);
+.owl-theme .owl-dots .owl-dot {
+	&.active span, &:hover span {
+		background: #163753;
+	}
 }
 
 @media only screen and (max-width: 980px) {
 	.l-main {
-		width : 100%;
+		margin-top : 0;
+		width      : 100%;
 	}
 
 	.index-banner {
@@ -931,6 +879,24 @@
 
 		.m-breadcrumb {
 			top : -53px;
+		}
+
+		.collapse-wrap {		
+			.apply-now {
+				.input-area {
+					padding : 70px 20px 0 20px;
+				}
+
+				.lab.check {
+					margin : 0 20px 28px 20px;
+				}
+			}
+
+			.btn-close {
+				margin-left : 0;
+				left        : auto;
+				right       : 25px;
+			}
 		}
 
 		.promo .list {
@@ -947,18 +913,105 @@
 		}
 	}
 
-	.tools-link .wrapper .accordion-heading p {
-		background-position : 20px center !important;
+
+	.tools-link {
+		&.verification .wrapper .accordion-heading p {
+			padding-left : 50px;
+		}
+
+		.wrapper .accordion-heading p {
+			background-position : 20px center !important;
+		}
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.index-banner {
+		.fast-links .list {
+			@include box-sizing(border-box);
+			height : 179px;
+		}
+
+		.collapse-wrap {
+			&.introduce .introduce, &.last-news .last-news, &.bargain-plan .bargain-plan, &.banking-paying .banking-paying, &.apply-now .apply-now {
+				max-height : 2500px;
+			}
+
+			.introduce {
+				.showcase {
+					padding-left : 400px;
+				}
+		
+				.feature-list {
+					width : auto;
+				}
+		
+				.img-wrap {
+					left : 105px;
+				}
+			}
+
+			.bargain-plan .item-list {
+				padding-left : 125px;
+
+				&:before {
+					left : 20px;
+				}
+
+				&:nth-child(2):before {
+					left : 25px;
+				}
+
+				&:nth-child(4):before {
+					left : 20px;
+				}
+			}
+
+			.banking-paying .item-list {
+				padding-left : 125px;
+
+				&:before {
+					left : 26px;
+				}
+
+				&:nth-child(2):before {
+					left : 32px;
+				}
+
+				&:nth-child(3):before {
+					left : 32px;
+				}
+
+				&:nth-child(4):before {
+					left : 34px;
+				}
+
+				&:nth-child(5):before {
+					left : 39px;
+				}
+
+				&:nth-child(6):before {
+					left : 32px;
+				}
+
+				&:nth-child(7):before {
+					left : 34px;
+				}
+
+				&:nth-child(8):before {
+					left : 32px;
+				}
+			}
+		}
 	}
 }
 
 @media only screen and (max-width: 600px) {
 	.index-banner {
 		.key-visual {
-			background-color    : #faf4f8;
-			background-position : right 214px;
-			background-size     : 600px;
-			height              : 483px;
+			background-color : #faf4f8;
+			background-size  : 650px;
+			height           : 292px;
 		}
 
 		.m-breadcrumb, .slogan, .desc {
@@ -966,89 +1019,149 @@
 			padding-left  : 10px;
 		}
 
+		.slogan {
+			padding-top : 220px;
+			font-size   : 21px;
+			line-height : 1.5em;
+		}
+
 		.fast-links {
-			padding-top : 230px;
-
-			.list {
-				padding       : 10px 0;
-				width         : 100%;
-				float         : none;
-				border-bottom : 1px solid #ccc;
-				text-align    : left;
-
-				&:first-child {
-					border-top : 1px solid #ccc;
-				}
-
-				.link {
-					padding     : 0 0 0 96px;
-					height      : 56px;
-					line-height : 56px;
-
-					&:before {
-						margin        : -28px 0 0 0;
-						display       : inline-block;
-						width         : 52px;
-						height        : 52px;
-						position      : absolute;
-						top           : 50%;
-						left          : 20px;
-						border        : 2px solid #c0e4f1;
-						border-radius : 50%;
-					}
-
-					.link-icon {
-						margin          : -11px 0 0 0;
-						background-size : 35px;
-						width           : 35px;
-						height          : 22px;
-						top             : 50%;
-						left            : 31px;
-					}
-				}
-
-				.image {
-					display : none;
-				}
-
-
-				&.mobile-payment .link .link-icon {
-					margin-top          : -14px;
-					background-position : 0 -23px;
-					/*width               : 18px;*/
-					height              : 28px;
-					left                : 61px;
-				}
-
-				&.anz-partner .link .link-icon {
-					margin-top         : -15px;
-					background-position : 0 -52px;
-					width               : 24px;
-					height              : 28px;
-					left                : 57px;
-				}
-
-				&.tel-bank .link .link-icon {
-					margin-top          : -17px;
-					background-position : 0 -80px;
-					width               : 24px;
-					height              : 24px;
-					left                : 60px;
-				}
-
-				&.atm .link .link-icon {
-					margin-top          : -19px;
-					background-position : 0 -104px;
-					width               : 30px;
-					height              : 17px;
-					left                : 64px;
-				}
-			}
+			display : none;
 		}
 
 		.desc {
 			width     : auto;
 			max-width : 380px;
+		}
+
+		.collapse-wrap {
+			background : transparent;
+			border     : 0 !important;
+			overflow   : auto !important;
+
+			&:before, &:after, > .btn-close {
+				display : none;
+			}
+
+			.intro-list {
+				max-height : none;
+				opacity    : 1;
+				z-index    : 0;
+
+				&.is-curr .mobile-wrap {
+					max-height : 2500px;
+					overflow   : visible;
+
+					&:before, &:after {
+						content       : '';
+						margin-left   : -16px;
+						display       : block;
+						position      : absolute;
+						top           : -16px;
+						left          : 50%;
+						border-right  : 16px solid transparent;
+						border-bottom : 16px solid #ddd;
+						border-left   : 16px solid transparent;
+					}
+
+					&:after {
+						margin-left   : -15px;
+						top           : -15px;
+						border-right  : 15px solid transparent;
+						border-bottom : 15px solid #eeebe8;
+						border-left   : 15px solid transparent;
+					}
+				}
+			}
+
+			.detail-info {
+				margin  : 10px 0 24px 0;
+				display : block;
+			}
+
+			.mobile-wrap {
+				@include transition(all .3s ease-in-out);
+				background    : #eeebe8;
+				max-height    : 0;
+				position      : relative;
+				border-top    : 1px solid #ddd;
+				border-bottom : 1px solid #ddd;
+				overflow      : hidden;
+
+				.btn-m-close {
+					background  : image-url('icon_gray/icon_close.png') no-repeat 0 0;
+					display     : block;
+					width       : 24px;
+					height      : 24px;
+					position    : absolute;
+					top         : 25px;
+					right       : 25px;
+					overflow    : hidden;
+					z-index     : 1;
+					text-indent : 200%;
+					@include opacity(.2);
+				}
+			}
+
+			.introduce {
+				.showcase {
+					padding : 280px 40px 80px 40px;
+				}
+
+				.img-wrap {
+					margin : 0 0 0 -128px;
+					top    : 70px;
+					left   : 50%;
+				}
+
+				.owl-nav {
+					display : none;
+				}
+			}
+
+			.apply-now .lab {
+				display : block;
+				width   : 100%;
+				float   : none;
+
+				.text {
+					display : none;
+				}
+
+				.inputBox, .selecter {
+					margin-left : 0;
+					width       : 100%;
+
+					&::-webkit-input-placeholder {
+						color : #999;
+					}
+
+					&:-moz-placeholder {
+						color : #999;
+					}
+
+					&::-moz-placeholder {
+						color : #999;
+					}
+
+					&:-ms-input-placeholder {
+						color : #999;
+					}
+				}
+			}
+
+			.item-list {
+				padding : 0 20px 0 125px;
+				width   : 100%;
+				float   : none;
+
+				.img-wrap {
+					width  : 75px;
+					height : 75px;
+					top    : 10px;
+					left   : 25px;
+				}
+			}
 		}
 
 		.promo {
@@ -1068,8 +1181,152 @@
 
 @media only screen and (max-width: 376px) {
 	.index-banner {
-		.fast-links {
-			padding-top : 201px;
+		.collapse-wrap {
+			.last-news .item-list .btn-more {
+				margin-left : 0;
+			}
+
+			.bargain-plan .item-list {
+				padding : 0 20px;
+
+				&:before {
+					display : none;
+				}
+
+				.item-title {
+					margin-bottom : 20px;
+					padding-left  : 50px;
+					position      : relative;
+					top           : 0;
+					left          : 0;
+
+					&:before {
+						content         : '';
+						margin-top      : -17.25px;
+						background      : image-url('credit_card/icon-item.png') no-repeat 0 0;
+						background-size : 44px;
+						display         : block;
+						width           : 34.5px;
+						height          : 34.5px;
+						position        : absolute;
+						top             : 50%;
+						left            : 0;
+					}
+				}
+
+				&:nth-child(2) .item-title:before {
+					margin-top          : -10.5px;
+					background-position : 0 -34.5px;
+					width               : 44px;
+					height              : 21px;
+				}
+
+				&:nth-child(3) .item-title:before {
+					margin-top          : -15.75px;
+					background-position : 0 -56px;
+					width               : 35px;
+					height              : 31px;
+				}
+
+				&:nth-child(4) .item-title:before {
+					margin-top          : -14px;
+					background-position : 0 -87px;
+					width               : 41.5px;
+					height              : 28px;
+				}
+			}
+
+			.banking-paying .item-list {
+				padding    : 0 20px;
+				min-height : 0;
+
+				&:before {
+					display : none;
+				}
+
+				.item-title {
+					margin-bottom : 20px;
+					padding-left  : 50px;
+					position      : relative;
+					top           : 0;
+					left          : 0;
+
+					&:before {
+						content         : '';
+						margin-top      : -11.25px;
+						background      : image-url('credit_card/icon-item.png') no-repeat 0 -115px;
+						background-size : 44px;
+						display         : block;
+						width           : 36.5px;
+						height          : 22.5px;
+						position        : absolute;
+						top             : 50%;
+						left            : 0;
+					}
+				}
+
+				&:nth-child(2) .item-title:before {
+					background-position : 0 -138px;
+					width               : 32px;
+					height              : 31px;
+				}
+
+				&:nth-child(3) .item-title:before {
+					background-position : 0 -169.5px;
+					width               : 34px;
+					height              : 34px;
+				}
+
+				&:nth-child(4) .item-title:before {
+					background-position : 0 -204px;
+					width               : 28.5px;
+					height              : 27px;
+				}
+
+				&:nth-child(5) .item-title:before {
+					background-position : 0 -232px;
+					width               : 30px;
+					height              : 30px;
+				}
+
+				&:nth-child(6) .item-title:before {
+					background-position : 0 -262px;
+					width               : 35.5px;
+					height              : 34.5px;
+				}
+
+				&:nth-child(7) .item-title:before {
+					background-position : 0 -296px;
+					width               : 33px;
+					height              : 34.5px;
+				}
+
+				&:nth-child(8) .item-title:before {
+					background-position : 0 -331px;
+					width               : 32px;
+					height              : 26.5px;
+				}
+			}
+
+			.item-list {
+				padding : 85px 20px 0 20px;
+
+				.item-title {
+					padding-right : 20px;
+					position      : absolute;
+					top           : 0;
+					left          : 115px;
+					line-height   : 1.5em;
+					font-size     : 20px;
+				}
+
+				.img-wrap {
+					width  : 75px;
+					height : 75px;
+					top    : 0;
+					left   : 25px;
+				}
+			}
 		}
 	}
 }
