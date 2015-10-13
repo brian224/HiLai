@@ -364,7 +364,7 @@ a:hover {
   margin-left: 4px;
   width: 8px;
   height: 6px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1437406897') no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: 2px;
 }
@@ -418,7 +418,7 @@ a:hover {
   right: 10px;
   width: 34px;
   height: 34px;
-  background: #394a58 url('../images/icon_magnifier_sky.png?1437406898') no-repeat center center;
+  background: #394a58 url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
   position: absolute;
   -moz-border-radius: 0 4px 4px 0;
@@ -430,7 +430,7 @@ a:hover {
 header {
   font-size: 0;
   height: 50px;
-  background: #004165 url('../images/bg_header.png?1437406898') no-repeat center 0;
+  background: #004165 url('../images/bg_header.png?1429027001') no-repeat center 0;
 }
 header .wrapper {
   height: 100%;
@@ -455,7 +455,7 @@ header .logo {
   width: 266px;
   height: 50px;
   float: left;
-  background: url('../images/bg_header_logo.png?1437406897') no-repeat;
+  background: url('../images/bg_header_logo.png?1429027001') no-repeat;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -511,7 +511,7 @@ header .option-links .country {
 }
 header .option-links .country > a {
   padding-right: 14px;
-  background: url('../images/icon_arrow/icon_arrow_down_white.png?1437406897') no-repeat right center;
+  background: url('../images/icon_arrow/icon_arrow_down_white.png?1429027001') no-repeat right center;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
@@ -543,7 +543,7 @@ header .rwd-btn .login {
   position: relative;
 }
 header .rwd-btn .login > a {
-  background-image: url('../images/icon_white/icon_lock2_white.png?1437406898');
+  background-image: url('../images/icon_white/icon_lock2_white.png?1429027001');
 }
 header .rwd-btn .login .dropdown-menu {
   right: 0;
@@ -557,13 +557,13 @@ header .rwd-btn .search {
   display: none;
 }
 header .rwd-btn .search > a {
-  background-image: url('../images/icon_white/icon_magnifier_white.png?1437406898');
+  background-image: url('../images/icon_white/icon_magnifier_white.png?1429027001');
 }
 header .search-bar {
   text-align: left;
   width: 150px;
   height: 32px;
-  background: #004165 url('../images/icon_magnifier_sky.png?1437406898') no-repeat 95% center;
+  background: #004165 url('../images/icon_magnifier_sky.png?1429027001') no-repeat 95% center;
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -591,7 +591,7 @@ header .search-bar .search-act-btn {
   position: absolute;
   width: 30px;
   height: 32px;
-  background: url('../images/icon_magnifier_sky.png?1437406898') no-repeat center center;
+  background: url('../images/icon_magnifier_sky.png?1429027001') no-repeat center center;
   display: block;
 }
 
@@ -1159,7 +1159,7 @@ footer ul.footer-links + p.copyright {
   font-size: 0;
   width: 48px;
   height: 68px;
-  background: url('../images/icon_gray/icon_computer_circle.png?1437406898') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_computer_circle.png?1429027001') no-repeat 50% 50%;
   display: table-cell;
 }
 .notification-cookie .wrapper p {
@@ -1176,7 +1176,7 @@ footer ul.footer-links + p.copyright {
 }
 .notification-cookie .wrapper .btn-close {
   width: 24px;
-  background: url('../images/icon_gray/icon_close.png?1437406898') no-repeat 50% 50%;
+  background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 50% 50%;
   font-size: 0;
   cursor: pointer;
   display: table-cell;
@@ -1612,7 +1612,7 @@ footer ul.footer-links + p.copyright {
   -moz-transform: rotate(-90deg);
   transform: rotate(-90deg);
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1437406897') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_down_oceanblue.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 10px;
   height: 6px;
@@ -1639,7 +1639,7 @@ footer ul.footer-links + p.copyright {
 }
 .tools-link .wrapper .accordion-content .note:before {
   content: '';
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1437406897') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1656,15 +1656,15 @@ footer ul.footer-links + p.copyright {
 }
 .tools-link.application .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_application.png?1437406898') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_application.png?1429528477') no-repeat 0 center;
 }
 .tools-link.download .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_download.png?1437406898') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_download.png?1429528477') no-repeat 0 center;
 }
 .tools-link.verification .wrapper .accordion-heading p {
   padding-left: 30px;
-  background: url('../images/icon_gray/icon_verification.png?1443918891') no-repeat 0 center;
+  background: url('../images/icon_gray/icon_verification.png?1444009320') no-repeat 0 center;
 }
 
 @media only screen and (max-width: 980px) {
@@ -1699,7 +1699,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .key-visual {
   overflow: hidden;
   *zoom: 1;
-  background: #ebe5e5 url('../images/credit_card/kv.jpg?1444045384') no-repeat center 0;
+  background: #ebe5e5 url('../images/credit_card/kv.jpg?1444024279') no-repeat center 0;
   width: 100%;
   height: 584px;
   position: absolute;
@@ -1729,7 +1729,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .m-breadcrumb .link:before {
   content: '';
   margin: -4px 0 0 0;
-  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1437406897') 0 0 no-repeat;
+  background: url('../images/icon_arrow/icon_arrow_right_gray_s.png?1429027001') 0 0 no-repeat;
   display: block;
   width: 4px;
   height: 7px;
@@ -1844,7 +1844,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .detail-info .link-icon {
   content: '';
   margin: 0 0 0 -24.5px;
-  background: url('../images/credit_card/icons.png?1444045384') no-repeat 0 0;
+  background: url('../images/credit_card/icons.png?1444024274') no-repeat 0 0;
   width: 49px;
   height: 31px;
   position: absolute;
@@ -2039,7 +2039,7 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .collapse-wrap .bargain-plan .item-list:before {
   content: '';
-  background: url('../images/credit_card/icon-item.png?1444045384') no-repeat 0 0;
+  background: url('../images/credit_card/icon-item.png?1444024274') no-repeat 0 0;
   display: block;
   width: 69px;
   height: 69px;
@@ -2066,7 +2066,7 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .collapse-wrap .banking-paying .item-list:before {
   content: '';
-  background: url('../images/credit_card/icon-item.png?1444045384') no-repeat 0 -230px;
+  background: url('../images/credit_card/icon-item.png?1444024274') no-repeat 0 -230px;
   display: block;
   width: 73px;
   height: 45px;
@@ -2357,7 +2357,7 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .collapse-wrap .btn-close {
   margin-left: 456px;
-  background: url('../images/icon_gray/icon_close.png?1437406898') no-repeat 0 0;
+  background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 0 0;
   display: block;
   width: 24px;
   height: 24px;
@@ -2384,7 +2384,7 @@ footer ul.footer-links + p.copyright {
   clear: both;
 }
 .index-banner .promo .list {
-  background: url('../images/credit_card/promo_01.jpg?1444045384') no-repeat 0 0;
+  background: url('../images/credit_card/promo_01.jpg?1429528477') no-repeat 0 0;
   width: 303px;
   height: 282px;
   float: left;
@@ -2395,11 +2395,11 @@ footer ul.footer-links + p.copyright {
 }
 .index-banner .promo .list + li {
   margin-left: 23px;
-  background: url('../images/credit_card/promo_02.jpg?1444045384') no-repeat 0 0;
+  background: url('../images/credit_card/promo_02.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .list + li + li {
   margin-left: 22px;
-  background: url('../images/credit_card/promo_03.jpg?1444045384') no-repeat 0 0;
+  background: url('../images/credit_card/promo_03.jpg?1429528477') no-repeat 0 0;
 }
 .index-banner .promo .link {
   display: block;
@@ -2658,7 +2658,7 @@ footer ul.footer-links + p.copyright {
     overflow: hidden;
   }
   .index-banner .collapse-wrap .mobile-wrap .btn-m-close {
-    background: url('../images/icon_gray/icon_close.png?1437406898') no-repeat 0 0;
+    background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 0 0;
     display: block;
     width: 24px;
     height: 24px;
@@ -2751,7 +2751,7 @@ footer ul.footer-links + p.copyright {
   .index-banner .collapse-wrap .bargain-plan .item-list .item-title:before {
     content: '';
     margin-top: -17.25px;
-    background: url('../images/credit_card/icon-item.png?1444045384') no-repeat 0 0;
+    background: url('../images/credit_card/icon-item.png?1444024274') no-repeat 0 0;
     background-size: 44px;
     display: block;
     width: 34.5px;
@@ -2795,7 +2795,7 @@ footer ul.footer-links + p.copyright {
   .index-banner .collapse-wrap .banking-paying .item-list .item-title:before {
     content: '';
     margin-top: -11.25px;
-    background: url('../images/credit_card/icon-item.png?1444045384') no-repeat 0 -115px;
+    background: url('../images/credit_card/icon-item.png?1444024274') no-repeat 0 -115px;
     background-size: 44px;
     display: block;
     width: 36.5px;
@@ -2870,6 +2870,7 @@ footer ul.footer-links + p.copyright {
 }
 .lt-ie9 .index-banner .fast-links .list .detail-info {
   position: relative;
+  overflow: visible;
 }
 .lt-ie9 .index-banner .fast-links .list .detail-info .link-bg {
   top: 0;
@@ -2878,7 +2879,7 @@ footer ul.footer-links + p.copyright {
   width: 112px;
   height: 112px;
   display: block;
-  background: url('../images/credit_card/for-ie8/index_icons_bg.png?1444045384') no-repeat center 0;
+  background: url('../images/credit_card/for-ie8/index_icons_bg.png?1434965190') no-repeat center 0;
   position: absolute;
   z-index: 1;
   overflow: hidden;
@@ -2891,7 +2892,7 @@ footer ul.footer-links + p.copyright {
   z-index: 10;
 }
 .lt-ie9 .index-banner .fast-links .list .detail-info:hover .link-bg {
-  background: url('../images/credit_card/for-ie8/index_icons_bg.png?1444045384') no-repeat 0 -112px;
+  background: url('../images/credit_card/for-ie8/index_icons_bg.png?1434965190') no-repeat 0 -112px;
 }
 .lt-ie9 .index-banner .collapse-wrap .intro-list:before {
   left: 80px;
@@ -2928,6 +2929,25 @@ footer ul.footer-links + p.copyright {
 }
 .lt-ie9 .index-banner .collapse-wrap .item-list + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li + li + li {
   clear: none;
+}
+.lt-ie9 .index-banner .collapse-wrap .introduce .owl-prev:before, .lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:before {
+  margin: 0 0 0 -14px;
+  background: url('../images/credit_card/for-ie8/index_arrow.png?1435654888') no-repeat 0 0;
+  width: 29px;
+  height: 58px;
+  top: 0;
+}
+.lt-ie9 .index-banner .collapse-wrap .introduce .owl-prev:after, .lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:after {
+  display: none;
+}
+.lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:before {
+  background-position: right 0;
+  top: 0;
+  left: 50%;
+  right: auto;
+}
+.lt-ie9 .index-banner .collapse-wrap .introduce .btn-more {
+  background: #047bb7;
 }
 .lt-ie9 .index-banner .collapse-wrap.bargain-plan .bargain-plan .item-list + li:before {
   background-position: 0 -69px;
@@ -3003,10 +3023,10 @@ footer ul.footer-links + p.copyright {
   display: none;
 }
 .lt-ie9 .index-banner .promo .link .filter {
-  background: url('../images/credit_card/for-ie8/op60.png?1444045384');
+  background: url('../images/credit_card/for-ie8/op60.png?1429528477');
 }
 .lt-ie9 .index-banner .promo .link .filter:before {
-  background: url('../images/credit_card/for-ie8/promo_arrow.png?1444045384');
+  background: url('../images/credit_card/for-ie8/promo_arrow.png?1429528477');
   width: 26px;
   height: 26px;
   border: 0;
