@@ -1662,10 +1662,13 @@ footer ul.footer-links + p.copyright {
   padding-left: 30px;
   background: url('../images/icon_gray/icon_download.png?1429528477') no-repeat 0 center;
 }
+<<<<<<< HEAD
+=======
 .tools-link.verification .wrapper .accordion-heading p {
   padding-left: 30px;
   background: url('../images/icon_gray/icon_verification.png?1444009320') no-repeat 0 center;
 }
+>>>>>>> origin/master
 
 @media only screen and (max-width: 980px) {
   .tools-link .wrapper .accordion-heading:after {
@@ -1699,7 +1702,15 @@ footer ul.footer-links + p.copyright {
 .index-banner .key-visual {
   overflow: hidden;
   *zoom: 1;
+<<<<<<< Updated upstream
   background: #ebe5e5 url('../images/credit_card/kv.jpg?1444024279') no-repeat center 0;
+=======
+<<<<<<< HEAD
+  background: #ebe5e5 url('../images/credit_card/kv.jpg?1444831567') no-repeat center 0;
+=======
+  background: #ebe5e5 url('../images/credit_card/kv.jpg?1444024279') no-repeat center 0;
+>>>>>>> origin/master
+>>>>>>> Stashed changes
   width: 100%;
   height: 584px;
   position: absolute;
@@ -1792,6 +1803,7 @@ footer ul.footer-links + p.copyright {
   height: 100%;
   position: relative;
   border: 0;
+  overflow: visible;
   color: #047bb7;
   font-size: 16px;
   font-family: '微軟正黑體';
@@ -1835,16 +1847,24 @@ footer ul.footer-links + p.copyright {
   top: 31px;
 }
 .index-banner .detail-info.apply-now .link-icon {
-  margin-left: -21.5px;
+  margin-left: -21px;
   background-position: 0 -170px;
-  width: 43px;
+  width: 42px;
   height: 38px;
   top: 37px;
 }
 .index-banner .detail-info .link-icon {
   content: '';
   margin: 0 0 0 -24.5px;
+<<<<<<< Updated upstream
   background: url('../images/credit_card/icons.png?1444024274') no-repeat 0 0;
+=======
+<<<<<<< HEAD
+  background: url('../images/credit_card/icons.png?1444831567') no-repeat 0 0;
+=======
+  background: url('../images/credit_card/icons.png?1444024274') no-repeat 0 0;
+>>>>>>> origin/master
+>>>>>>> Stashed changes
   width: 49px;
   height: 31px;
   position: absolute;
@@ -1870,7 +1890,7 @@ footer ul.footer-links + p.copyright {
   overflow: visible;
 }
 .index-banner .collapse-wrap.introduce .introduce, .index-banner .collapse-wrap.last-news .last-news, .index-banner .collapse-wrap.bargain-plan .bargain-plan, .index-banner .collapse-wrap.banking-paying .banking-paying, .index-banner .collapse-wrap.apply-now .apply-now {
-  max-height: 1000px;
+  max-height: 1200px;
   opacity: 1;
   overflow: visible;
   z-index: 0;
@@ -1924,21 +1944,21 @@ footer ul.footer-links + p.copyright {
   display: block;
   width: 144px;
   height: 36px;
-  border: 1px solid #315b6f;
+  border: 1px solid #2ba106;
   border-radius: 4px;
   color: #fff;
   font-size: 16px;
   line-height: 36px;
   text-align: center;
   text-decoration: none;
-  background-image: -webkit-linear-gradient(#06a8ef, #0594d7, #0471ad);
-  background-image: -moz-linear-gradient(#06a8ef, #0594d7, #0471ad);
-  background-image: linear-gradient(#06a8ef, #0594d7, #0471ad);
+  background-image: -webkit-linear-gradient(#81ce1d, #119208);
+  background-image: -moz-linear-gradient(#81ce1d, #119208);
+  background-image: linear-gradient(#81ce1d, #119208);
 }
 .index-banner .collapse-wrap .introduce .btn-more:hover {
-  background-image: -webkit-linear-gradient(#0471ad, #0594d7, #06a8ef);
-  background-image: -moz-linear-gradient(#0471ad, #0594d7, #06a8ef);
-  background-image: linear-gradient(#0471ad, #0594d7, #06a8ef);
+  background-image: -webkit-linear-gradient(#119208, #81ce1d);
+  background-image: -moz-linear-gradient(#119208, #81ce1d);
+  background-image: linear-gradient(#119208, #81ce1d);
 }
 .index-banner .collapse-wrap .introduce .img-wrap {
   margin: -80px 0 0 0;
@@ -2037,6 +2057,8 @@ footer ul.footer-links + p.copyright {
 .index-banner .collapse-wrap .last-news .item-list .btn-more:hover {
   background: linear-gradient(#cccccc, #ffffff);
 }
+<<<<<<< HEAD
+=======
 .index-banner .collapse-wrap .bargain-plan .item-list:before {
   content: '';
   background: url('../images/credit_card/icon-item.png?1444024274') no-repeat 0 0;
@@ -2116,6 +2138,7 @@ footer ul.footer-links + p.copyright {
   height: 53px;
   left: 72px;
 }
+>>>>>>> origin/master
 .index-banner .collapse-wrap .apply-now .input-area {
   overflow: hidden;
   *zoom: 1;
@@ -2355,6 +2378,8 @@ footer ul.footer-links + p.copyright {
   display: block;
   width: 100%;
 }
+<<<<<<< HEAD
+=======
 .index-banner .collapse-wrap .btn-close {
   margin-left: 456px;
   background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 0 0;
@@ -2376,6 +2401,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .collapse-wrap .btn-m-close {
   display: none;
 }
+>>>>>>> origin/master
 .index-banner .promo {
   overflow: hidden;
   *zoom: 1;
@@ -2518,13 +2544,6 @@ footer ul.footer-links + p.copyright {
   .index-banner .promo .list + li + li {
     margin-left: 2%;
   }
-
-  .tools-link.verification .wrapper .accordion-heading p {
-    padding-left: 50px;
-  }
-  .tools-link .wrapper .accordion-heading p {
-    background-position: 20px center !important;
-  }
 }
 @media only screen and (max-width: 800px) {
   .index-banner .fast-links .list {
@@ -2544,45 +2563,6 @@ footer ul.footer-links + p.copyright {
   }
   .index-banner .collapse-wrap .introduce .img-wrap {
     left: 105px;
-  }
-  .index-banner .collapse-wrap .bargain-plan .item-list {
-    padding-left: 125px;
-  }
-  .index-banner .collapse-wrap .bargain-plan .item-list:before {
-    left: 20px;
-  }
-  .index-banner .collapse-wrap .bargain-plan .item-list:nth-child(2):before {
-    left: 25px;
-  }
-  .index-banner .collapse-wrap .bargain-plan .item-list:nth-child(4):before {
-    left: 20px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list {
-    padding-left: 125px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:before {
-    left: 26px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(2):before {
-    left: 32px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(3):before {
-    left: 32px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(4):before {
-    left: 34px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(5):before {
-    left: 39px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(6):before {
-    left: 32px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(7):before {
-    left: 34px;
-  }
-  .index-banner .collapse-wrap .banking-paying .item-list:nth-child(8):before {
-    left: 32px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -2643,8 +2623,53 @@ footer ul.footer-links + p.copyright {
     border-left: 15px solid transparent;
   }
   .index-banner .collapse-wrap .detail-info {
-    margin: 10px 0 24px 0;
+    margin: 10px 0;
+    padding: 0 0 0 96px;
     display: block;
+    height: 56px;
+    line-height: 56px;
+    text-align: left;
+  }
+  .index-banner .collapse-wrap .detail-info:before {
+    margin: -28px 0 0 0;
+    width: 52px;
+    height: 52px;
+    top: 50%;
+    left: 20px;
+    border: 2px solid #c0e4f1;
+    border-radius: 50%;
+  }
+  .index-banner .collapse-wrap .detail-info.last-news .link-icon {
+    margin: -11px 0 0 -10.5px;
+    background-position: 0 -16px;
+    width: 21px;
+    height: 21px;
+  }
+  .index-banner .collapse-wrap .detail-info.bargain-plan .link-icon {
+    margin: -11px 0 0 -10.5px;
+    background-position: 0 -37px;
+    width: 21px;
+    height: 22.5px;
+  }
+  .index-banner .collapse-wrap .detail-info.banking-paying .link-icon {
+    margin: -12px 0 0 -13px;
+    background-position: 0 -60px;
+    width: 26px;
+    height: 25px;
+  }
+  .index-banner .collapse-wrap .detail-info.apply-now .link-icon {
+    margin: -10px 0 0 -11px;
+    background-position: 0 -85px;
+    width: 21px;
+    height: 19px;
+  }
+  .index-banner .collapse-wrap .detail-info .link-icon {
+    margin: -8px 0 0 -12px;
+    background-size: 26px;
+    width: 25px;
+    height: 15px;
+    top: 50%;
+    left: 48px;
   }
   .index-banner .collapse-wrap .mobile-wrap {
     -webkit-transition: all 0.3s ease-in-out;
@@ -2657,6 +2682,8 @@ footer ul.footer-links + p.copyright {
     border-bottom: 1px solid #ddd;
     overflow: hidden;
   }
+<<<<<<< HEAD
+=======
   .index-banner .collapse-wrap .mobile-wrap .btn-m-close {
     background: url('../images/icon_gray/icon_close.png?1429027001') no-repeat 0 0;
     display: block;
@@ -2671,6 +2698,7 @@ footer ul.footer-links + p.copyright {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
     opacity: 0.2;
   }
+>>>>>>> origin/master
   .index-banner .collapse-wrap .introduce .showcase {
     padding: 280px 40px 80px 40px;
   }
@@ -2735,6 +2763,8 @@ footer ul.footer-links + p.copyright {
   .index-banner .collapse-wrap .last-news .item-list .btn-more {
     margin-left: 0;
   }
+<<<<<<< HEAD
+=======
   .index-banner .collapse-wrap .bargain-plan .item-list {
     padding: 0 20px;
   }
@@ -2839,6 +2869,7 @@ footer ul.footer-links + p.copyright {
     width: 32px;
     height: 26.5px;
   }
+>>>>>>> origin/master
   .index-banner .collapse-wrap .item-list {
     padding: 85px 20px 0 20px;
   }
@@ -2924,7 +2955,7 @@ footer ul.footer-links + p.copyright {
 .lt-ie9 .index-banner .collapse-wrap .intro-list + li + li + li + li:after {
   left: 849px;
 }
-.lt-ie9 .index-banner .collapse-wrap .item-list + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li + li {
+.lt-ie9 .index-banner .collapse-wrap .item-list + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li + li + li + li {
   clear: both;
 }
 .lt-ie9 .index-banner .collapse-wrap .item-list + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li, .lt-ie9 .index-banner .collapse-wrap .item-list + li + li + li + li + li + li + li {
@@ -2932,6 +2963,15 @@ footer ul.footer-links + p.copyright {
 }
 .lt-ie9 .index-banner .collapse-wrap .introduce .owl-prev:before, .lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:before {
   margin: 0 0 0 -14px;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  background: url('../images/credit_card/for-ie8/index_arrow.png?1444304879') no-repeat 0 0;
+  width: 29px;
+  height: 58px;
+  top: 0;
+=======
+>>>>>>> Stashed changes
   background: url('../images/credit_card/for-ie8/index_arrow.png?1435654888') no-repeat 0 0;
   width: 29px;
   height: 58px;
@@ -2971,42 +3011,19 @@ footer ul.footer-links + p.copyright {
   width: 64px;
   height: 64px;
   left: 72px;
+>>>>>>> origin/master
 }
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li:before {
-  background-position: 0 -339px;
-  width: 68px;
-  height: 68px;
-  left: 52px;
+.lt-ie9 .index-banner .collapse-wrap .introduce .owl-prev:after, .lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:after {
+  display: none;
 }
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li + li:before {
-  background-position: 0 -407px;
-  width: 57px;
-  height: 56px;
-  left: 74px;
+.lt-ie9 .index-banner .collapse-wrap .introduce .owl-next:before {
+  background-position: right 0;
+  top: 0;
+  left: 50%;
+  right: auto;
 }
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li + li + li:before {
-  background-position: 0 -463px;
-  width: 60px;
-  height: 60px;
-  left: 59px;
-}
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li + li + li + li:before {
-  background-position: 0 -523px;
-  width: 71px;
-  height: 69px;
-  left: 72px;
-}
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li + li + li + li + li:before {
-  background-position: 0 -592px;
-  width: 66px;
-  height: 69px;
-  left: 54px;
-}
-.lt-ie9 .index-banner .collapse-wrap.banking-paying .banking-paying .item-list + li + li + li + li + li + li + li:before {
-  background-position: 0 -661px;
-  width: 64px;
-  height: 53px;
-  left: 72px;
+.lt-ie9 .index-banner .collapse-wrap .introduce .btn-more {
+  background: #119208;
 }
 .lt-ie9 .index-banner .collapse-wrap.apply-now .apply-now .lab.check:before {
   display: none;

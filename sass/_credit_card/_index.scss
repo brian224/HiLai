@@ -110,6 +110,7 @@
 		height      : 100%;
 		position    : relative;
 		border      : 0;
+		overflow    : visible;
 		color       : #047bb7;
 		font-size   : 16px;
 		font-family : '微軟正黑體';
@@ -130,44 +131,36 @@
 			@include transition(all .3s ease-in-out);
 		}
 
-		&.last-news {
-			.link-icon {
-				margin-left         : -20.5px;
-				background-position : 0 -31px;
-				width               : 41px;
-				height              : 44px;
-				top                 : 34px;
-			}
+		&.last-news .link-icon {
+			margin-left         : -20.5px;
+			background-position : 0 -31px;
+			width               : 41px;
+			height              : 44px;
+			top                 : 34px;
 		}
 
-		&.bargain-plan {
-			.link-icon {
-				margin-left         : -21px;
-				background-position : 0 -75px;
-				width               : 42px;
-				height              : 45px;
-				top                 : 34.5px;
-			}
+		&.bargain-plan .link-icon {
+			margin-left         : -21px;
+			background-position : 0 -75px;
+			width               : 42px;
+			height              : 45px;
+			top                 : 34.5px;
 		}
 
-		&.banking-paying{
-			.link-icon {
-				margin-left         : -26px;
-				background-position : 0 -120px;
-				width               : 52px;
-				height              : 50px;
-				top                 : 31px;
-			}
+		&.banking-paying .link-icon {
+			margin-left         : -26px;
+			background-position : 0 -120px;
+			width               : 52px;
+			height              : 50px;
+			top                 : 31px;
 		}
 
-		&.apply-now {
-			.link-icon {
-				margin-left         : -21.5px;
-				background-position : 0 -170px;
-				width               : 43px;
-				height              : 38px;
-				top                 : 37px;
-			}
+		&.apply-now .link-icon {
+			margin-left         : -21px;
+			background-position : 0 -170px;
+			width               : 42px;
+			height              : 38px;
+			top                 : 37px;
 		}
 
 		.link-icon {
@@ -203,7 +196,7 @@
 		}
 
 		&.introduce .introduce, &.last-news .last-news, &.bargain-plan .bargain-plan, &.banking-paying .banking-paying, &.apply-now .apply-now {
-			max-height : 1000px;
+			max-height : 1200px;
 			opacity    : 1;
 			overflow   : visible;
 			z-index    : 0;
@@ -261,17 +254,17 @@
 				display         : block;
 				width           : 144px;
 				height          : 36px;
-				border          : 1px solid #315b6f;
+				border          : 1px solid #2ba106;
 				border-radius   : 4px;
 				color           : #fff;
 				font-size       : 16px;
 				line-height     : 36px;
 				text-align      : center;
 				text-decoration : none;
-				@include background-image(linear-gradient(#06a8ef, #0594d7, #0471ad));
+				@include background-image(linear-gradient(#81ce1d, #119208));
 
 				&:hover {
-					@include background-image(linear-gradient(#0471ad, #0594d7, #06a8ef));
+					@include background-image(linear-gradient(#119208, #81ce1d));
 				}
 			}
 
@@ -373,101 +366,6 @@
 
 			&:hover {
 				background : linear-gradient(#ccc, #fff);
-			}
-		}
-
-		.bargain-plan .item-list {
-			&:before {
-				content    : '';
-				background : image-url('credit_card/icon-item.png') no-repeat 0 0;
-				display    : block;
-				width      : 69px;
-				height     : 69px;
-				position   : absolute;
-				top        : 12px;
-				left       : 48px;
-			}
-
-			&:nth-child(2):before {
-				background-position : 0 -69px;
-				width               : 88px;
-				height              : 42px;
-				left                : 65px;
-			}
-
-			&:nth-child(3):before {
-				background-position : 0 -111px;
-				width               : 70px;
-				height              : 63px;
-			}
-
-			&:nth-child(4):before {
-				background-position : 0 -174px;
-				width               : 83px;
-				height              : 56px;
-				left                : 62px;
-			}
-		}
-
-		.banking-paying .item-list {
-			&:before {
-				content    : '';
-				background : image-url('credit_card/icon-item.png') no-repeat 0 -230px;
-				display    : block;
-				width      : 73px;
-				height     : 45px;
-				position   : absolute;
-				top        : 12px;
-				left       : 46px;
-			}
-
-			&:nth-child(2):before {
-				background-position : 0 -275px;
-				width               : 64px;
-				height              : 64px;
-				left                : 72px;
-			}
-
-			&:nth-child(3):before {
-				background-position : 0 -339px;
-				width               : 68px;
-				height              : 68px;
-				left                : 52px;
-			}
-
-			&:nth-child(4):before {
-				background-position : 0 -407px;
-				width               : 57px;
-				height              : 56px;
-				left                : 74px;
-			}
-
-			&:nth-child(5):before {
-				background-position : 0 -463px;
-				width               : 60px;
-				height              : 60px;
-				left                : 59px;
-			}
-
-			&:nth-child(6):before {
-				background-position : 0 -523px;
-				width               : 71px;
-				height              : 69px;
-				left                : 72px;
-			}
-
-			&:nth-child(7):before {
-				background-position : 0 -592px;
-				width               : 66px;
-				height              : 69px;
-				left                : 54px;
-			}
-
-			&:nth-child(8):before {
-				background-position : 0 -661px;
-				width               : 64px;
-				height              : 53px;
-				left                : 72px;
 			}
 		}
 
@@ -730,28 +628,6 @@
 				}
 			}
 		}
-
-		.btn-close {
-			margin-left : 456px;
-			background  : image-url('icon_gray/icon_close.png') no-repeat 0 0;
-			display     : block;
-			width       : 24px;
-			height      : 24px;
-			position    : absolute;
-			top         : 25px;
-			left        : 50%;
-			overflow    : hidden;
-			text-indent : 200%;
-			@include opacity(.2);
-
-			&:hover {
-				@include opacity(1);
-			}
-		}
-
-		.btn-m-close {
-			display : none;
-		}
 	}
 
 	.promo {
@@ -912,17 +788,6 @@
 			}
 		}
 	}
-
-
-	.tools-link {
-		&.verification .wrapper .accordion-heading p {
-			padding-left : 50px;
-		}
-
-		.wrapper .accordion-heading p {
-			background-position : 20px center !important;
-		}
-	}
 }
 
 @media only screen and (max-width: 800px) {
@@ -948,58 +813,6 @@
 		
 				.img-wrap {
 					left : 105px;
-				}
-			}
-
-			.bargain-plan .item-list {
-				padding-left : 125px;
-
-				&:before {
-					left : 20px;
-				}
-
-				&:nth-child(2):before {
-					left : 25px;
-				}
-
-				&:nth-child(4):before {
-					left : 20px;
-				}
-			}
-
-			.banking-paying .item-list {
-				padding-left : 125px;
-
-				&:before {
-					left : 26px;
-				}
-
-				&:nth-child(2):before {
-					left : 32px;
-				}
-
-				&:nth-child(3):before {
-					left : 32px;
-				}
-
-				&:nth-child(4):before {
-					left : 34px;
-				}
-
-				&:nth-child(5):before {
-					left : 39px;
-				}
-
-				&:nth-child(6):before {
-					left : 32px;
-				}
-
-				&:nth-child(7):before {
-					left : 34px;
-				}
-
-				&:nth-child(8):before {
-					left : 32px;
 				}
 			}
 		}
@@ -1075,8 +888,59 @@
 			}
 
 			.detail-info {
-				margin  : 10px 0 24px 0;
-				display : block;
+				margin      : 10px 0;
+				padding     : 0 0 0 96px;
+				display     : block;
+				height      : 56px;
+				line-height : 56px;
+				text-align  : left;
+
+				&:before {
+					margin        : -28px 0 0 0;
+					width         : 52px;
+					height        : 52px;
+					top           : 50%;
+					left          : 20px;
+					border        : 2px solid #c0e4f1;
+					border-radius : 50%;
+				}
+
+				&.last-news .link-icon {
+					margin              : -11px 0 0 -10.5px;
+					background-position : 0 -16px;
+					width               : 21px;
+					height              : 21px;
+				}
+
+				&.bargain-plan .link-icon {
+					margin              : -11px 0 0 -10.5px;
+					background-position : 0 -37px;
+					width               : 21px;
+					height              : 22.5px;
+				}
+
+				&.banking-paying .link-icon {
+					margin              : -12px 0 0 -13px;
+					background-position : 0 -60px;
+					width               : 26px;
+					height              : 25px;
+				}
+
+				&.apply-now .link-icon {
+					margin              : -10px 0 0 -11px;
+					background-position : 0 -85px;
+					width               : 21px;
+					height              : 19px;
+				}
+
+				.link-icon {
+					margin          : -8px 0 0 -12px;
+					background-size : 26px;
+					width           : 25px;
+					height          : 15px;
+					top             : 50%;
+					left            : 48px;
+				}
 			}
 
 			.mobile-wrap {
@@ -1087,20 +951,6 @@
 				border-top    : 1px solid #ddd;
 				border-bottom : 1px solid #ddd;
 				overflow      : hidden;
-
-				.btn-m-close {
-					background  : image-url('icon_gray/icon_close.png') no-repeat 0 0;
-					display     : block;
-					width       : 24px;
-					height      : 24px;
-					position    : absolute;
-					top         : 25px;
-					right       : 25px;
-					overflow    : hidden;
-					z-index     : 1;
-					text-indent : 200%;
-					@include opacity(.2);
-				}
 			}
 
 			.introduce {
@@ -1186,127 +1036,133 @@
 				margin-left : 0;
 			}
 
-			.bargain-plan .item-list {
-				padding : 0 20px;
+			// .bargain-plan .item-list {
+			// 	padding : 0 20px;
 
-				&:before {
-					display : none;
-				}
+			// 	&:before {
+			// 		display : none;
+			// 	}
 
-				.item-title {
-					margin-bottom : 20px;
-					padding-left  : 50px;
-					position      : relative;
-					top           : 0;
-					left          : 0;
+			// 	.item-title {
+			// 		margin-bottom : 20px;
+			// 		padding-left  : 50px;
+			// 		position      : relative;
+			// 		top           : 0;
+			// 		left          : 0;
 
-					&:before {
-						content         : '';
-						margin-top      : -17.25px;
-						background      : image-url('credit_card/icon-item.png') no-repeat 0 0;
-						background-size : 44px;
-						display         : block;
-						width           : 34.5px;
-						height          : 34.5px;
-						position        : absolute;
-						top             : 50%;
-						left            : 0;
-					}
-				}
+			// 		&:before {
+			// 			content         : '';
+			// 			margin-top      : -17.25px;
+			// 			background      : image-url('credit_card/icon-item.png') no-repeat 0 0;
+			// 			background-size : 44px;
+			// 			display         : block;
+			// 			width           : 34.5px;
+			// 			height          : 34.5px;
+			// 			position        : absolute;
+			// 			top             : 50%;
+			// 			left            : 0;
+			// 		}
+			// 	}
 
-				&:nth-child(2) .item-title:before {
-					margin-top          : -10.5px;
-					background-position : 0 -34.5px;
-					width               : 44px;
-					height              : 21px;
-				}
+			// 	&:nth-child(2) .item-title:before {
+			// 		margin-top          : -10.5px;
+			// 		background-position : 0 -34.5px;
+			// 		width               : 44px;
+			// 		height              : 21px;
+			// 	}
 
-				&:nth-child(3) .item-title:before {
-					margin-top          : -15.75px;
-					background-position : 0 -56px;
-					width               : 35px;
-					height              : 31px;
-				}
+			// 	&:nth-child(3) .item-title:before {
+			// 		margin-top          : -15.75px;
+			// 		background-position : 0 -56px;
+			// 		width               : 35px;
+			// 		height              : 31px;
+			// 	}
 
-				&:nth-child(4) .item-title:before {
-					margin-top          : -14px;
-					background-position : 0 -87px;
-					width               : 41.5px;
-					height              : 28px;
-				}
-			}
+			// 	&:nth-child(4) .item-title:before {
+			// 		margin-top          : -14px;
+			// 		background-position : 0 -87px;
+			// 		width               : 41.5px;
+			// 		height              : 28px;
+			// 	}
+			// }
 
-			.banking-paying .item-list {
-				padding    : 0 20px;
-				min-height : 0;
+			// .banking-paying .item-list {
+			// 	padding    : 0 20px;
+			// 	min-height : 0;
 
-				&:before {
-					display : none;
-				}
+			// 	&:before {
+			// 		display : none;
+			// 	}
 
-				.item-title {
-					margin-bottom : 20px;
-					padding-left  : 50px;
-					position      : relative;
-					top           : 0;
-					left          : 0;
+			// 	.item-title {
+			// 		margin-bottom : 20px;
+			// 		padding-left  : 50px;
+			// 		position      : relative;
+			// 		top           : 0;
+			// 		left          : 0;
 
-					&:before {
-						content         : '';
-						margin-top      : -11.25px;
-						background      : image-url('credit_card/icon-item.png') no-repeat 0 -115px;
-						background-size : 44px;
-						display         : block;
-						width           : 36.5px;
-						height          : 22.5px;
-						position        : absolute;
-						top             : 50%;
-						left            : 0;
-					}
-				}
+			// 		&:before {
+			// 			content         : '';
+			// 			margin-top      : -11.25px;
+			// 			background      : image-url('credit_card/icon-item.png') no-repeat 0 -115px;
+			// 			background-size : 44px;
+			// 			display         : block;
+			// 			width           : 36.5px;
+			// 			height          : 22.5px;
+			// 			position        : absolute;
+			// 			top             : 50%;
+			// 			left            : 0;
+			// 		}
+			// 	}
 
-				&:nth-child(2) .item-title:before {
-					background-position : 0 -138px;
-					width               : 32px;
-					height              : 31px;
-				}
+			// 	&:nth-child(2) .item-title:before {
+			// 		background-position : 0 -138px;
+			// 		width               : 32px;
+			// 		height              : 31px;
+			// 	}
 
-				&:nth-child(3) .item-title:before {
-					background-position : 0 -169.5px;
-					width               : 34px;
-					height              : 34px;
-				}
+			// 	&:nth-child(3) .item-title:before {
+			// 		background-position : 0 -169.5px;
+			// 		width               : 34px;
+			// 		height              : 34px;
+			// 	}
 
-				&:nth-child(4) .item-title:before {
-					background-position : 0 -204px;
-					width               : 28.5px;
-					height              : 27px;
-				}
+			// 	&:nth-child(4) .item-title:before {
+			// 		background-position : 0 -204px;
+			// 		width               : 28.5px;
+			// 		height              : 27px;
+			// 	}
 
-				&:nth-child(5) .item-title:before {
-					background-position : 0 -232px;
-					width               : 30px;
-					height              : 30px;
-				}
+			// 	&:nth-child(5) .item-title:before {
+			// 		background-position : 0 -232px;
+			// 		width               : 30px;
+			// 		height              : 30px;
+			// 	}
 
-				&:nth-child(6) .item-title:before {
-					background-position : 0 -262px;
-					width               : 35.5px;
-					height              : 34.5px;
-				}
+			// 	&:nth-child(6) .item-title:before {
+			// 		background-position : 0 -262px;
+			// 		width               : 35.5px;
+			// 		height              : 34.5px;
+			// 	}
 
-				&:nth-child(7) .item-title:before {
-					background-position : 0 -296px;
-					width               : 33px;
-					height              : 34.5px;
-				}
+			// 	&:nth-child(7) .item-title:before {
+			// 		background-position : 0 -296px;
+			// 		width               : 33px;
+			// 		height              : 34.5px;
+			// 	}
 
-				&:nth-child(8) .item-title:before {
-					background-position : 0 -331px;
-					width               : 32px;
-					height              : 26.5px;
-				}
-			}
+			// 	&:nth-child(8) .item-title:before {
+			// 		background-position : 0 -331px;
+			// 		width               : 32px;
+			// 		height              : 26.5px;
+			// 	}
+
+			// 	&:nth-child(9) .item-title:before {
+			// 		background-position : 0 -357.5px;
+			// 		width               : 35px;
+			// 		height              : 35px;
+			// 	}
+			// }
 
 			.item-list {
 				padding : 85px 20px 0 20px;
@@ -1421,7 +1277,7 @@
 			}
 
 			.item-list {
-				+ li + li, + li + li + li + li, + li + li + li + li + li + li {
+				+ li + li, + li + li + li + li, + li + li + li + li + li + li, + li + li + li + li + li + li + li + li {
 					clear : both;
 				}
 
@@ -1438,6 +1294,11 @@
 						width       : 29px;
 						height      : 58px;
 						top         : 0;
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 					}
 	
 					&:after {
@@ -1470,67 +1331,23 @@
 						background-position : 0 -111px;
 						width               : 70px;
 						height              : 63px;
+>>>>>>> origin/master
 					}
-
-					+ li + li + li:before {
-						background-position : 0 -174px;
-						width               : 83px;
-						height              : 56px;
-						left                : 62px;
+	
+					&:after {
+						display : none;
 					}
 				}
-			}
 
-			&.banking-paying .banking-paying {
-				.item-list {
-					+ li:before {
-						background-position : 0 -275px;
-						width               : 64px;
-						height              : 64px;
-						left                : 72px;
-					}
+				.owl-next:before {
+					background-position : right 0;
+					top                 : 0;
+					left                : 50%;
+					right               : auto;
+				}
 
-					+ li + li:before {
-						background-position : 0 -339px;
-						width               : 68px;
-						height              : 68px;
-						left                : 52px;
-					}
-
-					+ li + li + li:before {
-						background-position : 0 -407px;
-						width               : 57px;
-						height              : 56px;
-						left                : 74px;
-					}
-
-					+ li + li + li + li:before {
-						background-position : 0 -463px;
-						width               : 60px;
-						height              : 60px;
-						left                : 59px;
-					}
-
-					+ li + li + li + li + li:before {
-						background-position : 0 -523px;
-						width               : 71px;
-						height              : 69px;
-						left                : 72px;
-					}
-
-					+ li + li + li + li + li + li:before {
-						background-position : 0 -592px;
-						width               : 66px;
-						height              : 69px;
-						left                : 54px;
-					}
-
-					+ li + li + li + li + li + li + li:before {
-						background-position : 0 -661px;
-						width               : 64px;
-						height              : 53px;
-						left                : 72px;
-					}
+				.btn-more {
+					background : #119208;
 				}
 			}
 

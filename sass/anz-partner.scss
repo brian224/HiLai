@@ -24,11 +24,11 @@
 	position : relative;
 
 	&:nth-child(2n+1) {
-		padding  : 0 40px 0 225px;
+		padding : 0 40px 0 225px;
 	}
 
 	&:nth-child(2n) {
-		padding  : 0 265px 0 0;
+		padding : 0 265px 0 0;
 
 		.art-img {
 			left  : auto;
@@ -153,9 +153,38 @@
 }
 
 .lt-ie9 {
-	.service.multi-desc .emphasize:before {
-		background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
-		width      : 6px;
-		height     : 10px;
+	.service {
+		padding : 0 40px 0 225px;
+
+		+ article + article {
+			padding : 0 40px 0 265px;
+
+			.art-img {
+				left : 0;
+			}
+		}
+
+		+ article + article + article + article {
+			padding : 0 40px 0 225px;
+
+			.art-img {
+				left : 0;
+			}
+		}
+
+		+ article, + article + article + article {
+			padding : 0 265px 0 0;
+
+			.art-img {
+				left  : auto;
+				right : 0;
+			}
+		}
+
+		&.multi-desc .emphasize:before {
+			background : image-url('remote_banking/for-ie8/icon_arrow_right_oceanblue.png') 0 0 no-repeat;
+			width      : 6px;
+			height     : 10px;
+		}
 	}
 }

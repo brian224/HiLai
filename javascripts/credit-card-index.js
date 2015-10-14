@@ -5,7 +5,6 @@ $(document).ready(function(){
 		$introList     = $collapseWrap.find('.intro-list'),
 		$slideshow     = $collapseWrap.find('.slideshow'),
 		$checkLab      = $collapseWrap.find('.lab.check'),
-		$btnClose      = $collapseWrap.find('.btn-close, .btn-m-close'),
 		$introTitle    = $slideshow.find('.intro-title'),
 		_timer         = null,
 		_titleArray    = [];
@@ -60,16 +59,6 @@ $(document).ready(function(){
 
 		$collapseWrap.attr('class', 'collapse-wrap open ' + $(this).attr('class').split('detail-info ')[1]);
 		$collapseWrap.find('.' + $(this).attr('class').split('detail-info ')[1]).addClass('is-curr');
-	});
-
-	$btnClose.on('click', function(){
-		if ($(window).width() <= 600) {
-			$(this).parents('.intro-list').removeClass('is-curr');
-		} else {
-			$('.detail-info').parent().removeClass('is-curr');
-		}
-
-		$collapseWrap.attr('class', 'collapse-wrap');
 	});
 
 	$checkLab.on('click', 'input[type="checkbox"]', function(){
