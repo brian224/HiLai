@@ -371,7 +371,6 @@
 
 		.apply-now {
 			.input-area {
-				@include clearfix;
 				padding-top : 70px;
 			}
 
@@ -1036,134 +1035,6 @@
 				margin-left : 0;
 			}
 
-			// .bargain-plan .item-list {
-			// 	padding : 0 20px;
-
-			// 	&:before {
-			// 		display : none;
-			// 	}
-
-			// 	.item-title {
-			// 		margin-bottom : 20px;
-			// 		padding-left  : 50px;
-			// 		position      : relative;
-			// 		top           : 0;
-			// 		left          : 0;
-
-			// 		&:before {
-			// 			content         : '';
-			// 			margin-top      : -17.25px;
-			// 			background      : image-url('credit_card/icon-item.png') no-repeat 0 0;
-			// 			background-size : 44px;
-			// 			display         : block;
-			// 			width           : 34.5px;
-			// 			height          : 34.5px;
-			// 			position        : absolute;
-			// 			top             : 50%;
-			// 			left            : 0;
-			// 		}
-			// 	}
-
-			// 	&:nth-child(2) .item-title:before {
-			// 		margin-top          : -10.5px;
-			// 		background-position : 0 -34.5px;
-			// 		width               : 44px;
-			// 		height              : 21px;
-			// 	}
-
-			// 	&:nth-child(3) .item-title:before {
-			// 		margin-top          : -15.75px;
-			// 		background-position : 0 -56px;
-			// 		width               : 35px;
-			// 		height              : 31px;
-			// 	}
-
-			// 	&:nth-child(4) .item-title:before {
-			// 		margin-top          : -14px;
-			// 		background-position : 0 -87px;
-			// 		width               : 41.5px;
-			// 		height              : 28px;
-			// 	}
-			// }
-
-			// .banking-paying .item-list {
-			// 	padding    : 0 20px;
-			// 	min-height : 0;
-
-			// 	&:before {
-			// 		display : none;
-			// 	}
-
-			// 	.item-title {
-			// 		margin-bottom : 20px;
-			// 		padding-left  : 50px;
-			// 		position      : relative;
-			// 		top           : 0;
-			// 		left          : 0;
-
-			// 		&:before {
-			// 			content         : '';
-			// 			margin-top      : -11.25px;
-			// 			background      : image-url('credit_card/icon-item.png') no-repeat 0 -115px;
-			// 			background-size : 44px;
-			// 			display         : block;
-			// 			width           : 36.5px;
-			// 			height          : 22.5px;
-			// 			position        : absolute;
-			// 			top             : 50%;
-			// 			left            : 0;
-			// 		}
-			// 	}
-
-			// 	&:nth-child(2) .item-title:before {
-			// 		background-position : 0 -138px;
-			// 		width               : 32px;
-			// 		height              : 31px;
-			// 	}
-
-			// 	&:nth-child(3) .item-title:before {
-			// 		background-position : 0 -169.5px;
-			// 		width               : 34px;
-			// 		height              : 34px;
-			// 	}
-
-			// 	&:nth-child(4) .item-title:before {
-			// 		background-position : 0 -204px;
-			// 		width               : 28.5px;
-			// 		height              : 27px;
-			// 	}
-
-			// 	&:nth-child(5) .item-title:before {
-			// 		background-position : 0 -232px;
-			// 		width               : 30px;
-			// 		height              : 30px;
-			// 	}
-
-			// 	&:nth-child(6) .item-title:before {
-			// 		background-position : 0 -262px;
-			// 		width               : 35.5px;
-			// 		height              : 34.5px;
-			// 	}
-
-			// 	&:nth-child(7) .item-title:before {
-			// 		background-position : 0 -296px;
-			// 		width               : 33px;
-			// 		height              : 34.5px;
-			// 	}
-
-			// 	&:nth-child(8) .item-title:before {
-			// 		background-position : 0 -331px;
-			// 		width               : 32px;
-			// 		height              : 26.5px;
-			// 	}
-
-			// 	&:nth-child(9) .item-title:before {
-			// 		background-position : 0 -357.5px;
-			// 		width               : 35px;
-			// 		height              : 35px;
-			// 	}
-			// }
-
 			.item-list {
 				padding : 85px 20px 0 20px;
 
@@ -1289,49 +1160,11 @@
 			.introduce {
 				.owl-prev, .owl-next {
 					&:before {
-						margin      : 0 0 0 -14px;
-						background  : image-url('credit_card/for-ie8/index_arrow.png') no-repeat 0 0;
-						width       : 29px;
-						height      : 58px;
-						top         : 0;
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-					}
-	
-					&:after {
-						display : none;
-					}
-				}
-
-				.owl-next:before {
-					background-position : right 0;
-					top                 : 0;
-					left                : 50%;
-					right               : auto;
-				}
-
-				.btn-more {
-					background : #047bb7;
-				}
-			}
-
-			&.bargain-plan .bargain-plan {
-				.item-list {
-					+ li:before {
-						background-position : 0 -69px;
-						width               : 88px;
-						height              : 42px;
-						left                : 65px;
-					}
-
-					+ li + li:before {
-						background-position : 0 -111px;
-						width               : 70px;
-						height              : 63px;
->>>>>>> origin/master
+						margin     : 0 0 0 -14px;
+						background : image-url('credit_card/for-ie8/index_arrow.png') no-repeat 0 0;
+						width      : 29px;
+						height     : 58px;
+						top        : 0;
 					}
 	
 					&:after {
