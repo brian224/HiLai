@@ -1,0 +1,1817 @@
+﻿<html>
+<head>
+<link href="../../stylesheets/reset.css" rel="stylesheet">
+<link href="../../stylesheets/dropdown.css" rel="stylesheet">
+<link href="../../stylesheets/box-content.css" rel="stylesheet">
+<script src="../../javascripts/jquery-1.10.2.min.js" type="text/javascript" ></script>
+<script>
+	var IB9904_ERROR_MESSAGE = new Array();
+
+	IB9904_ERROR_MESSAGE[0] = '請輸入金額';  
+	IB9904_ERROR_MESSAGE[1] = '金額必須為數字';  
+	IB9904_ERROR_MESSAGE[2] = '金額必須大於0';  
+	IB9904_ERROR_MESSAGE[3] = '同幣別不能兌換';  
+	IB9904_ERROR_MESSAGE[4] = '請選擇幣別';  
+	
+	function IB9904checkData(){
+		var form_obj = document.forms['myForm'];
+		var text_obj = form_obj.elements['exchange_amount'];  
+		
+		if(text_obj.value==""){
+			alert(IB9904_ERROR_MESSAGE[0]);
+			return false;
+		}
+		if(isNaN(text_obj.value)){
+			alert(IB9904_ERROR_MESSAGE[1]);
+			return false;
+		}
+		if(parseInt(text_obj.value)<=0){
+			alert(IB9904_ERROR_MESSAGE[2]);
+			return false;
+		}
+		if(form_obj.elements['formData.fromCcyCode'].value == "" & form_obj.elements['formData.toCcyCode'].value == ""){
+			alert(IB9904_ERROR_MESSAGE[4]);
+			return false;
+		}
+		if(form_obj.elements['formData.fromCcyCode'].value == form_obj.elements['formData.toCcyCode'].value){
+			alert(IB9904_ERROR_MESSAGE[3]);
+			return false;
+		}
+		return true;
+	}
+	
+	$(document).ready(function() {
+		$('a[name="submitExchangeBtn"]').click(function(){
+			if(IB9904checkData()){
+			    var serializedData = $("#myForm").serialize();
+			    
+				$.ajax({
+				    url: "/ibanking/IB99040103",
+				    type: "POST",
+				    data: serializedData,
+				    success: function(result) {
+				         $(".fancybox-inner").html(result);
+				    }
+				});
+			}
+		});
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('tbody > tr:last-child').addClass('last');
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $(".dropdown img.flag").addClass("flagvisibility");
+
+	    $(".dropdown dt a").click(function() {
+	        $(".dropdown dd ul").toggle();
+	    });
+
+	    function getSelectedValue(id) {
+	        return $("#" + id).find("dt a span.value").html();
+	    }
+
+	    $(document).bind('click', function(e) {
+	        var $clicked = $(e.target);
+	        if (! $clicked.parents().hasClass("dropdown"))
+	            $(".dropdown dd ul").hide();
+	    });
+
+	    $("#flagSwitcher").click(function() {
+	        $(".dropdown img.flag").toggleClass("flagvisibility");
+	    });
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $(".dropdown2 img.flag").addClass("flagvisibility");
+
+	    $(".dropdown2 dt a").click(function() {
+	        $(".dropdown2 dd ul").toggle();
+	    });
+
+	    function getSelectedValue(id) {
+	        return $("#" + id).find("dt a span.value").html();
+	    }
+
+	    $(document).bind('click', function(e) {
+	        var $clicked = $(e.target);
+	        if (! $clicked.parents().hasClass("dropdown2"))
+	            $(".dropdown2 dd ul").hide();
+	    });
+
+	    $("#flagSwitcher").click(function() {
+	        $(".dropdown2 img.flag").toggleClass("flagvisibility");
+	    });
+	});
+</script>
+</head>
+<body>
+	<form id="myForm" method="post" action="/ibanking/IB99040103">
+		<input type="text" class="longTimeNoSee" value="" id="formData.fromCcyCode" name="formData.fromCcyCode"/>
+		<input type="text" class="longTimeNoSee" value="" id="formData.toCcyCode" name="formData.toCcyCode"/>
+		<input type="text" class="longTimeNoSee" value="" id="formData.strAround" name="formData.strAround"/>
+		<div class="moreBox exRateBox">
+			<h3><!-- 臺幣兌外幣匯率表 -->臺幣兌外幣匯率表<span class="updateTime mt0"><!--更新時間 -->更新時間 :　2015/10/23 17:48:48</span></h3>
+			<div class="exRateBox_blue">
+				<h3><!-- 匯率換算 -->匯率換算</h3>
+				<dl id="currency01" class="dropdown">
+					<!-- 選擇幣別 -->
+					<dt><a href="javascript:void(0);"><span>選擇幣別</span></a></dt>
+					<dd>
+						<ul id="FROM_CCY_CODE"></ul>
+					</dd>
+				</dl>
+				<input type="text" name="formData.exchangeAmount" id="exchange_amount" value="請輸入金額" maxlength="10" size="15" onfocus="if(this.value==this.defaultValue) this.value=''" onblur="if(this.value=='') this.value=this.defaultValue;" />
+				<img src="../../images/icon_arrow/currency_arrow.png" width="12" height="35" />
+				<dl id="currency02" class="dropdown2">
+					<dt><a href="javascript:void(0);"><span>請選擇幣別</span></a></dt>
+					<dd>
+						<ul id="TO_CCY_CODE"></ul>
+					</dd>
+				</dl>
+				<input type="text" value='' disabled="disabled" />
+				<a name="submitExchangeBtn" class="BtnCaculator" href="javascript:void(0);">開始換算</a>
+			</div>
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<th width="33%">幣別</th>
+					<th width="33%">買匯</th>
+					<th width="33%">賣匯</th>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_0" width="20" height="14" />人民幣(CNH)
+							<script>
+								var ccyName = '人民幣(CNH)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+0;
+
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								} else {
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>5.0220</td>
+					<td>5.0720</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_1" width="20" height="14" />泰銖(THB)
+							<script>
+								var ccyName = '泰銖(THB)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+1;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>0.9040</td>
+					<td>0.9240</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_2" width="20" height="14" />新加坡幣(SGD)
+							<script>
+								var ccyName = '新加坡幣(SGD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+2;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>23.2200</td>
+					<td>23.4800</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_3" width="20" height="14" />日幣(JPY)
+							<script>
+								var ccyName = '日幣(JPY)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+3;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>0.2651</td>
+					<td>0.2731</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_4" width="20" height="14" />瑞士法郎(CHF)
+							<script>
+								var ccyName = '瑞士法郎(CHF)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+4;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>33.1400</td>
+					<td>33.3400</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_5" width="20" height="14" />澳幣(AUD)
+							<script>
+								var ccyName = '澳幣(AUD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+5;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>23.4200</td>
+					<td>23.7000</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_6" width="20" height="14" />港幣(HKD)
+							<script>
+								var ccyName = '港幣(HKD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+6;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>4.1300</td>
+					<td>4.2300</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_7" width="20" height="14" />美金(USD)
+							<script>
+								var ccyName = '美金(USD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+7;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>32.3200</td>
+					<td>32.4200</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_8" width="20" height="14" />紐西蘭幣(NZD)
+							<script>
+								var ccyName = '紐西蘭幣(NZD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+8;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>22.0400</td>
+					<td>22.3200</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_9" width="20" height="14" />瑞典克郎(SEK)
+							<script>
+								var ccyName = '瑞典克郎(SEK)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+9;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>3.7700</td>
+					<td>3.8700</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_10" width="20" height="14" />歐元(EUR)
+							<script>
+								var ccyName = '歐元(EUR)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+10;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>35.7600</td>
+					<td>36.1600</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_11" width="20" height="14" />英鎊(GBP)
+							<script>
+								var ccyName = '英鎊(GBP)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+11;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>49.6500</td>
+					<td>50.1100</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="pl20 floLeft">
+							<img id="icon_flagS_12" width="20" height="14" />加幣(CAD)
+							<script>
+								var ccyName = '加幣(CAD)';
+								var arr_1 = ccyName.split("(");
+								var img_name = "icon_flagS_"+12;
+								
+								if(arr_1[1] != null){
+									var arr_2 = arr_1[1].split(")");
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_'+arr_2[0]+'.png';
+								}else{
+									document.getElementById(img_name).src = 'https://twib.anz.com/ibanking/resources/images/icon/icon_flagS_CNH.png';
+								}
+							</script>
+						</span>
+					</td>
+					<td>24.6400</td>
+					<td>24.9400</td>
+				</tr>
+			</table>
+			<span class="exchangeRate_note"><img style="vertical-align:middle;" src="../../images/iconY.gif" width="17" height="16" /> 本匯率僅供參考，實際匯率以交易當時匯率為準。</span>
+		</div>
+	</form>
+	<script>
+		var myForm = document.forms['myForm'];
+
+		function resetCCYCode(){
+		    var selFromCcy = 'FROM_CCY_CODE';
+		    var selToCcy = 'TO_CCY_CODE';
+		    
+		    var selOption_img1 = '';
+		    var selOption_img2 = '';
+		    var textFromCcy = '';
+		    var textToCcy = '';
+		     
+		    	
+		    	
+		    	var imgName = '日幣(JPY)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '新加坡幣(SGD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '港幣(HKD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '加幣(CAD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '澳幣(AUD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '紐西蘭幣(NZD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '英鎊(GBP)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '瑞典克郎(SEK)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '瑞士法郎(CHF)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '歐元(EUR)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '人民幣(CNH)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '泰銖(THB)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '美金(USD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		     
+		    	
+		    	
+		    	var imgName = '臺幣(TWD)';
+				var imgNameArr_1 = imgName.split("(");
+				
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+		   		if(imgName != 'CNY' & document.getElementById("formData.fromCcyCode").value == imgNameArr_2[0]){
+		       		textFromCcy = imgName;
+		       	}
+		   		if(imgName != 'CNY' & document.getElementById("formData.toCcyCode").value == imgNameArr_2[0]){	
+		       		textToCcy = imgName;
+		    	}
+		  		
+		   		if(imgNameArr_1[1] != null){
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+				}else{
+					selValue = "CNH";
+					selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selFromCcy+'\',\''+selToCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+					selOption_img2 = selOption_img2 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+selToCcy+'\',\''+selFromCcy+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+				}
+		   		
+		   		
+		    	
+		    	
+		    	
+				selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+				selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+		    	
+		    
+		    
+		        
+		    if(document.getElementById("formData.fromCcyCode").value != ''){
+		    	
+		    	$(".dropdown dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_.png">'+textFromCcy+'<span class="value">BR</span>');
+		    	
+		    	
+		    	
+		    }
+		    if(document.getElementById("formData.toCcyCode").value != ''){
+		    	
+		    	$(".dropdown2 dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_.png">'+textToCcy+'<span class="value">BR</span>');
+		    	
+		    	
+		    	
+		    }
+		    
+		    
+		    document.getElementById(selFromCcy).innerHTML = selOption_img1;
+		    document.getElementById(selToCcy).innerHTML = selOption_img2;
+		}
+
+		function changeCCYCode(CurrenSel,NextSel,curCode){
+
+			document.getElementById(CurrenSel).innerHTML = null;
+			document.getElementById(NextSel).innerHTML = null;
+			
+			var selOption_img1 = '';
+			var selOption_img2 = '';
+		    	var imgName = '日幣(JPY)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+
+		    	var imgName = '新加坡幣(SGD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '港幣(HKD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '加幣(CAD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '澳幣(AUD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '紐西蘭幣(NZD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '英鎊(GBP)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '瑞典克郎(SEK)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '瑞士法郎(CHF)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '歐元(EUR)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '人民幣(CNH)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '泰銖(THB)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '美金(USD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+					
+					
+						
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+NextSel+'\',\''+CurrenSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){ 
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}else{
+								if(imgNameArr_1[1] != null){
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+imgNameArr_2[0]+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+imgNameArr_2[0]+'.png"/>';
+								}else{
+									selValue = "CNH";
+									selOption_img1 = selOption_img1 + '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');changeCCYCode(\''+CurrenSel+'\',\''+NextSel+'\',\''+imgNameArr_2[0]+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_CNH.png"/>';
+								}
+							}
+						}
+						
+						
+				    	
+				    	
+						selOption_img1 = selOption_img1 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+						
+						
+					
+					
+		     
+		    
+		    	var imgName = '臺幣(TWD)';
+				var imgNameArr_1 = imgName.split("(");
+				if(imgNameArr_1[1] != null){
+					var imgNameArr_2 = imgNameArr_1[1].split(")");
+				}
+				//console.log(imgNameArr_2);
+				
+				
+					
+					
+						selValue = "TWD";	
+						
+						if(curCode == selValue){
+							if(CurrenSel == 'FROM_CCY_CODE'){
+								selOption_img2 = '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png"/>';
+								
+						    	
+						    	
+								
+								$(".dropdown dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png">'+imgName+'<span class="value">BR</span>');
+							}else{
+								selOption_img2 = '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png"/>';
+								
+						    	
+						    	
+								
+								$(".dropdown2 dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png">'+imgName+'<span class="value">BR</span>');
+							}
+						}else{
+							if(CurrenSel == 'FROM_CCY_CODE'){
+								selOption_img2 = '<li><a href="javascript:void(0);" onclick="dropdownClick2(\''+imgName+'\',\''+selValue+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png"/>';
+								
+								
+						    	
+						    	
+								$(".dropdown2 dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png">'+imgName+'<span class="value">BR</span>');
+							}else{
+								selOption_img2 = '<li><a href="javascript:void(0);" onclick="dropdownClick(\''+imgName+'\',\''+selValue+'\');"><img class="flag" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png"/>';
+								
+								
+						    	
+						    	
+								$(".dropdown dt a span").html('<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_TWD.png">'+imgName+'<span class="value">BR</span>');
+							}
+						}
+						selOption_img2 = selOption_img2 + imgName +'<span class="value">BR</span></a></li>';
+						
+						
+					
+					
+					
+					
+		    
+		    
+		    
+		    if(curCode == 'TWD'){
+		    	document.getElementById(CurrenSel).innerHTML = selOption_img2;
+		        document.getElementById(NextSel).innerHTML = selOption_img1;
+		    }else{
+		        document.getElementById(NextSel).innerHTML = selOption_img2;
+		        document.getElementById(CurrenSel).innerHTML = selOption_img1;
+		    }
+
+		}
+		resetCCYCode();
+
+		function dropdownClick(curCodeName,curCode){
+			
+			if('zh' == 'zh'){
+				var text = '<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+curCode+'.png">'+curCodeName+'<span class="value">BR</span>';
+			} else {
+				var text = '<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+curCode+'.png">'+curCode+'<span class="value">BR</span>';
+			}
+		    $(".dropdown dt a span").html(text);
+		    $(".dropdown dd ul").hide();
+		    
+		    
+		    document.getElementById("formData.fromCcyCode").value = curCode;
+		    if(curCode != 'TWD'){
+		    	if(document.getElementById("formData.toCcyCode").value == '' || document.getElementById("formData.toCcyCode").value != 'TWD'){
+		        	document.getElementById("formData.toCcyCode").value = "TWD";
+		        } 
+		    }
+		}
+
+		function dropdownClick2(curCodeName,curCode){
+			
+			if('zh' == 'zh'){
+				var text = '<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+curCode+'.png">'+curCodeName+'<span class="value">BR</span>';
+			} else {
+				var text = '<img class="flag flagvisibility" src="https://twib.anz.com/ibanking/resources/images/icon/icon_flagM_'+curCode+'.png">'+curCode+'<span class="value">BR</span>';
+			}
+		    $(".dropdown2 dt a span").html(text);
+		    $(".dropdown2 dd ul").hide();
+		    
+		    if(curCode != 'TWD'){
+			    if(document.getElementById("formData.fromCcyCode").value == '' || document.getElementById("formData.fromCcyCode").value != 'TWD'){
+			    	document.getElementById("formData.fromCcyCode").value = "TWD";
+			    }
+		    }
+		    document.getElementById("formData.toCcyCode").value = curCode;
+		}
+	</script>
+</body>
+</html>

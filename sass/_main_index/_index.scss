@@ -51,6 +51,10 @@
 				top         : 0;
 				left        : 50%;
 				text-align  : center;
+
+				.link {
+					display : none;
+				}
 			}
 
 			img {
@@ -97,11 +101,25 @@
 	.login-wrap {
 		margin-left : 164px;
 		background  : rgba(255, 255, 255, 0.85);
+		width       : 312px;
 		position    : absolute;
 		top         : 76px;
 		left        : 50%;
 		box-shadow  : 5px 5px 5px rgba(0, 0, 0, 0.3);
+		overflow    : hidden;
 		z-index     : 3;
+
+		&.error {
+			top : 50px;
+
+			.switch-body {
+				height : 322px;
+
+				.warning-text {
+					display : block;
+				}
+			}
+		}
 
 		.switch-title {
 			height      : 60px;
@@ -113,11 +131,11 @@
 
 		.service-title {
 			@include clearfix;
-			height      : 45px;
+			padding     : 10px 0;
 			position    : relative;
 			color       : $bgBlue;
-			font-size   : 16px;
-			line-height : 45px;
+			font-size   : 15px;
+			line-height : 24px;
 
 			&:before {
 				content       : '';
@@ -142,40 +160,43 @@
 			}
 
 			em, .link {
-				width       : 50%;
-				float       : left;
-				color       : #0294c9;
-				font-style  : normal;
-				text-indent : 18px;
+				@include box-sizing(border-box);
+				padding-left : 30px;
+				width        : 50%;
+				float        : left;
+				position     : relative;
+				color        : #0294c9;
+				font-style   : normal;
 
 				&:before {
-					content      : '';
-					margin-right : 5px;
-					background   : image-url('icon_ocean_blue/icon_38.png') 0 0 no-repeat;
-					display      : inline-block;
-					width        : 16px;
-					height       : 17px;
+					content    : '';
+					margin-top : -9px;
+					background : image-url('icon_ocean_blue/icon_38.png') 0 0 no-repeat;
+					display    : inline-block;
+					width      : 16px;
+					height     : 17px;
+					position   : absolute;
+					top        : 50%;
+					left       : 9px;
 				}
 			}
 
 			.link {
-				cursor      : pointer;
-				text-indent : 6px;
+				cursor : pointer;
 
 				&:before {
-					margin-right : 7px;
-					background   : image-url('icon_ocean_blue/icon_39.png') 0 0 no-repeat;
-					width        : 18px;
-					height       : 12px;
+					margin-top : -6px;
+					background : image-url('icon_ocean_blue/icon_39.png') 0 0 no-repeat;
+					width      : 18px;
+					height     : 12px;
+					left       : 6px;
 				}
 			}
 		}
 
 		.switch-body {
-			width    : 312px;
 			height   : 252px;
 			position : relative;
-			overflow : hidden;
 
 			.switch-area {
 				@include transition(all 0.3s ease-in-out);
@@ -206,6 +227,24 @@
 				}
 			}
 
+			.warning-text {
+				@include box-sizing(border-box);
+				margin     : 0 0 10px 0;
+				padding    : 5px 10px;
+				background : #FDDBDB;
+				display    : none;
+				width      : 258px;
+				border     : 1px solid #F7B8B8;
+				color      : #be0000;
+				font-size  : 13px;
+				text-align : center;
+			}
+
+			.label {
+				display  : block;
+				position : relative;
+			}
+
 			.inputBox {
 				margin-bottom : 16px;
 				background    : #fff;
@@ -220,6 +259,62 @@
 
 				&.password {
 					margin-top : 58px;
+				}
+			}
+
+			.comment-box {
+				@include box-sizing(border-box);
+				padding       : 10px;
+				background    : #fff;
+				display       : none;
+				width         : 262px;
+				position      : absolute;
+				bottom        : 48px;
+				left          : 1px;
+				border-radius : 5px;
+				box-shadow    : 0 0 10px rgba(0,0,0,0.5);
+
+				&.show {
+					display : block;
+				}
+
+				&:before, &:after {
+					content      : '';
+					display      : block;
+					position     : absolute;
+					left         : 20px;
+					bottom       : -8px;
+					border-top   : 8px solid #fff;
+					border-right : 8px solid transparent;
+					border-left  : 8px solid transparent;
+				}
+
+				&:before {
+					left         : 19px;
+					bottom       : -9px;
+					border-top   : 9px solid #ccc;
+					border-right : 9px solid transparent;
+					border-left  : 9px solid transparent;
+				}
+
+				.comment-list {
+					margin-left : 12px;
+
+					.list {
+						position : relative;
+
+						&:before {
+							content       : '';
+							background    : #0294c9;
+							display       : block;
+							width         : 4px;
+							height        : 4px;
+							position      : absolute;
+							top           : 8px;
+							left          : -8px;
+							border-radius : 50%;
+						}
+					}
 				}
 			}
 
@@ -264,6 +359,62 @@
 					left     : 27px;
 				}
 			}
+
+			.card-login-box {
+				display  : inline-block;
+				position : relative;
+
+				&:hover {
+					&:before {
+						content    : '';
+						background : transparent;
+						display    : block;
+						width      : 100%;
+						height     : 4px;
+						position   : absolute;
+						top        : -4px;
+						left       : 0;
+					}
+
+					.comment-box {
+						display : block;
+					}
+				}
+
+				.comment-box {
+					padding-left : 80px;
+					background   : #fff image-url('icon_lock.png') no-repeat 20px 10px;
+					width        : auto;
+					min-width    : 180px;
+					left         : auto;
+					right        : 0;
+
+					&:before {
+						left  : auto;
+						right : 19px;
+					}
+
+					&:after {
+						left  : auto;
+						right : 20px;
+					}
+				}
+
+				.desc {
+					margin-bottom : 10px;
+					text-align    : center;
+				}
+
+				.btn-download {
+					padding     : 0 15px;
+					display     : inline-block;
+					width       : auto;
+					min-width   : 70px;
+					height      : 32px;
+					font-size   : 13px;
+					line-height : 32px;
+				}
+			}
 		}
 	}
 
@@ -274,7 +425,6 @@
 	}
 
 	.fast-links {
-		@include clearfix;
 		width    : 100%;
 		position : absolute;
 		top      : 495px;
@@ -283,6 +433,7 @@
 
 		.list {
 			width      : 20%;
+			position   : relative;
 			float      : left;
 			font-size  : 17px;
 			text-align : center;
@@ -338,6 +489,10 @@
 				}
 			}
 
+			&.finance-info:hover .comment-box {
+				display : block;
+			}
+
 			&.activities .link-icon {
 				margin              : 33.5px 0 0 -21px;
 				background-position : 0 -41px;
@@ -365,8 +520,68 @@
 				width               : 69px;
 				height              : 71px;
 			}
+
+			.comment-box {
+				@include box-sizing(border-box);
+				margin-left   : -65px;
+				padding       : 10px 15px;
+				background    : #fff;
+				display       : none;
+				width         : 130px;
+				position      : absolute;
+				bottom        : 144px;
+				left          : 50%;
+				border-radius : 5px;
+				box-shadow    : 0 0 10px rgba(0,0,0,0.5);
+
+				&:after {
+					content      : '';
+					margin-left  : -8px;
+					display      : block;
+					position     : absolute;
+					left         : 50%;
+					bottom       : -8px;
+					border-top   : 8px solid #fff;
+					border-right : 8px solid transparent;
+					border-left  : 8px solid transparent;
+				}
+
+				.comment-list {
+					margin-left : 24px;
+
+					.comment-item {
+						position    : relative;
+						font-size   : 12px;
+						line-height : 24px;
+						text-align  : left;
+
+						&:before {
+							content    : '';
+							background : image-url('icon_ocean_blue/icon_40.gif') no-repeat 0 0;
+							display    : block;
+							width      : 18px;
+							height     : 16px;
+							position   : absolute;
+							top        : 4px;
+							left       : -24px;
+						}
+
+						+ li:before {
+							background : image-url('icon_ocean_blue/icon_41.gif') no-repeat 0 0;
+						}
+
+						+ li+ li:before {
+							background : image-url('icon_ocean_blue/icon_42.gif') no-repeat 0 0;
+						}
+					}
+				}
+			}
 		}
 	}
+}
+
+.longTimeNoSee {
+	display: none;
 }
 
 @media only screen and (max-width: 980px) {
@@ -455,13 +670,26 @@
 		.login-wrap {
 			margin     : 0;
 			background : none;
+			width      : 100%;
 			position   : relative;
 			top        : 0;
 			left       : 0;
 			box-shadow : none;
 
+			&.error {
+				top : auto;
+
+				.switch-body {
+					height : 395px;
+				}
+			}
+
 			.switch-body {
-				width : 100%;
+				height : 322px;
+
+				.warning-text {
+					width : 100%;
+				}
 
 				.switch-area {
 					width : 100%;
@@ -494,16 +722,16 @@
 					}
 				}
 
+				.comment-box {
+					width : 100%;
+				}
+
 				.btn {
-					&.btn-login-normal, &.btn-login-debit {
+					&.btn-login-normal {
 						margin  : 0;
 						display : block;
 						width   : 49%;
 						float   : left;
-					}
-
-					&.btn-login-debit {
-						float : right;
 					}
 
 					&.btn-confirm {
@@ -511,6 +739,44 @@
 						position : relative;
 						top      : 0;
 						left     : 0;
+					}
+				}
+
+				.card-login-box {
+					margin  : 0;
+					display : block;
+					width   : 49%;
+					float   : right;
+
+					.btn-login-debit {
+						width : 100%;
+					}
+
+					.comment-box {
+						padding-left        : 40px;
+						display             : block;
+						background-position : 15px 20px;
+						background-size     : 20px 40px;
+						min-width           : 220px;
+						top                 : 48px;
+						bottom              : auto;
+						left                : auto;
+						right               : 0;
+						border              : 1px solid #ccc;
+						box-shadow          : none;
+						text-align          : center;
+
+						&:before, &:after {
+							top           : -8px;
+							bottom        : auto;
+							border-top    : none;
+							border-bottom : 8px solid #fff;
+						}
+
+						&:before {
+							top           : -9px;
+							border-bottom : 9px solid #ccc;
+						}
 					}
 				}
 			}
@@ -560,6 +826,10 @@
 						left            : 48px;
 					}
 				}
+
+				&.finance-info {
+					padding-bottom : 30px;
+				}
 	
 				&.activities .link-icon {
 					margin              : -11.25px 0 0 -10.25px;
@@ -587,6 +857,29 @@
 					background-position : 0 -128px;
 					width               : 24px;
 					height              : 24px;
+				}
+
+				.comment-box {
+					margin     : 0;
+					padding    : 0;
+					display    : block;
+					width      : auto;
+					bottom     : 5px;
+					left       : 20px;
+					box-shadow : none;
+
+					&:after {
+						display : none;
+					}
+
+					.comment-item {
+						margin-right : 42px;
+						float        : left;
+
+						&:last-child {
+							margin : 0;
+						}
+					}
 				}
 			}
 		}

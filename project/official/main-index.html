@@ -14,6 +14,7 @@
   <meta name="apple-itunes-app" content="app-id=407935489">
   <title>ANZ澳盛銀行</title>
   <link href="../../favicon.ico" rel="icon">
+  <link href="../../javascripts/fancyBox/source/jquery.fancybox.css" rel="stylesheet">
   <link href="../../javascripts/owl.carousel.2/owl.carousel.css" rel="stylesheet">
   <link href="../../javascripts/owl.carousel.2/owl.theme.default.css" rel="stylesheet">
   <link href="../../javascripts/owl.carousel.2/animate.css" rel="stylesheet">
@@ -43,6 +44,57 @@
     <!-- =================== header end =================== -->
     
     <div class="index-banner">
+      <div class="login-wrap"> <!-- 代號或密碼輸入錯誤加class 'error' -->
+        <h2 class="switch-title">請選擇想要的服務</h2>
+        <h3 class="service-title">
+          <em>個人網路銀行</em>
+          <a class="link" href="javascript:;">信用卡數位夥伴</a>
+        </h3>
+        <div class="switch-body">
+          <ul class="switch-area">
+            <li class="step step1">
+              <div class="warning-text">您的使用者代號或密碼輸入錯誤，請重新輸入。若仍出現此問題，請致電本行24小時客戶服務中心。</div>
+              <label class="label">
+                <input class="inputBox ss-numbers" type="text" placeholder="請輸入身分證字號" maxlength="10">
+                <div class="comment-box">
+                  <ul class="comment-list">
+                    <li class="list">公司戶請輸入統一編號</li>
+                    <li class="list">因本行採進階SSL加密安全系統，故登入時間較久，請稍候。</li>
+                    <li class="list">若您停止操作超過 10 分鐘，系統將自動登出，以確保您的資料不被他人截取。</li>
+                  </ul>
+                </div>
+              </label>
+              <label class="label">
+                <input class="inputBox user-id" type="text" placeholder="請輸入使用者代號">
+                <div class="comment-box">
+                  <ul class="comment-list">
+                    <li class="list">使用者代號為6至15碼英數字，不分大小寫。</li>
+                    <li class="list">為保護您的帳戶安全，若連續輸入使用者代號錯誤達3次將暫時停止服務。</li>
+                    <li class="list">若您的使用者代號遺忘或鎖定，可點選下方「忘記使用者代號」或致電24小時電話理財服務中心。</li>
+                  </ul>
+                </div>
+              </label>
+              <ul class="links-list">
+                <li class="list"><a class="link" href="javascript:;" accesskey="D">註冊</a></li>
+                <li class="list"><a class="link" href="javascript:;" accesskey="E">新手上路</a></li>
+                <li class="list"><a class="link" href="javascript:;" accesskey="F">忘記使用者代號</a></li>
+              </ul>
+              <button class="btn btn-login-normal">一般登入</button>
+              <div class="card-login-box">
+                <button class="btn btn-login-debit">金融卡登入</button>
+                <div class="comment-box">
+                  <p class="desc">提供非約定轉帳交易功能</p>
+                  <a class="btn btn-download" href="/ibanking/cardBegin">下載元件</a>
+                </div>
+              </div>
+            </li>
+            <li class="step step2">
+              <input class="inputBox password" type="password" placeholder="請輸入密碼">
+              <button class="btn btn-confirm">登入</button>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="key-visual owl-carousel">
         <div class="view">
           <span class="kv-img">
@@ -69,32 +121,6 @@
           </div>
         </div>
       </div>
-      <div class="login-wrap">
-        <h2 class="switch-title">請選擇想要的服務</h2>
-        <h3 class="service-title">
-          <em>個人網路銀行</em>
-          <a class="link" href="javascript:;">信用卡數位夥伴</a>
-        </h3>
-        <div class="switch-body">
-          <ul class="switch-area">
-            <li class="step step1">
-              <input class="inputBox ss-numbers" type="text" placeholder="請輸入身分證字號" maxlength="10">
-              <input class="inputBox user-id" type="text" placeholder="請輸入使用者代號">
-              <ul class="links-list">
-                <li class="list"><a class="link" href="javascript:;" accesskey="D">註冊</a></li>
-                <li class="list"><a class="link" href="javascript:;" accesskey="E">新手上路</a></li>
-                <li class="list"><a class="link" href="javascript:;" accesskey="F">忘記使用者代號</a></li>
-              </ul>
-              <button class="btn btn-login-normal">一般登入</button>
-              <button class="btn btn-login-debit">金融卡登入</button>
-            </li>
-            <li class="step step2">
-              <input class="inputBox password" type="password" placeholder="請輸入密碼">
-              <button class="btn btn-confirm">登入</button>
-            </li>
-          </ul>
-        </div>
-      </div>
       <main class="l-main">
         <ul class="fast-links">
           <li class="list finance-info">
@@ -102,6 +128,13 @@
               <i class="link-icon"></i>
               最豐富的理財資訊
             </a>
+            <div class="comment-box">
+              <ul class="comment-list">
+                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="exchange-rates.html">匯率查詢</a></li>
+                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="interest-rate.html">利率查詢</a></li>
+                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="https://twib.anz.com/ibanking/cat2/IB99050101">基金淨值查詢</a></li>
+              </ul>
+            </div>
           </li>
           <li class="list activities">
             <a class="link" href="mobile-payment.html">
@@ -148,6 +181,7 @@
 
   <script src="../../javascripts/jquery-1.10.2.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/jquery-ui-1.10.4.min.js" type="text/javascript" ></script>
+  <script src="../../javascripts/fancyBox/source/jquery.fancybox.pack.js" type="text/javascript" ></script>
   <script src="../../javascripts/owl.carousel.2/owl.carousel.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/placeholders.min.js" type="text/javascript" ></script>
   <script src="../../javascripts/main-index.js" type="text/javascript" ></script>

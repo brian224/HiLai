@@ -1,7 +1,8 @@
 $(document).ready(function(){
 	var $kvSlider       = $('.key-visual'),
 		$btnLoginNormal = $('.btn-login-normal'),
-		$switchArea     = $('.switch-area');
+		$switchArea     = $('.switch-area'),
+		$label          = $('.label');
 
 	$kvSlider.owlCarousel({
 		items              : 1,
@@ -13,6 +14,14 @@ $(document).ready(function(){
 		autoplayHoverPause : true,
 		animateOut         : 'fadeOut',
 		animateIn          : 'fadeIn'
+	});
+
+	$label.on('focusin', function(){
+		$(this).find('.comment-box').addClass('show');
+	});
+
+	$label.on('focusout', function(){
+		$(this).find('.comment-box').removeClass('show');
 	});
 
 	$btnLoginNormal.on('click', function(){
@@ -38,5 +47,9 @@ $(document).ready(function(){
 		} else if (_ss_numbers !== '' && _user_id !== '') {
 			$switchArea.addClass('next-step');
 		}
+	});
+
+	$('.fancybox').fancybox({
+		'width' : 820
 	});
 });
