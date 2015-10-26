@@ -50,6 +50,6 @@ $(document).ready(function(){
 	});
 
 	$('.fancybox').fancybox({
-		'width' : 820
+		'width' : 850
 	});
 });

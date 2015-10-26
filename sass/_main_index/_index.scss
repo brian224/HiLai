@@ -908,6 +908,11 @@
 
 		.login-wrap {
 			background : image-url('index/for-ie8/op85-w.png');
+			
+			.switch-body .comment-box {
+				width  : 264px;
+				border : 1px solid #ccc;
+			}
 		}
 
 		.key-visual .wording {
