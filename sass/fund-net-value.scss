@@ -1,0 +1,12 @@
+﻿@import "compass";
+
+/* basic set */
+@import "_common/variables";
+
+/* layout css */
+@import "_common/mixin";
+@import "_common/basic";
+@import "_common/layout";
+/* import page scss begin */
+/* import page scss end */
+@import "_main_index/fund-net-value";

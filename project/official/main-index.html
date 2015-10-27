@@ -89,7 +89,16 @@
               </div>
             </li>
             <li class="step step2">
-              <input class="inputBox password" type="password" placeholder="請輸入密碼">
+              <label class="label">
+                <input class="inputBox password" type="password" placeholder="請輸入密碼">
+                <div class="comment-box">
+                  <ul class="comment-list">
+                    <li class="list">登入密碼為6至12碼，注意大小寫。</li>
+                    <li class="list">為保護您的帳戶安全，若連續輸入登入密碼錯誤達3次將暫時停止服務。</li>
+                    <li class="list">若您的登入密碼遺忘或鎖定，可點選下方「忘記密碼」或致電24小時電話理財服務中心。</li>
+                  </ul>
+                </div>
+              </label>
               <button class="btn btn-confirm">登入</button>
             </li>
           </ul>
@@ -130,9 +139,10 @@
             </a>
             <div class="comment-box">
               <ul class="comment-list">
-                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="exchange-rates.html">匯率查詢</a></li>
+                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="exchange-rate.html">匯率查詢</a></li>
                 <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="interest-rate.html">利率查詢</a></li>
-                <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="https://twib.anz.com/ibanking/cat2/IB99050101">基金淨值查詢</a></li>
+                <!-- <li class="comment-item"><a class="info-link fancybox fancybox.iframe" href="https://twib.anz.com/ibanking/cat2/IB99050101">基金淨值查詢</a></li> -->
+                <li class="comment-item"><a class="info-link fancybox-navQuery fancybox.iframe" href="fund-net-value.html">基金淨值查詢</a></li>
               </ul>
             </div>
           </li>

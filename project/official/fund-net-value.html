@@ -1,0 +1,593 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title></title>
+<link href="https://twib.anz.com/ibanking/resources/css/style.css" rel="stylesheet" type="text/css" />
+<link href="../../stylesheets/fund-net-value.css" rel="stylesheet">
+<script type="text/javascript">
+	(function() {
+		if (!window.console) {
+			window.console = {};
+		}
+
+		var m = [
+			"log", "info", "warn", "error", "debug", "trace", "dir", "group",
+			"groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
+			"dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
+		];
+
+		for (var i = 0; i < m.length; i++) {
+			if (!window.console[m[i]]) {
+				window.console[m[i]] = function() {};
+			}
+		}
+	})();
+</script>
+<script language="javascript" type="text/javascript" src="https://twib.anz.com/ibanking/resources/js/jquery-1.7.2.min.js?reload=Tue Oct 27 09:39:31 CST 2015"></script>
+<script type="text/javascript" src="https://twib.anz.com/ibanking/resources/js/jquery.touchSwipe.min.js?reload=Tue Oct 27 09:39:31 CST 2015"></script>
+<script language="javascript" type='text/javascript' charset='utf-8' src='https://twib.anz.com/ibanking/resources/js/ib_util.js?reload=Tue Oct 27 09:39:31 CST 2015'></script>
+<script language="javascript" type='text/javascript' charset='utf-8' src='https://twib.anz.com/ibanking/resources/js/url_util.js?reload=Tue Oct 27 09:39:31 CST 2015'></script>
+<script language="javascript" type="text/javascript" src="https://twib.anz.com/ibanking/resources/js/jquery.flot.js?reload=Tue Oct 27 09:39:31 CST 2015"></script>
+<script language="javascript" type="text/javascript" src="https://twib.anz.com/ibanking/resources/js/jquery.flot.navigate.js?reload=Tue Oct 27 09:39:31 CST 2015"></script>
+<script type="text/javascript" language="javascript" src="https://twib.anz.com/ibanking/resources/js/jquery.uniform.js?reload=Tue Oct 27 09:39:31 CST 2015"></script>
+<script type="text/javascript">
+	$(function(){
+		$("input, textarea, select").uniform();
+
+		$('.depositNote_Open').click(function () {
+			$('.depositNote_Open').hide();
+			$('#depositNote_Hide').hide();
+			$('.depositNote_Close').show();
+			$('#depositNote_Show').show();
+		});
+		
+		$('.depositNote_Close').click(function () {
+			$('.depositNote_Close').hide();
+			$('#depositNote_Hide').show();
+			$('.depositNote_Open').show();
+			$('#depositNote_Show').hide();
+		});
+		
+		$('#depositNote_Show').show();
+		$('.depositNote_Close').show();
+		$('#depositNote_Hide').hide();
+		$('.depositNote_Open').hide();
+	});
+</script>
+<meta name="decorator" content="navQuery" />
+<script type='text/javascript' language="javascript" charset='utf-8' src='https://twib.anz.com/ibanking/resources/js/popbox.js'></script> 
+<script type='text/javascript' charset='utf-8'>
+	$(document).ready(function(){
+		$('.hintPop').popbox({
+			'box':'.box4'
+		});
+	});
+</script>
+ 
+<script language="JavaScript">
+	document.oncontextmenu=function(){return false;}
+</script>
+<script src="https://twib.anz.com/ibanking/resources/js/dataSort2FA.js?reload=Tue Oct 27 09:39:31 CST 2015" type="text/javascript"></script>
+<script src="https://twib.anz.com/ibanking/resources/js/ib_util.js" type="text/javascript"></script>
+<script src="https://twib.anz.com/ibanking/resources/js/dividePage.js" type="text/javascript"></script>
+<script src="https://twib.anz.com/ibanking/resources/js/ib99/IB99050101.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    
+	IB99_ERROR_MESSAGE[0] = '請輸入基金代碼或名稱';
+	
+	IB99_ERROR_MESSAGE[1] = '基金篩選不能為空';
+	
+	IB99_ERROR_MESSAGE[2] = '請選擇基金公司';
+	
+	IB99_ERROR_MESSAGE[3] = '新增完成!';
+	
+	IB99_ERROR_MESSAGE[5] = '至少選取一筆基金';
+	
+	IB99_ERROR_MESSAGE[6] = "/ibanking/cat2/IB040201?mfCode=";
+	
+	IB99_ERROR_MESSAGE[7] = '請選擇欲瀏覽的風險屬性';
+	
+	var IB04_ERROR_MESSAGE = new Array(); 
+	
+	IB04_ERROR_MESSAGE[11] = "/ibanking/cat2/IB04020901?tab=2";
+	
+	IB04_ERROR_MESSAGE[23] = '價格上限不得等於價格下限';
+	
+	IB04_ERROR_MESSAGE[24] = '價格上限須大於最新淨值';
+	
+	IB04_ERROR_MESSAGE[25] = '價格下限須小於最新淨值';
+	
+	IB04_ERROR_MESSAGE[29] = '系統忙碌中...請稍後再試';
+</script>
+<style>
+	.mainContent ul.accountTagTab {
+		color: #b5b5b5;
+		font-size: 13px;
+		width: auto;
+		height: 25px;
+		line-height: 18px;
+		/*border-bottom:#7b7b7b solid 4px;*/
+		padding: 0 0 0 20px;
+	}
+	ul.accountTagTab li {
+		float: left;
+		margin-left: 10px;
+		height: 26px;
+		_line-height: 20px;
+	}
+	ul.accountTagTab li a {
+		text-decoration: none;
+		color: #014165;
+	}
+	ul.accountTagTab li a:hover {
+		color: #4c4c4c;
+	}
+	ul.accountTagTab li.active {
+		background: url(https://twib.anz.com/ibanking/resources/images/triangle.gif) center bottom no-repeat;
+	}
+	ul.accountTagTab li.active a {
+		font-weight: bold;
+		color: #4c4c4c;
+	}
+	ul.accountTagTab li.active a:hover {
+		color: #4c4c4c;
+		font-weight: bold;
+	}
+</style>
+<script>
+	$(function(){
+		$('ul.accountTagTab li').click(function() {
+			var $this = $(this),
+				_clickTab = $this.find('a').attr('href');
+			
+			
+			$this.addClass('active').siblings('.active').removeClass('active');
+			
+			$(_clickTab).stop(false, true).show().siblings().hide();
+
+			return false;
+		}).find('a').focus(function(){
+			this.blur();
+		});
+		
+		var title_index = parseInt("30", 10); 
+		
+		for(i=1;i<title_index;i++){
+			
+			if(i < 10){
+				var titleValue = '#title0'+i+'_arrow';
+			}else{
+				var titleValue = '#title'+i+'_arrow';
+			}
+			if(i!=10||i!=20||i!=30){
+				$(titleValue).show();
+			}
+		}
+	});
+</script>
+<script>
+	$(document).ready(function(){
+		$('#comp_FMC_1').css('display','none');
+		$('#comp_MC_1').css('display','block');
+		$('#comp_default_1').css('display','none');
+		$('#comp_default_2').css('display','block');
+		$('#comp_FMC_2').css('display','none');
+		$('#comp_MC_2').css('display','none');
+	});
+
+	function tab_change(tab){
+		$("#tabChange").val(tab);
+		$("#tabChangeForm").submit();
+	}
+
+	function cleanSelecter(area,value){
+		var fundID = '#FundSelector_' + area;
+		var fundSelector = $(fundID).val();
+		
+		var selectID = '#selector_' + area;
+		var selector = $(selectID).val();
+		
+		var firstFlagID = '#FirstFlag_' + area;
+		var FirstFlag = $(firstFlagID).val();
+
+		if(selector == fundSelector){
+			if(value == '00'){
+				$(fundID).val('00');
+				$(fundID).trigger('change');
+			}
+		}
+		if(FirstFlag == 'true'){
+			selector = '00';
+			$(firstFlagID).val('false');
+		}else{
+			selector = $(fundID).val();
+		}
+		$(selectID).val(selector);
+	}
+
+	function cleanSelecter_keyword(area,value){
+		var fundID = '#FundSelector_' + area;
+		var fundText = '#fundText_' + area;
+		var fundSelector = $(fundID).val();
+		
+		var selectID = '#selector_' + area;
+		var selector = $(selectID).val();
+
+		if(fundSelector != '00'){
+			$(fundID).val('00');
+			$(fundID).trigger('change');
+			$(fundText).val(value);
+			$(selectID).val('00');
+			//$(firstFlagID).val('false');
+		}
+	}
+</script>
+</head>
+<body style="background-color:#f5f5f5">
+	<div id="content">
+		<div class="mainTitle printTitle pt0">
+			<img src="https://twib.anz.com/ibanking/resources/images/printTitle_bg.gif"/>
+		</div>
+		<div class="mainContent">
+			<div class="mainContent">
+				<div class="info" id="INFO_MSG" style="display:none">
+					<div class="clear0px">&nbsp;</div>
+					<div class="accountArea">
+						<img src="https://twib.anz.com/ibanking/resources/images/warning_head.gif" width="916" height="4"  style="display:block; float:left"/>
+						<div class="warningWBg">null &nbsp;&nbsp;&nbsp; null</div>
+						<img src="https://twib.anz.com/ibanking/resources/images/warning_bottom.gif" width="916" height="4" style="display:block; float:left"/>
+					</div>
+					<div class="mt30">&nbsp;</div>
+				</div>
+				<div class="clear0px">&nbsp;</div>
+				<div class="accountArea depositArea">
+					<form id="tabChangeForm" action="/ibanking/cat2/IB99050101">
+						<ul class="accountTagTab p0 floLeft">
+							<li id="active01"><a href="javascript:void(0);" onClick="tab_change('1');">基金總覽</a>&nbsp;&nbsp;|</li>
+							<li id="active02"><a href="javascript:void(0);" onClick="tab_change('2');">依風險屬性瀏覽</a>&nbsp;&nbsp;|</li>
+						</ul>
+						<input type="text" class="longTimeNoSee" id="tabChange" name="tabChange"/>
+					</form>
+					<span class="updateTime">資料上傳時間:2015/10/27  09:01:08</span>
+					<div style="clear: both"></div>
+					<div class="grayLine916">&nbsp;</div>
+					<div>
+						<div id="tab01" class="mb10">
+							<form id="IB99050101Form" action="/ibanking/cat2/IB99050102">
+								<div class="stepSelect">
+									<h5>基金篩選:</h5>
+									<span class="ibselect table_noml table_flo m0">
+										<select id="FundSelector_1" name="formBean.fundSelector" onchange="changeFundSelector('1');">
+											<option value="00" >基金區域</option>
+											<option value="1" >境外基金</option>
+											<option value="2" selected>境內基金</option>
+										</select>
+										<input id="userLocale_1" name="userLocale_1" type="text" class="longTimeNoSee" value="zh_TW"/>
+									</span> 
+									<span id="comp_default_1" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_default_1" name="comp_code_default_1">
+											<option value="00">基金公司</option>
+										</select>
+									</span>
+									<span id="comp_FMC_1" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_FMC_1" name="comp_code_FMC_1" onchange="cleanSelecter('1',this.value)">
+											<option value="00" >基金公司</option>
+											<option value="03" > 法銀巴黎證券投資顧問 </option>
+											<option value="06" > 德意志資產管理公司   </option>
+											<option value="07" > 荷寶投資管理集團 (   </option>
+											<option value="12" > 安泰證券投資信託股份 </option>
+											<option value="14" > 瀚亞投資 ( 新加坡 )  </option>
+											<option value="15" > 聯博證券投資信託股份 </option>
+											<option value="16" > 聯博證券投資信託股份 </option>
+											<option value="19" > 摩根證券股份有限公司 </option>
+											<option value="21" > 富達證券股份有限公司 </option>
+											<option value="22" > 美盛證券投資顧問股份 </option>
+											<option value="23" > 亨德森基金管理盧森堡 </option>
+											<option value="25" > 宏利證券投資信託股份 </option>
+											<option value="26" > 聯博證券投資信託股份 </option>
+											<option value="27" > 摩根證券投資信託股份 </option>
+											<option value="31" > 景順投信             </option>
+											<option value="33" > 安本國際證券投資顧問 </option>
+											<option value="34" >SAM 資產管理公司      </option>
+											<option value="36" > 鋒裕投資             </option>
+											<option value="37" > 鋒裕投資             </option>
+											<option value="41" > 施羅德證券投資信託股 </option>
+											<option value="42" > 施羅德證券投資信託股 </option>
+											<option value="43" > 施羅德證券投資信託股 </option>
+											<option value="48" > 百達資產管理公司     </option>
+											<option value="51" > 富蘭克林證券投顧公司 </option>
+											<option value="57" > 德盛安聯資產管理     </option>
+											<option value="58" > 德盛安聯資產管理     </option>
+											<option value="61" > 貝萊德證券投資顧問   </option>
+											<option value="70" > 霸菱證券投資顧問股份 </option>
+											<option value="80" > 高盛資產管理公司     </option>
+											<option value="85" > 駿利資產管理集團     </option>
+											<option value="86" > 駿利資產管理集團     </option>
+											<option value="AL" > 安聯環球投資亞太     </option>
+											<option value="BA" > 霸菱證券投資顧問股份 </option>
+											<option value="BP" > 法銀巴黎投資         </option>
+											<option value="PA" >PA                    </option>
+											<option value="PB" >PB                    </option>
+											<option value="PC" >PC                    </option>
+										</select>
+									</span>
+									<span id="comp_MC_1" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_MC_1" name="comp_code_MC_1" onchange="cleanSelecter('1',this.value)">
+											<option value="00" >基金公司</option>
+											<option value="04" selected> 德銀遠東證券投資信託 </option>
+											<option value="05" > 施羅德證券投資信託股 </option>
+											<option value="09" > 野村證券投資信託股份 </option>
+											<option value="11" > 摩根證券投資信託股份 </option>
+											<option value="13" > 富蘭克林華美證券投資 </option>
+											<option value="17" > 聯博證券投資信託股份 </option>
+											<option value="18" > 永豐證券投資信託股份 </option>
+											<option value="24" > 宏利證券投資信託股份 </option>
+											<option value="32" > 景順投信             </option>
+											<option value="55" > 德盛安聯投資信託     </option>
+											<option value="62" > 統一證券投資信託股份 </option>
+											<option value="64" > 台新證券投資信託股份 </option>
+											<option value="65" > 兆豐國際證券投資信託 </option>
+											<option value="66" > 新光證券投資信託股份 </option>
+											<option value="67" > 貝萊德證券投資信託股 </option>
+											<option value="68" > 柏瑞證券投資信託股份 </option>
+											<option value="69" > 日盛證券投資信託股份 </option>
+											<option value="71" > 富邦證券投資信託股份 </option>
+											<option value="72" > 第一金證券投資信託   </option>
+											<option value="73" > 群益證券投資信託股份 </option>
+											<option value="74" > 德信證券投資信託股份 </option>
+											<option value="75" > 瀚亞證券投資信託股份 </option>
+											<option value="76" > 華頓證券投資信託股份 </option>
+											<option value="77" > 保德信證券投資信託股 </option>
+											<option value="78" > 國泰證券投資信託     </option>
+											<option value="79" > 元大寶來證券投資信託 </option>
+										</select>
+									</span>
+									<h5>&nbsp;或</h5>
+									<span class="ibselect table_flo m0">
+										<input name="fundText_1" type="text" class="nolabel" id="fundText_1" value="請輸入基金代碼或名稱" onFocus="if(this.value=='請輸入基金代碼或名稱') this.value=''" onBlur="if(this.value=='') this.value='請輸入基金代碼或名稱'" onChange="cleanSelecter_keyword('1',this.value)">
+										<input type="text" class="longTimeNoSee" id="selector_1" name="selector_1" value="2"/>
+										<input type="text" class="longTimeNoSee" id="FirstFlag_1" name="FirstFlag_1" value="true"/>
+									</span>
+									<input type="text" class="longTimeNoSee" id="fundText_formBean_1" name="formBean.fundText"/> 
+									<a class="actionBtnS floLeft mt0" href="#" onclick="formSubmit('1');" title="搜尋">&nbsp;搜尋&nbsp;</a>
+								</div>
+								<input type="text" class="longTimeNoSee" id="tab" name="tab" value="1"/>
+							</form>
+							<div class="reserveAccount">
+								<table id="IB99050101myTable" border="0" cellpadding="0" cellspacing="0" class="tableStyle_DetailList">
+									<tr>
+										<th col='a_1' width="40%" class="tdAlign_left" onclick="sortTable1.sortColumn(this.cellIndex,'01');">
+											<span>基金代碼/名稱
+												<a id="title01_arrow" class="sortArrow"><img src="https://twib.anz.com/ibanking/resources/images/empty.gif" width="17" height="18" border="0" /></a>
+											</span> 
+										</th>
+										<th col='a_2' width="15%" class="tdAlign_center" onclick="sortTable1.sortColumn(this.cellIndex,'02');">
+											<span>風險級別&nbsp;
+												<a id="title02_arrow" class="sortArrow"><img src="https://twib.anz.com/ibanking/resources/images/empty.gif" width="17" height="18" border="0" /></a>
+											</span> 
+										</th>
+										<th width="15%" class="tdAlign_center" onclick="sortTable1.sortColumn(this.cellIndex,'03')">
+											<span>幣別&nbsp;
+												<a id="title03_arrow" class="sortArrow"><img src="https://twib.anz.com/ibanking/resources/images/empty.gif" width="17" height="18" border="0" /></a>
+											</span>
+										</th>
+										<th col='a_4' width="15%" class="tdAlign_center" onclick="sortTable1.sortColumn(this.cellIndex,'04');">
+											<span>最新淨值&nbsp;
+												<a id="title04_arrow" class="sortArrow"><img src="https://twib.anz.com/ibanking/resources/images/empty.gif" width="17" height="18" border="0" /></a>
+											</span>
+										</th>
+										<th col='a_5' width="15%" class="tdAlign_center" onclick="sortTable1.sortDate(this.cellIndex,'05');">
+											<span>淨值日期&nbsp; 
+												<a id="title05_arrow" class="sortArrow"><img src="https://twib.anz.com/ibanking/resources/images/empty.gif" width="17" height="18" border="0" /></a>
+											</span>
+										</th>
+									</tr>
+									<tr>
+										<td class="content_1 tdAlign_left">0401  德遠原物料能源限私銀</td>
+										<td class="content_1 tdAlign_center"></td>
+										<td class="content_1 tdAlign_center">臺幣</td>
+										<td class="content_1 tdAlign_center">17.1400</td>
+										<td class="content_1 tdAlign_center">2015/10/22</td>
+									</tr>
+									<tr>
+										<td class="content_1 tdAlign_left">0402  德遠台灣貨幣限私銀</td>
+										<td class="content_1 tdAlign_center"></td>
+										<td class="content_1 tdAlign_center">臺幣</td>
+										<td class="content_1 tdAlign_center">11.5363</td>
+										<td class="content_1 tdAlign_center">2015/10/23</td>
+									</tr>
+								</table>
+								<div class="pageBtn"></div>
+							</div>
+							<div class="clear0px"></div>
+						</div>
+						<div id="tab02" class="mb10">
+							<form id="IB99050102Form" action="/ibanking/cat2/IB99050103">
+								<table border="0" cellspacing="0" cellpadding="0" class="stepSelect grayBg reserveAccount">
+									<tr>
+										<td width="48%">
+											<h5>瀏覽不同的風險屬性:</h5>
+											<span class="ibselect table_noml table_flo m0">
+											<select id="risk" name="risk" onchange="changeRisk();">
+											<option value="00" >請選擇</option>
+											<option value="5" >C1 非常保守型投資者</option>
+											<option value="6" >C2 保守型投資者</option>
+											<option value="7" >C3 穩健型投資者</option>
+											<option value="8" >C4 成長型投資者</option>
+											<option value="9" >C5 積極進取型投資者</option>
+											</select>
+											</span>
+											<input id="formBeans_risk" name="formBeans.risk" type="text" class="longTimeNoSee" value=""/>
+											<input type="text" class="longTimeNoSee" name="riskHidden" id="riskHidden" value="">
+										</td>
+									</tr>
+								</table>
+								<div class="clear0px"></div>
+								<div class="grayLineLight916">&nbsp;</div>
+								<div class="stepSelect">
+									<h5>基金篩選:</h5>
+									<span class="ibselect table_noml table_flo m0">
+										<select id="FundSelector_2" name="formBeans.fundSelector" onchange="changeFundSelector('2');">
+											<option value="00" selected>基金區域</option>
+											<option value="1" >境外基金</option>
+											<option value="2" >境內基金</option>
+										</select>
+										<input id="userLocale_2" name="userLocale_2" type="text" class="longTimeNoSee" value="zh_TW"/>
+									</span> 
+									<span id="comp_default_2" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_default_2" name="comp_code_default_2">
+											<option value="00">基金公司</option>
+										</select>
+									</span>
+									<span id="comp_FMC_2" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_FMC_2" name="comp_code_FMC_2" onchange="cleanSelecter('2',this.value)">
+											<option value="00" >基金公司</option>
+											<option value="03" > 法銀巴黎證券投資顧問 </option>
+											<option value="06" > 德意志資產管理公司   </option>
+											<option value="07" > 荷寶投資管理集團 (   </option>
+											<option value="12" > 安泰證券投資信託股份 </option>
+											<option value="14" > 瀚亞投資 ( 新加坡 )  </option>
+											<option value="15" > 聯博證券投資信託股份 </option>
+											<option value="16" > 聯博證券投資信託股份 </option>
+											<option value="19" > 摩根證券股份有限公司 </option>
+											<option value="21" > 富達證券股份有限公司 </option>
+											<option value="22" > 美盛證券投資顧問股份 </option>
+											<option value="23" > 亨德森基金管理盧森堡 </option>
+											<option value="25" > 宏利證券投資信託股份 </option>
+											<option value="26" > 聯博證券投資信託股份 </option>
+											<option value="27" > 摩根證券投資信託股份 </option>
+											<option value="31" > 景順投信             </option>
+											<option value="33" > 安本國際證券投資顧問 </option>
+											<option value="34" >SAM 資產管理公司      </option>
+											<option value="36" > 鋒裕投資             </option>
+											<option value="37" > 鋒裕投資             </option>
+											<option value="41" > 施羅德證券投資信託股 </option>
+											<option value="42" > 施羅德證券投資信託股 </option>
+											<option value="43" > 施羅德證券投資信託股 </option>
+											<option value="48" > 百達資產管理公司     </option>
+											<option value="51" > 富蘭克林證券投顧公司 </option>
+											<option value="57" > 德盛安聯資產管理     </option>
+											<option value="58" > 德盛安聯資產管理     </option>
+											<option value="61" > 貝萊德證券投資顧問   </option>
+											<option value="70" > 霸菱證券投資顧問股份 </option>
+											<option value="80" > 高盛資產管理公司     </option>
+											<option value="85" > 駿利資產管理集團     </option>
+											<option value="86" > 駿利資產管理集團     </option>
+											<option value="AL" > 安聯環球投資亞太     </option>
+											<option value="BA" > 霸菱證券投資顧問股份 </option>
+											<option value="BP" > 法銀巴黎投資         </option>
+											<option value="PA" >PA                    </option>
+											<option value="PB" >PB                    </option>
+											<option value="PC" >PC                    </option>
+										</select>
+									</span>
+									<span id="comp_MC_2" class="ibselect table_noml table_flo m0" style="display:none">
+										<select id="comp_code_MC_2" name="comp_code_MC_2" onchange="cleanSelecter('2',this.value)">
+											<option value="00" >基金公司</option>
+											<option value="04" > 德銀遠東證券投資信託 </option>
+											<option value="05" > 施羅德證券投資信託股 </option>
+											<option value="09" > 野村證券投資信託股份 </option>
+											<option value="11" > 摩根證券投資信託股份 </option>
+											<option value="13" > 富蘭克林華美證券投資 </option>
+											<option value="17" > 聯博證券投資信託股份 </option>
+											<option value="18" > 永豐證券投資信託股份 </option>
+											<option value="24" > 宏利證券投資信託股份 </option>
+											<option value="32" > 景順投信             </option>
+											<option value="55" > 德盛安聯投資信託     </option>
+											<option value="62" > 統一證券投資信託股份 </option>
+											<option value="64" > 台新證券投資信託股份 </option>
+											<option value="65" > 兆豐國際證券投資信託 </option>
+											<option value="66" > 新光證券投資信託股份 </option>
+											<option value="67" > 貝萊德證券投資信託股 </option>
+											<option value="68" > 柏瑞證券投資信託股份 </option>
+											<option value="69" > 日盛證券投資信託股份 </option>
+											<option value="71" > 富邦證券投資信託股份 </option>
+											<option value="72" > 第一金證券投資信託   </option>
+											<option value="73" > 群益證券投資信託股份 </option>
+											<option value="74" > 德信證券投資信託股份 </option>
+											<option value="75" > 瀚亞證券投資信託股份 </option>
+											<option value="76" > 華頓證券投資信託股份 </option>
+											<option value="77" > 保德信證券投資信託股 </option>
+											<option value="78" > 國泰證券投資信託     </option>
+											<option value="79" > 元大寶來證券投資信託 </option>
+										</select>
+									</span>
+									<h5>&nbsp;或</h5>
+									<span class="ibselect table_flo m0"> 
+										<input name="fundText_2" type="text" class="nolabel" id="fundText_2" value="請輸入基金代碼或名稱" onFocus="if(this.value=='請輸入基金代碼或名稱') this.value=''" onBlur="if(this.value=='') this.value='請輸入基金代碼或名稱'" onChange="cleanSelecter_keyword('2',this.value)">					
+										<input type="text" class="longTimeNoSee" id="selector_2" name="selector_2" value="00"/>
+										<input type="text" class="longTimeNoSee" id="FirstFlag_2" name="FirstFlag_2" value="false"/>
+									</span> 
+									<input type="text" class="longTimeNoSee" id="fundText_formBean_2" name="formBeans.fundText"/> 
+									<a class="actionBtnS floLeft mt0" href="#" onclick="formSubmit('2');" title="搜尋">&nbsp;搜尋&nbsp;</a>
+								</div>
+								<input type="text" class="longTimeNoSee" id="tab" name="tab" value="2"/>
+							</form>
+							<div class="reserveAccount">
+								<table id="IB99050102myTable" border="0" cellpadding="0" cellspacing="0" class="tableStyle_DetailList">
+									<tr>
+										<th width="40%" class="tdAlign_left">
+											<span>基金代碼/名稱</span> 
+										</th>
+										<th width="15%" class="tdAlign_center">
+											<span>風險級別</span> 
+										</th>
+										<th width="15%" class="tdAlign_center">
+											<span>幣別</span> 
+										</th>
+										<th width="15%" class="tdAlign_center">
+											<span>最新淨值</span> 
+										</th>
+										<th width="15%" class="tdAlign_center">
+											<span>淨值日期</span> 
+										</th>
+									</tr>
+									<tr>
+										<td colspan="5" class="content_1 empty">- 目前沒有任何基金淨值資訊  -</td>
+									</tr>
+								</table>
+								<div class="pageBtn"></div>
+							</div>
+							<div class="clear0px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="kbb">
+				<img src="https://twib.anz.com/ibanking/resources/images/mainContentBottom.gif" />
+			</div>
+			<div style="clear: both"></div>
+			<div class="depositNote">
+				<img src="https://twib.anz.com/ibanking/resources/images/mainContentHead.gif" />
+				<div id="depositNote_Hide">
+					<div class="depositNote_Open" id="note">
+						<a href="#note">注意事項</a>
+					</div>
+				</div>
+				<div id="depositNote_Show">
+					<div class="depositNote_Close">
+						<span><a href="#depositNote_Show">注意事項</a></span>
+					</div>
+					<ul>
+						<li>由於各國股市收盤時間不一，以上淨值僅供參考。實際交易價格以交易完成後，本行出具之確認書上所載為準。</li>
+						<li>所謂基金淨值，簡言之，即是在收盤後依當日基金資產總值，扣除所有成本，再除以總單位數，即為基金淨值。通常，基金淨值必需在次一營業日才能計算出， 不是在買賣當時可以獲知，本身並不具即時性。本網路銀行致力提供最更新，最完整之資訊，若您有任何疑問，請洽本行24小時客戶服務中心(02)2778-9999查詢。</li>
+						<li>雙向報價之德盛德利系列基金有買賣價差，於本行網站所顯示之淨值為贖回價格。實際交易價格應以交易確認書為準。</li>
+						<li>本境外基金經行政院金融監督管理委員會核准或申報生效在國內募集及銷售，惟不表示絕無風險。基金經理公司以往之經理績效不保證基金之最低投資收益；投資人申購前應詳閱基金公開說明書。</li>
+					</ul>
+				</div>
+				<img src="https://twib.anz.com/ibanking/resources/images/mainContentBottom.gif" />
+			</div>
+			<script>
+				var sortTable1 = new sortTable('IB99050101myTable');
+				var dividePate1 = new dividePage('IB99050101myTable',20);
+				var control_flag = '';
+					control_flag = '1';
+				
+				IB99_display_control(control_flag);
+			</script>
+		</div>
+	</div>
+</body>
+</html>

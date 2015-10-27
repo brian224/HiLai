@@ -26,12 +26,12 @@ $(document).ready(function(){
 
 	$btnLoginNormal.on('click', function(){
 		var $this       = $(this),
-			_ss_numbers = $this.siblings('.ss-numbers').val(),
-			_user_id    = $this.siblings('.user-id').val();
+			_ss_numbers = $this.siblings('.label').find('.ss-numbers').val(),
+			_user_id    = $this.siblings('.label').find('.user-id').val();
 
 		if (navigator.userAgent.indexOf('MSIE 8.0') > 0) {
-			var _ss_numbers_hint = $this.siblings('.ss-numbers').attr('placeholder'),
-				_user_id_hint    = $this.siblings('.user-id').attr('placeholder');
+			var _ss_numbers_hint = $this.siblings('.label').find('.ss-numbers').attr('placeholder'),
+				_user_id_hint    = $this.siblings('.label').find('.user-id').attr('placeholder');
 
 			if (_ss_numbers !== _ss_numbers_hint && _user_id !== _user_id_hint) {
 				$switchArea.addClass('next-step');
@@ -50,6 +50,13 @@ $(document).ready(function(){
 	});
 
 	$('.fancybox').fancybox({
-		'width' : 850
+		width : 850
+	});
+
+	$('.fancybox-navQuery').fancybox({
+		width      : 1000,
+		minHeight  : 640,
+		fitToView  : true,
+		autoResize : true
 	});
 });
