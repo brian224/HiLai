@@ -244,8 +244,16 @@ a:hover {
 /* screen width < 768 */
 /* import page scss begin */
 /* import page scss end */
+body {
+  background: #f5f5f5;
+}
+
 .mainTitle.printTitle {
   height: 67px;
+}
+
+#INFO_MSG {
+  display: none;
 }
 
 @media only screen and (max-width: 980px) {
@@ -255,6 +263,23 @@ a:hover {
     box-sizing: border-box;
     padding: 0 5px 5px 5px;
     width: 100%;
+  }
+
+  ul.accountTagTab li {
+    position: relative;
+  }
+  ul.accountTagTab li.active {
+    background: none !important;
+  }
+  ul.accountTagTab li.active:after {
+    content: '';
+    margin-left: -4px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #7b7b7b;
+    border-left: 4px solid transparent;
   }
 
   .mainTitle.printTitle {
@@ -273,13 +298,20 @@ a:hover {
   .mainContent .mainContent {
     box-shadow: 2px 0 2px rgba(0, 0, 0, 0.1), -2px 0 2px rgba(0, 0, 0, 0.1);
   }
+  .mainContent .accountArea {
+    margin: 20px 10px;
+    width: auto;
+  }
+  .mainContent .accountArea img {
+    display: none;
+  }
   .mainContent .depositArea {
     width: auto;
   }
   .mainContent .depositArea span.updateTime {
     padding-right: 10px;
   }
-  .mainContent .grayLine916 {
+  .mainContent .grayLine916, .mainContent .grayLineLight916, .mainContent .grayLineLight {
     width: 100%;
   }
 
@@ -288,14 +320,18 @@ a:hover {
   }
 
   .reserveAccount {
-    margin: 0 10px;
-    width: auto;
+    width: 100%;
     float: none;
     overflow: hidden;
   }
 
   table.tableStyle_DetailList {
     width: 100%;
+  }
+  table.tableStyle_DetailList th {
+    background-image: -webkit-linear-gradient(#ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(#ffffff, #eeeeee);
+    background-image: linear-gradient(#ffffff, #eeeeee);
   }
   table.tableStyle_DetailList th, table.tableStyle_DetailList td {
     word-break: break-word;
@@ -317,6 +353,16 @@ a:hover {
   #depositNote_Hide, #depositNote_Show {
     background: #fff;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .warningWBg {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background: #fddbdb;
+    width: 100%;
+    border: 1px solid #f7b8b8;
+    border-radius: 3px;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -348,6 +394,9 @@ a:hover {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    width: 100%;
+  }
+  .ibselect .selector select {
     width: 100%;
   }
   .ibselect .nolabel {

@@ -465,9 +465,16 @@ a:hover {
   }
 }
 @media only screen and (max-width: 480px) {
+  .moreBox {
+    position: relative;
+  }
+  .moreBox ul.accountTag {
+    margin-top: 30px;
+  }
   .moreBox span.updateTime {
     display: block;
     float: none;
+    position: absolute;
   }
   .moreBox .exRateBox_blue {
     padding: 4px 10px;

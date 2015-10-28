@@ -234,9 +234,16 @@
 
 @media only screen and (max-width: 480px) {
 	.moreBox {
+		position : relative;
+
+		ul.accountTag {
+			margin-top : 30px;
+		}
+
 		span.updateTime {
-			display : block;
-			float   : none;
+			display  : block;
+			float    : none;
+			position : absolute;
 		}
 
 		.exRateBox_blue {
