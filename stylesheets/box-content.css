@@ -468,6 +468,9 @@ a:hover {
   .moreBox {
     position: relative;
   }
+  .moreBox.exRateBox h3 {
+    margin-bottom: 34px;
+  }
   .moreBox ul.accountTag {
     margin-top: 30px;
   }

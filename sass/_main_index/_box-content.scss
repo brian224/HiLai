@@ -236,6 +236,10 @@
 	.moreBox {
 		position : relative;
 
+		&.exRateBox h3 {
+			margin-bottom : 34px;
+		}
+
 		ul.accountTag {
 			margin-top : 30px;
 		}

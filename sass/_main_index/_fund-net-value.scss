@@ -6,6 +6,37 @@
 	height : 67px;
 }
 
+.mainContent ul.accountTagTab1 {
+	padding     : 0 0 0 20px;
+	width       : auto;
+	height      : 25px;
+	color       : #b5b5b5;
+	font-size   : 13px;
+	line-height : 18px;
+
+	li {
+		margin-left : 10px;
+		height      : 26px;
+		position    : relative;
+		float       : left;
+
+		&.active {
+			background : none !important;
+
+			&:after {
+				content       : '';
+				margin-left   : -4px;
+				position      : absolute;
+				bottom        : 0;
+				left          : 50%;
+				border-right  : 4px solid transparent;
+				border-bottom : 4px solid #7b7b7b;
+				border-left   : 4px solid transparent;
+			}
+		}
+	}
+}
+
 #INFO_MSG {
 	display : none;
 }
