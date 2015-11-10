@@ -160,6 +160,10 @@
 	}
 
 	&.exRateBox table {
+		tr th {
+			width : 33%;
+		}
+
 		input, img {
 			margin-right   : 5px;
 			vertical-align : middle;
@@ -222,7 +226,7 @@
 		.exRateBox_blue {
 			padding-bottom : 10px;
 
-			img {
+			> img {
 				margin            : 0 0 0 90px;
 				display           : block;
 				-webkit-transform : rotate(90deg);

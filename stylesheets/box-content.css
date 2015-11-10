@@ -394,6 +394,9 @@ a:hover {
   padding: 2px 0;
   text-align: center;
 }
+.moreBox.exRateBox table tr th {
+  width: 33%;
+}
 .moreBox.exRateBox table input, .moreBox.exRateBox table img {
   margin-right: 5px;
   vertical-align: middle;
@@ -457,7 +460,7 @@ a:hover {
   .moreBox .exRateBox_blue {
     padding-bottom: 10px;
   }
-  .moreBox .exRateBox_blue img {
+  .moreBox .exRateBox_blue > img {
     margin: 0 0 0 90px;
     display: block;
     -webkit-transform: rotate(90deg);

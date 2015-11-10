@@ -195,8 +195,7 @@
 		}
 
 		.switch-body {
-			min-height : 252px;
-			position   : relative;
+			position : relative;
 
 			.switch-area {
 				&.next-step {
@@ -206,6 +205,12 @@
 
 					.step.step2 {
 						display : block;
+
+						.btn.btn-confirm {
+							position : relative;
+							bottom   : auto;
+							left     : auto;
+						}
 					}
 				}
 
@@ -249,10 +254,6 @@
 				font-size     : 16px;
 				line-height   : 40px;
 				text-indent   : 10px;
-
-				&.password {
-					margin-top : 58px;
-				}
 			}
 
 			.comment-box {
@@ -687,6 +688,12 @@
 				bottom : auto;
 			}
 
+			.service-title {
+				em, .link {
+					padding-left : 36px;
+				}
+			}
+
 			.switch-body {
 				height : auto;
 
@@ -719,10 +726,6 @@
 				.inputBox {
 					@include box-sizing(border-box);
 					width : 100%;
-
-					&.password {
-						margin-bottom : 58px;
-					}
 				}
 
 				.comment-box {
@@ -757,9 +760,8 @@
 				.btn {
 					&.btn-login-normal {
 						margin  : 0;
-						display : block;
+						display : inline-block;
 						width   : 49%;
-						float   : left;
 					}
 
 					&.btn-confirm {
@@ -772,42 +774,15 @@
 
 				.card-login-box {
 					margin  : 0;
-					display : block;
+					display : inline-block;
 					width   : 49%;
-					float   : right;
 
 					.btn-login-debit {
 						width : 100%;
 					}
 
-					.comment-box {
-						margin-top: 5px;
-						margin-bottom: 5px;
-						padding-left        : 40px;
-						display             : block;
-						background-position : 15px 20px;
-						background-size     : 20px 40px;
-						min-width           : 220px;
-						position            : relative;
-						top                 : auto;
-						bottom              : auto;
-						left                : auto;
-						right               : auto;
-						border              : 1px solid #ccc;
-						box-shadow          : none;
-						text-align          : center;
-
-						&:before, &:after {
-							top           : -8px;
-							bottom        : auto;
-							border-top    : none;
-							border-bottom : 8px solid #fff;
-						}
-
-						&:before {
-							top           : -9px;
-							border-bottom : 9px solid #ccc;
-						}
+					&:hover .comment-box, .comment-box {
+						display : none;
 					}
 				}
 			}
