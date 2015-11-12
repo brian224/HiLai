@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var $kvSlider       = $('.key-visual'),
 		$btnLoginNormal = $('.btn-login-normal'),
+		$btnCancel      = $('.btn-cancel'),
 		$switchArea     = $('.switch-area'),
 		$label          = $('.label');
 
@@ -47,6 +48,10 @@ $(document).ready(function(){
 		} else if (_ss_numbers !== '' && _user_id !== '') {
 			$switchArea.addClass('next-step');
 		}
+	});
+
+	$btnCancel.on('click', function(){
+		$switchArea.removeClass('next-step');
 	});
 
 	$('.fancybox').fancybox({

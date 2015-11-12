@@ -347,10 +347,14 @@
 				}
 
 				&.btn-confirm {
-					width    : 256px;
+					width    : 49%;
 					position : absolute;
 					bottom   : 24px;
 					left     : 27px;
+				}
+
+				&.btn-cancel {
+					width : 49%;
 				}
 			}
 
@@ -757,19 +761,10 @@
 					}
 				}
 
-				.btn {
-					&.btn-login-normal {
-						margin  : 0;
-						display : inline-block;
-						width   : 49%;
-					}
-
-					&.btn-confirm {
-						width    : 100%;
-						position : relative;
-						top      : 0;
-						left     : 0;
-					}
+				.btn.btn-login-normal {
+					margin  : 0;
+					display : inline-block;
+					width   : 49%;
 				}
 
 				.card-login-box {
@@ -915,9 +910,15 @@
 		.login-wrap {
 			background : image-url('index/for-ie8/op85-w.png');
 			
-			.switch-body .comment-box {
-				width  : 264px;
-				border : 1px solid #ccc;
+			.switch-body {
+				.comment-box {
+					width  : 264px;
+					border : 1px solid #ccc;
+				}
+
+				.btn.btn-login-normal {
+					margin-right : 5px;
+				}
 			}
 		}
 
