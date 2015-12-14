@@ -1214,6 +1214,7 @@ footer ul.footer-links + p.copyright {
   height: 60px;
   color: #003f63;
   font-size: 26px;
+  letter-spacing: 7px;
   line-height: 60px;
   text-align: center;
 }
@@ -1406,7 +1407,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .login-wrap .switch-body .btn {
   width: 122px;
   min-width: 0;
-  height: 44px;
+  height: 38px;
   font-family: '微軟正黑體';
 }
 .index-banner .login-wrap .switch-body .btn.btn-login-normal {
@@ -1511,7 +1512,7 @@ footer ul.footer-links + p.copyright {
 .index-banner .fast-links .list .link:before, .index-banner .fast-links .list .link:after {
   content: '';
   margin: 0 0 0 -56px;
-  background: #0294c9;
+  background: #5bc6e8;
   display: block;
   width: 112px;
   height: 112px;
@@ -1519,12 +1520,13 @@ footer ul.footer-links + p.copyright {
   top: 0;
   left: 50%;
   border-radius: 56px;
-  opacity: 0.25;
+  opacity: 0.4;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
 .index-banner .fast-links .list .link:after {
+  background: #0294c9;
   margin: 5px 0 0 -51px;
   width: 102px;
   height: 102px;
@@ -1885,7 +1887,7 @@ footer ul.footer-links + p.copyright {
   }
 }
 .lt-ie9 .index-banner:after {
-  background: url('../images/index/for-ie8/op70-w.png?1442922606');
+  background: url('../images/index/for-ie8/op50-w.png?1448878524');
 }
 .lt-ie9 .index-banner .login-wrap {
   background: url('../images/index/for-ie8/op85-w.png?1442922606');
@@ -1896,6 +1898,9 @@ footer ul.footer-links + p.copyright {
 }
 .lt-ie9 .index-banner .login-wrap .switch-body .btn.btn-login-normal {
   margin-right: 5px;
+}
+.lt-ie9 .index-banner .key-visual {
+  z-index: -1;
 }
 .lt-ie9 .index-banner .key-visual .wording {
   background: url('../images/index/for-ie8/op50-b.png?1442922606');
