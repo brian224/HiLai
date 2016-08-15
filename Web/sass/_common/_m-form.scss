@@ -1,0 +1,51 @@
+.m-select-box {
+	background: #fff;
+	display: inline-block;
+	position: relative;
+	border: 1px solid $color-gray-l-p30;
+	@include box-sizing(border-box);
+
+	&.select-time .m-selection {
+		padding-left: 45px;
+	}
+
+	&:after {
+		content: '';
+		margin-top: -3px;
+		display: block;
+		position: absolute;
+		top: 50%;
+		right: 12px;
+		border-top: 6px solid #ff4b4b;
+		border-right: 5px solid transparent;
+		border-left: 5px solid transparent;
+	}
+
+	.m-icon {
+		margin-top: -12px;
+		position: absolute;
+		top: 50%;
+		left: 13px;
+		color: $color-gray-l-p30;
+		font-size: 24px;
+		line-height: 24px;
+	}
+
+	.m-selection {
+		padding: 0 36px 0 15px;
+		height: 46px;
+		border: 0;
+		cursor: pointer;
+		color: $color-gray-d-p10;
+		font-size: 16px;
+		line-height: 46px;
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

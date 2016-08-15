@@ -1,0 +1,98 @@
+.l-body {
+	overflow-x: hidden;
+}
+
+.l-header {
+	margin-left: -608px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	z-index: 5;
+}
+
+.l-guide {
+	padding: 0 18px 0 12px;
+	background: rgba(83, 83, 83, 0.4);
+	height: 64px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2;
+
+	.m-btn {
+		height: 48px;
+		color: #fff;
+		font-size: 20px;
+	}
+
+	.m-menu {
+		padding-right: 74px;
+		background: $color-major;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+		white-space: nowrap;
+		@include transition(ease-in all 0.3s);
+		@include transform(rotateY(90deg));
+		@include transform-origin(right);
+
+		&:after {
+			content: '';
+			margin-top: -24px;
+			background: #fff;
+			display: block;
+			width: 1px;
+			height: 48px;
+			position: absolute;
+			top: 50%;
+			right: 74px;
+		}
+
+		&.is-show {
+			@include transform(rotateY(0deg));
+		}
+
+		.list {
+			padding: 0 20px;
+			display: inline-block;
+			font-size: 16px;
+
+			.b-link {
+				display: block;
+				color: #fff;
+
+				&:hover {
+					color: #ffc600;
+				}
+			}
+		}
+	}
+}
+
+.l-nav {
+	margin-right: 18px;
+	padding-right: 20px;
+	display: inline-block;
+	height: 48px;
+	border-right: 1px solid #d2d2d2;
+
+	.m-btn {
+		width: 40px;
+	}
+}
+
+.l-main {
+}
+
+.l-footer {
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

@@ -1,0 +1,134 @@
+﻿/* m-icon-stack */
+.m-icon-stack {
+	position : relative;
+	@include inline-block;
+	@include box-sizing(border-box);
+
+	.m-icon {
+		top        : 0;
+		left       : 0;
+		text-align : center;
+		height     : 100%;
+		display    : block;
+
+		&.is-absolute {
+			top      : 0 !important;
+			left     : 0 !important;
+			position : absolute !important;
+			@include display(block !important);
+		}
+
+		&.is-hide {
+			display : none !important;
+		}
+	}
+
+	&.m-icon-taishin-group {
+		.m-icon {
+			white-space : nowrap;
+			@include display(table-cell);
+
+			&.m-icon-logo-img {
+				color : $text-sub-color;
+			}
+
+			&.m-icon-logo-text {
+				color : $minor-color;
+			}
+		}
+	}
+}
+
+@include respond(Desktops) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-md-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
+	.m-icon-stack {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-md-#{$types} {
+				.m-icon {
+					font-size : $Size * $types;
+				}
+			}
+
+			$types : $types - 1;
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-sm-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
+	.m-icon-stack {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-sm-#{$types} {
+				.m-icon {
+					font-size : $Size * $types;
+				}
+			}
+
+			$types : $types - 1;
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-icon {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-xs-#{$types} {
+				font-size : $Size * $types;
+			}
+
+			$types : $types - 1;
+		}
+	}
+
+	.m-icon-stack {
+		/* icon-size */
+		$types : 20;
+		$Size  : 12px;
+		@while $types > 0 {
+			&.m-icon-size-xs-#{$types} {
+				.m-icon {
+					font-size : $Size * $types;
+				}
+			}
+
+			$types : $types - 1;
+		}
+	}
+}

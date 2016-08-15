@@ -1,0 +1,360 @@
+﻿/* transition */
+@mixin transition-none {
+	-webkit-transition : none;
+	-moz-transition    : none;
+	-ms-transition     : none;
+	-o-transition      : all 0 ease-in;
+	transition         : none;
+}
+
+/* fixed */
+@mixin fixed {
+	position                   : fixed;
+	-webkit-overflow-scrolling : touch;
+}
+
+@mixin cursor( $cursor : null ) {
+	@if $cursor == grab {
+		cursor : -webkit-grab;
+		cursor : -moz-grab;
+		cursor : -ms-grab;
+		cursor : -o-grab;
+		cursor : grab;
+	} @else if $cursor == grabbing {
+		cursor : -webkit-grabbing;
+		cursor : -moz-grabbing;
+		cursor : -ms-grabbing;
+		cursor : -o-grabbing;
+		cursor : grabbing;
+	} @else {
+		cursor : $cursor;
+	}
+}
+
+/* placeholder text */
+@mixin placeholder( $color : $color-placeholder ) {
+	&::-moz-placeholder {
+		color   : $color;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
+		
+	}
+
+	&:-ms-input-placeholder {
+		color : $color;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
+	}
+
+	&::-webkit-input-placeholder { 
+		color : $color;
+		@if $color == transparent {
+			@include opacity(0);
+		} @else {
+			@include opacity(1);
+		}
+	}
+}
+
+@mixin search-clear($attr : null) {
+	@if $attr == none {
+		&::-ms-clear ,
+		&::-ms-reveal {
+			width   : 0;
+			height  : 0;
+			display : none;
+			@include appearance(none);
+		}
+
+		&::-webkit-search-decoration ,
+		&::-webkit-search-cancel-button ,
+		&::-webkit-search-results-button ,
+		&::-webkit-search-results-decoration {
+			display : none;
+			@include appearance(none);
+		}
+	}
+}
+
+@mixin autofill( $background-color : #FFF !important , $color : #CCC !important ) {
+	&::-moz-autofill {
+		color            : $color;
+		background-color : $background-color;
+	}
+
+	&:-ms-autofill {
+		color            : $color;
+		background-color : $background-color;
+	}
+
+	&:-webkit-autofill , &:-webkit-autofill:hover , &:-webkit-autofill:focus { 
+		color            : $color;
+		background-color : $background-color;
+	}
+}
+
+@mixin accordion-icon($type : null) {
+	@if $type == plus {
+		content : "\002B";
+	} @else if $type == minus {
+		content : "\2212";
+	}
+}
+
+/* text-size-adjust */
+@mixin text-size-adjust {
+	-webkit-text-size-adjust : none;
+	-moz-text-size-adjust    : none;
+	-o-text-size-adjust      : none;
+	-ms-text-size-adjust     : none;
+	text-size-adjust         : none;
+}
+
+/* display */
+@mixin display($type , $vertical : middle , $important : null ) {
+	@if $important == true { 
+		display : $type !important;
+	} @else {
+		display : $type;
+	}
+	
+	@if $type != block {
+		vertical-align : $vertical;
+		
+		@if $type == table {
+			table-layout : auto;
+			word-wrap    : break-word;
+			word-break   : break-all;
+		}
+	}
+}
+
+@mixin font-min-size( $size ) {
+	font-size         : #{$size}px;
+	-webkit-transform :scale(($size / 12));
+}
+
+/* touch-action */
+@mixin touch-action {
+	-ms-touch-action    : manipulation;
+	touch-action        : manipulation;
+	-webkit-user-select : none;
+	-moz-user-select    : none;
+	-ms-user-select     : none;
+	user-select         : none;
+}
+
+/* appearance  */
+@mixin appearance( $type : menulist ) {
+	-webkit-appearance : $type;
+	-moz-appearance    : $type;
+	-ms-appearance     : $type;
+	-o-appearance      : $type;
+	appearance         : $type;
+}
+
+@function stroke($stroke , $color) {
+    $shadow : ();
+    $from   : $stroke*-1;
+    @for $i from $from through $stroke {
+       @for $j from $from through $stroke {
+            $shadow : append($shadow , $i * 1px $j * 1px 0 $color , comma);
+        }
+    }
+    @return $shadow;
+}
+
+@mixin stroke($stroke , $color) {
+    @include text-shadow(stroke($stroke, $color));
+}
+
+
+/* disabled */
+@mixin disabled {
+	&:disabled , &[disabled="disabled"] {
+		color  : $color-gray-l-p20 !important;
+		@include cursor(not-allowed);
+		@include text-shadow(rgba($color-white , .75) 1px 1px 0);
+	}
+
+	@at-root {
+		select#{&} {
+			&:read-only {
+				&:disabled , &[disabled="disabled"] {
+					border-color : lighten($color-gray-l-p20 , 5%);
+					@include cursor(not-allowed);
+				}
+			}
+		}
+
+		input#{&} {
+			&:disabled {
+				border-color : lighten($color-gray-l-p20 , 5%);
+				background   : transparent;
+				@include box-shadow(rgba($color-white , .75) 1px 1px 0);
+			}
+
+			&[type="checkbox"] , &[type="radio"] {
+				&:disabled ~ * {
+					color : $color-disabled;
+				}	
+			}
+		}
+	}
+}
+
+/* readonly */
+@mixin readonly {
+	&:read-only {
+		border-color : lighten($color-disabled , 20%);
+		@include cursor(not-allowed);
+	}
+
+	&:-moz-read-only {
+		border-color : lighten($color-disabled , 20%);
+		@include cursor(not-allowed);
+	}
+
+	@at-root {
+		select#{&} {
+			&:read-only {
+				@include cursor(auto);
+			}
+
+			&:-moz-read-only {
+				@include cursor(auto);
+			}
+		}
+	}
+}
+
+/* button default */
+@mixin button-default {
+	margin         : 0;
+	padding        : 0;
+	font-size      : inherit;
+	border         : 0;
+	border-spacing : 0;
+	position       : relative;
+	background     : none;
+	outline        : 0;
+	cursor         : pointer;
+	text-indent    : 0;
+	text-rendering : auto;
+	text-transform : none;
+	speak          : none;
+	@include transform(translate(0, 0));
+	@include touch-action;
+
+	@at-root {
+		button {
+			font-family : $font-family;
+		}
+	}
+}
+
+/* browsers */
+@mixin browsers($browsers) {
+	@if $browsers == 'IE8' {
+		@media \0screen { @content; }
+	} @else if $browsers == 'IE9' {
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
+	} @else if $browsers == 'IE8&IE9' {
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
+		@media \0screen { @content; }
+	} @else if $browsers == 'IE' {
+		@media screen\0 { @content; }
+	} @else if $browsers == 'FireFox' {
+		@-moz-document url-prefix() { @content; }
+	} @else if $browsers == 'Chrome' {
+		@media screen and ( -webkit-min-device-pixel-ratio : 0 ) { @content; }
+	}
+}
+
+/* devices */
+@mixin devices( $devices ) {
+	@if $devices == 'l-pad' {
+		@media only screen and ( min-device-width : 1024px ) and ( max-device-width : 1366px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : landscape ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+	} @else if $devices == 'p-pad' {
+		@media only screen and ( min-device-width : 1024px ) and ( max-device-width : 1366px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : portrait ) { @content; }
+		@media only screen and ( min-device-width : 768px ) and ( max-device-width : 1024px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+	} @else if $devices == 'iphone' {
+		@media only screen and ( min-device-width : 320px ) and ( max-device-width : 359px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( device-width : 375px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 2 ) ,
+			   only screen and ( device-width : 667px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 2 ) { @content; }
+		@media only screen and ( device-width : 414px ) and ( orientation : portrait ) and ( -webkit-min-device-pixel-ratio : 3 ) ,
+			   only screen and ( device-width : 736px ) and ( orientation : landscape ) and ( -webkit-min-device-pixel-ratio : 3 ) { @content; }
+	}
+}
+
+/* screen */
+@mixin screen( $screen ) {
+	@if $screen == '4/3' {
+		@media ( max-aspect-ratio : 87/50 ) { @content; }
+	}@if $screen == '2/1' {
+		@media ( min-aspect-ratio : 21/10 ) { @content; }
+	} @else if $screen == 'landscape' {
+		/* screen width > height */
+		@media (orientation  : landscape ) { @content; }
+	} @else if $screen == 'portrait' {
+		/* screen width < height */
+		@media (orientation  : portrait ) { @content; }
+	}
+}
+
+/* RWD */
+@mixin respond( $midia ) {
+	@if $midia == Desktops {
+		@if $ie-support == 8 {
+			/* IE8 only */
+			@media \0screen { @content; }
+		}
+		@media screen and ( min-width : $screen-pc ) { @content; }
+	} @else if $midia == Desktops-Tablets {
+		
+		@if $ie-support == 8 {
+			/* IE8 only */
+			@media \0screen { @content; }
+		}
+		@media screen and ( min-width : $screen-mobile ) { @content; }
+	} @else if $midia == Tablets-Mobiles {
+		@media screen and ( max-width : ($screen-pc - 1) ) { @content; }
+	} @else if $midia == Tablets {
+		@media screen and ( min-width : $screen-mobile ) and ( max-width : ($screen-pc - 1) ) { @content; }
+	} @else if $midia == Mobiles {
+		@media screen and ( max-width : ($screen-mobile - 1) ) { @content; }
+	}
+}
+
+@mixin media-min( $width : null ) {
+	@media screen and ( min-width : $width ) { @content; }
+}
+
+@mixin media-max( $width : null ) {
+	@media screen and ( max-width : ( $width - 1 ) ) { @content; }
+}
+
+@mixin media-min-max( $min-width : null , $max-width : null ) {
+	@media screen and ( min-width : $min-width ) and ( max-width : ($max-width - 1) ) { @content; }
+}
+
+/* not support */
+@mixin not-support {
+	@if ( $ie-support - 1 ) == 9 {
+		@media \0screen\,screen\9 { @content; }
+		@media all and ( min-width : 0\0 ) and ( min-resolution : .001dpcm ) { @content; }
+	} @else if ( $ie-support - 1 ) == 8 {
+		@media \0screen\,screen\9 { @content; }
+	} @else if ( $ie-support - 1 ) == 7 {
+		@media screen\9 { @content; }
+	}
+}

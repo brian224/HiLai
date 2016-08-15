@@ -1,0 +1,267 @@
+.m-header {
+	padding: 97px 0 152px 0;
+	width: 190px;
+	position: absolute;
+	top: 46px;
+	bottom: 0;
+	left: 0;
+	box-shadow: 2px 0 3px rgba(0, 0, 0, 0.15);
+	text-align: center;
+
+	&:before {
+		content: '';
+		background: #f8f8f8;
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	.m-menu {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		font-size: 16px;
+		line-height: 48px;
+
+		.list {
+			width: 100%;
+
+			&:last-child > .text {
+				&:after {
+					background: none;
+				}
+		
+				&:hover:after {
+					background: $color-major;
+				}
+			}
+		}
+
+		.text {
+			display: block;
+			position: relative;
+			cursor: pointer;
+			color: #4b4b4b;
+			@include transition(ease-in all 0.3s);
+
+			&:hover {
+				color: $color-major;
+
+				&:after {
+					margin-left: -74px;
+					background: $color-major;
+					width: 148px;
+					height: 4px;
+				}
+
+				~ .sub-menu {
+					overflow: visible;
+					@include transform(rotateY(0deg));
+				}
+			}
+
+			&:after {
+				content: '';
+				margin-left: -43px;
+				background: #d2d2d2;
+				width: 86px;
+				height: 1px;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				@include transition(ease-in all 0.3s);
+			}
+		}
+	}
+
+	.sub-menu {
+		margin-left: 1px;
+		padding-top: 40px;
+		width: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 100%;
+		overflow: hidden;
+		@include transition(ease-in all 0.3s);
+		@include transform(rotateY(90deg));
+		@include transform-origin(left);
+
+		&:before {
+			content: '';
+			background: rgba(238, 238, 238, 0.95) image-url('shared/bg-sub-menu.png') center bottom no-repeat;
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		&:hover, &.is-hover {
+			overflow: visible;
+			@include transform(rotateY(0deg));
+		}
+
+		> .list {
+			@for $i from 1 through 15 {
+				&:nth-child(#{$i}) .detail-list:before {
+					top: 56px + (48px * ($i - 1));
+				}
+			}
+		}
+
+		.text {
+			padding: 0 27px;
+			text-align: left;
+			white-space: nowrap;
+
+			&:after {
+				margin-left: -73px;
+				background: #d2d2d2;
+				width: 146px;
+			}
+
+			&:hover ~ .detail-list {
+				overflow: visible;
+				@include transform(rotateY(0deg));
+			}
+		}
+	}
+}
+
+.m-logo {
+	margin-left: -74px;
+	background: $color-major;
+	width: 148px;
+	height: 118px;
+	position: absolute;
+	top: -21px;
+	left: 50%;
+
+	&:before {
+		content: '';
+		margin: -38px 0 0 -46px;
+		background: image-url('shared/logo.png') 0 0 no-repeat;
+		display: block;
+		width: 92px;
+		height: 76px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+}
+
+.detail-list {
+	padding-top: 40px;
+	background: rgba(152, 7, 71, 0.95);
+	width: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 100%;
+	overflow: hidden;
+	@include transition(ease-in all 0.3s);
+	@include transform(rotateY(90deg));
+	@include transform-origin(left);
+
+	&:before {
+		content: '';
+		display: block;
+		width: 0;
+		height: 0;
+		position: absolute;
+		left: -8px;
+		border-top: 8px solid transparent;
+		border-right: 8px solid $color-major;
+		border-bottom: 8px solid transparent;
+	}
+
+	&:hover, &.is-hover {
+		overflow: visible;
+		@include transform(rotateY(0deg));
+	}
+
+	.list {
+		padding-right: 25px;
+		position: relative;
+		text-align: left;
+
+		&:before {
+			content: '';
+			margin-top: -3px;
+			background: rgba(255, 255, 255, 0.28);
+			display: block;
+			width: 5px;
+			height: 5px;
+			position: absolute;
+			top: 50%;
+			left: 26px;
+		}
+	}
+
+	.b-link {
+		padding-left: 45px;
+		display: block;
+		color: #fff;
+		white-space: nowrap;
+
+		&:hover {
+			color: #ffc600;
+		}
+	}
+}
+
+.m-community {
+	padding-bottom: 16px;
+	width: 100%;
+	position: absolute;
+	bottom: 80px;
+	font-size: 0;
+
+	&:after {
+		content: '';
+		margin-left: -43px;
+		background: #d2d2d2;
+		width: 86px;
+		height: 1px;
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+	}
+
+	.b-link {
+		margin: 0 8px;
+		display: inline-block;
+		color: #8e8e8e;
+		font-size: 26px;
+		line-height: 26px;
+		@include transition(ease-in all 0.3s);
+
+		&:hover {
+			color: $color-major;
+		}
+	}
+}
+
+.m-copyright {
+	position: absolute;
+	bottom: 10px;
+	left: 0;
+	right: 0;
+	color: #8e8e8e;
+	line-height: 20px;
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

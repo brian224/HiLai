@@ -1,0 +1,68 @@
+﻿$ie-support     : 10;
+$main-max-width : 1280px;
+$main-min-width : 1000px;
+$content-width  : 960px;
+$side-width     : 260px;
+
+$font-family : Arial , "微軟正黑體" , "Microsoft JhengHei" , "Heiti TC" , "黑體" , sans-serif , serif;
+
+$screen-pc     : ($main-min-width + 1);
+$screen-mobile : 740px;
+
+$b-row-md : null; /*px*/
+$b-row-sm : null; /*px*/
+$b-row-xs : null; /*px*/
+
+$space-md : null; /*px*/
+$space-sm : null; /*px*/
+$space-xs : null; /*px*/
+
+$color-major : #980747;
+$color-minor : null;
+$color-aid   : null;
+
+$color-text-major : null;
+$color-text-minor : null;
+$color-text-aid   : null;
+
+$color-border-major : null;
+$border-minor-color : null;
+
+$color-link        : null;
+$color-info        : null;
+$color-warning     : null;
+$color-disabled    : null;
+$color-placeholder : null;
+$color-facebook    : #359;
+$color-youtube     : #C11;
+
+$color-white       : #FFF;
+$color-black       : #000;
+$color-gray        : gray /* #808080 */;
+$color-gray-l-p10  : lighten($color-gray , 10%); /* #9a9a9a */
+$color-gray-l-p20  : lighten($color-gray , 20%); /* #b3b3b3 */
+$color-gray-l-p30  : lighten($color-gray , 30%); /* #cdcdcd */
+$color-gray-l-p40  : lighten($color-gray , 40%); /* #e6e6e6 */
+$color-gray-d-p10  : darken($color-gray , 10%); /* #676767 */
+$color-gray-d-p20  : darken($color-gray , 20%); /* #4d4d4d */
+$color-gray-d-p30  : darken($color-gray , 30%); /* #343434 */
+$color-gray-d-p40  : darken($color-gray , 40%); /* #1a1a1a */
+
+$color : (
+    'white'       : $color-white,
+    'black'       : $color-black,
+    'gray'        : $color-gray,
+    'gray-l-p40'  : $color-gray-l-p40,
+    'gray-l-p30'  : $color-gray-l-p30,
+    'gray-l-p20'  : $color-gray-l-p20,
+    'gray-l-p10'  : $color-gray-l-p10,
+    'gray-d-p40'  : $color-gray-d-p40,
+    'gray-d-p30'  : $color-gray-d-p30,
+    'gray-d-p20'  : $color-gray-d-p20,
+    'gray-d-p10'  : $color-gray-d-p10,
+    'transparent' : transparent
+);
+
+$transition-times   : null; /*.3s or 1s*/
+
+$form-border-radius : null; /*px*/

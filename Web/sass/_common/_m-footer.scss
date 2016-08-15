@@ -1,0 +1,10 @@
+.m-footer {
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

@@ -1,0 +1,491 @@
+/* br */
+[class^="b-br-"] , [class*=" b-br-"] {
+    display : none !important;
+}
+
+/* clearfix */
+.b-clearfix {
+    &:after {
+        content : "";
+        width   : 100%;
+        height  : 0;
+        clear   : both;
+        @include clearfix;
+        @include display(block);
+    }
+}
+
+/* vertical-align middle */
+.b-middle {
+    height    : 100%;
+    font-size : 0;
+    position  : relative;
+
+    &:before {
+        content     : "";
+        font-size   : 0;
+        height      : 100%;
+        line-height : 0;
+        zoom        : 1;
+        @include inline-block;
+    }
+
+    > * {
+        @include inline-block;
+    }
+}
+
+/* mark */
+.b-mark {
+    color      : inherit;
+    background : transparent;
+}
+
+/* text-align */
+.b-text-left {
+    text-align : left !important;
+}
+
+.b-text-center {
+    text-align : center !important;
+}
+
+.b-text-right {
+    text-align : right !important;
+}
+
+.b-hide-text {
+    overflow: hidden;
+    text-indent: 200%;
+    white-space: nowrap;
+}
+
+/* hide */
+.b-hide {
+    display : none !important;
+}
+
+/* block */
+.b-block {
+    @include display(block , $important : true);
+}
+
+/* inline */
+.b-inline {
+    display : inline-block !important;
+    @include inline-block;
+}
+
+/* float */
+.b-float-left {
+    float : left;
+}
+
+.b-float-right {
+    float : right;
+}
+
+/* row */
+.b-row , [class^="b-row-"] , [class*=" b-row-"] {
+    @include clearfix;
+
+    &.b-clearfix {
+        overflow : visible;
+        @extend .b-clearfix;
+    }
+}
+
+/* col */
+[class^="b-col-"] , [class*=" b-col-"] {
+    min-height : 1px;
+    position   : relative;
+    @include box-sizing(border-box);
+}
+
+/* color */
+@each $key , $value in $color {
+    .b-text-#{$key} {
+        color : #{$value} !important;
+    }
+
+    .b-bg-#{$key} {
+        background-color : #{$value} !important;
+    }
+}
+
+@include respond(Desktops) {
+    /* br */
+    .b-br-md {
+        display : block !important;
+    }
+    
+    /* text-align */
+    .b-text-left-md {
+        text-align : left !important;
+    }
+
+    .b-text-center-md {
+        text-align : center !important;
+    }
+
+    .b-text-right-md {
+        text-align : right !important;
+    }
+
+    /* hide */
+    .b-hide-md {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-md {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-md {
+        display : inline-block !important;
+        @include inline-block;
+    }
+
+    /*  float */
+    .b-float-left-md {
+        float : left;
+    }
+
+    .b-float-right-md {
+        float : right;
+    }
+
+    /* row */
+    .b-row , .b-row-md {
+        margin-right : -#{$b-row-md};
+        margin-left  : -#{$b-row-md};
+
+        > [class^="b-col-md-"] , > [class*=" b-col-md-"] , > [class^="b-col-dt-"] , > [class*=" b-col-dt-"] {
+            padding-right : #{$b-row-md};
+            padding-left  : #{$b-row-md};
+        }
+    }
+
+    /* col */
+    $types : 12;
+    $total : 12;
+    @while $types > 0 {
+        .b-col-md-#{$types} {
+            width : ((100% / $total) * $types) !important;
+        }
+
+        $types : $types - 1;
+    }
+
+    .b-col-md-5d {
+        width : 20% !important;
+    }
+}
+
+@include respond(Desktops-Tablets) {
+    /* br */
+    .b-br-dt {
+        display : block !important;
+    }
+    
+    /* text-align */
+    .b-text-left-dt {
+        text-align : left !important;
+    }
+
+    .b-text-center-dt {
+        text-align : center !important;
+    }
+
+    .b-text-right-dt {
+        text-align : right !important;
+    }
+
+    /* hide */
+    .b-hide-dt {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-dt {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-dt {
+        display : inline-block !important;
+        @include inline-block;
+    }
+
+    /*  float */
+    .b-float-left-dt {
+        float : left;
+    }
+
+    .b-float-right-dt {
+        float : right;
+    }
+
+    /* col */
+    $types : 12;
+    $total : 12;
+    @while $types > 0 {
+        .b-col-dt-#{$types} {
+            width : ((100% / $total) * $types) !important;
+        }
+
+        $types : $types - 1;
+    }
+
+    .b-col-dt-5d {
+        width : 20% !important;
+    }
+}
+
+@include respond(Tablets-Mobiles) {
+    /* br */
+    .b-br-tm {
+        display : block !important;
+    }
+    
+    /* text-align */
+    .b-text-left-tm {
+        text-align : left !important;
+    }
+
+    .b-text-center-tm {
+        text-align : center !important;
+    }
+
+    .b-text-right-tm {
+        text-align : right !important;
+    }
+
+    /* hide */
+    .b-hide-tm {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-tm {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-tm {
+        display : inline-block !important;
+        @include inline-block;
+    }
+
+    /*  float */
+    .b-float-left-tm {
+        float : left;
+    }
+
+    .b-float-right-tm {
+        float : right;
+    }
+
+    /* col */
+    $types : 12;
+    $total : 12;
+    @while $types > 0 {
+        .b-col-tm-#{$types} {
+            width : ((100% / $total) * $types) !important;
+        }
+
+        $types : $types - 1;
+    }
+
+    .b-col-tm-5d {
+        width : 20% !important;
+    }
+}
+
+@include respond(Tablets) {
+    /* br */
+    .b-br-sm {
+        display : block !important;
+    }
+
+    /* text-align */
+    .b-text-left-sm {
+        text-align : left !important;
+    }
+
+    .b-text-center-sm {
+        text-align : center !important;
+    }
+
+    .b-text-right-sm {
+        text-align : right !important;
+    }
+
+    /* hide */
+    .b-hide-sm {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-sm {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-sm {
+        display : inline-block !important;
+        @include inline-block;
+    }
+
+    /*  float */
+    .b-float-left-sm {
+        float : left;
+    }
+
+    .b-float-right-sm {
+        float : right;
+    }
+
+    /* row */
+    .b-row , .b-row-sm {
+        margin-right : -#{$b-row-sm};
+        margin-left  : -#{$b-row-sm};
+
+        > [class^="b-col-dt-"] , > [class*=" b-col-dt-"] , > [class^="b-col-tm-"] , > [class*=" b-col-tm-"] , > [class^="b-col-sm-"] , > [class*=" b-col-sm-"] {
+            padding-right : #{$b-row-sm};
+            padding-left  : #{$b-row-sm};
+        }
+    }
+
+    /* col */
+    $types : 12;
+    $total : 12;
+    @while $types > 0 {
+        .b-col-sm-#{$types} {
+            width : ((100% / $total) * $types) !important;
+        }
+
+        $types : $types - 1;
+    }
+
+    .b-col-sm-5d {
+        width : 20% !important;
+    }
+}
+
+@include respond(Mobiles) {
+    /* br */
+    .b-br-xs {
+        display : block !important;
+    }
+
+    /* text-align */
+    .b-text-left-xs {
+        text-align : left !important;
+    }
+
+    .b-text-center-xs {
+        text-align : center !important;
+    }
+
+    .b-text-right-xs {
+        text-align : right !important;
+    }
+
+    /* hide */
+    .b-hide-xs {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-xs {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-xs {
+        display : inline-block !important;
+        @include inline-block;
+    }
+
+    /*  float */
+    .b-float-left-xs {
+        float : left;
+    }
+
+    .b-float-right-xs {
+        float : right;
+    }
+
+    /* row */
+    .b-row , .b-row-xs {
+        margin-right : -#{$b-row-xs};
+        margin-left  : -#{$b-row-xs};
+
+        > [class^="b-col-tm-"] , > [class*=" b-col-tm-"] , > [class^="b-col-xs-"] , > [class*=" b-col-xs-"] {
+            padding-right : #{$b-row-xs};
+            padding-left  : #{$b-row-xs};
+        }
+    }
+
+    /* col */
+    $types : 12;
+    $total : 12;
+    @while $types > 0 {
+        .b-col-xs-#{$types} {
+            width : ((100% / $total) * $types) !important;
+        }
+
+        $types : $types - 1;
+    }
+
+    .b-col-xs-5d {
+        width : 20% !important;
+    }
+}
+
+@include devices('l-pad') {
+    /* hide */
+    .b-hide-dl {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-dl {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-dl {
+        display : inline-block !important;
+        @include inline-block;
+    }
+}
+
+@include devices('p-pad') {
+    /* hide */
+    .b-hide-dp {
+        display : none !important;
+    }
+
+    /* block */
+    .b-block-dp {
+        @include display(block , $important : true);
+    }
+
+    /* inline */
+    .b-inline-dp {
+        display : inline-block !important;
+        @include inline-block;
+    }
+}
+
+@include browsers('IE8') {
+    @if $ie-support == 8 {
+        .b-middle {
+            font-size : 0.1px;
+        }
+    }
+}
