@@ -3,11 +3,9 @@
 }
 
 .l-header {
-	margin-left: -608px;
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	left: 50%;
 	z-index: 5;
 }
 
@@ -18,17 +16,21 @@
 	position: fixed;
 	top: 0;
 	right: 0;
-	z-index: 2;
+	z-index: 3;
 
 	.m-btn {
 		height: 48px;
-		color: #fff;
+		color: $color-white;
 		font-size: 20px;
+
+		&:hover {
+			color: $color-text-minor;
+		}
 	}
 
 	.m-menu {
 		padding-right: 74px;
-		background: $color-major;
+		background: rgba(152,7,71,0.95);
 		height: 100%;
 		position: absolute;
 		top: 0;
@@ -41,7 +43,7 @@
 		&:after {
 			content: '';
 			margin-top: -24px;
-			background: #fff;
+			background: $color-white;
 			display: block;
 			width: 1px;
 			height: 48px;
@@ -61,10 +63,10 @@
 
 			.b-link {
 				display: block;
-				color: #fff;
+				color: $color-white;
 
 				&:hover {
-					color: #ffc600;
+					color: $color-text-minor;
 				}
 			}
 		}
@@ -89,10 +91,19 @@
 .l-footer {
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.l-header {
+		margin-left: -608px;
+		left: 50%;
+	}
+}
 
 @include respond(Desktops-Tablets) {}
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.l-header {
+		left: 0;
+	}
+}
 
 @include respond(Tablets-Mobiles) {}

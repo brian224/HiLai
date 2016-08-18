@@ -1,0 +1,131 @@
+.sugarfun-datepicker {
+	margin-top: 1px;
+	background: #fff;
+	z-index: 2;
+}
+
+.sugarfun-datepicker-tools {
+	@include box-sizing(border-box);
+
+	&.is-text {
+		padding: 10px 40px;
+	}
+}
+
+.sugarfun-datepicker-arrow {
+	top: 10px;
+
+	&.is-prev {
+		display: none;
+		left: 10px;
+
+		i {
+			@include transform(rotate(90deg));
+		}
+	}
+
+	&.is-next {
+		right: 10px;
+
+		i {
+			@include transform(rotate(-90deg));
+		}
+	}
+
+	&:hover i {
+		&:before {
+			border-bottom-color: $color-major !important;
+			border-left-color: $color-major !important;
+		}
+
+		&:after {
+			background: $color-major;
+		}
+	}
+
+	i {
+		&:before, &:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 0px;
+			z-index: 0;
+		}
+
+		&:before {
+			margin: -13px 0 0 -11px;
+			width: 21px;
+			height: 21px;
+			border-top: 0;
+			border-right: 0;
+			border-bottom: 1px solid $color-gray-l-p30 !important;
+			border-left: 1px solid $color-gray-l-p30 !important;
+			@include transform(rotate(-45deg));
+		}
+
+		&:after {
+			margin: -12px 0 0 -1px;
+			background: $color-gray-l-p30;
+			width: 2px;
+			height: 24px;
+		}
+	}
+}
+
+.sugarfun-datepicker-times {
+	font-size: 20px;
+	letter-spacing: 1px;
+	line-height: 28px;
+}
+
+.sugarfun-datepicker-week {
+	padding: 0 13px;
+
+	> li {
+		@include transform(scale(0.8));
+	}
+}
+
+.sugarfun-datepicker-date {
+	padding: 1px 13px 25px 13px;
+
+	> li {
+		margin: -1px;
+		width: 36px;
+		height: 36px;
+		border: 2px solid $color-gray-l-p40;
+		line-height: 36px;
+
+		&.is-last, &.is-next {
+			opacity: 0;
+		}
+
+		> * {
+			font-weight: bold;
+		}
+
+		em {
+			color: $color-gray-l-p30;
+		}
+
+		button {
+			color: $color-gray-d-p30;
+		}
+	}
+}
+
+.sugarfun-datepicker-button:hover {
+	background: $color-gray-l-p40;
+}
+
+@include browsers('IE') {}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

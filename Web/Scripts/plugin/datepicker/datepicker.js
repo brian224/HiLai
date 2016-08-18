@@ -1,6 +1,6 @@
 /*!
  * sugarfun DatePicker - jQuery Plugin
- * version: 1.0.0 (mon , 24 Aug 2015)
+ * version: 2.1.0 (thu , 16 Aug 2016)
  * @requires jQuery v1.9 or later
  *
  * Copyright 2015 sugarfun ciro
@@ -9,14 +9,12 @@
 (function ($, document, window, navigator) {
 	'use strict';
 
-	var H = $('html'),
-		B = $('body'),
-		W = $(window),
-		D = $(document),
+	var $b = $('body'),
+		$d = $(document),
 		DP = $.DatePicker = function () {
 			DP.init.apply( this , arguments );
 		},
-		IE = navigator.userAgent.match(/msie/i),
+		_IE = navigator.userAgent.match(/msie/i),
 		isQuery	= function(obj) {
 			return obj && obj.hasOwnProperty && obj instanceof $;
 		},
@@ -25,9 +23,6 @@
 		},
 		isPercentage = function(str) {
 			return isString(str) && str.indexOf('%') > 0;
-		},
-		isScrollable = function(el) {
-			return ( el && !(el.style.overflow && el.style.overflow === 'hidden') && ((el.clientWidth && el.scrollWidth > el.clientWidth) || (el.clientHeight && el.scrollHeight > el.clientHeight)));
 		},
 		getScalar = function(orig , dim) {
 			var value = parseInt( orig , 10) || 0;
@@ -41,111 +36,178 @@
 		getValue = function(value, dim) {
 			return getScalar(value , dim) + 'px';
 		},
-		Device = /Android|webOS|iPad|BlackBerry/i,
-		UserAgent = function () {
-			if ( W.width() < 768 ) {
-				return 'Mobile';
+		devices = function() {
+			if ( /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $d.width() < 768 ) {
+				return 'M';
 			} else {
-				if ( Device.test( navigator.userAgent ) ) {
-					return 'Tablet';
+				if ( /Android|webOS|iPad|BlackBerry/i.test(navigator.userAgent) ) {
+					return 'T';
 				} else {
-					return 'PC';
+					return 'D';
 				}
 			}
+		},
+		getNewDate = function (Dates) {
+			return new Date(Dates);
 		};
 
 	$.extend( DP , {
-		version : '1.0.0',
+		version : '2.1.0',
 		defaults : {
-			width : null,
-			height : null,
-			maxDate : null,
-			minDate : null,
-			speed : 300,
-			format : {
+			width    : null,
+			height   : null,
+			maxDate  : null,
+			minDate  : null,
+			headType : 'text',
+			speed    : 300,
+			format   : {
 				months : null,
-				weeks : null
+				weeks  : null
 			},
-			types : 'YYYY/MM/DD',
-			tpl : {
-				wrap  : '<div class="sugarfun-datepicker"><div class="sugarfun-datepicker-hd"><div class="sugarfun-datepicker-tools"><button class="sugarfun-datepicker-arrow is-prev" data-value="-1">prev<i></i></button><time class="sugarfun-datepicker-times"></time><button class="sugarfun-datepicker-arrow is-next" data-value="1">next<i></i></button></div><ul class="sugarfun-datepicker-week"></ul></div><div class="sugarfun-datepicker-bd"><ul class="sugarfun-datepicker-date"></ul></div></div>',
-				btn   : '.sugarfun-datepicker-button',
-				arrow : '.sugarfun-datepicker-arrow'
+			types    : 'YYYY/MM/DD'
+		},
+		tpl : {
+			'datepicker' : 'sugarfun-datepicker',
+			'hd'         : 'sugarfun-datepicker-hd',
+			'tools'      : 'sugarfun-datepicker-tools',
+			'arrow'      : 'sugarfun-datepicker-arrow',
+			'times'      : 'sugarfun-datepicker-times',
+			'week'       : 'sugarfun-datepicker-week',
+			'frame'      : 'sugarfun-datepicker-frame',
+			'input'      : 'sugarfun-datepicker-input',
+			'select'     : 'sugarfun-datepicker-select',
+			'bd'         : 'sugarfun-datepicker-bd',
+			'date'       : 'sugarfun-datepicker-date',
+			'btn'        : 'sugarfun-datepicker-button',
+			'today'      : 'is-today',
+			'chose'      : 'is-chose'
+		},
+		setting : {
+			regex       : /(\w*)YYYY(.*)MM(.*)DD(.*)/g,
+			data        : null,
+			maxDate     : null,
+			minDate     : null,
+			newDay      : null,
+			newMonth    : null,
+			newYear     : null,
+			nowDay      : new Date().getDate(),
+			nowMonth    : new Date().getMonth(),
+			nowYear     : new Date().getFullYear(),
+			language    : {
+				CH : {
+					months : ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+					weeks  : ['日', '一', '二', '三', '四', '五', '六']
+				},
+				EN : {
+					months : ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+					weeks  : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+				} 
 			},
-			set : {
-				data        : null,
-				maxDate     : null,
-				minDate     : null,
-				newDay      : null,
-				newMonth    : null,
-				newYear     : null,
-				nowDay      : new Date().getDate(),
-				nowMonth    : new Date().getMonth(),
-				nowYear     : new Date().getFullYear(),
-				months      : ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-				weeks       : ['日', '一', '二', '三', '四', '五', '六'],
-				monthsIdx   : null,
-				monthDays   : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
-				year        : null,
-				week        : 0,
-				today       : null,
-				getDays     : null,
-				setDate     : null,
-				appendDates : null,
-				appendDate  : null,
-				formatDate  : null,
-				headerTypes : null,
-				lastDate    : {
-					'Year' : null,
-                    'Month': null,
-                    'Day'  : []
-				},
-				thisDate : {
-					'Year' : null,
-                    'Month': null,
-                    'Day'  : []
-				},
-				nextDate : {
-					'Year' : null,
-                    'Month': null,
-                    'Day'  : []
-				},
-				getNewDate : function (Dates) {
-					return new Date(Dates);
-				},
-				format : {
-					header : function(date , format) {
-						var z = {
-							M    : ( date.getMonth() + 1 )
-						};
+			months      : null,
+			weeks       : null,
+			monthsIdx   : null,
+			monthDays   : [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
+			year        : null,
+			week        : 0,
+			today       : null,
+			getDays     : null,
+			setDate     : null,
+			appendDates : null,
+			appendDate  : null,
+			formatDate  : null,
+			headerTypes : null,
+			headType    : {},
+			lastDate    : {
+				'Year' : null,
+                'Month': null,
+                'Day'  : []
+			},
+			thisDate : {
+				'Year' : null,
+                'Month': null,
+                'Day'  : []
+			},
+			nextDate : {
+				'Year' : null,
+                'Month': null,
+                'Day'  : []
+			}
+		},
+		formatHeader :  function(date) {
+			var coming = DP.coming;
+			var setYear  = ( /(?!(\,))\d+/.exec(coming.headType) ? ( /(?!(\,))\d+/.exec(coming.headType)[0] | 0 ) : 1911 ),
+				setMonth = coming.format.months ? coming.format.months.split(',')[(DP.setting.newMonth | 0)] : DP.setting.thisDate.Month;
 
-						format = format.replace(/(M+)/g , function (v) {
-							return ( ( v.length > 1 ? '0' : '' ) + eval( 'z.' + v.slice( -1 ) ) ).slice( -2 );
-						});
+			if ( coming.headType !== 'text' ) {
+				DP.setting.headType.ready = true;
 
-						return format.replace(/(Y+)/g , function (v) {
-							return date.getFullYear().toString().slice( -v.length );
-						});
-					},
-					inputs : function(date , format) {
-						var z = {
-							M    : ( date.getMonth() + 1 ),
-							D    : date.getDate(),
-							Hour : date.getHours(),
-							Min  : date.getMinutes(),
-							Sec  : date.getSeconds()
-						};
-
-						format = format.replace(/(M+|D+|Hour|Min|Sec)/g , function (v) {
-							return ( ( v.length > 1 ? '0' : '' ) + eval( 'z.' + v.slice( -1 ) ) ).slice( -2 );
-						});
-
-						return format.replace(/(Y+)/g , function (v) {
-							return date.getFullYear().toString().slice( -v.length );
-						});
+				if ( coming.headType === 'input' ) {
+					DP.setting.headType.year  = '<div class="'+DP.tpl.frame+'"><input type="text" class="'+DP.tpl.input+' is-year" value="'+DP.setting.thisDate.Year+'" maxlength="4"></div>';
+					DP.setting.headType.month = '<div class="'+DP.tpl.frame+'"><input type="text" class="'+DP.tpl.input+' is-month" value="'+DP.setting.thisDate.Month+'" maxlength="2"></div>';
+				} else {
+					if ( /((?!\,)\S)*/.exec(coming.headType)[0] === 'select' ) {
+						DP.setting.headType.year = '<div class="'+DP.tpl.frame+'"><select class="'+DP.tpl.select+' is-year">';
+						if ( DP.setting.nowYear >= setYear ) {
+							for ( var i = DP.setting.nowYear; i >= setYear ; i -- ) {
+								if ( DP.setting.thisDate.Year !== i ) {
+									DP.setting.headType.year += '<option value="'+i+'">'+i+'</option>';
+								} else {
+									DP.setting.headType.year += '<option value="'+i+'" selected>'+i+'</option>';
+								}
+							}
+						} else {
+							for ( var i = DP.setting.nowYear ; i < ( setYear + 1 ) ; i ++ ) {
+								if ( DP.setting.thisDate.Year !== i ) {
+									DP.setting.headType.year += '<option value="'+i+'">'+i+'</option>';
+								} else {
+									DP.setting.headType.year += '<option value="'+i+'" selected>'+i+'</option>';
+								}
+							}
+						}
+						
+						DP.setting.headType.year += '</select></div>';
+						DP.setting.headType.month = '<div class="'+DP.tpl.frame+'"><select class="'+DP.tpl.select+' is-month">';
+						for ( var i = 0 , _i = null ; i < 12 ; i ++ ) {
+							_i = ( coming.format.months && coming.format.months.split(',').length === 12 ) ? coming.format.months.split(',')[i] : ((i < 9) ? ('0' + (i + 1)) : (i + 1));
+							if ( _i !== DP.setting.thisDate.Month ) {
+								DP.setting.headType.month += '<option value="'+i+'">'+_i+'</option>';
+							} else {
+								DP.setting.headType.month += '<option value="'+i+'" selected>'+_i+'</option>';
+							}
+						}
+						DP.setting.headType.month += '</select></div>';
 					}
 				}
+			} else {
+				DP.setting.headType.year  = '<em>'+DP.setting.thisDate.Year+'</em>';
+				DP.setting.headType.month = '<em>'+setMonth+'</em>';
+				$('.' + DP.tpl.arrow).removeClass('is-hide');
+				$('.' + DP.tpl.tools).addClass('is-text');
 			}
+
+			DP.setting.headType.append = DP.setting.headerTypes;
+			DP.setting.headType.append = DP.setting.headType.append.replace(/\W/.exec(DP.setting.headerTypes)[0] , '<i>'+/\W/.exec(DP.setting.headerTypes)[0]+'</i>');
+			DP.setting.headType.append = DP.setting.headType.append.replace(/Y+/g , DP.setting.headType.year);
+			DP.setting.headType.append = DP.setting.headType.append.replace(/M+/g , DP.setting.headType.month);
+			
+			return DP.setting.headType.append;
+		},
+		formatInputs : function(date , format) {
+			var z = {
+				M    : ( date.getMonth() + 1 ),
+				D    : date.getDate(),
+				Hour : date.getHours(),
+				Min  : date.getMinutes(),
+				Sec  : date.getSeconds()
+			};
+
+			format = format.replace(/(M+|D+|Hour|Min|Sec)/g , function (v) {
+				return ( ( v.length > 1 ? '0' : '' ) + eval( 'z.' + v.slice( -1 ) ) ).slice( -2 );
+			});
+
+			return format.replace(/(Y+)/g , function (v) {
+				return date.getFullYear().toString().slice( -v.length );
+			});
 		},
 		init : function(group , opts) {
 			if ( ! group ) {
@@ -177,6 +239,7 @@
 							speed : element.data('speed'),
 							maxDate : element.data('max-date'),
 							minDate : element.data('min-date'),
+							headType : element.data('head-type'),
 							format : ( element.data('format') === 'CH' || element.data('format') === 'EN' ) ? element.data('format') : ( element.data('format') === undefined && ( element.data('months') || element.data('weeks')) ) ? {
 								months : element.data('months'),
 								weeks : element.data('weeks'),
@@ -206,48 +269,47 @@
 		selectMonth : function(element) {
 			var coming = DP.coming;
 
-			coming.set.monthsIdx = coming.set.monthsIdx + parseInt($(element).data('value'), 10);
+			DP.setting.monthsIdx = DP.setting.monthsIdx + parseInt($(element).data('value'), 10);
 
-        	if ( coming.set.monthsIdx < 0 ) {
-                coming.set.monthsIdx = 11;
-                coming.set.year --;
-            } else if (coming.set.monthsIdx > 11) {
-                coming.set.monthsIdx = 0;
-                coming.set.year ++;
+        	if ( DP.setting.monthsIdx < 0 ) {
+                DP.setting.monthsIdx = 11;
+                DP.setting.year --;
+            } else if (DP.setting.monthsIdx > 11) {
+                DP.setting.monthsIdx = 0;
+                DP.setting.year ++;
             }
 
-            coming.set.appendDates = new Date(coming.set.year + '/' + coming.set.months[coming.set.monthsIdx] + '/' + coming.set.newDay);
-            coming.date.empty();
+            DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.year+'$2'+DP.setting.months[DP.setting.monthsIdx]+'$3'+DP.setting.newDay);
 
-            DP._calendar(coming.set.appendDates);
+            DP.setting.appendDates = new Date(DP.setting.appendDates);
+            $('.' + DP.tpl.date).empty();
+
+            DP._calendar(DP.setting.appendDates);
+		},
+		formSelect : function(element) {
+			var coming = DP.coming;
+			var _date = null;
+
+			if ( element.hasClass('is-year') ) {
+				DP.setting.year = ( element.val() | 0 );
+			}
+
+			_date = new Date(DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.year+'$2'+DP.setting.months[( ( element.val().length <= 2 && element.val() ) ? ( element.hasClass(DP.tpl.input) ? ( ( element.val() | 0 ) - 1 ) : (element.val() | 0 ) ) : DP.setting.newMonth)]+'$3'+DP.setting.newDay));
+			$('.' + DP.tpl.date).empty();
+			DP._calendar(_date);
 		},
 		getValue : function(element) {
 			var coming = DP.coming;
 			
 			$(coming.element[0]).val($(element).data('date'));
 		},
-		_parseISO8601 : function(dateString) {
-			var isoExp = /^\s*(\d{4})-(\d\d)-(\d\d)\s*$/,
-				date   = new Date(NaN), month,
-				parts  = isoExp.exec(dateString);
-				
-			if ( parts ) {
-				month = +parts[2];
-
-				date.setFullYear(parts[1], month - 1, parts[3]);
-			
-				if( month != date.getMonth() + 1 ) {
-					date.setTime(NaN);
-				}
-			}
-
-			return date;
-		},
 		_start: function (index) {
 			var coming = {},
 				obj,
-				dateValue,
-				types;
+				dateValue;
+			var year,
+				month,
+				day;
 
 			index = getScalar( index );
 			obj   = DP.group[ index ] || null;
@@ -257,184 +319,218 @@
 			}
 
 			coming = $.extend(true , {} , DP.opts , obj);
-			coming.group = DP.group;
-			coming.index = index;
-			coming.wrap = $(coming.tpl.wrap);
-
-			// Give a chance for callback or helpers to update coming item (type, title, etc)
+			DP.tpl.wrap = '<div class="'+DP.tpl.datepicker+'"><div class="'+DP.tpl.hd+'"><div class="'+DP.tpl.tools+'"><button class="'+DP.tpl.arrow+' is-prev" data-value="-1">prev<i></i></button><div class="'+DP.tpl.times+'"></div><button class="'+DP.tpl.arrow+' is-next" data-value="1">next<i></i></button></div><ul class="'+DP.tpl.week+'"></ul></div><div class="'+DP.tpl.bd+'"><ul class="'+DP.tpl.date+'"></ul></div></div>';
 			DP.coming = coming;
+			DP.setting.headType.ready = false;
 
-			$.extend( coming , {
-				hd    : $('.sugarfun-datepicker-hd', coming.wrap),
-				tools : $('.sugarfun-datepicker-tools' , coming.wrap),
-				times : $('.sugarfun-datepicker-times' , coming.wrap),
-				week  : $('.sugarfun-datepicker-week', coming.wrap),
-				bd    : $('.sugarfun-datepicker-bd', coming.wrap),
-				date  : $('.sugarfun-datepicker-date', coming.wrap)
-			});
+			year = coming.element.val() ? (coming.element.val().substring(/Y+/.exec(coming.types).index , ((/Y+/.exec(coming.types).index) + ((/Y+/.exec(coming.types)[0].length)))) | 0) : '';
+			month = coming.element.val() ? (coming.element.val().substring(/M+/.exec(coming.types).index , ((/M+/.exec(coming.types).index) + ((/M+/.exec(coming.types)[0].length)))) | 0) : '';
+			day = coming.element.val() ? (coming.element.val().substring(/D+/.exec(coming.types).index , ((/D+/.exec(coming.types).index) + ((/D+/.exec(coming.types)[0].length)))) | 0) : '';
 
-			types = coming.element.val() ? coming.element.val().substring((/(Y+)/g.exec(coming.types).index) , (/(Y+)/g.exec(coming.types).index + 4)) + '-' + coming.element.val().substring((/(M+)/g.exec(coming.types).index) , (/(M+)/g.exec(coming.types).index + 2)) + '-' + coming.element.val().substring((/(D+)/g.exec(coming.types).index) , (/(D+)/g.exec(coming.types).index + 2)) : '';
+			dateValue = coming.element.val() ? new Date(DP.defaults.types.replace(DP.setting.regex , '$1'+year+'$2'+DP.setting.months[(month-1)]+'$3'+day)) : '';
 
-			dateValue = coming.element.val() ? new Date(types) : '';
-			
 			DP._remove();
-			B.append(coming.wrap);
+			$b.append(DP.tpl.wrap);
 			DP._calendar(dateValue);
 			DP._dateOpen();
 		},
 		_remove : function() {
 			var coming = DP.coming;
 
-			coming.wrap.fadeOut(coming.speed , function(){
-				$('.' + coming.wrap[0].className).remove();
-			});
+			if ( $('.' + DP.tpl.datepicker).length !== 0 ) {
+				$('.' + DP.tpl.datepicker).fadeOut(coming.speed , function(){
+					$(this).remove();
+				});
+			}
 		},
 		_calendar : function (selectDate) {
 			var coming = DP.coming;
+			var date ,
+				today,
+				chose;
 
-			coming.wrap.css({
+			$('.' + DP.tpl.datepicker).css({
 				top    : coming.element.offset().top + coming.element.outerHeight(),
 				left   : coming.element.offset().left,
-				width  : coming.width ? ( /%/g.test(coming.width) ? coming.width : getScalar(coming.width) ) : coming.element.width(),
+				width  : coming.width ? ( /%/g.test(coming.width) ? coming.width : getScalar(coming.width) ) : coming.element.outerWidth(),
 				height : coming.height ? ( /%/g.test(coming.height) ? coming.height : getScalar(coming.height) ) : null
 			}).finish().fadeIn(coming.speed);
 
-			coming.set.date      = selectDate ? selectDate : new Date(),
-			coming.set.maxDate   = coming.maxDate ? new Date(coming.maxDate) : new Date(9999, 1, 1),
-			coming.set.minDate   = coming.minDate ? new Date(coming.minDate) : new Date(1, 1, 1),
-			coming.set.newDay    = coming.set.date.getDate(),
-			coming.set.newMonth  = coming.set.date.getMonth(),
-			coming.set.newYear   = ( coming.set.date.getYear() <= 200 ) ? ( coming.set.date.getYear() + 1900 ) : coming.set.date.getYear(),
-			coming.set.monthsIdx = coming.set.newMonth,
-			coming.set.year      = coming.set.newYear,
-			coming.set.today     = coming.set.format.inputs(new Date() , coming.types.toUpperCase()),
-			coming.set.getDays   = coming.set.monthDays[coming.set.newMonth],
-			coming.set.setDate   = coming.set.date;
-
+			DP.setting.date      = selectDate ? selectDate : new Date(),
+			DP.setting.maxDate   = coming.maxDate ? new Date(coming.maxDate) : new Date(9999, 1, 1),
+			DP.setting.minDate   = coming.minDate ? new Date(coming.minDate) : new Date(1, 1, 1),
+			DP.setting.newDay    = DP.setting.date.getDate(),
+			DP.setting.newMonth  = DP.setting.date.getMonth(),
+			DP.setting.newYear   = ( DP.setting.date.getYear() <= 200 ) ? ( DP.setting.date.getYear() + 1900 ) : DP.setting.date.getYear(),
+			DP.setting.monthsIdx = DP.setting.newMonth,
+			DP.setting.year      = DP.setting.newYear,
+			DP.setting.today     = DP.formatInputs(new Date() , coming.types.toUpperCase()),
+			DP.setting.getDays   = DP.setting.monthDays[DP.setting.newMonth],
+			DP.setting.setDate   = DP.setting.date;
+			
 			if ( coming.format === 'EN' ) {
-				coming.set.months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-				coming.set.weeks  = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+				DP.setting.months = DP.setting.language.EN.months;
+				DP.setting.weeks  = DP.setting.language.EN.weeks;
 			} else {
-				if ( coming.format.months ) {
-					if ( coming.format.months.split(',').length === 12 ) {
-						coming.set.months = [];
-
-						for ( var i = 0 ; i < coming.format.months.split(',').length ; i ++ ) {
-							coming.set.months.push($.trim(coming.format.months.split(',')[i]));
-						};
-					}
-				}
+				DP.setting.months = DP.setting.language.CH.months;
+				DP.setting.weeks = DP.setting.language.CH.weeks;
 				
 				if ( coming.format.weeks ) {
 					if ( coming.format.weeks.split(',').length === 7 ) {
-						coming.set.weeks  = [];
+						DP.setting.weeks  = [];
 						for ( var i = 0 ; i < coming.format.weeks.split(',').length ; i ++ ) {
-							coming.set.weeks.push($.trim(coming.format.weeks.split(',')[i]));
+							DP.setting.weeks.push($.trim(coming.format.weeks.split(',')[i]));
 						};
 					}
 				}
 			}
 
 
-			if ( ( coming.set.newYear % 4 ) === 0 && coming.set.newYear !== 1900 ) {
-				coming.set.monthDays[1] = 29;
+			if ( ( DP.setting.newYear % 4 ) === 0 && DP.setting.newYear !== 1900 ) {
+				DP.setting.monthDays[1] = 29;
 			}
 
-			coming.week.empty();
+			$('.' + DP.tpl.week).empty();
 
-			for (var i = 0 ; i < coming.set.weeks.length ; i++) {
-				coming.week.append('<li>'+ coming.set.weeks[i] +'</li>');
+			for (var i = 0 ; i < DP.setting.weeks.length ; i++) {
+				$('.' + DP.tpl.week).append('<li>'+ DP.setting.weeks[i] +'</li>');
 			};
 
-			coming.set.setDate.setDate(1);
+			DP.setting.setDate.setDate(1);
 
-			if ( coming.set.setDate.getDate() === 2 ) {
-				coming.set.setDate = setDate(0);
+			if ( DP.setting.setDate.getDate() === 2 ) {
+				DP.setting.setDate = setDate(0);
 			}
 
-			coming.set.setDate = coming.set.setDate.getDay();
+			DP.setting.setDate = DP.setting.setDate.getDay();
 
-			coming.set.lastDate.Year  = coming.set.newMonth > 0 ? coming.set.year : ( coming.set.year - 1 );
-			coming.set.thisDate.Year  = coming.set.year;
-			coming.set.nextDate.Year  = coming.set.newMonth < 11 ? coming.set.year : ( coming.set.year + 1 );
-			coming.set.lastDate.Month = coming.set.newMonth > 0 ? coming.set.months[( coming.set.newMonth - 1 )] : coming.set.months[11];
-			coming.set.thisDate.Month = coming.set.months[ ( coming.set.newMonth ) ];
-			coming.set.nextDate.Month = coming.set.newMonth < 11 ? coming.set.months[ ( coming.set.newMonth + 1 ) ] : coming.set.months[0];
+			DP.setting.lastDate.Year  = DP.setting.newMonth > 0 ? DP.setting.year : ( DP.setting.year - 1 );
+			DP.setting.thisDate.Year  = DP.setting.year;
+			DP.setting.nextDate.Year  = DP.setting.newMonth < 11 ? DP.setting.year : ( DP.setting.year + 1 );
+			DP.setting.lastDate.Month = DP.setting.newMonth > 0 ? DP.setting.months[( DP.setting.newMonth - 1 )] : DP.setting.months[11];
+			DP.setting.thisDate.Month = DP.setting.months[ ( DP.setting.newMonth ) ];
+			DP.setting.nextDate.Month = DP.setting.newMonth < 11 ? DP.setting.months[ ( DP.setting.newMonth + 1 ) ] : DP.setting.months[0];
 
-			coming.set.headerTypes = coming.types.toUpperCase().replace(/[-,.\/]D+|D+[-,.\/]/g , '');
+			DP.setting.headerTypes   = coming.types.toUpperCase().replace(/[-,.\/]D+|D+[-,.\/]/g , '');
+			DP.setting.headType.date = DP.setting.headerTypes;
+			DP.setting.headType.date = DP.setting.headType.date.replace(/Y+/g , DP.setting.thisDate.Year);
+			DP.setting.headType.date = DP.setting.headType.date.replace(/M+/g , DP.setting.thisDate.Month);
 
-			coming.times.text(coming.set.format.header( ( ! isNaN( new Date(coming.set.thisDate.Year + '-' + coming.set.thisDate.Month ) ) ? new Date(coming.set.thisDate.Year + '-' + coming.set.thisDate.Month ) : DP._parseISO8601( ( coming.set.thisDate.Year + '-' + coming.set.thisDate.Month + '-' + '01' ) ) ) , coming.set.headerTypes));
+			if ( ! DP.setting.headType.ready ) {
+				$('.' + DP.tpl.times).html(DP.formatHeader(DP.setting.headType.date));
+			}
 
-			for ( var i = 1 ; i <= coming.set.setDate ; i ++ ) {
-				if ( coming.set.newMonth - 1 < 0 ) {
-					coming.set.appendDates = ( coming.set.lastDate.Year + '' ) + '/' + ( coming.set.lastDate.Month + '' ) + '/' + ( ( coming.set.monthDays[ ( coming.set.monthDays.length - 1 ) ] - coming.set.setDate + i ) + '');
+			for ( var i = 1 ; i <= DP.setting.setDate ; i ++ ) {
+				if ( DP.setting.newMonth - 1 < 0 ) {
+					date = ( DP.setting.monthDays[ ( DP.setting.monthDays.length - 1 ) ] - DP.setting.setDate + i );
 				} else {
-					coming.set.appendDates = ( coming.set.lastDate.Year + '' ) + '/' + ( coming.set.lastDate.Month + '' ) + '/' + ( ( coming.set.monthDays[ ( coming.set.newMonth - 1 ) ] - coming.set.setDate + i ) + '' );
+					date = ( DP.setting.monthDays[ ( DP.setting.newMonth - 1 ) ] - DP.setting.setDate + i );
 				}
 
-				coming.set.formatDate = coming.set.format.inputs(new Date(coming.set.appendDates) , coming.types.toUpperCase());
+				DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.lastDate.Year+'$2'+DP.setting.lastDate.Month+'$3'+date);
 
-				if ( coming.set.getNewDate(coming.set.appendDates) <= coming.set.maxDate && coming.set.minDate && coming.set.getNewDate(coming.set.appendDates) > coming.set.minDate ) {
-					coming.set.appendDate = '<button class="sugarfun-datepicker-button" data-date="'+ coming.set.formatDate +'">' + coming.set.getNewDate(coming.set.appendDates).getDate() + '</button>';
+				DP.setting.formatDate = DP.formatInputs(new Date(DP.setting.appendDates) , coming.types.toUpperCase());
+
+				if ( coming.element.val() === DP.setting.formatDate ) {
+					chose = ' '+DP.tpl.chose+''
 				} else {
-					coming.set.appendDate = '<em>' + coming.set.getNewDate(coming.set.appendDates).getDate() + '</em>';
+					chose = '';
+				}
+			
+				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
+					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+chose+'" data-date="'+ DP.setting.formatDate +'">' + getNewDate(DP.setting.appendDates).getDate() + '</button>';
+				} else {
+					DP.setting.appendDate = '<em class="'+chose+'">' + getNewDate(DP.setting.appendDates).getDate() + '</em>';
 				}
 				
-				coming.date.append('<li class="is-last">' + coming.set.appendDate + '</li>');
+				$('.' + DP.tpl.date).append('<li class="is-last">' + DP.setting.appendDate + '</li>');
 			
-				coming.set.week ++;
+				DP.setting.week ++;
 			};
 			
-			for ( var i = 1 ; i <= coming.set.getDays ; i ++ ) {
-				coming.set.appendDates = ( coming.set.thisDate.Year + '' ) + '/' + ( coming.set.thisDate.Month + '' ) + '/' + ( ( ( i > 9 ) ? i : ( '0' + i ) ) + '' );
-				coming.set.formatDate  = coming.set.format.inputs(new Date(coming.set.appendDates) , coming.types.toUpperCase());
-			
-				if ( coming.set.getNewDate(coming.set.appendDates) <= coming.set.maxDate && coming.set.minDate && coming.set.getNewDate(coming.set.appendDates) > coming.set.minDate ) {
-					coming.set.appendDate = '<button class="sugarfun-datepicker-button" data-date="'+ coming.set.formatDate +'">' + i + '</button>';
+			for ( var i = 1 ; i <= DP.setting.getDays ; i ++ ) {
+				date = ( ( i > 9 ) ? i : ( '0' + i ) );
+				DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.thisDate.Year+'$2'+DP.setting.thisDate.Month+'$3'+date);
+				DP.setting.formatDate  = DP.formatInputs(new Date(DP.setting.appendDates) , coming.types.toUpperCase());
+
+				if ( DP.setting.today === DP.setting.formatDate ) {
+					today = ' '+DP.tpl.today+'';
 				} else {
-					coming.set.appendDate = '<em>' + i + '</em>';
+					today = '';
 				}
 
-				coming.date.append('<li class="is-this">' + coming.set.appendDate + '</li>');
+				if ( coming.element.val() === DP.setting.formatDate ) {
+					chose = ' '+DP.tpl.chose+''
+				} else {
+					chose = '';
+				}
 			
-				coming.set.week ++;
+				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
+					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+today+''+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
+				} else {
+					DP.setting.appendDate = '<em class="'+today+''+chose+'">' + i + '</em>';
+				}
+
+				$('.' + DP.tpl.date).append('<li class="is-this">' + DP.setting.appendDate + '</li>');
 			
-				if ( coming.set.week === 7 ) {
-					coming.set.week = 0;
+				DP.setting.week ++;
+			
+				if ( DP.setting.week === 7 ) {
+					DP.setting.week = 0;
 				}
 			};
 			
-			for ( var i = 1 ; coming.set.week !== 0 ; i ++ ) {
-				coming.set.appendDates = ( coming.set.nextDate.Year + '' ) + '/' + ( coming.set.nextDate.Month + '' ) + '/' + ( ( ( i > 9 ) ? i : ( '0' + i ) ) + '' );
-				coming.set.formatDate  = coming.set.format.inputs(new Date(coming.set.appendDates) , coming.types.toUpperCase());
+			for ( var i = 1 ; DP.setting.week !== 0 ; i ++ ) {
+				date = ( ( i > 9 ) ? i : ( '0' + i ) );
+				DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.nextDate.Year+'$2'+DP.setting.nextDate.Month+'$3'+date);
+				DP.setting.formatDate  = DP.formatInputs(new Date(DP.setting.appendDates) , coming.types.toUpperCase());
+
+				if ( coming.element.val() === DP.setting.formatDate ) {
+					chose = ' '+DP.tpl.chose+''
+				} else {
+					chose = '';
+				}
 				
-				if ( coming.set.getNewDate(coming.set.appendDates) <= coming.set.maxDate && coming.set.minDate && coming.set.getNewDate(coming.set.appendDates) > coming.set.minDate ) {
-					coming.set.appendDate = '<button class="sugarfun-datepicker-button" data-date="'+ coming.set.formatDate +'">' + i + '</button>';
+				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
+					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
 				} else {
-					coming.set.appendDate = '<em>' + i + '</em>';
+					DP.setting.appendDate = '<em class="'+chose+'">' + i + '</em>';
 				}
 
-				coming.date.append('<li class="is-next">' + coming.set.appendDate + '</li>');
+				$('.' + DP.tpl.date).append('<li class="is-next">' + DP.setting.appendDate + '</li>');
 			
-				coming.set.week ++;
+				DP.setting.week ++;
 			
-				if ( coming.set.week === 7 ) {
-					coming.set.week = 0;
+				if ( DP.setting.week === 7 ) {
+					DP.setting.week = 0;
 				}
 			};
 		},
 		_dateOpen : function() {
 			var coming = DP.coming;
 
-			$('.' + coming.wrap[0].className).on('click' , coming.tpl.btn , function(e) {
+			$('.' + DP.tpl.datepicker).on('click' , ('.' + DP.tpl.btn) , function(e) {
 				e.preventDefault();
 				DP.getValue(this);
 				DP._remove();
 			});
 
-			$('.' + coming.wrap[0].className).on('click' , coming.tpl.arrow , function(e) {
+			$('.' + DP.tpl.datepicker).on('click' , ('.' + DP.tpl.arrow) , function(e) {
 				e.preventDefault();
 				DP.selectMonth(this);
+			});
+
+			$('.' + DP.tpl.datepicker).on('blur keydown' , ('.' + DP.tpl.input) , function(e) {
+				var $self = $(this);
+
+				if ( e.type === 'focusout' || ( e.type === 'keydown' && e.which === 13 ) ) {
+					DP.formSelect($self);
+				}
+			});
+
+			$('.' + DP.tpl.datepicker).on('change' , ('.' + DP.tpl.select) , function(e) {
+				var $self = $(this);
+				DP.formSelect($self);
 			});
 		}
 	});
@@ -452,7 +548,7 @@
 				if ( ! ( e.ctrlKey || e.altKey || e.shiftKey || e.metaKey ) && ! what.is('.sugarfun-datepicker')) {
 					options.index = idx;
 
-					// // Stop an event from bubbling if everything is fine
+					// Stop an event from bubbling if everything is fine
 					if ( DP.init( what , options ) !== false ) {
 						e.preventDefault();
 					}
@@ -461,7 +557,7 @@
 				off(e);
 			},
 			off = function(e) {
-				D.on('click' , function(e) {
+				$d.on('click' , function(e) {
 	                e.stopPropagation();
 	                if ( ! $(e.target).is('.sugarfun-datepicker , .sugarfun-datepicker * , '+ selector +'')) {
 	                    DP._remove();
@@ -472,11 +568,11 @@
 		options = options || {};
 		index   = options.index || 0;
 
-		if ( UserAgent() === 'PC' ) {
+		if ( devices() === 'D' ) {
 			if ( ! selector || options.live === false ) {
 				that.unbind('click').bind('click', run);
 			} else {
-				D.undelegate(selector , 'click').delegate(selector , 'click', run);
+				$d.undelegate(selector , 'click').delegate(selector , 'click', run);
 			}
 
 			return this;
@@ -485,10 +581,10 @@
 		}
 	};
 
-	D.ready(function() {
+	$d.ready(function() {
 		$.extend(DP.defaults, {
 			fixed  : $.support.fixedPosition,
-			parent : B
+			parent : $b
 		});
 	});
 }($, document, window, navigator));

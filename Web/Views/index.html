@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no , minimal-ui" />
 	<title>漢來美食</title>
-	<link rel="stylesheet" href="/Scripts/plugin/datepicker/datepicker.css?CSS=20160420_01">
-	<link rel="stylesheet" href="/Content/css/style.css?CSS=20160420_01">
-	<link rel="stylesheet" href="/Content/css/index.css?CSS=20160420_01">
+	<link rel="stylesheet" href="../Scripts/plugin/datepicker/datepicker.css?CSS=20160420_01">
+	<link rel="stylesheet" href="../Scripts/plugin/owl.carousel/owl.carousel.css?CSS=20160420_01">
+	<link rel="stylesheet" href="../Content/css/style.css?CSS=20160420_01">
+	<link rel="stylesheet" href="../Content/css/index.css?CSS=20160420_01">
 </head>
 <body>
 	<div class="l-body">
 		<header class="l-header">
 			<div class="m-header">
-				<h1 class="m-logo b-hide-text">漢來美食</h1>
+				<h1 class="m-logo">
+					<img src="../Content/img/shared/logo.png" alt="漢來美食">
+				</h1>
 				<ul class="m-menu">
 					<li class="list"><em class="text">品牌餐廳</em></li>
 					<li class="list"><em class="text">最新訊息</em></li>
@@ -102,10 +106,9 @@
 			<button class="m-btn btn-menu b-hide-text"><em>MENU</em></button>
 			<ul class="m-menu b-middle">
 				<li class="list"><a href="javascript:;" class="b-link" target="_blank">集團相關事業</a></li>
-				<li class="list"><a href="javascript:;" class="b-link" target="_blank">國揚建設</a></li>
 				<li class="list"><a href="javascript:;" class="b-link" target="_blank">漢神百貨</a></li>
 				<li class="list"><a href="javascript:;" class="b-link" target="_blank">漢來大飯店</a></li>
-				<li class="list"><a href="javascript:;" class="b-link" target="_blank">漢來美食</a></li>
+				<li class="list"><a href="javascript:;" class="b-link" target="_blank">國揚建設</a></li>
 			</ul>
 		</div>
 		<div class="l-main">
@@ -115,15 +118,23 @@
 						<h2 class="main-title">幸福。微笑。滿足 :-)</h2>
 						<h3 class="sub-title">堅持只給顧客最好的美食國度</h3>
 						<div class="booking b-middle">
-							<div class="m-select-box">
+							<div class="m-box-holder">
 								<select class="m-selection">
 									<option>請選擇美食品牌</option>
+									<option>漢來海港餐廳</option>
+									<option>翠園粵菜餐廳</option>
+									<option>漢來蔬食</option>
+									<option>紅陶上海湯包</option>
+									<option>鐵板燒</option>
+									<option>玻瓦牛排館</option>
+									<option>日本料理弁慶</option>
 								</select>
 							</div>
-							<div class="m-select-box">
-								<input type="text" class="inputbox datepicker" data-types="YYYY/MM/DD" data-min-date="" data-max-date="" data-width="" placeholder="">
+							<div class="m-box-holder">
+								<i class="m-icon m-icon-calendar"></i>
+								<input type="text" class="m-inputbox m-datepicker" data-types="YYYY/MM/DD" data-min-date="2016/08/14" data-max-date="2016/08/29" data-width="265" placeholder="2016/08/15">
 							</div>
-							<div class="m-select-box select-time">
+							<div class="m-box-holder select-time">
 								<i class="m-icon m-icon-clock"></i>
 								<select class="m-selection">
 									<option>PM:1700</option>
@@ -132,20 +143,275 @@
 							<button class="m-btn-radius"><em>下一步</em></button>
 						</div>
 					</div>
-					<div class="m-media"><img src="../Content/img/kv.jpg" alt=""></div>
-					<button class="btn-slide-down b-hide-text"><em>向下捲動</em></button>
+					<div class="m-media is-slash is-dark"><img src="../Content/img/index/kv.jpg" alt=""></div>
+					<button class="m-btn-slide jq-slide-down b-hide-text"><em>向下捲動</em></button>
 				</section>
-				<section class="m-cut">
-					<h2 class="main-title">品牌餐廳</h2>
+				<section class="m-cut restaurant-cut is-slash">
+					<div class="main-content">
+						<div class="main-content-hd">
+							<h2 class="main-title">品牌餐廳</h2>
+						</div>
+						<div class="main-content-bd">
+							<div class="restaurant-list jQ-owl" data-items="4" data-items-md="4" data-items-xs="2" data-ctrl="false" data-dots="true" data-mouse-drag="true" data-touch-drag="true">
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/01.png" alt="漢來海港餐廳">
+											<span class="name b-hide-text">漢來海港餐廳</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">漢來海港餐廳</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/05.png" alt="漢來蔬食">
+											<span class="name b-hide-text">漢來蔬食</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">漢來蔬食</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/02.png" alt="翠園粵菜餐廳">
+											<span class="name b-hide-text">翠園粵菜餐廳</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">翠園粵菜餐廳</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/08.png" alt="名人坊高級粵菜">
+											<span class="name b-hide-text">名人坊高級粵菜</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">名人坊高級粵菜</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/03.png" alt="玻瓦牛排館">
+											<span class="name b-hide-text">玻瓦牛排館</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">玻瓦牛排館</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/04.png" alt="鐵板燒">
+											<span class="name b-hide-text">鐵板燒</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">鐵板燒</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/06.png" alt="紅陶上海湯包">
+											<span class="name b-hide-text">紅陶上海湯包</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">紅陶上海湯包</em>
+								</div>
+								<div class="list">
+									<a href="javascript:;" class="b-link b-middle">
+										<figure class="img-wrap">
+											<img src="../Content/img/logo/07.png" alt="Hi Lai Café">
+											<span class="name b-hide-text">Hi Lai Café</span>
+										</figure>
+										<i class="m-icon m-icon-link"></i>
+										<span class="btn-more">了解更多</span>
+									</a>
+									<em class="name">Hi Lai Café</em>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="m-media"><img src="../Content/img/index/bg-restaurant.jpg" alt="品牌餐廳"></div>
+				</section>
+				<section id="history" class="m-cut history-cut">
+					<div class="main-content">
+						<div class="main-content-hd">
+							<h2 class="main-title">美食國度</h2>
+							<h3 class="sub-title">堅持只給顧客最好的，是漢來美食給顧客最大的承諾。</h3>
+						</div>
+						<div class="main-content-bd">
+							<div class="history-list jQ-owl" data-items="4" data-items-md="4" data-items-xs="1" data-ctrl="false" data-dots="true" data-mouse-drag="true" data-touch-drag="true">
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">1995</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來大飯店在南台灣高雄隆重誕生，專業的美學建築，深富國際飯店經營經驗的飯店管理，讓漢來大飯店自成立以來，一直是最優雅尊榮的南台灣典藏地標。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2003</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來大飯店餐飲事業部正式獨立成為專業餐飲公司～漢欣國際股份有限公司，由專業團隊領軍，提供名聞遐邇的各國美食料理，以及最佳品質的專業服務。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2011</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">年正式更名為漢來美食股份有限公司，並且開始向外擴展美食版圖，於漢神巨蛋購物中心開設漢來海港巨蛋店，首創全台最大五星級自助餐廳。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2015</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來美食更獨家取得亞洲米其林二星餐廳名人坊的全球品牌代理權，並於漢來大飯店開設第一家名人坊台灣分店，造成美食界轟動。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2015</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來美食更獨家取得亞洲米其林二星餐廳名人坊的全球品牌代理權，並於漢來大飯店開設第一家名人坊台灣分店，造成美食界轟動。</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="m-media"><img src="../Content/img/index/bg-history.jpg" alt="美食國度"></div>
+				</section>
+				<section class="m-cut news-cut">
+					<div class="main-content">
+						<div class="main-content-hd">
+							<h2 class="main-title">最新訊息</h2>
+						</div>
+						<div class="main-content-bd">
+							<div class="news-list jQ-owl" data-items="3" data-items-md="3" data-items-xs="1" data-ctrl="false" data-dots="true" data-mouse-drag="true" data-touch-drag="true">
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/01.jpg" alt="新加坡名廚Lino Sauro義式料理經典再現">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">新加坡名廚Lino Sauro義式料理經典再現</h3>
+										<p class="desc">池畔主廚重現經典，不用遠赴義大利也品嘗正統而道地的南義美味...</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/02.jpg" alt="福園-澎湖海鮮季限量推出">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">福園-澎湖海鮮季限量推出</h3>
+										<p class="desc">2016/6/10~6/30限定 每日豐富海鮮~新鮮現撈~澎湖直送</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/03.jpg" alt="盛夏名宴 經典滬粵好食">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">盛夏名宴 經典滬粵好食</h3>
+										<p class="desc">位於漢來大飯店內的米其林二星餐廳-名人坊， 即日起至7月30日推出...</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/03.jpg" alt="盛夏名宴 經典滬粵好食">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">盛夏名宴 經典滬粵好食</h3>
+										<p class="desc">位於漢來大飯店內的米其林二星餐廳-名人坊， 即日起至7月30日推出...</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/01.jpg" alt="新加坡名廚Lino Sauro義式料理經典再現">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">新加坡名廚Lino Sauro義式料理經典再現</h3>
+										<p class="desc">池畔主廚重現經典，不用遠赴義大利也品嘗正統而道地的南義美味...</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+								<div class="list">
+									<figure class="img-wrap">
+										<img src="../Content/img/index/news/02.jpg" alt="福園-澎湖海鮮季限量推出">
+										<span class="img-desc"></span>
+									</figure>
+									<div class="news-content">
+										<h3 class="news-title">福園-澎湖海鮮季限量推出</h3>
+										<p class="desc">2016/6/10~6/30限定 每日豐富海鮮~新鮮現撈~澎湖直送</p>
+										<a href="javascript:;" class="m-btn-radius btn-more">了解更多</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="m-media"><img src="../Content/img/index/bg-news.jpg" alt="最新訊息"></div>
+				</section>
+				<section class="m-cut search-cut is-slash">
+					<div class="main-content">
+						<div class="booking">
+							<h2 class="main-title">美食快搜</h2>
+							<div class="m-form">
+								<div class="m-box-holder">
+									<select class="m-selection">
+										<option>請選擇美食品牌</option>
+										<option>漢來海港餐廳</option>
+										<option>翠園粵菜餐廳</option>
+										<option>漢來蔬食</option>
+										<option>紅陶上海湯包</option>
+										<option>鐵板燒</option>
+										<option>玻瓦牛排館</option>
+										<option>日本料理弁慶</option>
+									</select>
+								</div>
+								<em class="desc">依品牌搜尋</em>
+							</div>
+							<div class="m-form">
+								<div class="m-box-holder">
+									<select class="m-selection">
+										<option>台北市</option>
+										<option>新北市</option>
+									</select>
+								</div>
+								<em class="desc">依地區搜尋</em>
+							</div>
+							<button class="m-btn-radius btn-search"><em>搜尋</em></button>
+						</div>
+					</div>
+					<div class="m-media is-slash is-dark"><img src="../Content/img/index/map.png" alt=""></div>
 				</section>
 				<div class="pagination">
-					<ul class="cut-dot">
-						<li class="list is-curr"><button class="btn-dot"></button></li>
-						<li class="list"><button class="btn-dot"></button></li>
-						<li class="list"><button class="btn-dot"></button></li>
-						<li class="list"><button class="btn-dot"></button></li>
-						<li class="list"><button class="btn-dot"></button></li>
-					</ul>
+					<ul class="cut-dot"></ul>
 				</div>
 			</div>
 		</div>
@@ -153,8 +419,9 @@
 		</footer>
 	</div>
 </body>
-<script src="/Scripts/plugin/jquery/jquery.min.js?JS=20160216_01"></script>
-<script src="/Scripts/plugin/datepicker/datepicker.min.js?JS=20160216_01"></script>
-<script src="/Scripts/js/factory.js?JS=20160420_01"></script>
-<script src="/Scripts/js/common.js?JS=20160420_01"></script>
+<script src="../Scripts/plugin/jquery/jquery.min.js?JS=20160216_01"></script>
+<script src="../Scripts/plugin/datepicker/datepicker.min.js?JS=20160216_01"></script>
+<script src="../Scripts/plugin/owl.carousel/owl.carousel.min.js?JS=20160216_01"></script>
+<script src="../Scripts/js/factory.js?JS=20160420_01"></script>
+<script src="../Scripts/js/common.js?JS=20160420_01"></script>
 </html>

@@ -1,0 +1,54 @@
+.owl-stage-outer {
+	overflow: hidden;
+}
+
+.owl-stage {
+	margin: 0 auto;
+
+	.owl-item {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+.m-owl-dots {
+	&.disabled {
+		display: none;
+	}
+
+	.m-owl-dot {
+		display: inline-block;
+		width: 18px;
+		height: 18px;
+		position: relative;
+		cursor: pointer;
+
+		&:hover span {
+			background: #545454;
+		}
+
+		&.active span {
+			background: #ff4b4b;
+		}
+
+		span {
+			margin: -4px 0 0 -4px;
+			background: #a8a8a8;
+			display: block;
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

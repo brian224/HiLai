@@ -141,6 +141,8 @@
     }
 
     /* owlCarousel */
+    factory.prototype._owl = '.jQ-owl';
+
     factory.prototype.owlCarousel = function(element) {
         if ( jQuery.fn.owlCarousel ) {
             var $elem = jQuery(element);
@@ -177,7 +179,7 @@
                         autoplay          : ( $elem.eq(i).data('autoplay') !== true ) ? false : true,
                         autoplayTimeout   : $elem.eq(i).data('timeout') ? $elem.eq(i).data('timeout') : 5000,
                         navContainerClass : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-ctrl' : 'm-owl-ctrl',
-                        navClass          : ['' + ( $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-arrow' : 'm-owl-arrow') + ' ' + ( $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-arrow-prev' : 'is-prev'+ ( $elem.eq(i).data('loop') !== true ? ' b-hide' : '' ) +''), ' ' + ( $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-arrow' : 'm-owl-arrow') + ' ' + ( $elem.eq(i).data('nav-class' ) ? $elem.eq(i).data('nav-class') + '-arrow-next' : 'is-next')],
+                        navClass          : projects.navClass($elem.eq(i)),
                         navText           : $elem.eq(i).data('nav-text') ? $elem.eq(i).data('nav-text').split(',') : ['<i></i>' , '<i></i>'],
                         dotsClass         : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-dots' : 'm-owl-dots ' + ( $elem.eq(i).data('dots-position') !== 'relative' ? 'is-absolute' : 'is-relative') + '',
                         dotClass          : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-dot' : 'm-owl-dot',
@@ -189,34 +191,82 @@
         }
     }
 
+    factory.prototype.navClass = function(element){
+        var $element       = element;
+        var _CLASSNAME     = 'm-owl-arrow',
+            _PREVCLASSNAME = 'is-prev',
+            _NEXTCLASSNAME = 'is-next',
+            _HIDE          = 'b-hide';
+        var _prev          = null,
+            _next          = null;
+
+        if ( $element.data('nav-class') ) {
+            if ( $element.data('nav-addclass') ) {
+                _prev = $element.data('nav-class')+ + '-arrow ' + _PREVCLASSNAME + ' ' + $element.data('nav-addclass') + ' ' + _HIDE;
+                _next = $element.data('nav-class') + '-arrow ' + _NEXTCLASSNAME + ' ' + $element.data('nav-addclass');
+            } else {
+                _prev = $element.data('nav-class') + '-arrow ' + _PREVCLASSNAME + ' ' + _HIDE;
+                _next = $element.data('nav-class') + '-arrow ' +_NEXTCLASSNAME;
+
+                if ( $element.data('nav-prev-addclass') ) {
+                    _prev = $element.data('nav-class') + '-arrow ' + _PREVCLASSNAME + ' ' + $element.data('nav-prev-addclass') + ' ' + _HIDE;
+                }
+
+                if ( $element.data('nav-next-addclass') ) {
+                    _next = $element.data('nav-class') + '-arrow ' + _NEXTCLASSNAME + ' ' + $element.data('nav-next-addclass');
+                }
+            }
+        } else {
+            if ( $element.data('nav-addclass') ) {
+                _prev = _CLASSNAME + ' ' + _PREVCLASSNAME + ' ' + $element.data('nav-addclass') + ' ' + _HIDE;
+                _next = _CLASSNAME + ' ' +_NEXTCLASSNAME + ' ' + $element.data('nav-addclass');
+            } else {
+                _prev = _CLASSNAME + ' ' + _PREVCLASSNAME + ' ' + _HIDE;
+                _next = _CLASSNAME + ' ' + _NEXTCLASSNAME;
+
+                if ( $element.data('nav-prev-addclass') ) {
+                    _prev = _CLASSNAME + ' ' + _PREVCLASSNAME + ' ' + $element.data('nav-prev-addclass') + ' ' + _HIDE;
+                }
+
+                if ( $element.data('nav-next-addclass') ) {
+                    _next = _CLASSNAME + ' ' + _NEXTCLASSNAME + ' ' + $element.data('nav-next-addclass');
+                }
+            }
+        }
+
+        return [_prev , _next];
+    };
+
     factory.prototype.owlArrowHide = function() {
-        jQuery('.owl-carousel').on('translated.owl.carousel' , function(e){
-            var $self  = jQuery(this),
-                $stage = $self.find('.owl-stage');
+        jQuery(projects._owl).on('translated.owl.carousel' , function(e){
+            var $self       = jQuery(this),
+                $stage      = $self.find('.owl-stage');
             var _position   = ( ( Math.round($stage.position().left) | 0 ) * (-1) ),
                 _width      = ( $self.width() | 0 ),
                 _stageWidth = ( Math.round($stage.width()) | 0 );
+            var _ctrlClass  = $self.data('nav-class') ? '.' + $self.data('nav-class') + '-ctrl' : '.m-owl-ctrl',
+                _HIDE       = 'b-hide';
 
             if ( $self.data('loop') !== true ) {
                 if ( _position !== 0 ) {
-                    if ( $self.find('.owl-controls .is-prev').hasClass('b-hide') ) {
-                        $self.find('.owl-controls .is-prev').removeClass('b-hide');
+                    if ( $self.find(''+_ctrlClass+' .is-prev').hasClass(_HIDE) ) {
+                        $self.find(''+_ctrlClass+' .is-prev').removeClass(_HIDE);
                     }
                 } else {
-                    $self.find('.owl-controls .is-prev').addClass('b-hide');
+                    $self.find(''+_ctrlClass+' .is-prev').addClass(_HIDE);
                 }
 
                 if ( _stageWidth === ( _width + _position ) ) {
-                    $self.find('.owl-controls .is-next').addClass('b-hide');
+                    $self.find(''+_ctrlClass+' .is-next').addClass(_HIDE);
                 } else {
-                    $self.find('.owl-controls .is-next').removeClass('b-hide');
+                    $self.find(''+_ctrlClass+' .is-next').removeClass(_HIDE);
                 }
             }
         });
     }
 
-    factory.prototype.owlEvents = function(element , onEvents , callback) {
-        jQuery(element).on(onEvents , function(e){
+    factory.prototype.owlEvents = function(onEvents , callback) {
+        jQuery(projects._owl).on(onEvents , function(e){
             if ( typeof(callback) === 'function' ) {
                 callback(e);
             } else if ( typeof(callback) === 'string' ) {
@@ -231,6 +281,10 @@
 
     factory.prototype.owlPlay = function(element) {
         jQuery(element).trigger('play.owl.autoplay');
+    }
+
+    factory.prototype.owlGoto = function(position , speed) {
+        jQuery(projects._owl).trigger('to.owl.carousel', [position , ( speed ? speed : 500 ) , true]);
     }
 
     /* validate */
@@ -579,8 +633,9 @@
 
         $element.bind('mousewheel DOMMouseScroll', function (e) {
             if ( ! e ) e = event;
+            
             e.deltaY = e.originalEvent.detail || e.originalEvent.wheelDelta;
-            e.deltaY = e.deltaY > 0 ? 1 : -1;
+            e.deltaY = e.type !== 'DOMMouseScroll' ? ( e.deltaY > 0 ? 1 : -1 ) : ( e.deltaY < 0 ? 1 : -1  );
             
             if ( fn ) {
                 fn(e);
