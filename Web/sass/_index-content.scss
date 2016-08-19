@@ -11,7 +11,6 @@
 
 	.main-content {
 		margin: 0 auto;
-		padding: 0 50px 0 270px;
 		display: flex;
 		align-items: center;
 		flex-direction: column;
@@ -35,14 +34,8 @@
 }
 
 .main-content-hd {
-	position: absolute;
-	top: 72px;
-	left: 270px;
-
 	.main-title {
-		padding-left: 65px;
 		position: relative;
-		font-size: 48px;
 		text-align: left;
 
 		&:before, &:after {
@@ -56,18 +49,13 @@
 
 		&:before {
 			background: $color-major;
-			height: 35px;
 			position: absolute;
-			bottom: 11px;
 			left: 0;
 			opacity: 0.7;
 		}
 
 		&:after {
 			background: $color-gray-l-p30;
-			height: 84px;
-			bottom: 18px;
-			left: 15px;
 		}
 	}
 
@@ -78,10 +66,6 @@
 }
 
 .main-cut {
-	.main-content {
-		padding: 0 100px 0 220px;
-	}
-
 	.main-title {
 		font-size: 72px;
 	}
@@ -127,20 +111,20 @@
 
 	.restaurant-list {
 		margin: 0 auto;
-		width: 800px;
+		/*width: 800px;*/
+
+		.list-group {
+			font-size: 0;
+		}
 
 		.list {
-			margin: 0 10px 25px 10px;
 			display: inline-block;
-			width: 168px;
 			vertical-align: top;
 
 			.b-link {
 				margin-bottom: 5px;
 				background: rgba(255, 255, 255, 0.62);
 				display: block;
-				width: 168px;
-				height: 168px;
 				position: relative;
 				border: 1px solid $color-gray-l-p30;
 				border-radius: 50%;
@@ -195,7 +179,6 @@
 			> .name {
 				margin: 5px 0;
 				color: $color-gray-d-p20;
-				font-size: 16px;
 				line-height: 26px;
 			}
 		}
@@ -299,13 +282,8 @@
 		color: $color-major;
 	}
 
-	.main-content-bd {
-		width: 816px;
-	}
-
 	.news-list .list {
 		margin: 0 6px 38px 6px;
-		background: #fff;
 		width: 260px;
 
 		.img-wrap {
@@ -319,19 +297,14 @@
 
 		.news-content {
 			padding: 10px 16px 50px 16px;
+			background: #fff;
 			position: relative;
 			color: $color-gray-d-p20;
 			text-align: left;
 		}
 
 		.news-title {
-			font-size: 24px;
-			line-height: 32px;
-		}
-
-		.desc {
-			font-size: 14px;
-			line-height: 26px;
+			overflow: hidden;
 		}
 
 		.btn-more {
@@ -359,7 +332,7 @@
 	}
 
 	.booking {
-		padding: 5px 25px;
+		padding: 5px 25px 20px 25px;
 		display: inline-block;
 		min-width: 580px;
 
@@ -371,15 +344,6 @@
 	.m-form {
 		margin: 0 10px;
 		display: inline-block;
-
-		.desc {
-			padding: 5px 0;
-			display: block;
-			color: $color-white;
-			font-size: 16px;
-			line-height: 1.6em;
-			text-align: center;
-		}
 	}
 
 	.btn-search {
@@ -407,7 +371,6 @@
 	position: fixed;
 	top: 0;
 	bottom: 0;
-	right: 8px;
 	z-index: 2;
 
 	.cut-dot {
@@ -452,8 +415,96 @@
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
+	.main-content-hd {
+		position: absolute;
+		top: 72px;
+		left: 270px;
+
+		.main-title {
+			padding-left: 65px;
+			font-size: 48px;
+
+			&:before {
+				height: 35px;
+				bottom: 11px;
+				left: 0;
+			}
+
+			&:after {
+				height: 84px;
+				bottom: 18px;
+				left: 15px;
+			}
+		}
+	}
+
 	.m-cut .main-content {
+		padding: 0 50px 0 220px;
+		width: 100%;
+	}
+
+	.main-cut {
+		.main-content {
+			padding: 0 100px 0 220px;
+		}
+	}
+
+	.restaurant-cut {
+		.main-content-bd {
+			width: 100%;
+		}
+
+		.restaurant-list .list {
+			margin: 0 7px 25px 7px;
+			width: 168px;
+	
+			.b-link {
+				width: 168px;
+				height: 168px;
+
+				.img-wrap img {
+					max-width: 100%;
+				}
+			}
+
+			> .name {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-bd {
+			width: 816px;
+		}
+
+		.news-list .list {
+			.news-title {
+				height: 64px;
+				font-size: 24px;
+				line-height: 32px;
+			}
+
+			.desc {
+				font-size: 14px;
+				line-height: 26px;
+			}
+		}
+	}
+
+	.pagination {
+		right: 8px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.m-cut .main-content {
+		padding: 0 50px 0 270px;
 		width: $main-max-width;
+	}
+
+	.restaurant-cut .restaurant-list .list {
+		margin: 0 10px 25px 10px;
 	}
 }
 
@@ -461,6 +512,97 @@
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-cut {
+		padding-top: 60px;
+		@include box-sizing(border-box);
+	}
+
+	.main-content-hd {
+		.main-title {
+			margin-bottom: 32px;
+			padding-left: 52px;
+			font-size: 38px;
+
+			&:before {
+				height: 27px;
+				bottom: 8px;
+				left: 0;
+			}
+
+			&:after {
+				height: 64px;
+				bottom: 14px;
+				left: 15px;
+			}
+		}
+	}
+
+	.restaurant-cut {
+		.main-content-bd {
+			margin: 0 auto;
+			width: 260px;
+		}
+
+		.restaurant-list .list {
+			padding: 0 11px 20px 11px;
+			width: 50%;
+			@include box-sizing(border-box);
+	
+			.b-link {
+				width: 108px;
+				height: 108px;
+
+				.img-wrap img {
+					max-width: 90%;
+				}
+			}
+
+			> .name {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-hd .main-title {
+			margin-bottom: 13px;
+		}
+
+		.main-content-bd {
+			margin: 0 auto;
+			width: 226px;
+		}
+
+		.news-list .list {
+			margin: 0 auto 38px auto;
+			padding: 0 20px;
+			width: 186px;
+	
+			.img-wrap {
+				height: 154px;
+			}
+
+			.news-title {
+				height: 54px;
+				font-size: 18px;
+				line-height: 27px;
+			}
+
+			.desc {
+				font-size: 12px;
+				line-height: 18px;
+			}
+		}
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+	}
+
+	.pagination {
+		right: 0;
+	}
+}
 
 @include browsers('IE') {}

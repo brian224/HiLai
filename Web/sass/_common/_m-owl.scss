@@ -51,4 +51,8 @@
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.owl-stage .owl-item {
+		/*width: 100% !important;*/
+	}
+}

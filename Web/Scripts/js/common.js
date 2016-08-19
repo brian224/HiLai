@@ -16,7 +16,7 @@
 	index.prototype.checkCutLength = function() {
 		if ($(common._mCut).length > 1) {
 			var _str = '',
-				_idx =  projects.$b.scrollTop() / ($(common._mCut).height());
+				_idx =  Math.round(projects.$b.scrollTop() / ($(common._mCut).height()));
 
 			for (var i = 0; i < $(common._mCut).length; i++) {
 				_str += '<li class="list"><button class="btn-dot jq-slide-cut"></button></li>';

@@ -312,25 +312,25 @@
 }
 
 /* RWD */
-@mixin respond( $midia ) {
-	@if $midia == Desktops {
+@mixin respond( $media ) {
+	@if $media == Desktops {
 		@if $ie-support == 8 {
 			/* IE8 only */
 			@media \0screen { @content; }
 		}
 		@media screen and ( min-width : $screen-pc ) { @content; }
-	} @else if $midia == Desktops-Tablets {
+	} @else if $media == Desktops-Tablets {
 		
 		@if $ie-support == 8 {
 			/* IE8 only */
 			@media \0screen { @content; }
 		}
 		@media screen and ( min-width : $screen-mobile ) { @content; }
-	} @else if $midia == Tablets-Mobiles {
+	} @else if $media == Tablets-Mobiles {
 		@media screen and ( max-width : ($screen-pc - 1) ) { @content; }
-	} @else if $midia == Tablets {
+	} @else if $media == Tablets {
 		@media screen and ( min-width : $screen-mobile ) and ( max-width : ($screen-pc - 1) ) { @content; }
-	} @else if $midia == Mobiles {
+	} @else if $media == Mobiles {
 		@media screen and ( max-width : ($screen-mobile - 1) ) { @content; }
 	}
 }

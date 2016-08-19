@@ -11,8 +11,6 @@
 
 .l-guide {
 	padding: 0 18px 0 12px;
-	background: rgba(83, 83, 83, 0.4);
-	height: 64px;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -20,7 +18,6 @@
 
 	.m-btn {
 		height: 48px;
-		color: $color-white;
 		font-size: 20px;
 
 		&:hover {
@@ -91,10 +88,21 @@
 .l-footer {
 }
 
-@include respond(Desktops) {
+@media screen and (min-width: 1280px) {
 	.l-header {
 		margin-left: -608px;
 		left: 50%;
+	}
+}
+
+@include respond(Desktops) {
+	.l-guide {
+		background: rgba(83, 83, 83, 0.4);
+		height: 64px;
+
+		.m-btn {
+			color: $color-white;
+		}
 	}
 }
 
@@ -106,4 +114,21 @@
 	}
 }
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.l-guide {
+		background: #f8f8f8;
+		height: 60px;
+		left: 0;
+		text-align: right;
+
+		.m-btn {
+			color: $color-gray;
+
+			&.btn-menu {
+				&:before, &:after, > * {
+					background: $color-major;
+				}
+			}
+		}
+	}
+}
