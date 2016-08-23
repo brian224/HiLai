@@ -8,6 +8,7 @@
 		this._pagination    = '.pagination';
 		this._slideDown     = '.jq-slide-down';
 		this._slideCut      = '.jq-slide-cut';
+		this._arrow         = '.jq-arrow';
 		this._animateSpeed  = 400;
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
@@ -64,6 +65,13 @@
 		common.checkCutLength();
 
 		$('.m-datepicker').DatePicker();
+
+		$(common._arrow).each(function(){
+			var $this = $(this),
+				$base = $this.parent().prev();
+
+			$this.css('top', $base.offset().top - parseInt($('.m-header').css('top'), 10) + ($base.height() / 2) - ($this.outerHeight() / 2));
+		});
 
 		$('.btn-menu').on('click', function(){
 			$(this).toggleClass('is-active');

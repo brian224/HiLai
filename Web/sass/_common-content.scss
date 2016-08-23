@@ -18,7 +18,7 @@
 	}
 }*/
 
-.is-dark{
+.is-dark {
 	position: relative;
 
 	&:after {
@@ -30,6 +30,26 @@
 		position: absolute;
 		top: 0;
 		left: 0;
+	}
+}
+
+@include keyframes(ani-fade-in) {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 100%;
+	}
+}
+
+@include keyframes(ani-fade-out) {
+	0% {
+		opacity: 100%;
+	}
+
+	100% {
+		opacity: 0;
 	}
 }
 

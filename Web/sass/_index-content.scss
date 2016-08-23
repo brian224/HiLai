@@ -76,10 +76,11 @@
 	}
 
 	.booking {
-		padding-left: 36px;
-		width: 700px;
-		height: 110px;
-		text-align: left;
+		font-size: 0;
+
+		.booking-step {
+			height: 100%;
+		}
 
 		.m-btn-radius {
 			margin-left: 22px;
@@ -101,6 +102,7 @@
 		left: 50%;
 		bottom: 80px;
 		z-index: 2;
+		@include animation(suspension 1.5s ease-in-out infinite);
 	}
 }
 
@@ -111,7 +113,6 @@
 
 	.restaurant-list {
 		margin: 0 auto;
-		/*width: 800px;*/
 
 		.list-group {
 			font-size: 0;
@@ -200,9 +201,7 @@
 
 	.history-list {
 		.list {
-			padding: 0 40px 25px 40px;
 			display: inline-block;
-			width: 170px;
 			position: relative;
 			vertical-align: top;
 			color: $color-white;
@@ -210,11 +209,8 @@
 			&:before {
 				content: '';
 				display: block;
-				width: 64px;
 				height: 0;
 				position: absolute;
-				top: 84px;
-				left: -26px;
 				border-top: 2px dashed $color-white;
 			}
 
@@ -236,8 +232,6 @@
 		.time {
 			margin-bottom: 20px;
 			display: block;
-			width: 170px;
-			height: 170px;
 			position: relative;
 			border-radius: 50%;
 			overflow: hidden;
@@ -258,7 +252,6 @@
 
 			.year {
 				margin-right: 5px;
-				font-size: 48px;
 			}
 
 			.unit {
@@ -266,6 +259,7 @@
 			}
 
 			img {
+				width: 100%;
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -284,10 +278,10 @@
 
 	.news-list .list {
 		margin: 0 6px 38px 6px;
-		width: 260px;
 
 		.img-wrap {
 			height: 215px;
+			overflow: hidden;
 
 			img {
 				height: 100%;
@@ -412,6 +406,16 @@
 	}
 }
 
+@include keyframes(suspension) {
+	0%, 100% {
+		bottom: 70px;
+	}
+
+	50% {
+		bottom: 80px;
+	}
+}
+
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
@@ -447,6 +451,53 @@
 		.main-content {
 			padding: 0 100px 0 220px;
 		}
+
+		.m-btn-slide {
+			margin-left: 63px;
+		}
+	}
+
+	.history-cut {
+		.main-content-bd {
+			width: 728px;
+		}
+
+		.history-list {
+			.list {
+				padding: 0 15px 25px 15px;
+				width: 142px;
+
+				&:before {
+					width: 30px;
+					top: 71px;
+					left: -20px;
+				}
+			}
+
+			.time {
+				width: 142px;
+				height: 142px;
+
+				.year {
+					font-size: 36px;
+				}
+			}
+		}
+	}
+
+	.pagination {
+		right: 8px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.main-cut .booking {
+		padding: 17px 34px;
+
+		.booking-step > * {
+			margin-top: 17px;
+			margin-bottom: 17px;
+		}
 	}
 
 	.restaurant-cut {
@@ -475,7 +526,7 @@
 
 	.news-cut {
 		.main-content-bd {
-			width: 816px;
+			width: 728px;
 		}
 
 		.news-list .list {
@@ -491,10 +542,6 @@
 			}
 		}
 	}
-
-	.pagination {
-		right: 8px;
-	}
 }
 
 @media screen and (min-width: 1280px) {
@@ -503,12 +550,58 @@
 		width: $main-max-width;
 	}
 
+	.main-cut {
+		.booking {
+			min-width: 840px;
+		}
+
+		.m-btn-slide {
+			margin-left: 88px;
+		}
+	}
+
 	.restaurant-cut .restaurant-list .list {
 		margin: 0 10px 25px 10px;
 	}
-}
 
-@include respond(Desktops-Tablets) {}
+	.history-cut {
+		.main-content-bd {
+			width: 100%;
+		}
+
+		.history-list {
+			.list {
+				padding: 0 40px 25px 40px;
+				width: 170px;
+
+				&:before {
+					width: 64px;
+					top: 84px;
+					left: -26px;
+				}
+			}
+
+			.time {
+				width: 170px;
+				height: 170px;
+
+				.year {
+					font-size: 48px;
+				}
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-bd {
+			width: 816px;
+		}
+
+		.news-list .list {
+			width: 260px;
+		}
+	}
+}
 
 @include respond(Tablets) {}
 
@@ -516,6 +609,17 @@
 	.m-cut {
 		padding-top: 60px;
 		@include box-sizing(border-box);
+	}
+
+	.main-cut {
+		.booking .m-btn-radius {
+			margin: 17px auto;
+			display: block;
+		}
+
+		.m-btn-slide {
+			margin-left: -22px;
+		}
 	}
 
 	.main-content-hd {
@@ -535,6 +639,22 @@
 				bottom: 14px;
 				left: 15px;
 			}
+		}
+	}
+
+	.pagination {
+		right: 0;
+	}
+}
+
+@include respond(Mobiles) {
+	.main-cut {
+		.booking {
+			background: none;
+		}
+
+		.m-box-holder {
+			display: none;
 		}
 	}
 
@@ -598,10 +718,6 @@
 		.owl-stage-outer {
 			overflow: visible;
 		}
-	}
-
-	.pagination {
-		right: 0;
 	}
 }
 

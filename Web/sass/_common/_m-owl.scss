@@ -16,6 +16,13 @@
 		display: none;
 	}
 
+	&.is-absolute {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+
 	.m-owl-dot {
 		display: inline-block;
 		width: 18px;
