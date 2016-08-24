@@ -33,30 +33,32 @@
 
 	index.prototype.mousewheel = function() {
 		projects.mousewheel(projects.$hb, function(e){
-			e.preventDefault();
-			e.stopPropagation();
+			if (!$(e.target).is('.sub-menu, .sub-menu *')) {
+				e.preventDefault();
+				e.stopPropagation();
 
-			if ( common._sectionScroll ) {
-				common._sectionScroll = false;
-				common._sectionIndex = $(common._pagination).find('.cut-dot .list.is-curr').index();
+				if (common._sectionScroll) {
+					common._sectionScroll = false;
+					common._sectionIndex = $(common._pagination).find('.cut-dot .list.is-curr').index();
 
-				if ( e.deltaY < 0 ) {
-					common._sectionIndex ++;
-				} else {
-					common._sectionIndex --;
+					if ( e.deltaY < 0 ) {
+						common._sectionIndex ++;
+					} else {
+						common._sectionIndex --;
+					}
+
+					if ( common._sectionIndex >= ( $(common._mCut).length - 1 ) ) {
+						common._sectionIndex = ( $(common._mCut).length - 1 );
+					} else if ( common._sectionIndex <= 0 ) {
+						common._sectionIndex = 0;
+					}
+
+					common.slideCut(common._sectionIndex);
+
+					setTimeout(function(){
+						common._sectionScroll = true;
+					}, common._animateSpeed);
 				}
-
-				if ( common._sectionIndex >= ( $(common._mCut).length - 1 ) ) {
-					common._sectionIndex = ( $(common._mCut).length - 1 );
-				} else if ( common._sectionIndex <= 0 ) {
-					common._sectionIndex = 0;
-				}
-
-				common.slideCut(common._sectionIndex);
-
-				setTimeout(function(){
-					common._sectionScroll = true;
-				}, common._animateSpeed);
 			}
 		});
 	}
@@ -96,7 +98,7 @@
 	});
 
 	projects.$w.on('scroll, resize' , function(){
-		if ( projects.device() === 'PC' ) {
+		if ( projects.device() === 'PC') {
 			common.mousewheel();
 		}
 	});

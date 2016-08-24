@@ -3,7 +3,6 @@
 }
 
 .m-cut {
-	display: block;
 	width: 100vw;
 	height: 100vh;
 	position: relative;
@@ -335,13 +334,14 @@
 		}
 	}
 
-	.m-form {
+	.m-form .text {
 		margin: 0 10px;
-		display: inline-block;
+		color: $color-white;
+		font-size: 16px;
 	}
 
 	.btn-search {
-		margin: 6px 0 0 22px;
+		margin: 6px 0 0 32px;
 		vertical-align: top;
 	}
 }
@@ -599,6 +599,7 @@
 
 		.news-list .list {
 			width: 260px;
+			box-shadow: 3px 3px 3px rgba(191, 191, 191, 0.35);
 		}
 	}
 }

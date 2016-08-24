@@ -33,7 +33,7 @@
 			color: #4b4b4b;
 			@include transition(ease-in all 0.3s);
 
-			&:hover {
+			&:hover, &.is-hover {
 				color: $color-major;
 
 				&:after {
@@ -140,7 +140,7 @@
 }
 
 .detail-list {
-	padding-top: 40px;
+	padding: 40px 0;
 	background: rgba(152, 7, 71, 0.95);
 	width: auto;
 	position: absolute;
@@ -148,9 +148,14 @@
 	bottom: 0;
 	left: 100%;
 	overflow: hidden;
+	line-height: 30px;
 	@include transition(ease-in all 0.3s);
 	@include transform(rotateY(90deg));
 	@include transform-origin(left);
+
+	> * {
+		@include box-sizing(border-box);
+	}
 
 	.arrow {
 		display: block;
@@ -164,14 +169,27 @@
 	}
 
 	&:hover, &.is-hover {
-		overflow: visible;
+		overflow-y: auto;
 		@include transform(rotateY(0deg));
 	}
 
 	.list {
-		padding-right: 25px;
-		position: relative;
+		padding-left: 26px;
+		color: $color-white;
 		text-align: left;
+
+		.floor {
+			font-weight: bold;
+			line-height: 48px;
+		}
+	}
+
+	.b-link {
+		padding: 0 25px 0 19px;
+		display: block;
+		position: relative;
+		color: $color-white;
+		white-space: nowrap;
 
 		&:before {
 			content: '';
@@ -182,15 +200,8 @@
 			height: 5px;
 			position: absolute;
 			top: 50%;
-			left: 26px;
+			left: 0;
 		}
-	}
-
-	.b-link {
-		padding-left: 45px;
-		display: block;
-		color: $color-white;
-		white-space: nowrap;
 
 		&:hover {
 			color: $color-text-minor;
