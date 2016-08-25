@@ -1,0 +1,745 @@
+﻿body {
+	overflow: hidden;
+}
+
+.m-cut {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+
+	.main-content {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		position: relative;
+		z-index: 2;
+		text-align: center;
+		@include box-sizing(border-box);
+	}
+
+	.main-title, .sub-title {
+		color: $color-white;
+	}
+
+	.booking {
+		margin: 0 auto;
+		background: rgba(14, 14, 14, 0.4);
+		@include box-sizing(border-box);
+	}
+}
+
+.main-content-hd {
+	.main-title {
+		position: relative;
+		text-align: left;
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 5px;
+			position: absolute;
+			@include transform(skew(-30deg));
+			@include transform-origin(left, bottom);
+		}
+
+		&:before {
+			background: $color-major;
+			position: absolute;
+			left: 0;
+			opacity: 0.7;
+		}
+
+		&:after {
+			background: $color-gray-l-p30;
+		}
+	}
+
+	.sub-title {
+		font-size: 18px;
+		text-align: left;
+	}
+}
+
+.main-cut {
+	.booking {
+		font-size: 0;
+
+		.booking-step {
+			height: 100%;
+		}
+
+		.m-btn-radius {
+			margin-left: 22px;
+		}
+
+		.select-time .m-selection {
+			padding-left: 45px;
+		}
+
+		.m-datepicker {
+			padding-left: 45px;
+			width: 164px;
+			@include box-sizing(border-box);
+		}
+	}
+
+	.m-btn-slide {
+		position: absolute;
+		left: 50%;
+		z-index: 2;
+		@include animation(suspension 1.5s ease-in-out infinite);
+	}
+}
+
+.restaurant-cut {
+	.main-title {
+		color: $color-major;
+	}
+
+	.restaurant-list {
+		margin: 0 auto;
+
+		.list-group {
+			font-size: 0;
+		}
+
+		.list {
+			display: inline-block;
+			vertical-align: top;
+
+			.b-link {
+				margin-bottom: 5px;
+				background: rgba(255, 255, 255, 0.62);
+				display: block;
+				position: relative;
+				border: 1px solid $color-gray-l-p30;
+				border-radius: 50%;
+				overflow: hidden;
+				@include box-sizing(border-box);
+
+				&:after {
+					content: '';
+					background: rgba(12, 12, 12, 0);
+					display: block;
+					width: 100%;
+					height: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					@include transition(ease-in all 0.3s);
+				}
+
+				&:hover {
+					&:after {
+						background: rgba(12, 12, 12, 0.62);
+					}
+
+					.m-icon, .btn-more {
+						opacity: 1;
+					}
+				}
+			}
+
+			.m-icon, .btn-more {
+				display: block;
+				width: 100%;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				opacity: 0;
+				z-index: 2;
+				color: $color-white;
+				@include transition(ease-in all 0.3s);
+			}
+
+			.m-icon {
+				margin-top: -24px;
+				font-size: 34px;
+			}
+
+			.btn-more {
+				margin-top: 14px;
+				font-size: 14px;
+			}
+
+			> .name {
+				margin: 5px 0;
+				color: $color-gray-d-p20;
+				line-height: 26px;
+			}
+		}
+	}
+}
+
+.history-cut {
+	.main-content-hd {
+		margin-bottom: 95px;
+
+		.main-title:before {
+			background: #ff0071;
+		}
+	}
+
+	.main-content-bd {
+		width: 100%;
+	}
+
+	.history-list {
+		.list {
+			display: inline-block;
+			position: relative;
+			vertical-align: top;
+			color: $color-white;
+
+			&:before {
+				content: '';
+				display: block;
+				height: 0;
+				position: absolute;
+				border-top: 2px dashed $color-white;
+			}
+
+			&:hover .time img {
+				opacity: 1;
+			}
+
+			.desc {
+				font-size: 14px;
+				line-height: 24px;
+				text-align: center;
+			}
+		}
+
+		.owl-item:first-child .list:before {
+			display: none;
+		}
+
+		.time {
+			margin-bottom: 20px;
+			display: block;
+			position: relative;
+			border-radius: 50%;
+			overflow: hidden;
+			text-align: center;
+
+			&:after {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				border: 2px solid $color-white;
+				border-radius: 50%;
+				@include box-sizing(border-box);
+			}
+
+			.year {
+				margin-right: 5px;
+			}
+
+			.unit {
+				font-size: 18px;
+			}
+
+			img {
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				border-radius: 50%;
+				opacity: 0;
+				@include transition(ease-in all 0.3s);
+			}
+		}
+	}
+}
+
+.news-cut {
+	.main-title {
+		color: $color-major;
+	}
+
+	.news-list .list {
+		margin: 0 6px 38px 6px;
+
+		.img-wrap {
+			height: 215px;
+			overflow: hidden;
+
+			img {
+				height: 100%;
+				min-width: 100%;
+			}
+		}
+
+		.news-content {
+			padding: 10px 16px 50px 16px;
+			background: #fff;
+			position: relative;
+			color: $color-gray-d-p20;
+			text-align: left;
+		}
+
+		.news-title {
+			overflow: hidden;
+		}
+
+		.btn-more {
+			margin-left: -50px;
+			padding: 0;
+			display: block;
+			width: 100px;
+			position: absolute;
+			top: calc(100% - 28px);
+			left: 50%;
+			font-size: 14px;
+			text-align: center;
+
+			&:hover {
+				top: calc(100% - 23px);
+			}
+		}
+	}
+}
+
+.search-cut {
+	.main-title {
+		display: block;
+		font-size: 48px;
+	}
+
+	.booking {
+		padding: 5px 25px 20px 25px;
+		display: inline-block;
+		min-width: 580px;
+
+		.m-selection {
+			min-width: 164px;
+		}
+	}
+
+	.m-form .text {
+		margin: 0 10px;
+		color: $color-white;
+		font-size: 16px;
+	}
+
+	.btn-search {
+		margin: 6px 0 0 32px;
+		vertical-align: top;
+	}
+}
+
+.m-media {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	> * {
+		display: block;
+		min-width: 100vw;
+		min-height: 100vh;
+	}
+}
+
+.pagination {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	z-index: 2;
+
+	.cut-dot {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.list:hover .btn-dot:before {
+		background: #545454;
+	}
+
+	.list.is-curr .btn-dot:before {
+		background: #ff4b4b;
+		opacity: 1;
+	}
+
+	.btn-dot {
+		display: block;
+		width: 34px;
+		height: 34px;
+		position: relative;
+
+		&:before {
+			content: '';
+			margin: -8px 0 0 -8px;
+			background: #a8a8a8;
+			display: block;
+			width: 16px;
+			height: 16px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			border-radius: 50%;
+			opacity: 0.8;
+		}
+	}
+}
+
+@include keyframes(suspension) {
+	0%, 100% {
+		margin-bottom: 10px;
+	}
+
+	50% {
+		margin-bottom: 0px;
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.main-content-hd {
+		position: absolute;
+		top: 72px;
+		left: 270px;
+
+		.main-title {
+			padding-left: 65px;
+			font-size: 48px;
+
+			&:before {
+				height: 35px;
+				bottom: 11px;
+				left: 0;
+			}
+
+			&:after {
+				height: 84px;
+				bottom: 18px;
+				left: 15px;
+			}
+		}
+	}
+
+	.m-cut .main-content {
+		padding: 0 50px 0 220px;
+		width: 100%;
+	}
+
+	.main-cut {
+		.main-content {
+			padding: 0 100px 0 220px;
+		}
+
+		.m-btn-slide {
+			margin-left: 63px;
+		}
+	}
+
+	.history-cut {
+		.main-content-bd {
+			width: 728px;
+		}
+
+		.history-list {
+			.list {
+				padding: 0 15px 25px 15px;
+				width: 142px;
+
+				&:before {
+					width: 30px;
+					top: 71px;
+					left: -20px;
+				}
+			}
+
+			.time {
+				width: 142px;
+				height: 142px;
+
+				.year {
+					font-size: 36px;
+				}
+			}
+		}
+	}
+
+	.pagination {
+		right: 8px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.main-cut {
+		.main-title {
+			font-size: 72px;
+		}
+
+		.sub-title {
+			margin-bottom: 24px;
+			font-size: 24px;
+		}
+
+		.booking {
+			padding: 17px 34px;
+	
+			.booking-step > * {
+				margin-top: 17px;
+				margin-bottom: 17px;
+			}
+		}
+
+		.m-btn-slide {
+			bottom: 80px;
+		}
+	}
+
+	.restaurant-cut {
+		.main-content-bd {
+			width: 100%;
+		}
+
+		.restaurant-list .list {
+			margin: 0 7px 25px 7px;
+			width: 168px;
+	
+			.b-link {
+				width: 168px;
+				height: 168px;
+
+				.img-wrap img {
+					max-width: 100%;
+				}
+			}
+
+			> .name {
+				font-size: 16px;
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-bd {
+			width: 728px;
+		}
+
+		.news-list .list {
+			.news-title {
+				height: 64px;
+				font-size: 24px;
+				line-height: 32px;
+			}
+
+			.desc {
+				font-size: 14px;
+				line-height: 26px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-cut .main-content {
+		padding: 0 50px 0 270px;
+		width: $main-max-width;
+	}
+
+	.main-cut {
+		.booking {
+			min-width: 840px;
+		}
+
+		.m-btn-slide {
+			margin-left: 88px;
+		}
+	}
+
+	.restaurant-cut .restaurant-list .list {
+		margin: 0 10px 25px 10px;
+	}
+
+	.history-cut {
+		.main-content-bd {
+			width: 100%;
+		}
+
+		.history-list {
+			.list {
+				padding: 0 40px 25px 40px;
+				width: 170px;
+
+				&:before {
+					width: 64px;
+					top: 84px;
+					left: -26px;
+				}
+			}
+
+			.time {
+				width: 170px;
+				height: 170px;
+
+				.year {
+					font-size: 48px;
+				}
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-bd {
+			width: 816px;
+		}
+
+		.news-list .list {
+			width: 260px;
+			box-shadow: 3px 3px 3px rgba(191, 191, 191, 0.35);
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.m-cut {
+		padding-top: 60px;
+		@include box-sizing(border-box);
+	}
+
+	.main-cut {
+		.booking .m-btn-radius {
+			margin: 17px auto;
+			display: block;
+		}
+
+		.m-btn-slide {
+			margin-left: -22px;
+		}
+	}
+
+	.main-content-hd {
+		.main-title {
+			margin-bottom: 32px;
+			padding-left: 52px;
+			font-size: 38px;
+
+			&:before {
+				height: 27px;
+				bottom: 8px;
+				left: 0;
+			}
+
+			&:after {
+				height: 64px;
+				bottom: 14px;
+				left: 15px;
+			}
+		}
+	}
+
+	.pagination {
+		right: 0;
+	}
+}
+
+@include respond(Mobiles) {
+	.main-cut {
+		.main-title {
+			margin-bottom: 50px;
+			padding: 0 50px;
+			font-size: 60px;
+			line-height: 65px;
+		}
+
+		.sub-title {
+			font-size: 16px;
+		}
+
+		.booking {
+			background: none;
+		}
+
+		.m-box-holder {
+			display: none;
+		}
+
+		.m-btn-slide {
+			bottom: 30px;
+		}
+	}
+
+	.restaurant-cut {
+		.main-content-bd {
+			margin: 0 auto;
+			width: 260px;
+		}
+
+		.restaurant-list .list {
+			padding: 0 11px 20px 11px;
+			width: 50%;
+			@include box-sizing(border-box);
+	
+			.b-link {
+				width: 108px;
+				height: 108px;
+
+				.img-wrap img {
+					max-width: 90%;
+				}
+			}
+
+			> .name {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.news-cut {
+		.main-content-hd .main-title {
+			margin-bottom: 13px;
+		}
+
+		.main-content-bd {
+			margin: 0 auto;
+			width: 226px;
+		}
+
+		.news-list .list {
+			margin: 0 auto 38px auto;
+			padding: 0 20px;
+			width: 186px;
+	
+			.img-wrap {
+				height: 154px;
+			}
+
+			.news-title {
+				height: 54px;
+				font-size: 18px;
+				line-height: 27px;
+			}
+
+			.desc {
+				font-size: 12px;
+				line-height: 18px;
+			}
+		}
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+	}
+}
+
+@include browsers('IE') {}

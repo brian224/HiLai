@@ -1,0 +1,139 @@
+﻿.m-item {
+	position : relative;
+    @include box-sizing(border-box);
+}
+
+.m-item-bd {
+	@at-root {
+        ol#{&} , ol#{&} ol , ul#{&} ol {
+            counter-reset : section;
+
+            > li {
+                &:before {
+                    counter-increment : section;
+                    content           : counter(section)".";
+                }
+
+                &[data-label] {
+                    &:before {
+                        content : attr(data-label);
+                    }
+                }
+            }
+        }
+
+        ul#{&} , ol#{&} ul , ul#{&} ul {
+            > li {
+                &:before {
+                    content     : "●";
+                    line-height : 1.2;
+                }
+
+                &[data-label] {
+                    &:before {
+                        content : attr(data-label);
+                    }
+                }
+            }
+        }
+    }
+
+    li {
+        width    : 100%;
+        position : relative;
+        @inlcude display(table);
+        @include box-sizing(border-box);
+
+        &:first-child {
+            margin-top : 0;
+        }
+
+        > * {
+            @include display(table-cell);
+        }
+
+        &:before {
+            width          : 1%;
+            vertical-align : top !important;
+            background     : none;
+            @include display(table-cell);
+        }
+
+        > * {
+            width : 100%;
+        }
+    }
+}
+
+@include respond(Desktops) {
+	.m-item-bd {
+        li {
+            margin-top : 5px;
+
+            &:before {
+                padding-right : 5px;
+            }
+
+            ul , ol {
+                margin-top : 5px;
+            }
+        }
+    }
+}
+
+@include respond(Desktops-Tablets) {
+	.m-item-hd {
+		margin-bottom : 5px;
+	}
+
+	.m-item-ft {
+		margin-top : 5px;
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+    .m-item-bd {
+        @at-root {
+            ul#{&} , ol#{&} ul , ul#{&} ul {
+                > li {
+                    &:not([data-label]) {
+                        &:before {
+                            line-height : 0.9;
+                            font-size   : 130%;
+                        }
+                    }
+                }
+            }
+        }
+
+        li {
+            margin-top : 5px;
+        }
+    }
+}
+
+@include respond(Tablets) {}
+
+@include respond(Mobiles) {
+	.m-item-hd {
+		margin-bottom : 4px;
+	}
+
+    .m-item-bd {
+        li {
+            margin-top : 3px;
+
+            &:before {
+                padding-right : 3px;
+            }
+
+            ul , ol {
+                margin-top : 3px;
+            }
+        }
+    }
+
+	.m-item-ft {
+		margin-top : 4px;
+	}
+}

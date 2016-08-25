@@ -1,0 +1,62 @@
+﻿$FontNum : 2015100502;
+
+@font-face {
+	font-family : 'hilai-font';
+	src         : font-url('hilai-font.woff?#{$FontNum}') format('woff'),
+				  font-url('hilai-font.ttf?#{$FontNum}') format('truetype'),
+				  font-url('hilai-font.svg?#{$FontNum}#skmFount') format('svg');
+	font-weight : normal;
+	font-style  : normal;
+}
+
+.m-icon {
+	font           : normal normal normal 14px/1 'hilai-font';
+	font-size      : inherit;
+	text-rendering : auto;
+	text-transform : none;
+	speak          : none;
+	@include transform(translate(0, 0));
+	@include inline-block;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing  : antialiased;
+	-moz-osx-font-smoothing : grayscale;
+}
+
+/* fonts icon */
+.m-icon-calendar:before {
+	content: "\e900";
+}
+.m-icon-clock:before {
+	content: "\e901";
+}
+.m-icon-fb:before {
+	content: "\e902";
+}
+.m-icon-line:before {
+	content: "\e903";
+}
+.m-icon-link:before {
+	content: "\e904";
+}
+.m-icon-logo:before {
+	content: "\e905";
+}
+.m-icon-member:before {
+	content: "\e906";
+}
+.m-icon-order:before {
+	content: "\e907";
+}
+.m-icon-youtube:before {
+	content: "\e908";
+}
+.m-icon-zoom:before {
+	content: "\e909";
+}
+.m-icon-mobile:before {
+	content: "\e90a";
+}
+.m-icon-map:before {
+	content: "\e90b";
+}
