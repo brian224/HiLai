@@ -87,12 +87,17 @@
 
 .l-footer {
 	background: image-url('shared/bg-footer.jpg') 0 0;
-}
+	min-height: 30px;
+	position: fixed;
+	bottom: -50px;
+	left: 0;
+	right: 0;
+	border-top: 1px solid $color-gray;
+	z-index: 2;
+	@include transition(ease-in all 0.3s);
 
-@media screen and (min-width: 1280px) {
-	.l-header {
-		margin-left: -608px;
-		left: 50%;
+	&.is-show {
+		bottom: 0;
 	}
 }
 
@@ -104,6 +109,13 @@
 		.m-btn {
 			color: $color-white;
 		}
+	}
+}
+
+@include respond(HD) {
+	.l-header {
+		margin-left: -608px;
+		left: 50%;
 	}
 }
 

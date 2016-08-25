@@ -319,6 +319,8 @@
 			@media \0screen { @content; }
 		}
 		@media screen and ( min-width : $screen-pc ) { @content; }
+	} @else if $media == HD {
+		@media screen and ( min-width : $main-max-width ) { @content; }
 	} @else if $media == Desktops-Tablets {
 		
 		@if $ie-support == 8 {

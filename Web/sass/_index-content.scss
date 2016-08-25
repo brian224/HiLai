@@ -65,15 +65,6 @@
 }
 
 .main-cut {
-	.main-title {
-		font-size: 72px;
-	}
-
-	.sub-title {
-		margin-bottom: 24px;
-		font-size: 24px;
-	}
-
 	.booking {
 		font-size: 0;
 
@@ -99,7 +90,6 @@
 	.m-btn-slide {
 		position: absolute;
 		left: 50%;
-		bottom: 80px;
 		z-index: 2;
 		@include animation(suspension 1.5s ease-in-out infinite);
 	}
@@ -408,11 +398,11 @@
 
 @include keyframes(suspension) {
 	0%, 100% {
-		bottom: 70px;
+		margin-bottom: 10px;
 	}
 
 	50% {
-		bottom: 80px;
+		margin-bottom: 0px;
 	}
 }
 
@@ -491,12 +481,27 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.main-cut .booking {
-		padding: 17px 34px;
+	.main-cut {
+		.main-title {
+			font-size: 72px;
+		}
 
-		.booking-step > * {
-			margin-top: 17px;
-			margin-bottom: 17px;
+		.sub-title {
+			margin-bottom: 24px;
+			font-size: 24px;
+		}
+
+		.booking {
+			padding: 17px 34px;
+	
+			.booking-step > * {
+				margin-top: 17px;
+				margin-bottom: 17px;
+			}
+		}
+
+		.m-btn-slide {
+			bottom: 80px;
 		}
 	}
 
@@ -544,7 +549,7 @@
 	}
 }
 
-@media screen and (min-width: 1280px) {
+@include respond(HD) {
 	.m-cut .main-content {
 		padding: 0 50px 0 270px;
 		width: $main-max-width;
@@ -650,12 +655,27 @@
 
 @include respond(Mobiles) {
 	.main-cut {
+		.main-title {
+			margin-bottom: 50px;
+			padding: 0 50px;
+			font-size: 60px;
+			line-height: 65px;
+		}
+
+		.sub-title {
+			font-size: 16px;
+		}
+
 		.booking {
 			background: none;
 		}
 
 		.m-box-holder {
 			display: none;
+		}
+
+		.m-btn-slide {
+			bottom: 30px;
 		}
 	}
 

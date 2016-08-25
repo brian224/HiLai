@@ -1,10 +1,21 @@
 .m-footer {
 	margin: 0 auto;
-	padding: 80px 50px 50px 270px;
+	padding: 0 50px 0 270px;
 	width: 1280px;
 	font-size: 0;
 	text-align: center;
 	@include box-sizing(border-box);
+
+	.sitemap-wrap {
+		max-height: 0;
+		overflow: hidden;
+		@include transition(ease-in all 0.3s);
+
+		&.is-show {
+			padding: 80px 0 50px 0;
+			max-height: 1000px;
+		}
+	}
 
 	.sitemap-list {
 		display: inline-block;
@@ -103,13 +114,46 @@
 	}
 
 	.btn-sitemap {
+		margin-top: -10px;
 		padding: 0 10px;
 		background: $color-gray-l-p40;
 		height: 26px;
+		position: relative;
 		border-radius: 4px;
 		color: $color-gray-d-p20;
 		font-size: 14px;
 		line-height: 26px;
+
+		&:before {
+			content: '';
+			margin-top: -2px;
+			display: block;
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 50%;
+			left: 12px;
+			border-top: 1px solid $color-gray-d-p30;
+			border-right: 1px solid $color-gray-d-p30;
+			opacity: 0;
+			@include box-sizing(border-box);
+			@include transform(rotate(-45deg));
+			@include transition(ease-in all 0.3s);
+		}
+
+		&.is-active {
+			&:before {
+				opacity: 1;
+			}
+
+			.m-icon {
+				opacity: 0;
+			}
+		}
+
+		.m-icon {
+			@include transition(ease-in all 0.3s);
+		}
 	}
 }
 
