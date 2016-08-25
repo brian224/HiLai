@@ -1,7 +1,5 @@
 .m-footer {
 	margin: 0 auto;
-	padding: 0 50px 0 270px;
-	width: 1280px;
 	font-size: 0;
 	text-align: center;
 	@include box-sizing(border-box);
@@ -157,7 +155,19 @@
 	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-footer {
+		padding: 0 50px 0 220px;
+		width: 100%;
+	}
+}
+
+@include respond(HD) {
+	.m-footer {
+		padding: 0 50px 0 270px;
+		width: 1280px;
+	}
+}
 
 @include respond(Desktops-Tablets) {}
 

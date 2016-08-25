@@ -37,7 +37,7 @@
 			return getScalar(value , dim) + 'px';
 		},
 		devices = function() {
-			if ( /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || $d.width() < 768 ) {
+			if ( /Android|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && $d.width() < 768 ) {
 				return 'M';
 			} else {
 				if ( /Android|webOS|iPad|BlackBerry/i.test(navigator.userAgent) ) {
@@ -79,8 +79,12 @@
 			'bd'         : 'sugarfun-datepicker-bd',
 			'date'       : 'sugarfun-datepicker-date',
 			'btn'        : 'sugarfun-datepicker-button',
+			'prev'       : 'is-prev',
+			'next'       : 'is-next',
+			'this'       : 'is-this',
 			'today'      : 'is-today',
-			'chose'      : 'is-chose'
+			'chose'      : 'is-chose',
+			'holiday'    : 'is-holiday'
 		},
 		setting : {
 			regex       : /(\w*)YYYY(.*)MM(.*)DD(.*)/g,
@@ -117,7 +121,7 @@
 			formatDate  : null,
 			headerTypes : null,
 			headType    : {},
-			lastDate    : {
+			prevDate    : {
 				'Year' : null,
                 'Month': null,
                 'Day'  : []
@@ -327,6 +331,23 @@
 			month = coming.element.val() ? (coming.element.val().substring(/M+/.exec(coming.types).index , ((/M+/.exec(coming.types).index) + ((/M+/.exec(coming.types)[0].length)))) | 0) : '';
 			day = coming.element.val() ? (coming.element.val().substring(/D+/.exec(coming.types).index , ((/D+/.exec(coming.types).index) + ((/D+/.exec(coming.types)[0].length)))) | 0) : '';
 
+			if ( coming.format === 'EN' ) {
+				DP.setting.months = DP.setting.language.EN.months;
+				DP.setting.weeks  = DP.setting.language.EN.weeks;
+			} else {
+				DP.setting.months = DP.setting.language.CH.months;
+				DP.setting.weeks = DP.setting.language.CH.weeks;
+				
+				if ( coming.format.weeks ) {
+					if ( coming.format.weeks.split(',').length === 7 ) {
+						DP.setting.weeks  = [];
+						for ( var i = 0 ; i < coming.format.weeks.split(',').length ; i ++ ) {
+							DP.setting.weeks.push($.trim(coming.format.weeks.split(',')[i]));
+						};
+					}
+				}
+			}
+			
 			dateValue = coming.element.val() ? new Date(DP.defaults.types.replace(DP.setting.regex , '$1'+year+'$2'+DP.setting.months[(month-1)]+'$3'+day)) : '';
 
 			DP._remove();
@@ -347,7 +368,8 @@
 			var coming = DP.coming;
 			var date ,
 				today,
-				chose;
+				chose,
+				holiday;
 
 			$('.' + DP.tpl.datepicker).css({
 				top    : coming.element.offset().top + coming.element.outerHeight(),
@@ -358,7 +380,7 @@
 
 			DP.setting.date      = selectDate ? selectDate : new Date(),
 			DP.setting.maxDate   = coming.maxDate ? new Date(coming.maxDate) : new Date(9999, 1, 1),
-			DP.setting.minDate   = coming.minDate ? new Date(coming.minDate) : new Date(1, 1, 1),
+			DP.setting.minDate   = coming.minDate ? new Date(coming.minDate) : new Date(100, 1, 1),
 			DP.setting.newDay    = DP.setting.date.getDate(),
 			DP.setting.newMonth  = DP.setting.date.getMonth(),
 			DP.setting.newYear   = ( DP.setting.date.getYear() <= 200 ) ? ( DP.setting.date.getYear() + 1900 ) : DP.setting.date.getYear(),
@@ -368,24 +390,6 @@
 			DP.setting.getDays   = DP.setting.monthDays[DP.setting.newMonth],
 			DP.setting.setDate   = DP.setting.date;
 			
-			if ( coming.format === 'EN' ) {
-				DP.setting.months = DP.setting.language.EN.months;
-				DP.setting.weeks  = DP.setting.language.EN.weeks;
-			} else {
-				DP.setting.months = DP.setting.language.CH.months;
-				DP.setting.weeks = DP.setting.language.CH.weeks;
-				
-				if ( coming.format.weeks ) {
-					if ( coming.format.weeks.split(',').length === 7 ) {
-						DP.setting.weeks  = [];
-						for ( var i = 0 ; i < coming.format.weeks.split(',').length ; i ++ ) {
-							DP.setting.weeks.push($.trim(coming.format.weeks.split(',')[i]));
-						};
-					}
-				}
-			}
-
-
 			if ( ( DP.setting.newYear % 4 ) === 0 && DP.setting.newYear !== 1900 ) {
 				DP.setting.monthDays[1] = 29;
 			}
@@ -404,10 +408,10 @@
 
 			DP.setting.setDate = DP.setting.setDate.getDay();
 
-			DP.setting.lastDate.Year  = DP.setting.newMonth > 0 ? DP.setting.year : ( DP.setting.year - 1 );
+			DP.setting.prevDate.Year  = DP.setting.newMonth > 0 ? DP.setting.year : ( DP.setting.year - 1 );
 			DP.setting.thisDate.Year  = DP.setting.year;
 			DP.setting.nextDate.Year  = DP.setting.newMonth < 11 ? DP.setting.year : ( DP.setting.year + 1 );
-			DP.setting.lastDate.Month = DP.setting.newMonth > 0 ? DP.setting.months[( DP.setting.newMonth - 1 )] : DP.setting.months[11];
+			DP.setting.prevDate.Month = DP.setting.newMonth > 0 ? DP.setting.months[( DP.setting.newMonth - 1 )] : DP.setting.months[11];
 			DP.setting.thisDate.Month = DP.setting.months[ ( DP.setting.newMonth ) ];
 			DP.setting.nextDate.Month = DP.setting.newMonth < 11 ? DP.setting.months[ ( DP.setting.newMonth + 1 ) ] : DP.setting.months[0];
 
@@ -421,13 +425,16 @@
 			}
 
 			for ( var i = 1 ; i <= DP.setting.setDate ; i ++ ) {
+
+				// console.log(i);
+
 				if ( DP.setting.newMonth - 1 < 0 ) {
 					date = ( DP.setting.monthDays[ ( DP.setting.monthDays.length - 1 ) ] - DP.setting.setDate + i );
 				} else {
 					date = ( DP.setting.monthDays[ ( DP.setting.newMonth - 1 ) ] - DP.setting.setDate + i );
 				}
 
-				DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.lastDate.Year+'$2'+DP.setting.lastDate.Month+'$3'+date);
+				DP.setting.appendDates = DP.defaults.types.replace(DP.setting.regex , '$1'+DP.setting.prevDate.Year+'$2'+DP.setting.prevDate.Month+'$3'+date);
 
 				DP.setting.formatDate = DP.formatInputs(new Date(DP.setting.appendDates) , coming.types.toUpperCase());
 
@@ -436,14 +443,20 @@
 				} else {
 					chose = '';
 				}
+
+				if ( new Date(DP.setting.appendDates).getDay() === 0 || new Date(DP.setting.appendDates).getDay() === 6 ) {
+					holiday = ' '+DP.tpl.holiday+'';
+				} else {
+					holiday = '';
+				}
 			
 				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
-					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+chose+'" data-date="'+ DP.setting.formatDate +'">' + getNewDate(DP.setting.appendDates).getDate() + '</button>';
+					DP.setting.appendDate = '<button class="'+DP.tpl.btn+''+chose+'" data-date="'+ DP.setting.formatDate +'">' + getNewDate(DP.setting.appendDates).getDate() + '</button>';
 				} else {
 					DP.setting.appendDate = '<em class="'+chose+'">' + getNewDate(DP.setting.appendDates).getDate() + '</em>';
 				}
 				
-				$('.' + DP.tpl.date).append('<li class="is-last">' + DP.setting.appendDate + '</li>');
+				$('.' + DP.tpl.date).append('<li class="'+DP.tpl.prev+''+holiday+'">' + DP.setting.appendDate + '</li>');
 			
 				DP.setting.week ++;
 			};
@@ -464,14 +477,20 @@
 				} else {
 					chose = '';
 				}
+
+				if ( new Date(DP.setting.appendDates).getDay() === 0 || new Date(DP.setting.appendDates).getDay() === 6 ) {
+					holiday = ' '+DP.tpl.holiday+'';
+				} else {
+					holiday = '';
+				}
 			
 				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
-					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+today+''+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
+					DP.setting.appendDate = '<button class="'+DP.tpl.btn+''+today+''+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
 				} else {
 					DP.setting.appendDate = '<em class="'+today+''+chose+'">' + i + '</em>';
 				}
 
-				$('.' + DP.tpl.date).append('<li class="is-this">' + DP.setting.appendDate + '</li>');
+				$('.' + DP.tpl.date).append('<li class="'+DP.tpl.this+''+holiday+'">' + DP.setting.appendDate + '</li>');
 			
 				DP.setting.week ++;
 			
@@ -490,14 +509,20 @@
 				} else {
 					chose = '';
 				}
+
+				if ( new Date(DP.setting.appendDates).getDay() === 0 || new Date(DP.setting.appendDates).getDay() === 6 ) {
+					holiday = ' '+DP.tpl.holiday+'';
+				} else {
+					holiday = '';
+				}
 				
 				if ( getNewDate(DP.setting.appendDates) <= DP.setting.maxDate && DP.setting.minDate && getNewDate(DP.setting.appendDates) > DP.setting.minDate ) {
-					DP.setting.appendDate = '<button class="sugarfun-datepicker-button'+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
+					DP.setting.appendDate = '<button class="'+DP.tpl.btn+''+chose+'" data-date="'+ DP.setting.formatDate +'">' + i + '</button>';
 				} else {
 					DP.setting.appendDate = '<em class="'+chose+'">' + i + '</em>';
 				}
 
-				$('.' + DP.tpl.date).append('<li class="is-next">' + DP.setting.appendDate + '</li>');
+				$('.' + DP.tpl.date).append('<li class="'+DP.tpl.next+''+holiday+'">' + DP.setting.appendDate + '</li>');
 			
 				DP.setting.week ++;
 			
@@ -545,7 +570,7 @@
 					relType,
 					relVal;
 
-				if ( ! ( e.ctrlKey || e.altKey || e.shiftKey || e.metaKey ) && ! what.is('.sugarfun-datepicker')) {
+				if ( ! ( e.ctrlKey || e.altKey || e.shiftKey || e.metaKey ) && ! what.is('.'+DP.tpl.datepicker+'')) {
 					options.index = idx;
 
 					// Stop an event from bubbling if everything is fine
@@ -559,7 +584,7 @@
 			off = function(e) {
 				$d.on('click' , function(e) {
 	                e.stopPropagation();
-	                if ( ! $(e.target).is('.sugarfun-datepicker , .sugarfun-datepicker * , '+ selector +'')) {
+	                if ( ! $(e.target).is('.'+DP.tpl.datepicker+' , .'+DP.tpl.datepicker+' * , '+ selector +'')) {
 	                    DP._remove();
 	                }
 	            });

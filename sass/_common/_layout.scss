@@ -3,18 +3,19 @@
 }
 
 .l-header {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	z-index: 5;
+	/*top: 0;*/
+	/*z-index: 5;*/
+
+	.btn-menu {
+		position: absolute;
+		top: 6px;
+		right: 18px;
+		z-index: 4;
+	}
 }
 
 .l-guide {
-	padding: 0 18px 0 12px;
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 3;
+	padding: 0 74px 0 12px;
 
 	.m-btn {
 		height: 48px;
@@ -24,54 +25,9 @@
 			color: $color-text-minor;
 		}
 	}
-
-	.m-menu {
-		padding-right: 74px;
-		background: rgba(152,7,71,0.95);
-		height: 100%;
-		position: absolute;
-		top: 0;
-		right: 0;
-		white-space: nowrap;
-		@include transition(ease-in all 0.3s);
-		@include transform(rotateY(90deg));
-		@include transform-origin(right);
-
-		&:after {
-			content: '';
-			margin-top: -24px;
-			background: $color-white;
-			display: block;
-			width: 1px;
-			height: 48px;
-			position: absolute;
-			top: 50%;
-			right: 74px;
-		}
-
-		&.is-show {
-			@include transform(rotateY(0deg));
-		}
-
-		.list {
-			padding: 0 20px;
-			display: inline-block;
-			font-size: 16px;
-
-			.b-link {
-				display: block;
-				color: $color-white;
-
-				&:hover {
-					color: $color-text-minor;
-				}
-			}
-		}
-	}
 }
 
 .l-nav {
-	margin-right: 18px;
 	padding-right: 20px;
 	display: inline-block;
 	height: 48px;
@@ -102,9 +58,18 @@
 }
 
 @include respond(Desktops) {
+	.l-header {
+		/*position: fixed;*/
+		/*bottom: 0;*/
+	}
+
 	.l-guide {
 		background: rgba(83, 83, 83, 0.4);
 		height: 64px;
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 3;
 
 		.m-btn {
 			color: $color-white;
@@ -114,34 +79,45 @@
 
 @include respond(HD) {
 	.l-header {
-		margin-left: -608px;
-		left: 50%;
+		/*margin-left: -608px;
+		left: 50%;*/
 	}
 }
 
 @include respond(Desktops-Tablets) {}
 
 @include respond(Tablets) {
-	.l-header {
-		left: 0;
-	}
 }
 
 @include respond(Tablets-Mobiles) {
+	.l-header {
+		position: fixed;
+		z-index: 4;
+
+		.btn-menu {
+			margin-bottom: 6px;
+
+			&:before, &:after, > * {
+				background: $color-major;
+			}
+		}
+	}
+
 	.l-guide {
+		padding-top: 6px;
 		background: #f8f8f8;
-		height: 60px;
+		width: 100vw;
+		min-height: 60px;
 		left: 0;
 		text-align: right;
+		@include box-sizing(border-box);
 
 		.m-btn {
 			color: $color-gray;
-
-			&.btn-menu {
-				&:before, &:after, > * {
-					background: $color-major;
-				}
-			}
 		}
+	}
+
+	.l-nav {
+		margin-bottom: 6px;
 	}
 }

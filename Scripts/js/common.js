@@ -90,7 +90,7 @@
 
 		$('.btn-menu').on('click', function(){
 			$(this).toggleClass('is-active');
-			$(this).next('.m-menu').toggleClass('is-show');
+			$(this).next('.menu-wrap').toggleClass('is-show');
 		});
 
 		$('.btn-sitemap').on('click', function(){
@@ -122,4 +122,8 @@
 			common.showFooter();
 		}
 	});
+
+	if ( ! window.common ) {
+		window.common = common;
+	}
 }(window, document, $));

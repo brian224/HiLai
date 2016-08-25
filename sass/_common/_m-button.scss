@@ -1,8 +1,10 @@
 .btn-menu {
 	display: inline-block;
 	width: 38px;
+	height: 48px;
 	position: relative;
 	z-index: 1;
+	font-size: 20px;
 
 	&.is-active {
 		&:before {
@@ -41,12 +43,6 @@
 
 	&:after {
 		margin-top: 8px;
-	}
-
-	&:hover {
-		&:before, &:after, em {
-			background: $color-text-minor;
-		}
 	}
 
 	em {
@@ -110,7 +106,13 @@
 	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.btn-menu:hover {
+		&:before, &:after, em {
+			background: $color-text-minor;
+		}
+	}
+}
 
 @include respond(Desktops-Tablets) {}
 
