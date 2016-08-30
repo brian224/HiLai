@@ -2,23 +2,35 @@
 	'use strict';
 
 	var common = new index();
+	var map;
+
+	function initMap() {
+		map = new google.maps.Map(document.getElementById('map'), {
+			center: {lat: -34.397, lng: 150.644},
+			zoom: 8
+		});
+	}
 
 	function index() {
 		this._lFooter       = '.l-footer';
 		this._mCut          = '.m-cut';
 		this._pagination    = '.pagination';
+		this._subMenu       = '.jq-sub-menu';
+		this._back          = '.jq-back';
 		this._slideDown     = '.jq-slide-down';
 		this._slideCut      = '.jq-slide-cut';
 		this._arrow         = '.jq-arrow';
 		this._animateSpeed  = 400;
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
+		this._map;
+		this._marker;
 	}
 
 	index.prototype.checkCutLength = function() {
 		if ($(common._mCut).length > 1) {
 			var _str = '',
-				_idx =  Math.round(projects.$b.scrollTop() / ($(common._mCut).height()));
+				_idx = Math.round(projects.$b.scrollTop() / ($(common._mCut).height()));
 
 			for (var i = 0; i < $(common._mCut).length; i++) {
 				_str += '<li class="list"><button class="btn-dot jq-slide-cut"></button></li>';
@@ -76,8 +88,23 @@
 		}
 	}
 
+	index.prototype.initMap = function() {
+		var geocoder = new google.maps.Geocoder();
+		common.map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 15,
+			center: {lat: 25.040509, lng: 121.548349}
+		});
+
+		common.marker = new google.maps.Marker({
+			map: common.map,
+			draggable: false,
+			position: {lat: 25.040509, lng: 121.548349}
+		});
+	}
+
 	projects.$w.load(function(){
 		common.checkCutLength();
+		common.initMap();
 
 		$('.m-datepicker').DatePicker();
 
@@ -91,11 +118,25 @@
 		$('.btn-menu').on('click', function(){
 			$(this).toggleClass('is-active');
 			$(this).next('.menu-wrap').toggleClass('is-show');
+
+			if ( projects.device() !== 'PC' ) {
+				$(common._subMenu).removeClass('is-hover');
+			}
 		});
 
 		$('.btn-sitemap').on('click', function(){
 			$(this).toggleClass('is-active');
 			$(this).prev('.sitemap-wrap').toggleClass('is-show');
+		});
+
+		$(common._subMenu).on('click', function(){
+			if ( projects.device() !== 'PC' ) {
+				$(this).toggleClass('is-hover');
+			}
+		});
+
+		$(common._back).on('click', function(){
+			$(this).parent().parent().prev(common._subMenu).removeClass('is-hover');
 		});
 
 		$(common._slideDown).on('click', function(){

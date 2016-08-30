@@ -72,16 +72,11 @@
 			height: 100%;
 		}
 
-		.m-btn-radius {
-			margin-left: 22px;
-		}
-
-		.select-time .m-selection {
+		.select-time .m-selection, .m-datepicker, .m-inputbox {
 			padding-left: 45px;
 		}
 
-		.m-datepicker {
-			padding-left: 45px;
+		.m-datepicker, .m-inputbox {
 			width: 164px;
 			@include box-sizing(border-box);
 		}
@@ -331,7 +326,7 @@
 	}
 
 	.btn-search {
-		margin: 6px 0 0 32px;
+		margin-top: 6px;
 		vertical-align: top;
 	}
 }
@@ -435,6 +430,20 @@
 			padding: 0 100px 0 220px;
 		}
 
+		.booking {
+			width: 720px;
+			position: relative;
+
+			.m-owl-dots.is-absolute {
+				bottom: 6px;
+			}
+
+			.booking-step .m-btn-radius {
+				margin-top: 0;
+				margin-right: 20px;
+			}
+		}
+
 		.m-btn-slide {
 			margin-left: 63px;
 		}
@@ -489,10 +498,10 @@
 			font-size: 24px;
 		}
 
-		.booking {
+		.booking .booking-step {
 			padding: 17px 34px;
-	
-			.booking-step > * {
+
+			> * {
 				margin-top: 17px;
 				margin-bottom: 17px;
 			}
@@ -575,7 +584,11 @@
 
 	.main-cut {
 		.booking {
-			min-width: 840px;
+			width: 840px;
+
+			.booking-step .m-btn-radius {
+				margin-right: 0;
+			}
 		}
 
 		.m-btn-slide {

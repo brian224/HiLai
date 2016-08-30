@@ -9,17 +9,23 @@
 	border: 1px solid $color-gray-l-p30;
 	@include box-sizing(border-box);
 
-	&:after {
-		content: '';
-		margin-top: -3px;
-		display: block;
-		position: absolute;
-		top: 50%;
-		right: 12px;
-		border-top: 6px solid #ff4b4b;
-		border-right: 5px solid transparent;
-		border-left: 5px solid transparent;
-		pointer-events: none;
+	&.is-selector {
+		&:after {
+			content: '';
+			margin-top: -3px;
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			border-top: 6px solid #ff4b4b;
+			border-right: 5px solid transparent;
+			border-left: 5px solid transparent;
+			pointer-events: none;
+		}
+
+		.m-selection, .m-inputbox {
+			padding-right: 36px;
+		}
 	}
 
 	.m-icon {
@@ -34,17 +40,20 @@
 	}
 
 	.m-selection, .m-inputbox {
-		padding: 0 36px 0 15px;
+		padding: 0 15px;
 		height: 46px;
 		border: 0;
-		cursor: pointer;
 		color: $color-gray-d-p10;
 		font-size: 16px;
 		line-height: 46px;
 	}
 
-	.m-selection option {
-		color: $color-gray-d-p10;
+	.m-selection {
+		cursor: pointer;
+
+		option {
+			color: $color-gray-d-p10;
+		}
 	}
 
 	.m-inputbox {
@@ -54,7 +63,11 @@
 
 @include browsers('IE') {}
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-datepicker {
+		cursor: pointer;
+	}
+}
 
 @include respond(Desktops-Tablets) {}
 

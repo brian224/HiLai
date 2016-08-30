@@ -20,6 +20,7 @@
 	.about-list {
 		background: rgba(152,7,71,0.95);
 		@include box-sizing(border-box);
+		@include transition(ease-in all 0.3s);
 
 		.list {
 			font-size: 16px;
@@ -114,11 +115,6 @@
 			padding: 0 27px;
 			text-align: left;
 			white-space: nowrap;
-
-			&:hover ~ .detail-list {
-				overflow: visible;
-				@include transform(rotateY(0deg));
-			}
 		}
 	}
 }
@@ -181,53 +177,40 @@
 	width: 100%;
 	font-size: 0;
 
-	> .list {
-		&:hover .community-list {
-			display: block;
-		}
+	> .list > .b-link {
+		position: relative;
+		color: #8e8e8e;
+		font-size: 26px;
+		line-height: 26px;
+		@include transition(ease-in all 0.3s);
 
-		> .b-link {
-			position: relative;
-			color: #8e8e8e;
-			font-size: 26px;
-			line-height: 26px;
-			@include transition(ease-in all 0.3s);
+		&:hover, &.is-hover {
+			&.icon-fb {
+				color: #4c76be;
+			}
 
-			&:hover {
-				&.icon-fb {
-					color: #4c76be;
-				}
+			&.icon-line {
+				color: #0ab90a;
+			}
 
-				&.icon-line {
-					color: #0ab90a;
-				}
+			&.icon-youtube {
+				color: #e62117;
+			}
 
-				&.icon-youtube {
-					color: #e62117;
-				}
-
-				&:before {
-					content: '';
-					display: block;
-					width: 44px;
-					height: 44px;
-					position: absolute;
-					bottom: 0;
-					left: 100%;
-					z-index: 1;
-				}
+			&:before {
+				content: '';
+				display: block;
+				width: 44px;
+				height: 44px;
+				position: absolute;
+				bottom: 0;
+				left: 100%;
+				z-index: 1;
 			}
 		}
 	}
 
 	.community-list {
-		padding: 0 18px;
-		background: #fff;
-		display: none;
-		position: absolute;
-		left: 0;
-		border-radius: 2px;
-		box-shadow: 0 0 16px rgba(191, 191, 191, 0.35);
 		z-index: 1;
 		@include animation(ani-fade-in 0.3s linear forwards);
 
@@ -239,12 +222,12 @@
 			flex-direction: column;
 			justify-content: center;
 			position: relative;
-			border-top: 1px solid $color-gray-l-p30;
+			border-bottom: 1px solid $color-gray-l-p30;
 			text-align: left;
 			white-space: nowrap;
 
-			&:first-child {
-				border-top: 0;
+			&:last-child {
+				border-bottom: 0;
 			}
 
 			.img-wrap {
@@ -330,7 +313,7 @@
 		.about-list {
 			padding-right: 74px;
 			height: 64px;
-			position: absolute;
+			position: fixed;
 			top: 0;
 			right: 0;
 			z-index: 3;
@@ -433,6 +416,11 @@
 			.location {
 				padding: 0 27px;
 			}
+
+			.text:hover ~ .detail-list {
+				overflow: visible;
+				@include transform(rotateY(0deg));
+			}
 		}
 	}
 
@@ -499,13 +487,28 @@
 			display: inline-block;
 			position: relative;
 
+			&:hover .community-list {
+				display: block;
+			}
+
 			> .b-link {
 				padding-top: 16px;
 			}
 		}
 
 		.community-list {
+			padding: 0 18px;
+			background: #fff;
+			display: none;
+			position: absolute;
+			left: 0;
 			bottom: 100%;
+			border-radius: 2px;
+			box-shadow: 0 0 16px rgba(191, 191, 191, 0.35);
+
+			.back-list {
+				display: none;
+			}
 		}
 	}
 
@@ -587,11 +590,9 @@
 			.text {
 				padding: 12px 0;
 
-				&:hover, &.is-hover {
-					~ .sub-menu {
-						left: 0;
-						overflow: visible;
-					}
+				&.is-hover ~ .sub-menu {
+					left: 0;
+					overflow: visible;
 				}
 			}
 		}
@@ -600,7 +601,7 @@
 			padding: 24px 54px 40px 48px;
 			background: #f8f8f8;
 			width: 100vw;
-			top: 61px;
+			top: 0;
 			box-shadow: 0 9px 6px rgba(0, 0, 0, 0.15);
 			z-index: 1;
 			@include box-sizing(border-box);
@@ -620,9 +621,10 @@
 				}
 			}
 
-			.text:hover ~ .detail-list {
+			.text.is-hover ~ .detail-list {
 				left: 0;
 				overflow: scroll;
+				@include transform(rotateY(0deg));
 			}
 
 			.location {
@@ -631,28 +633,6 @@
 				height: 49px;
 				vertical-align: top;
 				line-height: 49px;
-			}
-
-			.btn-back {
-				padding: 0 22px;
-				height: 48px;
-				position: relative;
-				color: $color-major;
-
-				&:before {
-					content: '';
-					margin-top: -5px;
-					display: block;
-					width: 10px;
-					height: 10px;
-					position: absolute;
-					top: 50%;
-					left: 4px;
-					border-top: 3px solid $color-major;
-					border-left: 3px solid $color-major;
-					@include box-sizing(border-box);
-					@include transform(rotate(-45deg));
-				}
 			}
 
 			.detail-list .btn-back {
@@ -670,6 +650,28 @@
 			vertical-align: top;
 			border-bottom: 1px solid $color-gray-l-p30;
 		}
+
+		.btn-back {
+			padding: 0 22px;
+			height: 48px;
+			position: relative;
+			color: $color-major;
+
+			&:before {
+				content: '';
+				margin-top: -5px;
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				top: 50%;
+				left: 4px;
+				border-top: 3px solid $color-major;
+				border-left: 3px solid $color-major;
+				@include box-sizing(border-box);
+				@include transform(rotate(-45deg));
+			}
+		}
 	}
 
 	.detail-list {
@@ -678,11 +680,6 @@
 		height: calc(100vh - 61px);
 		z-index: 1;
 		@include box-sizing(border-box);
-
-		&:hover, &.is-hover {
-			left: 0;
-			overflow: scroll;
-		}
 
 		> .list {
 			padding-left: 44px;
@@ -743,6 +740,10 @@
 			padding: 0 6px;
 			border-bottom: 1px solid $color-gray-l-p30;
 
+			.is-hover ~ .community-list {
+				left: 0;
+			}
+
 			> .b-link {
 				padding: 10px 0 10px 36px;
 				display: block;
@@ -765,7 +766,24 @@
 		}
 
 		.community-list {
-			top: 0;
+			padding: 24px 48px 36px 42px;
+			background: #f8f8f8;
+			width: 100vw;
+			position: fixed;
+			top: 61px;
+			left: 100%;
+			box-shadow: 0 6px 6px rgba(210, 210, 210, 0.75);
+			@include box-sizing(border-box);
+			@include transition(ease-in all 0.3s);
+
+			.back-list {
+				padding: 0;
+				display: block;
+			}
+
+			.btn-back {
+				font-size: 16px;
+			}
 		}
 	}
 
