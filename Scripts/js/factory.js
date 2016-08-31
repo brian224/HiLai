@@ -141,50 +141,51 @@
     }
 
     /* owlCarousel */
-    factory.prototype._owl = '.jQ-owl';
+    factory.prototype._owlClass = '.jQ-owl';
+    factory.prototype._owl      = jQuery(projects._owlClass);
 
     factory.prototype.owlCarousel = function(element) {
         if ( jQuery.fn.owlCarousel ) {
-            var $elem = jQuery(element);
+            projects._owl = element ? jQuery(element) : projects._owl;
 
-            if ( $elem.length !== 0 ) {
-                for ( var i = 0 ; i < $elem.length ; i ++ ) {
-                    var _items = $elem.eq(i).find('> *').length;
+            if ( projects._owl.length !== 0 ) {
+                for ( var i = 0 ; i < projects._owl.length ; i ++ ) {
+                    var _items = projects._owl.eq(i).find('> *').length;
 
-                    $elem.eq(i).owlCarousel({
-                        mouseDrag  : projects.device() !== 'PC' ? ( $elem.eq(i).data('mouse-drag') !== false ) ? true : false : false,
-                        touchDrag  : ( $elem.eq(i).data('touch-drag') !== false ) ? true : false,
-                        pullDrag   : ( $elem.eq(i).data('pull-drag') !== false ) ? true : false,
-                        center     : ( $elem.eq(i).data('center') !== true ) ? false : true,
-                        loop       : ( $elem.eq(i).find('> *').length > 1 ) ? ( ( $elem.eq(i).data('loop') !== true ) ? false : true ) : false,
-                        nav        : ( $elem.eq(i).data('ctrl') === true ? ( $elem.eq(i).data('items') !== undefined ? ( _items > $elem.eq(i).data('items') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
+                    projects._owl.eq(i).owlCarousel({
+                        mouseDrag  : projects.device() !== 'PC' ? ( projects._owl.eq(i).data('mouse-drag') !== false ) ? true : false : false,
+                        touchDrag  : ( projects._owl.eq(i).data('touch-drag') !== false ) ? true : false,
+                        pullDrag   : ( projects._owl.eq(i).data('pull-drag') !== false ) ? true : false,
+                        center     : ( projects._owl.eq(i).data('center') !== true ) ? false : true,
+                        loop       : ( projects._owl.eq(i).find('> *').length > 1 ) ? ( ( projects._owl.eq(i).data('loop') !== true ) ? false : true ) : false,
+                        nav        : ( projects._owl.eq(i).data('ctrl') === true ? ( projects._owl.eq(i).data('items') !== undefined ? ( _items > projects._owl.eq(i).data('items') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
                         responsive : {
                             0 : {
-                                items : $elem.eq(i).data('items') !== undefined ? $elem.eq(i).data('items') : ( ( $elem.eq(i).data('items-xs') | 0 ) > 0 ) ? ( $elem.eq(i).data('items-xs') | 0 ) : 1,
-                                nav   : ( ( $elem.eq(i).data('ctrl') === true || $elem.eq(i).data('ctrl-xs') === true ) ? ( $elem.eq(i).data('items-xs') !== undefined ? ( _items > $elem.eq(i).data('items-xs') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
-                                dots  : $elem.eq(i).data('dots') !== undefined ? $elem.eq(i).data('dots') : ( $elem.eq(i).data('dots-xs') !== false ) ? true : false
+                                items : projects._owl.eq(i).data('items') !== undefined ? projects._owl.eq(i).data('items') : ( ( projects._owl.eq(i).data('items-xs') | 0 ) > 0 ) ? ( projects._owl.eq(i).data('items-xs') | 0 ) : 1,
+                                nav   : ( ( projects._owl.eq(i).data('ctrl') === true || projects._owl.eq(i).data('ctrl-xs') === true ) ? ( projects._owl.eq(i).data('items-xs') !== undefined ? ( _items > projects._owl.eq(i).data('items-xs') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
+                                dots  : _items > 1 ? ( projects._owl.eq(i).data('dots') !== undefined ? projects._owl.eq(i).data('dots') : ( projects._owl.eq(i).data('dots-xs') !== false ) ? true : false ) : false
                             },
                             768 : {
-                                items : $elem.eq(i).data('items') !== undefined ? $elem.eq(i).data('items') : ( ( $elem.eq(i).data('items-sm') | 0 ) > 0 ) ? ( $elem.eq(i).data('items-sm') | 0 ) : 1,
-                                nav   : ( ( $elem.eq(i).data('ctrl') === true || $elem.eq(i).data('ctrl-sm') === true ) ? ( $elem.eq(i).data('items-sm') !== undefined ? ( _items > $elem.eq(i).data('items-sm') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
-                                dots  : $elem.eq(i).data('dots') !== undefined ? $elem.eq(i).data('dots') : ( $elem.eq(i).data('dots-sm') !== false ) ? true : false
+                                items : projects._owl.eq(i).data('items') !== undefined ? projects._owl.eq(i).data('items') : ( ( projects._owl.eq(i).data('items-sm') | 0 ) > 0 ) ? ( projects._owl.eq(i).data('items-sm') | 0 ) : 1,
+                                nav   : ( ( projects._owl.eq(i).data('ctrl') === true || projects._owl.eq(i).data('ctrl-sm') === true ) ? ( projects._owl.eq(i).data('items-sm') !== undefined ? ( _items > projects._owl.eq(i).data('items-sm') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
+                                dots  : _items > 1 ? ( projects._owl.eq(i).data('dots') !== undefined ? projects._owl.eq(i).data('dots') : ( projects._owl.eq(i).data('dots-sm') !== false ) ? true : false ) : false
                             },
                             1000 : {
-                                items : $elem.eq(i).data('items') !== undefined ? $elem.eq(i).data('items') : ( $elem.eq(i).data('items-md') !== undefined ? ( ( $elem.eq(i).data('items-md') | 0 ) > 0 ) ? ( $elem.eq(i).data('items-md') | 0 ) : 1 : 1 ),
-                                nav   : ( ( $elem.eq(i).data('ctrl') === true || $elem.eq(i).data('ctrl-md') === true ) ? ( $elem.eq(i).data('items-md') !== undefined ? ( _items > $elem.eq(i).data('items-md') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
-                                dots  : $elem.eq(i).data('dots') !== undefined ? $elem.eq(i).data('dots') : ( $elem.eq(i).data('dots-md') !== false ) ? true : false
+                                items : projects._owl.eq(i).data('items') !== undefined ? projects._owl.eq(i).data('items') : ( projects._owl.eq(i).data('items-md') !== undefined ? ( ( projects._owl.eq(i).data('items-md') | 0 ) > 0 ) ? ( projects._owl.eq(i).data('items-md') | 0 ) : 1 : 1 ),
+                                nav   : ( ( projects._owl.eq(i).data('ctrl') === true || projects._owl.eq(i).data('ctrl-md') === true ) ? ( projects._owl.eq(i).data('items-md') !== undefined ? ( _items > projects._owl.eq(i).data('items-md') ? true : false ) : ( _items > 1 ? true : false ) ) : false ),
+                                dots  : _items > 1 ? ( projects._owl.eq(i).data('dots') !== undefined ? projects._owl.eq(i).data('dots') : ( projects._owl.eq(i).data('dots-md') !== false ) ? true : false ) : false
                             }
                         },
-                        lazyLoad          : ( $elem.eq(i).data('img-load') !== true ) ? false : true,
-                        autoplay          : ( $elem.eq(i).data('autoplay') !== true ) ? false : true,
-                        autoplayTimeout   : $elem.eq(i).data('timeout') ? $elem.eq(i).data('timeout') : 5000,
-                        navContainerClass : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-ctrl' : 'm-owl-ctrl',
-                        navClass          : projects.navClass($elem.eq(i)),
-                        navText           : $elem.eq(i).data('nav-text') ? $elem.eq(i).data('nav-text').split(',') : ['<i></i>' , '<i></i>'],
-                        dotsClass         : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-dots' : 'm-owl-dots ' + ( $elem.eq(i).data('dots-position') !== 'relative' ? 'is-absolute' : 'is-relative') + '',
-                        dotClass          : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-dot' : 'm-owl-dot',
-                        centerClass       : $elem.eq(i).data('nav-class') ? $elem.eq(i).data('nav-class') + '-center' : 'm-owl-center',
-                        startPosition     : ( parseInt( $elem.eq(i).data('start-position'), 10 ) > 0 ) ? parseInt( $elem.eq(i).data('start-position'), 10 ) : 0
+                        lazyLoad          : ( projects._owl.eq(i).data('img-load') !== true ) ? false : true,
+                        autoplay          : ( projects._owl.eq(i).data('autoplay') !== true ) ? false : true,
+                        autoplayTimeout   : projects._owl.eq(i).data('timeout') ? projects._owl.eq(i).data('timeout') : 5000,
+                        navContainerClass : projects._owl.eq(i).data('nav-class') ? projects._owl.eq(i).data('nav-class') + '-ctrl' : 'm-owl-ctrl',
+                        navClass          : projects.navClass(projects._owl.eq(i)),
+                        navText           : projects._owl.eq(i).data('nav-text') ? projects._owl.eq(i).data('nav-text').split(',') : ['<i></i>' , '<i></i>'],
+                        dotsClass         : projects._owl.eq(i).data('nav-class') ? projects._owl.eq(i).data('nav-class') + '-dots' : 'm-owl-dots ' + ( projects._owl.eq(i).data('dots-position') !== 'relative' ? 'is-absolute' : 'is-relative') + '',
+                        dotClass          : projects._owl.eq(i).data('nav-class') ? projects._owl.eq(i).data('nav-class') + '-dot' : 'm-owl-dot',
+                        centerClass       : projects._owl.eq(i).data('nav-class') ? projects._owl.eq(i).data('nav-class') + '-center' : 'm-owl-center',
+                        startPosition     : ( parseInt( projects._owl.eq(i).data('start-position'), 10 ) > 0 ) ? parseInt( projects._owl.eq(i).data('start-position'), 10 ) : 0
                     });
                 }
             }
@@ -399,14 +400,28 @@
 
     /* youtube */
     factory.prototype.u2bGet = function() {
-        var _style = 'padding-top: 100%; position: relative;';
+        var _style   = 'padding-top: 100%; position: relative;',
+            _youtube = ( ( jQuery('[data-youtube]').length !== 0 ) ? jQuery('[data-youtube]') : ( jQuery('[data-pop]').length !== 0 ? jQuery('[data-pop]') : '' ) );
+        
+        if ( _youtube ) {
+            for ( var i = 0 ; i < _youtube.length ; i ++ ) {
+                var _data = null;
+                
+                if ( _youtube.eq(i).data('youtube') !== '' ) {
+                    _data = _youtube.eq(i).data('youtube');
 
-        for ( var i = 0 , _youtube = jQuery('[data-youtube]') ; i < _youtube.length ; i ++ ) {
-            if ( _youtube.eq(i).data('youtube') !== '' ) {
-                var _data = _youtube.eq(i).data('youtube');
+                    _youtube.eq(i).removeData('youtube');
+                    _youtube.eq(i).data( 'youtube' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
+                }
 
-                _youtube.eq(i).removeData('youtube');
-                _youtube.eq(i).data( 'youtube' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
+                if ( _youtube.eq(i).data('pop') === true ) {
+                    var _parameter = /(\?).*/.exec(projects._HREF)[0];
+
+                    _parameter = _parameter.replace(/youtube/ , 'v');
+                    _youtube.eq(i).removeData('youtube');
+                    _youtube.eq(i).data('youtube' , 'https://www.youtube.com/watch' + _parameter + ( _parameter ? '&index='+i+'' : '?index='+i+'' ));
+                }
+
                 _youtube.eq(i).after('<div class="youtube-frame '+ ( ( _youtube.eq(i).data('fullscreen') === true ) ? 'is-fullscreen' : '' ) +'" style="'+ ( ( _youtube.eq(i).data('fullscreen') === true ) ? _style : '' ) +'"><span id="youtube-'+i+'" class="youtube-append" style="'+ projects._u2b._fullStyle +'"></span></div>');
             }
         }
@@ -418,59 +433,66 @@
             _ctrls    = /controls\=/.test(url) ? ( /controls\=([^?&#]*)/.exec(url)[1] ) : 0,
             _showinfo = /showinfo\=/.test(url) ? ( /showinfo\=([^?&#]*)/.exec(url)[1] ) : 0;
         var player;
+        var setIntervals = null;
 
         projects._u2b._id      = 'youtube-' + ( /index\=([^?&#]*)/.exec(url)[1] );
         projects._u2b.$element = ('#' + projects._u2b._id);
         projects._u2b._class   = jQuery(projects._u2b.$element).attr('class');
 
-        player = new YT.Player(projects._u2b._id , {
-            width            : '100%',
-            height           : '100%',
-            videoId          : _id,
-            suggestedQuality : 'highres',
-            playerVars : {
-                autoplay       : _autoPlay,
-                controls       : _ctrls,
-                showinfo       : _showinfo,
-                fs             : 0,
-                rel            : 0,
-                modestbranding : 1,
-                iv_load_policy : 1,
-                start          : 0,
-                playsinline    : 0,
-                enablejsapi    : 1,
-                version        : 3,
-                playlist       : '',
-                origin         : projects._ORIGIN,
-                wmode          : 'transparent'
-            },
-            events: {
-                onReady : function(event) {
-                    jQuery(projects._u2b.$element).css('z-index' , '5');
+        setIntervals = setInterval(function(){
+            if ( YT.Player ) {
+                window.clearInterval(setIntervals);
 
-                    if ( ready ) {
-                        if ( typeof(ready) === 'function' ) {
-                            ready.call(event);
-                        } else if ( typeof(ready) === 'string' ) {
-                            eval(ready);
-                        }
-                    }
-                },
-                onStateChange : function(event) {
-                    if ( event.data === 0 ) {
-                        projects.u2bRemove();
+                player = new YT.Player(projects._u2b._id , {
+                    width            : '100%',
+                    height           : '100%',
+                    videoId          : _id,
+                    suggestedQuality : 'highres',
+                    playerVars : {
+                        autoplay       : _autoPlay,
+                        controls       : _ctrls,
+                        showinfo       : _showinfo,
+                        fs             : 0,
+                        rel            : 0,
+                        modestbranding : 1,
+                        iv_load_policy : 1,
+                        start          : 0,
+                        playsinline    : 0,
+                        enablejsapi    : 1,
+                        version        : 3,
+                        playlist       : '',
+                        origin         : projects._ORIGIN,
+                        wmode          : 'transparent'
+                    },
+                    events: {
+                        onReady : function(event) {
+                            jQuery(projects._u2b.$element).css('z-index' , '5');
 
-                        if ( stateChange ) {
-                            if ( typeof(stateChange) === 'function' ) {
-                                stateChange.call(event);
-                            } else if ( typeof(stateChange) === 'string' ) {
-                                eval(stateChange);
+                            if ( ready ) {
+                                if ( typeof(ready) === 'function' ) {
+                                    ready.call(event);
+                                } else if ( typeof(ready) === 'string' ) {
+                                    eval(ready);
+                                }
+                            }
+                        },
+                        onStateChange : function(event) {
+                            if ( event.data === 0 ) {
+                                projects.u2bRemove();
+
+                                if ( stateChange ) {
+                                    if ( typeof(stateChange) === 'function' ) {
+                                        stateChange.call(event);
+                                    } else if ( typeof(stateChange) === 'string' ) {
+                                        eval(stateChange);
+                                    }
+                                }
                             }
                         }
                     }
-                }
+                });
             }
-        });
+        } , 1);
     }
 
     factory.prototype.u2bRemove = function() {

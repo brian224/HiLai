@@ -434,13 +434,9 @@
 			width: 720px;
 			position: relative;
 
-			.m-owl-dots.is-absolute {
-				bottom: 6px;
-			}
-
 			.booking-step .m-btn-radius {
-				margin-top: 0;
-				margin-right: 20px;
+				margin: 0 auto;
+				display: block;
 			}
 		}
 
@@ -498,12 +494,18 @@
 			font-size: 24px;
 		}
 
-		.booking .booking-step {
-			padding: 17px 34px;
+		.booking {
+			.booking-step {
+				padding: 17px 0 30px 0;
+	
+				> * {
+					margin-top: 17px;
+					margin-bottom: 17px;
+				}
+			}
 
-			> * {
-				margin-top: 17px;
-				margin-bottom: 17px;
+			.m-owl-dots.is-absolute {
+				bottom: 6px;
 			}
 		}
 
@@ -547,7 +549,7 @@
 
 	.news-cut {
 		.main-content-bd {
-			width: 728px;
+			width: 720px;
 		}
 
 		.news-list .list {
@@ -588,6 +590,7 @@
 
 			.booking-step .m-btn-radius {
 				margin-right: 0;
+				display: inline-block;
 			}
 		}
 
@@ -641,6 +644,11 @@
 }
 
 @include respond(Tablets) {
+	.main-cut .booking {
+		width: 700px;
+		position: relative;
+	}
+
 	.history-cut {
 		.main-content-bd {
 			width: 672px;
@@ -735,6 +743,7 @@
 
 		.booking {
 			background: none;
+			width: 100vw;
 		}
 
 		.m-box-holder {

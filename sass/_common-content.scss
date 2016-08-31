@@ -53,12 +53,19 @@
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
-	.is-md-spacing {
-		margin-left: 20px;
+}
+
+@include respond(Desktops-Tablets) {
+	.is-dt-spacing {
+		margin-left: 20px !important;
 	}
 }
 
-@include respond(Desktops-Tablets) {}
+@include respond(HD) {
+	.is-hd-spacing {
+		margin-left: 20px !important;
+	}
+}
 
 @include respond(Tablets) {}
 

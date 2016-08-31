@@ -2,22 +2,78 @@
 	margin: 0 auto;
 	font-size: 0;
 	text-align: center;
-	@include box-sizing(border-box);
+
+	.quick-list {
+		background: rgba(0, 0, 0, 0.2);
+
+		.list {
+			margin: 0 8px;
+			display: inline-block;
+			height: 28px;
+			font-size: 14px;
+			line-height: 28px;
+
+			> * {
+				color: $color-white;
+			}
+		}
+	}
+
+	.btn-sitemap {
+		padding: 0 10px;
+		background: none;
+		height: 28px;
+		position: relative;
+		border-radius: 4px;
+		line-height: 28px;
+
+		&:before {
+			content: '';
+			margin-top: -2px;
+			display: block;
+			width: 8px;
+			height: 8px;
+			position: absolute;
+			top: 50%;
+			right: 12px;
+			border-top: 1px solid $color-white;
+			border-right: 1px solid $color-white;
+			opacity: 0;
+			@include box-sizing(border-box);
+			@include transform(rotate(-45deg));
+			@include transition(ease-in all 0.3s);
+		}
+
+		&.is-active {
+			&:before {
+				opacity: 1;
+			}
+
+			.m-icon {
+				opacity: 0;
+			}
+		}
+
+		.m-icon {
+			@include transition(ease-in all 0.3s);
+		}
+	}
 
 	.sitemap-wrap {
 		max-height: 0;
 		overflow: hidden;
+		@include box-sizing(border-box);
 		@include transition(ease-in all 0.3s);
 
 		&.is-show {
-			padding: 80px 0 50px 0;
+			padding-top: 80px;
+			padding-bottom: 50px;
 			max-height: 1000px;
 		}
 	}
 
 	.sitemap-list {
 		display: inline-block;
-		width: 200px;
 		vertical-align: top;
 		color: $color-white;
 		font-size: 14px;
@@ -25,8 +81,6 @@
 		text-align: left;
 
 		&.double-column {
-			width: 360px;
-
 			.list {
 				padding-right: 20px;
 				display: inline-block;
@@ -61,17 +115,6 @@
 			}
 		}
 
-		&:nth-child(4) .class-title {
-			&:before {
-				background: #3c9a92;
-			}
-
-			&:after {
-				border-top-color: #3c9a92;
-				border-left-color: #3c9a92;
-			}
-		}
-
 		.class-title {
 			margin-bottom: 27px;
 			position: relative;
@@ -87,7 +130,7 @@
 			}
 
 			&:before {
-				background: $color-gray-l-p20;
+				background: #3c9a92;
 				width: 56px;
 				height: 6px;
 				left: 0;
@@ -95,10 +138,10 @@
 
 			&:after {
 				left: 56px;
-				border-top: 3px solid $color-gray-l-p20;
+				border-top: 3px solid #3c9a92;
 				border-right: 6px solid transparent;
 				border-bottom: 3px solid transparent;
-				border-left: 6px solid $color-gray-l-p20;
+				border-left: 6px solid #3c9a92;
 			}
 		}
 
@@ -110,66 +153,44 @@
 			}
 		}
 	}
-
-	.btn-sitemap {
-		margin-top: -10px;
-		padding: 0 10px;
-		background: $color-gray-l-p40;
-		height: 26px;
-		position: relative;
-		border-radius: 4px;
-		color: $color-gray-d-p20;
-		font-size: 14px;
-		line-height: 26px;
-
-		&:before {
-			content: '';
-			margin-top: -2px;
-			display: block;
-			width: 8px;
-			height: 8px;
-			position: absolute;
-			top: 50%;
-			left: 12px;
-			border-top: 1px solid $color-gray-d-p30;
-			border-right: 1px solid $color-gray-d-p30;
-			opacity: 0;
-			@include box-sizing(border-box);
-			@include transform(rotate(-45deg));
-			@include transition(ease-in all 0.3s);
-		}
-
-		&.is-active {
-			&:before {
-				opacity: 1;
-			}
-
-			.m-icon {
-				opacity: 0;
-			}
-		}
-
-		.m-icon {
-			@include transition(ease-in all 0.3s);
-		}
-	}
 }
 
 @include respond(Desktops) {
-	.m-footer {
+	.m-footer .sitemap-wrap {
 		padding: 0 50px 0 220px;
 		width: 100%;
+
+		.sitemap-list {
+			width: 150px;
+
+			&.double-column {
+				width: 280px;
+			}
+		}
 	}
 }
 
 @include respond(HD) {
-	.m-footer {
+	.m-footer .sitemap-wrap {
 		padding: 0 50px 0 270px;
 		width: 1280px;
+
+		.sitemap-list {
+			width: 200px;
+
+			&.double-column {
+				width: 360px;
+			}
+		}
 	}
 }
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.m-footer .quick-list {
+		padding-right: 70px;
+		text-align: right;
+	}
+}
 
 @include respond(Tablets) {}
 
