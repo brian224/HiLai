@@ -2,28 +2,19 @@
 	overflow-x: hidden;
 }
 
-.l-header {
-	/*top: 0;*/
-	/*z-index: 5;*/
-
-	.btn-menu {
-		position: fixed;
-		top: 6px;
-		right: 18px;
-		z-index: 4;
-	}
+.l-header .btn-menu {
+	position: fixed;
+	top: 6px;
+	right: 18px;
+	z-index: 4;
 }
 
-.l-guide {
-	padding: 0 74px 0 12px;
+.l-guide .m-btn {
+	height: 48px;
+	font-size: 20px;
 
-	.m-btn {
-		height: 48px;
-		font-size: 20px;
-
-		&:hover {
-			color: $color-text-minor;
-		}
+	&:hover {
+		color: $color-text-minor;
 	}
 }
 
@@ -38,16 +29,9 @@
 	}
 }
 
-.l-main {
-}
-
 .l-footer {
 	background: image-url('shared/bg-footer.jpg') 0 0;
 	min-height: 28px;
-	position: fixed;
-	bottom: -50px;
-	left: 0;
-	right: 0;
 	border-top: 1px solid $color-gray;
 	z-index: 2;
 	@include transition(ease-in all 0.3s);
@@ -74,7 +58,18 @@
 
 @include respond(HD) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.l-guide {
+		padding: 0 74px 0 12px;
+	}
+
+	.l-footer {
+		position: fixed;
+		bottom: -100px;
+		left: 0;
+		right: 0;
+	}
+}
 
 @include respond(Tablets) {
 }
@@ -86,6 +81,7 @@
 
 		.btn-menu {
 			margin-bottom: 6px;
+			right: 14px;
 
 			&:before, &:after, > * {
 				background: $color-major;
@@ -94,7 +90,7 @@
 	}
 
 	.l-guide {
-		padding-top: 6px;
+		padding: 6px 66px 0 12px;
 		background: #f8f8f8;
 		width: 100vw;
 		min-height: 60px;
@@ -109,5 +105,9 @@
 
 	.l-nav {
 		margin-bottom: 6px;
+	}
+
+	.l-footer {
+		position: relative;
 	}
 }

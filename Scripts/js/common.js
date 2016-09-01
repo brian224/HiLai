@@ -4,10 +4,14 @@
 	var common = new page();
 
 	function page() {
-		this._lFooter = '.l-footer';
-		this._subMenu = '.jq-sub-menu';
-		this._back    = '.jq-back';
-		this._arrow   = '.jq-arrow';
+		this._lFooter      = '.l-footer';
+		this._subMenu      = '.jq-sub-menu';
+		this._back         = '.jq-back';
+		this._arrow        = '.jq-arrow';
+		this._top          = '.jq-top';
+		this._sitemap      = '.jq-sitemap';
+		this._countHeight  = '.jq-count-height';
+		this._animateSpeed = 400;
 	}
 
 	page.prototype.showFooter = function() {
@@ -22,7 +26,18 @@
 		}
 	}
 
+	page.prototype.countHeight = function() {
+		$(common._countHeight).each(function(){
+			var $list   = $(this).find('.item'),
+				_middle = Math.round($list.length / 2);
+
+			$(this).find('.item:gt(' + ($list.length - _middle - 1) + ')').wrapAll('<div class="list-block"></div>');
+			$(this).find('.item:lt(' + _middle + ')').wrapAll('<div class="list-block"></div>');
+		});
+	}
+
 	projects.$w.load(function(){
+		common.countHeight();
 		$('.m-datepicker').DatePicker();
 
 		$(common._arrow).each(function(){
@@ -41,7 +56,7 @@
 			}
 		});
 
-		$('.btn-sitemap').on('click', function(){
+		$(common._sitemap).on('click', function(){
 			$(this).toggleClass('is-active');
 			$('.sitemap-wrap').toggleClass('is-show');
 		});
@@ -63,6 +78,19 @@
 
 		$(common._back).on('click', function(){
 			$(this).parent().parent().prev(common._subMenu).removeClass('is-hover');
+		});
+
+		$(common._top).on('click', function(){
+			projects.$b.animate({
+				scrollTop: 0
+			}, common._animateSpeed);
+
+			$('.sitemap-wrap').removeClass('is-show');
+			$(common._sitemap).removeClass('is-active');
+
+			if ($('.l-body').hasClass('index')) {
+				$('.pagination .cut-dot .list').removeClass('is-curr').eq(0).addClass('is-curr');
+			}
 		});
 	});
 

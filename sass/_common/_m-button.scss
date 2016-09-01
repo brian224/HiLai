@@ -54,6 +54,33 @@
 	}
 }
 
+.btn-close {
+	position: relative;
+	
+	&:before, &:after {
+		content: '';
+		margin-left: -19px;
+		padding: 0;
+		background: $color-gray-d-p10;
+		display: block;
+		width: 38px;
+		height: 3px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include transform-origin(center, center);
+		@include transition(ease-in all 0.3s);
+	}
+
+	&:before {
+		@include transform(rotate(45deg));
+	}
+
+	&:after {
+		@include transform(rotate(-45deg));
+	}
+}
+
 .m-btn-slide {
 	background: none;
 	width: 44px;

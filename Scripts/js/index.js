@@ -8,6 +8,9 @@
 		this._pagination    = '.pagination';
 		this._slideDown     = '.jq-slide-down';
 		this._slideCut      = '.jq-slide-cut';
+		this._next          = '.jq-next';
+		this._showBooking   = '.jq-show-booking';
+		this._hideBooking   = '.jq-hide-booking';
 		this._animateSpeed  = 400;
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
@@ -28,7 +31,7 @@
 	}
 
 	index.prototype.slideCut = function(n) {
-		projects.$hb.animate({'scrollTop': projects.$w.height() * n}, indexObj._animateSpeed);
+		projects.$hb.animate({'scrollTop': projects.$w.height() * n}, common._animateSpeed);
 		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(n).addClass('is-curr');
 	}
 
@@ -58,7 +61,7 @@
 
 					setTimeout(function(){
 						indexObj._sectionScroll = true;
-					}, indexObj._animateSpeed);
+					}, common._animateSpeed);
 				}
 			}
 		});
@@ -84,6 +87,22 @@
 
 		$(indexObj._slideDown).on('click', function(){
 			indexObj.slideCut(1);
+		});
+
+		$(indexObj._next).on('click', function(){
+			$(this).parents('.jQ-owl-dt').trigger('next.owl');
+		});
+
+		$(indexObj._showBooking).on('click', function(){
+			$('.booking').addClass('is-show');
+			$(indexObj._slideDown).addClass('b-hide-xs');
+			$(indexObj._pagination).addClass('b-hide-xs');
+		});
+
+		$(indexObj._hideBooking).on('click', function(){
+			$('.booking').removeClass('is-show');
+			$(indexObj._slideDown).removeClass('b-hide-xs');
+			$(indexObj._pagination).removeClass('b-hide-xs');
 		});
 
 		$(indexObj._slideCut, indexObj._pagination).on('click', function(){

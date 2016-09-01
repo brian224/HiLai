@@ -11,7 +11,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="../Content/img/shared/favicon.ico">
 </head>
 <body>
-	<div class="l-body">
+	<div class="l-body index">
 		<header class="l-header">
 			<h1 class="m-logo">
 				<i class="m-icon m-icon-logo"></i>
@@ -282,9 +282,10 @@
 					<div class="main-content">
 						<h2 class="main-title">幸福。微笑。滿足 :-)</h2>
 						<h3 class="sub-title">堅持只給顧客最好的美食國度</h3>
-						<button class="m-btn-radius b-hide-dt b-block-xs"><em>美食訂位 GO</em></button>
+						<button class="m-btn-radius b-hide-dt b-block-xs jq-show-booking"><em>美食訂位 GO</em></button>
 						<div class="booking jQ-owl jQ-owl-dt" data-items="1" data-ctrl="false" data-dots="true" data-mouse-drag="true" data-touch-drag="true">
 							<div class="booking-step">
+								<h3 class="booking-title b-hide-dt">快速訂位</h3>
 								<div class="m-box-holder is-selector">
 									<select class="m-selection">
 										<option>請選擇區域</option>
@@ -315,7 +316,8 @@
 										<option>PM:1700</option>
 									</select>
 								</div>
-								<button class="m-btn-radius is-hd-spacing"><em>下一步</em></button>
+								<button class="m-btn-radius is-hd-spacing b-hide-xs jq-next"><em>下一步</em></button>
+								<button class="btn-close b-hide-dt b-block-xs jq-hide-booking"><em class="b-hide-text">Close</em></button>
 							</div>
 							<div class="booking-step">
 								<div class="m-box-holder is-selector">
@@ -492,6 +494,38 @@
 									</em>
 									<p class="desc">漢來美食更獨家取得亞洲米其林二星餐廳名人坊的全球品牌代理權，並於漢來大飯店開設第一家名人坊台灣分店，造成美食界轟動。</p>
 								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">1995</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來大飯店在南台灣高雄隆重誕生，專業的美學建築，深富國際飯店經營經驗的飯店管理，讓漢來大飯店自成立以來，一直是最優雅尊榮的南台灣典藏地標。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2003</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來大飯店餐飲事業部正式獨立成為專業餐飲公司～漢欣國際股份有限公司，由專業團隊領軍，提供名聞遐邇的各國美食料理，以及最佳品質的專業服務。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2011</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">年正式更名為漢來美食股份有限公司，並且開始向外擴展美食版圖，於漢神巨蛋購物中心開設漢來海港巨蛋店，首創全台最大五星級自助餐廳。</p>
+								</div>
+								<div class="list">
+									<em class="time b-middle">
+										<span class="year">2015</span>
+										<span class="unit">年</span>
+										<img src="../Content/img/index/history/01.jpg" alt="">
+									</em>
+									<p class="desc">漢來美食更獨家取得亞洲米其林二星餐廳名人坊的全球品牌代理權，並於漢來大飯店開設第一家名人坊台灣分店，造成美食界轟動。</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -580,7 +614,7 @@
 						<div class="booking">
 							<h2 class="main-title">美食快搜</h2>
 							<div class="m-form">
-								<div class="m-box-holder">
+								<div class="m-box-holder is-selector">
 									<select class="m-selection">
 										<option value="">依品牌搜尋</option>
 										<option value="">漢來海港餐廳</option>
@@ -597,7 +631,7 @@
 								<span class="text">或</span>
 							</div>
 							<div class="m-form">
-								<div class="m-box-holder">
+								<div class="m-box-holder is-selector">
 									<select class="m-selection">
 										<option value="">依地區搜尋</option>
 										<option value="">台北市</option>
@@ -620,9 +654,12 @@
 		</div>
 		<footer class="l-footer">
 			<div class="m-footer">
+				<button class="btn-top jq-top">
+					<em class="b-hide-text">TOP</em>
+				</button>
 				<ul class="quick-list">
 					<li class="list">
-						<button class="btn-sitemap">
+						<button class="btn-sitemap jq-sitemap">
 							<em class="text">網站地圖</em>
 							<i class="m-icon m-icon-map"></i>
 						</button>
@@ -635,47 +672,72 @@
 					<li class="list"><a href="javascript:;" class="b-link">聯絡我們</a></li>
 				</ul>
 				<div class="sitemap-wrap">
-					<ul class="sitemap-list double-column">
-						<li class="list title">
+					<div class="sitemap-list double-column jq-count-height">
+						<div class="list title">
 							<h4 class="class-title">品牌餐廳</h4>
-						</li>
-						<li class="list"><a href="javascript:;" class="b-link">翠園餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">紅陶上海湯包</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">漢來海港餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">港式海鮮火鍋</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">漢來蔬食</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">池畔餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">糕餅小舖</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">名人坊</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">大廳酒廊</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">海港餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">福園台菜海鮮餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">牛排館</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">翠園粵菜餐廳</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">龍蝦酒殿</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">日本料理弁慶</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">鐵板燒</a></li>
-					</ul>
+						</div>
+						<div class="list item"><a href="javascript:;" class="b-link">漢來海港餐廳</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">漢來蔬食</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">翠園粵菜餐廳</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">名人坊高級粵菜餐廳</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">糕餅小舖</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">大廳酒廊</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">福園台菜海鮮餐廳</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">日本料理弁慶</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">紅陶上海湯包</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">港式海鮮火鍋</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">池畔餐廳</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">鐵板燒</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">牛排館</a></div>
+						<div class="list item"><a href="javascript:;" class="b-link">龍蝦酒殿</a></div>
+					</div>
 					<ul class="sitemap-list">
 						<li class="list title">
 							<h4 class="class-title">宴會會議</h4>
 						</li>
-						<li class="list"><a href="javascript:;" class="b-link">場地介紹</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">主題宴會</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">喜宴專案</a></li>
+						<li class="list item"><a href="javascript:;" class="b-link">場地介紹</a></li>
+						<li class="list item"><a href="javascript:;" class="b-link">主題宴會</a></li>
+						<li class="list item"><a href="javascript:;" class="b-link">喜宴專案</a></li>
 					</ul>
-					<ul class="sitemap-list">
-						<li class="list title">
+					<div class="sitemap-list double-column jq-count-height">
+						<div class="list title">
 							<h4 class="class-title">美食地圖</h4>
-						</li>
-						<li class="list"><a href="javascript:;" class="b-link">漢來大飯店</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">巨蛋會館、漢神巨蛋</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">佛陀紀念館</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">南紡夢時代</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">廣三 SOGO</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">台茂購物中心</a></li>
-						<li class="list"><a href="javascript:;" class="b-link">敦化 SOGO</a></li>
-					</ul>
+						</div>
+						<div class="list item">
+							<ul class="city-stop">
+								<li class="city-name">台北</li>
+								<li class="list"><a href="javascript:;" class="b-link">敦化 SOGO</a></li>
+								<li class="list"><a href="javascript:;" class="b-link">忠孝 SOGO</a></li>
+								<li class="list"><a href="javascript:;" class="b-link">天母 SOGO</a></li>
+							</ul>
+						</div>
+						<div class="list item">
+							<ul class="city-stop">
+								<li class="city-name">桃園</li>
+								<li class="list"><a href="javascript:;" class="b-link">台茂購物中心</a></li>
+							</ul>
+						</div>
+						<div class="list item">
+							<ul class="city-stop">
+								<li class="city-name">台中</li>
+								<li class="list"><a href="javascript:;" class="b-link">廣三 SOGO</a></li>
+							</ul>
+						</div>
+						<div class="list item">
+							<ul class="city-stop">
+								<li class="city-name">台南</li>
+								<li class="list"><a href="javascript:;" class="b-link">南紡夢時代</a></li>
+							</ul>
+						</div>
+						<div class="list item">
+							<ul class="city-stop">
+								<li class="city-name">高雄</li>
+								<li class="list"><a href="javascript:;" class="b-link">漢來大飯店</a></li>
+								<li class="list"><a href="javascript:;" class="b-link">巨蛋會館、漢神巨蛋</a></li>
+								<li class="list"><a href="javascript:;" class="b-link">佛陀紀念館</a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</footer>

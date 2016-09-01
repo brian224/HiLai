@@ -68,10 +68,6 @@
 	.booking {
 		font-size: 0;
 
-		.booking-step {
-			height: 100%;
-		}
-
 		.select-time .m-selection, .m-datepicker, .m-inputbox {
 			padding-left: 45px;
 		}
@@ -312,7 +308,6 @@
 	.booking {
 		padding: 5px 25px 20px 25px;
 		display: inline-block;
-		min-width: 580px;
 
 		.m-selection {
 			min-width: 164px;
@@ -320,7 +315,6 @@
 	}
 
 	.m-form .text {
-		margin: 0 10px;
 		color: $color-white;
 		font-size: 16px;
 	}
@@ -470,6 +464,12 @@
 		}
 	}
 
+	.restaurant-cut, .history-cut, .news-cut {
+		.m-owl-dots {
+			padding: 0 50px 0 220px;
+		}
+	}
+
 	.pagination {
 		right: 8px;
 	}
@@ -497,6 +497,7 @@
 		.booking {
 			.booking-step {
 				padding: 17px 0 30px 0;
+				height: 100%;
 	
 				> * {
 					margin-top: 17px;
@@ -511,15 +512,6 @@
 
 		.m-btn-slide {
 			bottom: 80px;
-		}
-	}
-
-	.history-cut .history-list .list {
-		padding: 0 15px 25px 15px;
-
-		&:before {
-			width: 30px;
-			top: 71px;
 		}
 	}
 
@@ -547,6 +539,15 @@
 		}
 	}
 
+	.history-cut .history-list .list {
+		padding: 0 15px 25px 15px;
+
+		&:before {
+			width: 30px;
+			top: 71px;
+		}
+	}
+
 	.news-cut {
 		.main-content-bd {
 			width: 720px;
@@ -563,6 +564,22 @@
 				font-size: 14px;
 				line-height: 26px;
 			}
+		}
+	}
+
+	.restaurant-cut, .history-cut, .news-cut {
+		.m-owl-dots {
+			bottom: 45px;
+		}
+	}
+
+	.search-cut {
+		.booking {
+			min-width: 580px;
+		}
+		
+		.m-form .text {
+			margin: 0 10px;
 		}
 	}
 
@@ -639,6 +656,12 @@
 		.news-list .list {
 			width: 260px;
 			box-shadow: 3px 3px 3px rgba(191, 191, 191, 0.35);
+		}
+	}
+
+	.restaurant-cut, .history-cut, .news-cut {
+		.m-owl-dots {
+			padding: 0 50px 0 270px;
 		}
 	}
 }
@@ -730,6 +753,10 @@
 
 @include respond(Mobiles) {
 	.main-cut {
+		.main-content {
+			padding-bottom: 50px;
+		}
+
 		.main-title {
 			margin-bottom: 50px;
 			padding: 0 50px;
@@ -738,20 +765,64 @@
 		}
 
 		.sub-title {
+			margin-bottom: 18px;
 			font-size: 16px;
 		}
 
 		.booking {
-			background: none;
+			padding-top: 61px;
+			background: rgba(248, 248, 248, 0.85);
 			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			bottom: 100vh;
+			left: 0;
+			overflow: scroll;
+			@include transition(ease-in all 0.3s);
+
+			&.is-show {
+				bottom: 0;
+			}
+
+			.booking-title {
+				margin-top: 12px;
+				color: $color-major;
+				font-size: 26px;
+				line-height: 1.5em;
+				text-align: center;
+			}
+
+			.booking-step {
+				margin: 0 auto;
+				width: 216px;
+			}
+
+			.m-btn-radius {
+				margin-top: 0;
+				width: 100%;
+			}
 		}
 
 		.m-box-holder {
-			display: none;
+			margin-bottom: 8px;
+			display: block;
+
+			> * {
+				display: block;
+			}
 		}
 
 		.m-btn-slide {
 			bottom: 30px;
+		}
+
+		.btn-close {
+			display: block;
+			width: 44px;
+			height: 44px;
+			position: absolute;
+			top: 67px;
+			right: 6px;
 		}
 	}
 
@@ -814,6 +885,35 @@
 
 		.owl-stage-outer {
 			overflow: visible;
+		}
+	}
+
+	.search-cut {
+		.main-title {
+			font-size: 38px;
+		}
+
+		.booking {
+			width: 264px;
+		}
+
+		.m-form {
+			display: block;
+
+			.m-box-holder {
+				display: block;
+			}
+
+			.text {
+				margin: 10px auto;
+				display: block;
+			}
+		}
+
+		.btn-search {
+			margin-top: 16px;
+			display: block;
+			width: 100%;
 		}
 	}
 
