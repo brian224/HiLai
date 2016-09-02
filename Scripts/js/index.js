@@ -67,6 +67,31 @@
 		});
 	}
 
+	index.prototype.historyOwl = function(event) {
+		$('.history-list').trigger('destroy.owl');
+
+		if (event === 'wrap') {
+			wrap();
+		} else {
+			unwrap();
+		}
+
+		projects.owlCarousel('.history-list');
+
+		function wrap() {
+			for (var i = 0; i < Math.ceil($('.history-list').find('> .list').length / 3); i++) {
+				$('.history-list').find('> .list:lt(3)').wrapAll('<div class="list-block"></div>');
+				wrap();
+			}
+		}
+
+		function unwrap() {
+			if ($('.history-list .list').parent().hasClass('list-block')) {
+				$('.history-list .list').unwrap();
+			}
+		}
+	}
+
 	index.prototype.initMap = function() {
 		var geocoder = new google.maps.Geocoder();
 		indexObj.map = new google.maps.Map(document.getElementById('map'), {
@@ -113,12 +138,24 @@
 	projects.$d.ready(function(){
 		if ( projects.device() === 'PC' ) {
 			indexObj.mousewheel();
+		} else if ( projects.device() === 'Mobile' ) {
+			indexObj.historyOwl('wrap');
 		}
 	});
 
 	projects.$w.on('scroll' , function(){
 		if ( projects.device() === 'PC') {
 			indexObj.mousewheel();
+		} else if ( projects.device() === 'Mobile' ) {
+			$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(Math.floor(projects.$w.scrollTop() / projects.$w.height())).addClass('is-curr');
+		}
+	});
+
+	projects.$w.resize(function(){
+		if (projects.$w.width() >= 740) {
+			indexObj.historyOwl('unwrap');
+		} else {
+			indexObj.historyOwl('wrap');
 		}
 	});
 

@@ -224,7 +224,6 @@
 			position: relative;
 			border-bottom: 1px solid $color-gray-l-p30;
 			text-align: left;
-			white-space: nowrap;
 
 			&:last-child {
 				border-bottom: 0;
@@ -317,7 +316,6 @@
 			top: 0;
 			right: 0;
 			z-index: 3;
-			white-space: nowrap;
 			@include transform(rotateY(90deg));
 			@include transform-origin(right);
 	
@@ -505,6 +503,10 @@
 			bottom: 100%;
 			border-radius: 2px;
 			box-shadow: 0 0 16px rgba(191, 191, 191, 0.35);
+
+			.list {
+				white-space: nowrap;
+			}
 
 			.back-list {
 				display: none;
