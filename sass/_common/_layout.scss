@@ -54,6 +54,13 @@
 			color: $color-white;
 		}
 	}
+
+	.l-footer {
+		position: fixed;
+		bottom: -100px;
+		left: 0;
+		right: 0;
+	}
 }
 
 @include respond(HD) {}
@@ -61,13 +68,6 @@
 @include respond(Desktops-Tablets) {
 	.l-guide {
 		padding: 0 74px 0 12px;
-	}
-
-	.l-footer {
-		position: fixed;
-		bottom: -100px;
-		left: 0;
-		right: 0;
 	}
 }
 

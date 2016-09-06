@@ -115,19 +115,19 @@
 		});
 
 		$(indexObj._next).on('click', function(){
-			$(this).parents('.jQ-owl-dt').trigger('next.owl');
+			$(this).parents('.jQ-owl-md').trigger('next.owl');
 		});
 
 		$(indexObj._showBooking).on('click', function(){
 			$('.booking').addClass('is-show');
-			$(indexObj._slideDown).addClass('b-hide-xs');
-			$(indexObj._pagination).addClass('b-hide-xs');
+			$(indexObj._slideDown).addClass('b-hide-tm');
+			$(indexObj._pagination).addClass('b-hide-tm');
 		});
 
 		$(indexObj._hideBooking).on('click', function(){
 			$('.booking').removeClass('is-show');
-			$(indexObj._slideDown).removeClass('b-hide-xs');
-			$(indexObj._pagination).removeClass('b-hide-xs');
+			$(indexObj._slideDown).removeClass('b-hide-tm');
+			$(indexObj._pagination).removeClass('b-hide-tm');
 		});
 
 		$(indexObj._slideCut, indexObj._pagination).on('click', function(){
@@ -141,6 +141,8 @@
 		} else if ( projects.device() === 'Mobile' ) {
 			indexObj.historyOwl('wrap');
 		}
+		projects.u2bGet();
+		projects.u2bAppend($('.jq-video').data('youtube'));
 	});
 
 	projects.$w.on('scroll' , function(){

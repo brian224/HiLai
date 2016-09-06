@@ -400,7 +400,7 @@
 
     /* youtube */
     factory.prototype.u2bGet = function() {
-        var _style   = 'padding-top: 100%; position: relative;',
+        var _style   = '',
             _youtube = ( ( jQuery('[data-youtube]').length !== 0 ) ? jQuery('[data-youtube]') : ( jQuery('[data-pop]').length !== 0 ? jQuery('[data-pop]') : '' ) );
         
         if ( _youtube ) {
@@ -431,7 +431,8 @@
         var _id       = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1],
             _autoPlay = /autoplay\=/.test(url) ? ( /autoplay\=([^?&#]*)/.exec(url)[1] ) : 0,
             _ctrls    = /controls\=/.test(url) ? ( /controls\=([^?&#]*)/.exec(url)[1] ) : 0,
-            _showinfo = /showinfo\=/.test(url) ? ( /showinfo\=([^?&#]*)/.exec(url)[1] ) : 0;
+            _showinfo = /showinfo\=/.test(url) ? ( /showinfo\=([^?&#]*)/.exec(url)[1] ) : 0,
+            _mute     = /mute\=/.test(url) ? ( /mute\=([^?&#]*)/.exec(url)[1] ) : 0;
         var player;
         var setIntervals = null;
 
@@ -466,11 +467,14 @@
                     },
                     events: {
                         onReady : function(event) {
-                            jQuery(projects._u2b.$element).css('z-index' , '5');
+                            // jQuery(projects._u2b.$element).css('z-index' , '5');
+                            if ( parseInt(_mute, 10) === 1 ) {
+                                player.mute();
+                            }
 
                             if ( ready ) {
                                 if ( typeof(ready) === 'function' ) {
-                                    ready.call(event);
+                                    ready.call(event , player);
                                 } else if ( typeof(ready) === 'string' ) {
                                     eval(ready);
                                 }
@@ -491,6 +495,8 @@
                         }
                     }
                 });
+
+                // console.log(player);
             }
         } , 1);
     }

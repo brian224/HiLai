@@ -332,6 +332,12 @@
 		display: block;
 		min-width: 100vw;
 	}
+
+	/*.youtube-frame {
+		&.is-fullscreen {
+			top : -201vh;
+		}
+	}*/
 }
 
 .pagination {
@@ -424,15 +430,24 @@
 			width: 720px;
 			position: relative;
 
-			.booking-step .m-btn-radius {
-				margin: 0 auto;
-				display: block;
+			.booking-step {
+				padding: 17px 0 30px 0;
+				height: 100%;
+
+				.m-btn-radius {
+					margin: 0 auto;
+					display: block;
+				}
 			}
 		}
 
 		.m-btn-slide {
 			margin-left: 63px;
 		}
+	}
+
+	.restaurant-cut .restaurant-list .list {
+		margin: 0 7px 25px 7px;
 	}
 
 	.history-cut {
@@ -449,6 +464,10 @@
 				}
 			}
 		}
+	}
+
+	.search-cut .booking {
+		min-width: 580px;
 	}
 
 	.restaurant-cut, .history-cut, .news-cut {
@@ -482,14 +501,9 @@
 		}
 
 		.booking {
-			.booking-step {
-				padding: 17px 0 30px 0;
-				height: 100%;
-	
-				> * {
-					margin-top: 17px;
-					margin-bottom: 17px;
-				}
+			.booking-step > * {
+				margin-top: 17px;
+				margin-bottom: 17px;
 			}
 
 			.m-owl-dots.is-absolute {
@@ -508,7 +522,6 @@
 		}
 
 		.restaurant-list .list {
-			margin: 0 7px 25px 7px;
 			width: 168px;
 	
 			.b-link {
@@ -581,14 +594,8 @@
 		}
 	}
 
-	.search-cut {
-		.booking {
-			min-width: 580px;
-		}
-
-		.m-form .text {
-			margin: 0 10px;
-		}
+	.search-cut .m-form .text {
+		margin: 0 10px;
 	}
 
 	.pagination .btn-dot {
@@ -680,6 +687,16 @@
 		position: relative;
 	}
 
+	.restaurant-cut {
+		.main-content-bd {
+			width: 520px;
+		}
+
+		.restaurant-list .list .b-link {
+			margin: 0 auto 5px auto;
+		}
+	}
+
 	.history-cut {
 		.main-content-bd {
 			width: 672px;
@@ -704,10 +721,19 @@
 			}
 		}
 	}
+
+	.news-cut .main-content-hd {
+		margin-bottom: 95px;
+	}
+
+	.search-cut .booking .m-selection {
+		width: 100%;
+		@include box-sizing(border-box);
+	}
 }
 
 @include respond(Tablets-Mobiles) {
-	.m-cut {
+	/*.m-cut {
 		padding-top: 60px;
 		@include box-sizing(border-box);
 	}
@@ -721,7 +747,7 @@
 		.m-btn-slide {
 			margin-left: -22px;
 		}
-	}
+	}*/
 
 	.main-content-hd {
 		.main-title {
@@ -743,10 +769,6 @@
 		}
 	}
 
-	.pagination {
-		right: 0;
-	}
-
 	.m-media {
 		display: flex;
 		align-items: center;
@@ -757,9 +779,7 @@
 			height: 100vh;
 		}
 	}
-}
 
-@include respond(Mobiles) {
 	.main-cut {
 		.main-content {
 			padding-bottom: 50px;
@@ -770,11 +790,6 @@
 			padding: 0 50px;
 			font-size: 60px;
 			line-height: 65px;
-		}
-
-		.sub-title {
-			margin-bottom: 18px;
-			font-size: 16px;
 		}
 
 		.booking {
@@ -821,6 +836,7 @@
 		}
 
 		.m-btn-slide {
+			margin-left: -22px;
 			bottom: 30px;
 		}
 
@@ -837,7 +853,6 @@
 	.restaurant-cut {
 		.main-content-bd {
 			margin: 0 auto;
-			width: 260px;
 		}
 
 		.restaurant-list .list {
@@ -845,17 +860,8 @@
 			width: 50%;
 			@include box-sizing(border-box);
 	
-			.b-link {
-				width: 108px;
-				height: 108px;
-
-				.img-wrap img {
-					max-width: 90%;
-				}
-			}
-
-			> .name {
-				font-size: 12px;
+			.b-link .img-wrap img {
+				max-width: 90%;
 			}
 		}
 	}
@@ -867,7 +873,6 @@
 
 		.main-content-bd {
 			margin: 0 auto;
-			width: 226px;
 		}
 
 		.news-list .list {
@@ -906,11 +911,8 @@
 		}
 
 		.history-list {
-			padding: 0 36px;
-
 			.list {
 				margin: 8px 0;
-				padding-left: 128px;
 				min-height: 108px;
 
 				.desc {
@@ -919,19 +921,6 @@
 					font-size: 12px;
 					line-height: 1.5em;
 					text-align: left;
-				}
-			}
-
-			.time {
-				margin-top: -54px;
-				width: 108px;
-				height: 108px;
-				position: absolute;
-				top: 50%;
-				left: 0;
-
-				.year {
-					font-size: 30px;
 				}
 			}
 		}
@@ -966,15 +955,68 @@
 		}
 	}
 
-	.pagination .btn-dot {
-		width: 34px;
-		height: 34px;
+	.pagination {
+		right: 0;
 
-		&:before {
-			margin: -6px 0 0 -6px;
-			width: 12px;
-			height: 12px;
+		.btn-dot {
+			width: 34px;
+			height: 34px;
+	
+			&:before {
+				margin: -6px 0 0 -6px;
+				width: 12px;
+				height: 12px;
+			}
 		}
+	}
+}
+
+@include respond(Mobiles) {
+	.main-cut .sub-title {
+		margin-bottom: 18px;
+		font-size: 16px;
+	}
+
+	.restaurant-cut {
+		.main-content-bd {
+			width: 260px;
+		}
+
+		.restaurant-list .list {
+			.b-link {
+				width: 108px;
+				height: 108px;
+			}
+
+			> .name {
+				font-size: 12px;
+			}
+		}
+	}
+
+	.history-cut .history-list {
+		padding: 0 36px;
+
+		.list {
+			padding-left: 128px;
+		}
+
+		.time {
+			margin-top: -54px;
+			width: 108px;
+			height: 108px;
+			position: absolute;
+			top: 50%;
+			left: 0;
+
+			.year {
+				font-size: 30px;
+			}
+		}
+	}
+
+	.news-cut .main-content-bd {
+		width: 226px;
 	}
 }
 

@@ -64,7 +64,7 @@
 			$(this).toggleClass('is-active');
 			$('.sitemap-wrap').toggleClass('is-show');
 
-			if ( projects.device() !== 'Mobile') {
+			if ( projects.device() === 'PC') {
 				if ($(this).hasClass('is-active')) {
 					$quickList.animate({
 						height: _quickListH + _mapH
@@ -113,24 +113,24 @@
 	projects.$d.ready(function(){
 		projects.owlCarousel();
 
-		if ( projects.device() === 'PC' ) {
+		if ( projects.device() !== 'Mobile') {
 			common.showFooter();
-		} else if ( projects.device() === 'Mobile') {
-			$('.jQ-owl-dt').trigger('destroy.owl');
+		} else {
+			$('.jQ-owl-md').trigger('destroy.owl');
 		}
 	});
 
 	projects.$w.on('scroll' , function(){
-		if ( projects.device() === 'PC') {
+		if ( projects.device() !== 'Mobile') {
 			common.showFooter();
 		}
 	});
 
 	projects.$w.resize(function(){
 		if (projects.$w.width() >= 740) {
-			projects.owlCarousel('.jQ-owl-dt');
+			projects.owlCarousel('.jQ-owl-md');
 		} else {
-			$('.jQ-owl-dt').trigger('destroy.owl');
+			$('.jQ-owl-md').trigger('destroy.owl');
 		}
 	});
 
