@@ -1,0 +1,20 @@
+.m-section-hd {
+	display: table;
+
+	> * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.m-section-tools {
+		width: 1%;
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

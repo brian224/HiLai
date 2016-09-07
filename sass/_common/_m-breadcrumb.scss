@@ -1,0 +1,47 @@
+.m-breadcrumb {
+	background: $color-white;
+	height: 60px;
+	border: 1px solid $color-gray-l-p30;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+	line-height: 58px;
+	@include box-sizing(border-box);
+
+	.list {
+		display: inline-block;
+		position: relative;
+
+		&:not(:last-child):after {
+			content: '';
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			border-top: 1px solid $color-gray-l-p30;
+			border-right: 1px solid $color-gray-l-p30;
+			@include transform(rotate(45deg));
+			@include box-sizing(border-box);
+		}
+	}
+
+	.m-box-holder {
+		border: 0;
+	}
+}
+
+@include respond(Desktops) {
+	.m-breadcrumb .list {
+		> * {
+			color: $color-gray-d-p10;
+			font-size: 16px;
+
+			&:not(.m-box-holder) {
+				padding: 0 15px;
+			}
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

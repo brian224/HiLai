@@ -12,13 +12,14 @@
         this._HREF   = window.location.href;
         this._EVENTS = 'click touchstart';
         this._ISMAC  = navigator.platform.match(/Mac/i) ? true : false;
-        this._u2b    = {
+        this._media  = {
             _id         : null,
+            _play       : null,
             $element    : null,
             _class      : null,
             _fullStyle  : 'top : 0; left : 0; width : 100%; height : 100%; position : absolute;'
         };
-    }
+    };
 
     /* Animationend */
     factory.prototype.animationend = function() {
@@ -27,7 +28,7 @@
         } else {
             return 'animationend transitionend';
         }
-    }
+    };
 
     /* input event */
     factory.prototype.eventInput = function() {
@@ -36,7 +37,7 @@
         } else {
             return 'input';
         }
-    }
+    };
 
     /* IE8 & iE9 placeholder */
     factory.prototype.placeholder = function(){
@@ -61,7 +62,7 @@
                 return 'PC';
             }
         }
-    }
+    };
 
     /* get browsers */
     factory.prototype.browsers = function(){
@@ -82,7 +83,7 @@
 
         if ( ( _tem = navigator.userAgent.match( /version\/(\d+)/i ) ) != null ) _useragent.splice(1 , 1 , _tem[1]);
             return _useragent.join(' ');
-    }
+    };
 
     /* ajax init */
     factory.prototype.ajax = function(url , success , complete , erroe , element) {
@@ -138,7 +139,7 @@
                 }
             }
         });
-    }
+    };
 
     /* owlCarousel */
     factory.prototype._owlClass = '.jQ-owl';
@@ -190,7 +191,7 @@
                 }
             }
         }
-    }
+    };
 
     factory.prototype.navClass = function(element){
         var $element       = element;
@@ -264,7 +265,7 @@
                 }
             }
         });
-    }
+    };
 
     factory.prototype.owlEvents = function(onEvents , callback) {
         jQuery(projects._owl).on(onEvents , function(e){
@@ -274,19 +275,19 @@
                 eval(callback);
             }
         });
-    }
+    };
 
     factory.prototype.owlStop = function(element) {
         jQuery(element).trigger('stop.owl.autoplay');
-    }
+    };
 
     factory.prototype.owlPlay = function(element) {
         jQuery(element).trigger('play.owl.autoplay');
-    }
+    };
 
     factory.prototype.owlGoto = function(position , speed) {
         jQuery(projects._owl).trigger('to.owl.carousel', [position , ( speed ? speed : 500 ) , true]);
-    }
+    };
 
     /* validate */
     factory.prototype.validate = function(element , selfMethod , event) {
@@ -323,7 +324,7 @@
                 }
             }
         }
-    }
+    };
 
     factory.prototype.addMethod = function() {
         /* chinese checked */
@@ -396,55 +397,142 @@
                 either : true
             }
         });
-    }
+    };
 
     /* youtube */
-    factory.prototype.u2bGet = function() {
-        var _style   = '',
-            _youtube = ( ( jQuery('[data-youtube]').length !== 0 ) ? jQuery('[data-youtube]') : ( jQuery('[data-pop]').length !== 0 ? jQuery('[data-pop]') : '' ) );
+    factory.prototype.mediaGet = function() {
+        var _style = 'padding-top: 100%; height: 100%; position: relative;',
+            $media = ( ( jQuery('[data-media]').length !== 0 ) ? jQuery('[data-media]') : ( jQuery('[data-pop]').length !== 0 ? jQuery('[data-pop]') : '' ) );
         
-        if ( _youtube ) {
-            for ( var i = 0 ; i < _youtube.length ; i ++ ) {
-                var _data = null;
-                
-                if ( _youtube.eq(i).data('youtube') !== '' ) {
-                    _data = _youtube.eq(i).data('youtube');
+        if ( $media ) {
+            for ( var i = 0 ; i < $media.length ; i ++ ) {
+                var _data    = null;
+                var _top = $media.eq(i).data('inner') ? ( ($media.eq(i).width() / $media.eq(i).height() * -50) + '%' ) : $media.eq(i).data('elem') ? ( (jQuery($media.eq(i).data('elem')).width() / jQuery($media.eq(i).data('elem')).height() * -50) + '%' ) : ( ( $media.eq(i).parent().width() / $media.eq(i).parent().height() * -50 ) + '%' );
+                var $youtube = '<div class="youtube-frame '+ ( ( $media.eq(i).data('fullscreen') === true ) ? 'is-fullscreen' : '' ) +'" style="'+ ( ( $media.eq(i).data('fullscreen') === true ) ? ( 'top: ' + _top + ';' + _style ) : '' ) +'"><span id="youtube-'+i+'" class="youtube-append" style="'+ projects._media._fullStyle +'"></span></div>';
 
-                    _youtube.eq(i).removeData('youtube');
-                    _youtube.eq(i).data( 'youtube' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
+                if ( $media.eq(i).data('media') !== '' ) {
+                    if ( /youtube/i.exec( $media.eq(i).data('media') ) && typeof(window.YT) === 'undefined' ) {
+                        projects.u2bPlayer();
+                    }
+
+                    _data = $media.eq(i).data('media');
+
+                    $media.eq(i).removeData('media');
+                    $media.eq(i).data( 'media' , ( _data + (( /\?/.test(_data) ) ? '&index='+i+'' : '?index='+i+'') ) );
                 }
 
-                if ( _youtube.eq(i).data('pop') === true ) {
+                if ( $media.eq(i).data('pop') === true ) {
                     var _parameter = /(\?).*/.exec(projects._HREF)[0];
 
                     _parameter = _parameter.replace(/youtube/ , 'v');
-                    _youtube.eq(i).removeData('youtube');
-                    _youtube.eq(i).data('youtube' , 'https://www.youtube.com/watch' + _parameter + ( _parameter ? '&index='+i+'' : '?index='+i+'' ));
+                    $media.eq(i).removeData('media');
+                    $media.eq(i).data('media' , 'https://www.youtube.com/watch' + _parameter + ( _parameter ? '&index='+i+'' : '?index='+i+'' ));
                 }
 
-                _youtube.eq(i).after('<div class="youtube-frame '+ ( ( _youtube.eq(i).data('fullscreen') === true ) ? 'is-fullscreen' : '' ) +'" style="'+ ( ( _youtube.eq(i).data('fullscreen') === true ) ? _style : '' ) +'"><span id="youtube-'+i+'" class="youtube-append" style="'+ projects._u2b._fullStyle +'"></span></div>');
+                if ( $media.eq(i).data('inner') ) {
+                    $media.eq(i).append($youtube);
+                } else if ( $media.eq(i).data('elem') ) {
+                    jQuery($media.eq(i).data('elem')).append($youtube);
+                } else {
+                    $media.eq(i).after($youtube);
+                }
+            }
+            projects.mediaResize();
+        }
+    };
+
+    factory.prototype.mediaResize = function() {
+        var resize = function() {
+            for (var i = 0 , $media = jQuery('.youtube-frame') ; i < $media.length ; i ++ ) {
+                $media.eq(i).css({
+                    'top' : $media.eq(i).data('inner') ? ( ($media.eq(i).width() / $media.eq(i).height() * -50) + '%' ) : $media.eq(i).data('elem') ? ( (jQuery($media.eq(i).data('elem')).width() / jQuery($media.eq(i).data('elem')).height() * -50) + '%' ) : ( ( $media.eq(i).parent().width() / $media.eq(i).parent().height() * -50 ) + '%' )
+                });
             }
         }
-    }
 
-    factory.prototype.u2bAppend = function(url , ready , stateChange) {
+        if( window.attachEvent ) {
+            window.attachEvent('onresize', function() {
+                resize();
+            });
+        } else if( window.addEventListener ) {
+            window.addEventListener('resize', function() {
+                resize();
+            }, true);
+        }
+    };
+
+    factory.prototype.u2bPlayer = function() {
+        if ( ! window['YT'] ) {
+            var YT = {
+                loading : 0,
+                loaded  : 0
+            };
+        }
+        if ( ! window['YTConfig'] ) {
+            var YTConfig = {
+                'host': 'http://www.youtube.com'
+            };
+        }
+        if ( ! YT.loading ) {
+            YT.loading = 1;
+
+            (function() {
+                var l    = [];
+                YT.ready = function(f) {
+                    if ( YT.loaded ) {
+                        f();
+                    } else {
+                        l.push(f);
+                    }
+                };
+                
+                window.onYTReady = function() {
+                    YT.loaded = 1;
+                    for ( var i = 0 ; i < l.length ; i ++ ) {
+                        try {
+                            l[i]();
+                        } catch (e) {}
+                    }
+                };
+
+                YT.setConfig = function(c) {
+                    for ( var k in c ) {
+                        if ( c.hasOwnProperty(k) ) {
+                            YTConfig[k] = c[k];
+                        }
+                    }
+                };
+
+                var a = document.createElement('script');
+                a.type  = 'text/javascript';
+                a.id    = 'www-widgetapi-script';
+                a.src   = 'https:' + '//s.ytimg.com/yts/jsbin/www-widgetapi-vfl_Bhgrs/www-widgetapi.js';
+                a.async = true;
+                var b = document.getElementsByTagName('script')[0];
+                b.parentNode.insertBefore(a, b);
+            })();
+        }
+    };
+
+    factory.prototype.mediaAppend = function(url , ready , stateChange) {
         var _id       = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1],
-            _autoPlay = /autoplay\=/.test(url) ? ( /autoplay\=([^?&#]*)/.exec(url)[1] ) : 0,
-            _ctrls    = /controls\=/.test(url) ? ( /controls\=([^?&#]*)/.exec(url)[1] ) : 0,
-            _showinfo = /showinfo\=/.test(url) ? ( /showinfo\=([^?&#]*)/.exec(url)[1] ) : 0,
-            _mute     = /mute\=/.test(url) ? ( /mute\=([^?&#]*)/.exec(url)[1] ) : 0;
-        var player;
+            _autoPlay = /autoplay\=/.test(url) ? ( ( /autoplay\=([^?&#]*)/.exec(url)[1] ) | 0 ) : 0,
+            _ctrls    = /controls\=/.test(url) ? ( ( /controls\=([^?&#]*)/.exec(url)[1] ) | 0 ) : 0,
+            _showinfo = /showinfo\=/.test(url) ? ( ( /showinfo\=([^?&#]*)/.exec(url)[1] ) | 0 ) : 0,
+            _loop     = /loop\=/.test(url) ? ( ( /loop\=([^?&#]*)/.exec(url)[1] ) | 0 ) : 0,
+            _mute     = /mute\=/.test(url) ? ( ( /mute\=([^?&#]*)/.exec(url)[1] ) | 0 ) : 0;
+        // var player;
         var setIntervals = null;
 
-        projects._u2b._id      = 'youtube-' + ( /index\=([^?&#]*)/.exec(url)[1] );
-        projects._u2b.$element = ('#' + projects._u2b._id);
-        projects._u2b._class   = jQuery(projects._u2b.$element).attr('class');
+        projects._media._id      = 'youtube-' + ( /index\=([^?&#]*)/.exec(url)[1] );
+        projects._media.$element = ('#' + projects._media._id);
+        projects._media._class   = jQuery(projects._media.$element).attr('class');
 
         setIntervals = setInterval(function(){
-            if ( YT.Player ) {
+            if ( typeof(window.YT) !== 'undefined' ) {
                 window.clearInterval(setIntervals);
 
-                player = new YT.Player(projects._u2b._id , {
+                projects._media._player = new YT.Player(projects._media._id , {
                     width            : '100%',
                     height           : '100%',
                     videoId          : _id,
@@ -453,36 +541,36 @@
                         autoplay       : _autoPlay,
                         controls       : _ctrls,
                         showinfo       : _showinfo,
+                        loop           : _loop,
                         fs             : 0,
                         rel            : 0,
                         modestbranding : 1,
                         iv_load_policy : 1,
+                        autohide       : 0,
                         start          : 0,
                         playsinline    : 0,
                         enablejsapi    : 1,
                         version        : 3,
-                        playlist       : '',
+                        playlist       : _id,
                         origin         : projects._ORIGIN,
                         wmode          : 'transparent'
                     },
                     events: {
                         onReady : function(event) {
-                            // jQuery(projects._u2b.$element).css('z-index' , '5');
-                            if ( parseInt(_mute, 10) === 1 ) {
-                                player.mute();
+                            if ( _mute ) {
+                                projects._media._player.mute();
                             }
-
                             if ( ready ) {
                                 if ( typeof(ready) === 'function' ) {
-                                    ready.call(event , player);
+                                    ready.call(event);
                                 } else if ( typeof(ready) === 'string' ) {
                                     eval(ready);
                                 }
                             }
                         },
                         onStateChange : function(event) {
-                            if ( event.data === 0 ) {
-                                projects.u2bRemove();
+                            if ( event.data === 0 && ! _loop ) {
+                                projects.mediaRemove();
 
                                 if ( stateChange ) {
                                     if ( typeof(stateChange) === 'function' ) {
@@ -495,27 +583,25 @@
                         }
                     }
                 });
-
-                // console.log(player);
             }
         } , 1);
-    }
+    };
 
-    factory.prototype.u2bRemove = function() {
-        if ( jQuery(projects._u2b.$element).length !== 0 ) {
-            jQuery(projects._u2b.$element).after('<span id="'+projects._u2b._id+'" class="'+projects._u2b._class+'" style="'+ projects._u2b._fullStyle +'"></span>').remove();
+    factory.prototype.mediaRemove = function() {
+        if ( jQuery(projects._media.$element).length !== 0 ) {
+            jQuery(projects._media.$element).after('<span id="'+projects._media._id+'" class="'+projects._media._class+'" style="'+ projects._media._fullStyle +'"></span>').remove();
         }
-    }
+    };
 
     /* plugin isQuery function */
     factory.prototype.isQuery = function(obj) {
         return obj && obj.hasOwnProperty && obj instanceof $;
-    }
+    };
 
     /* plugin accordion event */
     projects.accordion = jQuery.accordion = function () {
         projects.accordion.init.apply( this , arguments );
-    }
+    };
 
     jQuery.extend( projects.accordion , {
         _defaults : {
@@ -669,7 +755,79 @@
                 fn(e);
             }
         });
-    }
+    };
+
+    factory.prototype.imgLoader = function(element , thingToDo , allDone , delay) {
+        if ( ! element ) {
+            return;
+        }
+
+        var _items   = [];
+        var _uri     = null;
+        var _setTime = null;
+
+        for ( var i = 0 , $elem = document.querySelectorAll(element) ; i < $elem.length ; i ++ ) {
+            if ( $elem[i].nodeName === 'IMG' ) {
+                _items.push($elem[i].src);
+            } else {
+                if ( $elem[i].currentStyle ) {
+                    _uri = $elem[i].currentStyle['background-image'] !== 'none' ? /(?:\(['"]?)(.*?)(?:['"]?\))/.exec($elem[i].currentStyle['background-image'])[1] : '';
+                } else if (window.getComputedStyle) {
+                    _uri = document.defaultView.getComputedStyle($elem[i] , null).getPropertyValue('background-image') !== 'none' ? /(?:\(['"]?)(.*?)(?:['"]?\))/.exec(document.defaultView.getComputedStyle($elem[i] , null).getPropertyValue('background-image'))[1] : '';
+                }
+
+                if ( _uri ) {
+                    _items.push(_uri);
+                }
+            }
+        }
+
+        if ( _items.length === 0 ) {
+            allDone(_items , 0);
+            return;
+        }
+
+        var _count = 0;
+
+        // this callback counts down the things to do.
+        var loadCompleted = function (items , i) {
+            _count ++;
+            window.clearTimeout(_setTime);
+
+            _setTime = setTimeout(function(){
+                if ( _count === _items.length ) {
+                    allDone(items , i);
+                }
+            } , delay ? delay : 0);
+        };
+
+        for ( var i = 0 ; i < _items.length ; i ++ ) {
+            
+
+            var onLoad = function (e) {
+                e.target.removeEventListener('load' , onLoad);
+
+                // this next line can be removed.
+                // only here to prove the image was loaded.
+                if ( thingToDo ) {
+                    thingToDo(e.target , _count);
+                }
+                
+                // notify that we're done.
+                loadCompleted(_items , i);
+            }
+
+            var img = new Image();
+            img.addEventListener('load' , onLoad , false);
+            img.src = _items[i];
+        }
+    };
+
+    factory.prototype.scrollTopAnimate = function(element , speed) {
+        projects.$hd.animate({
+            'scrollTop' : jQuery(element).offset().top
+        } , (speed ? speed : 500));
+    };
 
     if ( ! window.projects ) {
         window.projects = projects;

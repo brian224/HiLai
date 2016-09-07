@@ -484,7 +484,7 @@
 		display: block;
 
 		> * {
-			min-height: 100vh;
+			height: 100vh;
 		}
 	}
 }
@@ -722,8 +722,10 @@
 		}
 	}
 
-	.news-cut .main-content-hd {
-		margin-bottom: 95px;
+	.restaurant-cut, .history-cut, .news-cut {
+		.main-content-hd {
+			margin-bottom: 95px;
+		}
 	}
 
 	.search-cut .booking .m-selection {

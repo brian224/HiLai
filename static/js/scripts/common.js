@@ -6,6 +6,8 @@
 	function page() {
 		this._lFooter      = '.l-footer';
 		this._subMenu      = '.jq-sub-menu';
+		this._search       = '.jq-search';
+		this._searchClose  = '.jq-search-close';
 		this._back         = '.jq-back';
 		this._arrow        = '.jq-arrow';
 		this._top          = '.jq-top';
@@ -15,7 +17,7 @@
 	}
 
 	page.prototype.showFooter = function() {
-		var _totalH  = projects.$b.height(),
+		var _totalH  = projects.$hb.height(),
 			_cutH    = projects.$w.height(),
 			_scrollH = projects.$b.scrollTop();
 
@@ -36,6 +38,19 @@
 		});
 	}
 
+	// 點擊目標區域以外的地方可關閉目標區域
+	page.prototype.offClick = function(_target) {
+		projects.$d.off('click').on('click' , function(e){
+			if (_target === '.m-search-bar' && $(_target).hasClass('is-show')) {
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._search + ', ' + common._search + ' *,' + _target + ', ' + _target + ' *')) {
+					$('.m-search-bar').removeClass('is-show');
+				}
+			}
+		});
+	}
+
 	projects.$w.load(function(){
 		common.countHeight();
 		$('.m-datepicker').DatePicker();
@@ -45,6 +60,15 @@
 				$base = $this.parent().prev();
 
 			$this.css('top', $base.offset().top - parseInt($('.m-header').css('top'), 10) + ($base.height() / 2) - ($this.outerHeight() / 2));
+		});
+
+		$(common._search).on('click', function(){
+			$('.m-search-bar').addClass('is-show');
+			common.offClick('.m-search-bar');
+		});
+
+		$(common._searchClose).on('click', function(){
+			$('.m-search-bar').removeClass('is-show');
 		});
 
 		$('.btn-menu').on('click', function(){

@@ -291,6 +291,67 @@
 	line-height: 20px;
 }
 
+.m-search-bar {
+	padding: 0 64px 0 54px;
+	background: $color-major;
+	width: 100%;
+	height: 64px;
+	position: fixed;
+	top: -64px;
+	left: 0;
+	line-height: 64px;
+	z-index: 6;
+	@include box-sizing(border-box);
+	@include transition(ease-in all 0.3s);
+
+	&.is-show {
+		top: 0;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+	}
+
+	.m-icon-zoom {
+		position: absolute;
+		top: 0;
+		left: 24px;
+		color: $color-white;
+		font-size: 14px;
+		line-height: 64px;
+	}
+
+	.m-inputbox {
+		background: none;
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: 0;
+		outline: none;
+		color: $color-white;
+		font-size: 16px;
+		@include placeholder($color-gray-l-p30);
+	}
+
+	.btn-search-close {
+		width: 64px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		&:before, &:after {
+			margin: -1px 0 0 -11px;
+			background: $color-white;
+			width: 22px;
+			height: 2px;
+		}
+
+		&:hover {
+			&:before, &:after {
+				background: $color-text-minor;
+			}
+		}
+	}
+}
+
 @include respond(Desktops) {
 	.m-logo {
 		width: 148px;

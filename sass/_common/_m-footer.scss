@@ -185,6 +185,14 @@
 			}
 		}
 
+		.btn-sitemap:after {
+			margin-top: -2px;
+			display: block;
+			position: absolute;
+			top: 50%;
+			right: 12px;
+		}
+
 		.sitemap-wrap {
 			padding-right: 50px;
 			padding-left: 220px;
@@ -225,14 +233,6 @@
 
 @include respond(Desktops-Tablets) {
 	.m-footer {
-		.btn-sitemap:after {
-			margin-top: -2px;
-			display: block;
-			position: absolute;
-			top: 50%;
-			right: 12px;
-		}
-
 		.sitemap-wrap {
 			padding-top: 40px;
 			padding-bottom: 40px;
