@@ -1,0 +1,22 @@
+.m-flexbox {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: row;
+	justify-content: center;
+
+	.box {
+		width: 25%;
+		min-height: 45px;
+		border: 1px solid #666;
+		font-size: 16px;
+		line-height: 1.5em;
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

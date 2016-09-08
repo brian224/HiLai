@@ -1,4 +1,8 @@
-﻿.l-content {
+﻿body {
+	overflow-x: hidden;
+}
+
+.l-content {
 	background: $color-gray-l-p40;
 }
 
@@ -53,7 +57,77 @@
 }
 
 .m-content-bd {
-	padding-top: 22px;
+	padding: 22px 0 98px 0;
+}
+
+.m-section-hd {
+	height: 120px;
+}
+
+.m-table {
+	margin: 8px 0 100px 0;
+
+	.m-icon {
+		margin-bottom: 15px;
+		display: block;
+		color: $color-gray;
+		font-size: 84px;
+	}
+}
+
+.notice-info {
+	color: $color-gray-d-p10;
+	font-size: 14px;
+	line-height: 24px;
+
+	.notice-title {
+		margin-bottom: 24px;
+	}
+
+	.notice-list {
+		padding-left: 20px;
+		list-style: decimal outside;
+	}
+}
+
+.store-list {
+	position: relative;
+
+	.list {
+		margin: 0 6px;
+		background: $color-white;
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+	}
+
+	.m-owl-dots.is-absolute {
+		text-align: center;
+	}
+}
+
+.fb-comments {
+	margin: 0 6px;
+}
+
+.booking {
+	background: rgba(14, 14, 14, 0.4);
+	width: 100%;
+	height: 120px;
+	position: relative;
+	font-size: 0;
+	text-align: center;
+	@include box-sizing(border-box);
+
+	.owl-stage-outer {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+	}
+
+	.select-time .m-selection, .m-datepicker, .m-inputbox {
+		padding-left: 45px;
+	}
 }
 
 .brand-img {
@@ -99,7 +173,27 @@
 	}
 }
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.b-normalize > *:not(img) {
+		padding: 0 16px;
+	}
+
+	.price-list {
+		.m-section-bd {
+			padding: 50px;
+		}
+
+		.sub-title {
+			color: $color-major;
+			font-size: 22px;
+			line-height: 1.5em;
+		}
+	}
+
+	.booking .m-owl-dots.is-absolute {
+		bottom: 6px;
+	}
+}
 
 @include respond(HD) {
 	.l-content {

@@ -1,0 +1,55 @@
+.m-table {
+	width: 100%;
+
+	thead td {
+		position: relative;
+
+		&:after {
+			content: '';
+			background: $color-gray-l-p40;
+			display: block;
+			width: 1px;
+			height: calc(100% - 10px);
+			position: absolute;
+			top: 0;
+			right: -1px;
+		}
+	}
+
+	td {
+		padding: 5px;
+		height: 45px;
+		color: $color-gray-d-p20;
+		font-size: 16px;
+		line-height: 1.5em;
+		text-align: center;
+		@include box-sizing(border-box);
+	}
+
+	tbody {
+		tr:nth-child(odd) {
+			background: #f4e6ec;
+	
+			td {
+				border-right-color: #e0d1d8;
+			}
+		}
+
+		td {
+			border-right: 1px solid $color-gray-l-p40;
+
+			&:first-child {
+				width: 20%;
+				color: $color-gray;
+			}
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}

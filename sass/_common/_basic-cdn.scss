@@ -41,6 +41,19 @@
     background : transparent;
 }
 
+.b-normalize {
+    @import "_common/normalize";
+
+    &:after {
+        content : "";
+        width   : 100%;
+        height  : 0;
+        clear   : both;
+        @include clearfix;
+        @include display(block);
+    }
+}
+
 /* text-align */
 .b-text-left {
     text-align : left !important;

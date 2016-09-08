@@ -82,11 +82,12 @@
 }
 
 .m-btn-slide {
-	background: none;
-	width: 44px;
-	height: 44px;
-	border: 1px solid $color-white;
+	background: rgba(255, 255, 255, 0.2);
+	width: 48px;
+	height: 48px;
+	border: 2px solid $color-white;
 	border-radius: 50%;
+	@include box-sizing(border-box);
 
 	&:before, &:after {
 		content: '';
@@ -99,12 +100,13 @@
 	}
 
 	&:before {
-		margin: -13px 0 0 -11px;
-		width: 21px;
-		height: 21px;
-		border-bottom: 1px solid $color-white;
-		border-left: 1px solid $color-white;
+		margin: -5px 0 0 -7px;
+		width: 14px;
+		height: 14px;
+		border-bottom: 2px solid $color-white;
+		border-left: 2px solid $color-white;
 		@include transform(rotate(-45deg));
+		@include box-sizing(border-box);
 	}
 
 	&:after {

@@ -8,7 +8,6 @@
 		this._pagination    = '.pagination';
 		this._slideDown     = '.jq-slide-down';
 		this._slideCut      = '.jq-slide-cut';
-		this._next          = '.jq-next';
 		this._showBooking   = '.jq-show-booking';
 		this._hideBooking   = '.jq-hide-booking';
 		this._animateSpeed  = 400;
@@ -117,10 +116,6 @@
 
 		$(indexObj._slideDown).on('click', function(){
 			indexObj.slideCut(1);
-		});
-
-		$(indexObj._next).on('click', function(){
-			$(this).parents('.jQ-owl-md').trigger('next.owl');
 		});
 
 		$(indexObj._showBooking).on('click', function(){
