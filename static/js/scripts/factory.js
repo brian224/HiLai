@@ -19,6 +19,14 @@
             _class      : null,
             _fullStyle  : 'top : 0; left : 0; width : 100%; height : 100%; position : absolute;'
         };
+        this._browsers = {
+            'msie'    : navigator.userAgent.match(/(msie|trident(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'chrome'  : navigator.userAgent.match(/(chrome(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'safari'  : navigator.userAgent.match(/(safari(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'firefox' : navigator.userAgent.match(/(firefox(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'opera'   : navigator.userAgent.match(/(opera(?=\/))\/?\s*(\d+)/i) ? true : false,
+            'version' : null
+        };
     };
 
     /* Animationend */
@@ -65,25 +73,30 @@
     };
 
     /* get browsers */
-    factory.prototype.browsers = function(){
+    factory.prototype.browsersVersion = function(){
         var _useragent = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
         var _tem;
 
         if( /trident/i.test( _useragent[1] ) ){
             _tem = /\brv[ :]+(\d+)/g.exec( navigator.userAgent ) || [];
-            return 'IE ' + (_tem[1] || '');
+            return projects._browsers.version = (Number(_tem[1]) || '');
+            // return 'IE ' + (_tem[1] || '');
         }
         
         if( _useragent[1] === 'Chrome' ){
             _tem = navigator.userAgent.match( /\b(OPR|Edge)\/(\d+)/ );
-            if ( _tem != null ) return _tem.slice(1).join(' ').replace('OPR', 'Opera');
+            if ( _tem != null ) return projects._browsers.version = _tem.slice(1).join(' ').replace('OPR', 'Opera');
         }
 
         _useragent = _useragent[2] ? [ _useragent[1] , _useragent[2] ]: [ navigator.appName , navigator.appVersion , '-?' ];
 
         if ( ( _tem = navigator.userAgent.match( /version\/(\d+)/i ) ) != null ) _useragent.splice(1 , 1 , _tem[1]);
-            return _useragent.join(' ');
+
+            return projects._browsers.version = Number(_useragent[1]);
+            // return _useragent.join(' ');
     };
+
+    projects.browsersVersion();
 
     /* ajax init */
     factory.prototype.ajax = function(url , success , complete , erroe , element) {
@@ -823,9 +836,9 @@
         }
     };
 
-    factory.prototype.scrollTopAnimate = function(element , speed) {
-        projects.$hd.animate({
-            'scrollTop' : jQuery(element).offset().top
+    factory.prototype.scrollTopAnimate = function(scrollTop , speed) {
+        projects.$hb.animate({
+            'scrollTop' : scrollTop
         } , (speed ? speed : 500));
     };
 

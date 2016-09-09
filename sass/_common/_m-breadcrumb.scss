@@ -1,6 +1,6 @@
 .m-breadcrumb {
 	background: $color-white;
-	height: 60px;
+	min-height: 60px;
 	border: 1px solid $color-gray-l-p30;
 	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
 	line-height: 58px;
@@ -10,7 +10,7 @@
 		display: inline-block;
 		position: relative;
 
-		&:not(:last-child):after {
+		&:not(:first-child):before {
 			content: '';
 			display: inline-block;
 			width: 12px;
@@ -20,6 +20,10 @@
 			@include transform(rotate(45deg));
 			@include box-sizing(border-box);
 		}
+
+		> * {
+			color: $color-gray-d-p10;
+		}
 	}
 
 	.m-box-holder {
@@ -27,21 +31,79 @@
 	}
 }
 
-@include respond(Desktops) {
-	.m-breadcrumb .list {
-		> * {
-			color: $color-gray-d-p10;
-			font-size: 16px;
+@include respond(Desktops) {}
 
-			&:not(.m-box-holder) {
-				padding: 0 15px;
-			}
+@include respond(Desktops-Tablets) {
+	.m-breadcrumb .list > * {
+		font-size: 16px;
+
+		&:not(.m-box-holder) {
+			padding: 0 15px;
 		}
 	}
 }
 
-@include respond(Desktops-Tablets) {}
-
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-breadcrumb {
+		padding: 0 10px;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		width: 100%;
+		line-height: 0;
+
+		.list {
+			max-width: 100%;
+			@include box-sizing(border-box);
+
+			&:not(:first-child) {
+				padding-left: 12px;
+
+				&:before {
+					margin-top: -6px;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					z-index: 1;
+				}
+			}
+
+			> * {
+				font-size: 15px;
+				line-height: 46px;
+		
+				&:not(.m-box-holder) {
+					padding: 0 0 0 8px;
+				}
+			}
+
+			.b-link {
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.m-box-holder.is-selector {
+			padding: 0 24px 0 8px;
+			max-width: 100%;
+			overflow: hidden;
+
+			&:after {
+				right: 8px;
+			}
+
+			.m-selection {
+				padding: 0;
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

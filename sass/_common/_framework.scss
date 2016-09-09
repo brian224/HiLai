@@ -38,6 +38,10 @@ a {
 	}
 }
 
+img {
+	vertical-align: middle;
+}
+
 @include respond(Desktops) {
 }
 

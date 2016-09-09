@@ -1,16 +1,3 @@
-.m-section-hd {
-	display: table;
-
-	> * {
-		display: table-cell;
-		vertical-align: middle;
-	}
-
-	.m-section-tools {
-		width: 1%;
-	}
-}
-
 .m-section-bd {
 	overflow: hidden;
 	
@@ -22,8 +9,30 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.m-section-hd {
+		display: table;
+
+		> * {
+			display: table-cell;
+			vertical-align: middle;
+		}
+
+		.m-section-tools {
+			width: 1%;
+		}
+	}
+}
 
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		display: flex;
+		align-items: center;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+	}
+}

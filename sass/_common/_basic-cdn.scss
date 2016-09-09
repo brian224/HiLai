@@ -458,6 +458,10 @@
     .b-col-xs-5d {
         width : 20% !important;
     }
+
+    .b-normalize img {
+        max-width: 100%;
+    }
 }
 
 @include devices('l-pad') {
