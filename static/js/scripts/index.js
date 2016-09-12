@@ -10,11 +10,11 @@
 		this._slideCut      = '.jq-slide-cut';
 		this._showBooking   = '.jq-show-booking';
 		this._hideBooking   = '.jq-hide-booking';
+		this._searchStore   = '.jq-search-store';
+		this._clearSearch   = '.jq-clear-search';
 		this._animateSpeed  = 400;
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
-		this._map;
-		this._marker;
 	}
 
 	index.prototype.checkCutLength = function() {
@@ -30,7 +30,7 @@
 	}
 
 	index.prototype.slideCut = function(n) {
-		projects.$hb.animate({'scrollTop': projects.$w.height() * n}, common._animateSpeed);
+		projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top}, common._animateSpeed);
 		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(n).addClass('is-curr');
 		if (n !== 0) {
 			projects._media._player.pauseVideo();
@@ -41,7 +41,7 @@
 
 	index.prototype.mousewheel = function() {
 		projects.mousewheel(projects.$hb, function(e){
-			if (!$(e.target).is('.sub-menu, .sub-menu *')) {
+			if (!$(e.target).is('.sub-menu, .sub-menu *, .search-result-list, .search-result-list *')) {
 				e.preventDefault();
 				e.stopPropagation();
 
@@ -96,38 +96,40 @@
 		}
 	}
 
-	index.prototype.initMap = function() {
-		var geocoder = new google.maps.Geocoder();
-		indexObj.map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 15,
-			center: {lat: 25.040509, lng: 121.548349}
-		});
-
-		indexObj.marker = new google.maps.Marker({
-			map: indexObj.map,
-			draggable: false,
-			position: {lat: 25.040509, lng: 121.548349}
-		});
-	}
-
 	projects.$w.load(function(){
 		indexObj.checkCutLength();
-		indexObj.initMap();
 
 		$(indexObj._slideDown).on('click', function(){
 			indexObj.slideCut(1);
 		});
 
 		$(indexObj._showBooking).on('click', function(){
-			$('.booking').addClass('is-show');
+			$('.main-cut .booking').addClass('is-show');
 			$(indexObj._slideDown).addClass('b-hide-tm');
 			$(indexObj._pagination).addClass('b-hide-tm');
 		});
 
 		$(indexObj._hideBooking).on('click', function(){
-			$('.booking').removeClass('is-show');
+			$('.main-cut .booking').removeClass('is-show');
 			$(indexObj._slideDown).removeClass('b-hide-tm');
 			$(indexObj._pagination).removeClass('b-hide-tm');
+		});
+
+		$(indexObj._searchStore).on('click', function(){
+			$(indexObj._clearSearch + ', .search-result-list').addClass('is-show');
+
+			if ( projects.device() === 'Mobile' ) {
+				$(indexObj._pagination).addClass('b-hide-tm');
+			}
+		});
+
+		$(indexObj._clearSearch).on('click', function(){
+			$(this).removeClass('is-show');
+			$('.search-result-list').removeClass('is-show');
+
+			if ( projects.device() === 'Mobile' ) {
+				$(indexObj._pagination).removeClass('b-hide-tm');
+			}
 		});
 
 		$(indexObj._slideCut, indexObj._pagination).on('click', function(){

@@ -334,6 +334,8 @@
 		@media screen and ( min-width : $screen-mobile ) and ( max-width : ($screen-pc - 1) ) { @content; }
 	} @else if $media == Mobiles {
 		@media screen and ( max-width : ($screen-mobile - 1) ) { @content; }
+	} @else if $media == Iphone5 {
+		@media screen and ( max-height : $iphone5-height ) { @content; }
 	}
 }
 

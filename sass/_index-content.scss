@@ -259,8 +259,7 @@
 			overflow: hidden;
 
 			img {
-				height: 100%;
-				min-width: 100%;
+				width: 100%;
 			}
 		}
 
@@ -304,20 +303,70 @@
 	.booking {
 		padding: 5px 25px 20px 25px;
 		display: inline-block;
+		font-size: 0;
 
-		.m-selection {
-			min-width: 164px;
+		.btn-close {
+			position: absolute;
+			opacity: 0;
+			@include transition(ease-in all 0.3s);
+
+			&.is-show {
+				opacity: 1;
+			}
 		}
-	}
-
-	.m-form .text {
-		color: $color-white;
-		font-size: 16px;
 	}
 
 	.btn-search {
 		margin-top: 6px;
 		vertical-align: top;
+	}
+
+	.search-result-list {
+		height: 0;
+		overflow: hidden;
+		@include transition(ease-in all 0.3s);
+
+		.list {
+			position: relative;
+		}
+
+		.store-name {
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.m-icon {
+			color: #fff799;
+		}
+
+		.location, .btn-tel, .addr {
+			padding-left: 22px;
+			display: inline-block;
+			position: relative;
+
+			.m-icon {
+				position: absolute;
+				left: 0;
+			}
+		}
+
+		.img-wrap {
+			position: absolute;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.btn-googlemap {
+			> * {
+				color: #ff3f3f !important;
+			}
+
+			.m-icon {
+				padding-right: 8px;
+			}
+		}
 	}
 }
 
@@ -332,12 +381,6 @@
 		display: block;
 		min-width: 100vw;
 	}
-
-	/*.youtube-frame {
-		&.is-fullscreen {
-			top : -201vh;
-		}
-	}*/
 }
 
 .pagination {
@@ -588,14 +631,113 @@
 		}
 	}
 
+	.search-cut {
+		.booking {
+			position: relative;
+
+			.m-selection {
+				min-width: 164px;
+			}
+
+			.btn-close {
+				background: #ff4b4b;
+				width: 30px;
+				height: 30px;
+				top: 0;
+				right: 0;
+
+				&:before, &:after {
+					margin-left: -10px;
+					background: $color-white;
+					width: 20px;
+					height: 1px;
+				}
+
+				&.is-show {
+					right: -32px;
+				}
+			}
+		}
+
+		.search-result-list {
+			margin-top: 24px;
+			width: 600px;
+
+			&.is-show {
+				height: 402px;
+				overflow-y: scroll;
+			}
+
+			.list {
+				padding: 15px 0 15px 200px;
+				min-height: 134px;
+				line-height: 20px;
+				text-align: left;
+				@include box-sizing(border-box);
+
+				&:not(:first-child):before {
+					content: '';
+					margin-left: -286px;
+					background: $color-gray-d-p20;
+					display: block;
+					width: 572px;
+					height: 1px;
+					position: absolute;
+					top: 0;
+					left: 50%;
+				}
+			}
+
+			.store-name {
+				padding: 5px 120px 5px 0;
+				line-height: 30px;
+			}
+
+			.location {
+				margin-right: 20px;
+			}
+
+			.store-name, .text {
+				color: $color-white;
+			}
+
+			.m-icon, .text {
+				font-size: 14px;
+				vertical-align: middle;
+			}
+
+			.location, .btn-tel, .addr {
+				padding-top: 5px;
+				padding-bottom: 5px;
+
+				.m-icon {
+					top: 8px;
+				}
+			}
+
+			.img-wrap {
+				margin-top: -52px;
+				display: block;
+				width: 180px;
+				height: 104px;
+				top: 50%;
+				left: 0;
+				overflow: hidden;
+			}
+
+			.btn-googlemap {
+				position: absolute;
+				top: 15px;
+				right: 10px;
+				line-height: 40px;
+			}
+		}
+	}
+
 	.restaurant-cut, .history-cut, .news-cut {
 		.m-owl-dots {
 			bottom: 45px;
 		}
-	}
-
-	.search-cut .m-form .text {
-		margin: 0 10px;
 	}
 
 	.pagination .btn-dot {
@@ -925,11 +1067,6 @@
 			.m-box-holder {
 				display: block;
 			}
-
-			.text {
-				margin: 10px auto;
-				display: block;
-			}
 		}
 
 		.btn-search {
@@ -956,9 +1093,15 @@
 }
 
 @include respond(Mobiles) {
-	.main-cut .sub-title {
-		margin-bottom: 18px;
-		font-size: 16px;
+	.main-cut {
+		.sub-title {
+			margin-bottom: 18px;
+			font-size: 16px;
+		}
+
+		.booking {
+			padding-bottom: 20px;
+		}
 	}
 
 	.restaurant-cut {
@@ -1001,6 +1144,147 @@
 
 	.news-cut .main-content-bd {
 		width: 226px;
+	}
+
+	.search-cut {
+		.booking {
+			.m-selection {
+				width: 100%;
+			}
+
+			.btn-close {
+				width: 44px;
+				height: 44px;
+				top: 67px;
+				right: 6px;
+				z-index: 1;
+			}
+		}
+
+		.search-result-list {
+			background: rgba(248, 248, 248, 0.85);
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			@include box-sizing(border-box);
+
+			&.is-show {
+				padding-top: 60px;
+				height: 100%;
+				bottom: 0;
+			}
+
+			.owl-stage {
+				display: flex;
+				height: calc(100vh - 60px);
+				align-items: center;
+				flex-direction: row;
+				justify-content: center;
+			}
+
+			.list {
+				margin: 0 auto;
+				padding: 166px 0 0 0;
+				display: flex;
+				width: calc(100vw - 68px);
+				align-items: flex-start;
+				flex-direction: column;
+				justify-content: center;
+				@include box-sizing(border-box);
+
+				> * {
+					display: block;
+					vertical-align: middle;
+					text-align: left;
+				}
+			}
+
+			.store-name, .text {
+				color: $color-gray-d-p10;
+			}
+
+			.m-icon, .text {
+				font-size: 16px;
+				vertical-align: middle;
+			}
+
+			.location, .btn-tel, .addr {
+				.m-icon {
+					top: 5px;
+				}
+			}
+
+			.img-wrap {
+				margin-left: calc((-100vw + 68px) / 2);
+				width: calc(100vw - 68px);
+				height: 156px;
+				top: 0;
+				left: 50%;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+@include respond(Iphone5) {
+	.main-content-hd .main-title {
+		margin: 32px 0 12px 0;
+		font-size: 30px;
+	}
+
+	.main-cut {
+		.main-content {
+			padding-bottom: 0;
+		}
+
+		.main-title {
+			font-size: 42px;
+			line-height: 48px;
+		}
+	}
+
+	.restaurant-cut .restaurant-list .list {
+		padding-bottom: 10px;
+	}
+
+	.history-cut .history-list {
+		.list {
+			padding-left: 108px;
+			max-height: 88px;
+			min-height: 0;
+			overflow: hidden;
+	
+			&:first-child {
+				margin-top: 0;
+			}
+		}
+
+		.time {
+			margin-top: -44px;
+			width: 88px;
+			height: 88px;
+
+			.year {
+				font-size: 24px;
+			}
+
+			.unit {
+				font-size: 14px;
+			}
+		}
+	}
+
+	.news-cut .news-list .list {
+		margin-bottom: 20px;
+
+		.news-content {
+			padding-bottom: 40px;
+		}
+
+		.img-wrap {
+			height: 120px;
+		}
 	}
 }
 

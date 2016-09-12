@@ -50,6 +50,7 @@
 					$('.m-search-bar').removeClass('is-show');
 				}
 			} else if (_target === common._sitemap && $(_target).hasClass('is-active')) {
+				// 關閉網站地圖
 				e.stopPropagation();
 
 				if (!$(e.target).is(common._quickList + ', ' + common._quickList + ' *,' + _target + ', ' + _target + ' *')) {
@@ -155,7 +156,9 @@
 
 		if ( projects.device() !== 'Mobile') {
 			common.showFooter();
+			$('.jQ-owl-xs').trigger('destroy.owl');
 		} else {
+			projects.owlCarousel('.jQ-owl-xs');
 			$('.jQ-owl-md').trigger('destroy.owl');
 		}
 	});
@@ -169,8 +172,10 @@
 	projects.$w.resize(function(){
 		if (projects.$w.width() >= 740) {
 			projects.owlCarousel('.jQ-owl-md');
+			$('.jQ-owl-xs').trigger('destroy.owl');
 		} else {
 			$('.jQ-owl-md').trigger('destroy.owl');
+			projects.owlCarousel('.jQ-owl-xs');
 		}
 	});
 
