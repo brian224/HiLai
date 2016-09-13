@@ -271,7 +271,7 @@
 			text-align: left;
 		}
 
-		.news-title {
+		.news-title, .desc {
 			overflow: hidden;
 		}
 
@@ -333,10 +333,6 @@
 		.store-name {
 			font-size: 18px;
 			font-weight: bold;
-		}
-
-		.m-icon {
-			color: #fff799;
 		}
 
 		.location, .btn-tel, .addr {
@@ -527,6 +523,10 @@
 		display: block;
 
 		> * {
+			min-height: 100vh;
+		}
+
+		.jq-video {
 			height: 100vh;
 		}
 	}
@@ -625,6 +625,7 @@
 			}
 
 			.desc {
+				height: 52px;
 				font-size: 14px;
 				line-height: 26px;
 			}
@@ -669,7 +670,7 @@
 			}
 
 			.list {
-				padding: 15px 0 15px 200px;
+				padding: 15px 20px 15px 200px;
 				min-height: 134px;
 				line-height: 20px;
 				text-align: left;
@@ -706,6 +707,10 @@
 				vertical-align: middle;
 			}
 
+			.m-icon {
+				color: #fff799;
+			}
+
 			.location, .btn-tel, .addr {
 				padding-top: 5px;
 				padding-bottom: 5px;
@@ -728,7 +733,7 @@
 			.btn-googlemap {
 				position: absolute;
 				top: 15px;
-				right: 10px;
+				right: 24px;
 				line-height: 40px;
 			}
 		}
@@ -1017,6 +1022,7 @@
 			}
 
 			.desc {
+				height: 54px;
 				font-size: 12px;
 				line-height: 18px;
 			}
@@ -1200,7 +1206,7 @@
 				}
 			}
 
-			.store-name, .text {
+			.store-name, .text, .m-icon {
 				color: $color-gray-d-p10;
 			}
 

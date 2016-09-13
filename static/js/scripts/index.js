@@ -12,7 +12,6 @@
 		this._hideBooking   = '.jq-hide-booking';
 		this._searchStore   = '.jq-search-store';
 		this._clearSearch   = '.jq-clear-search';
-		this._animateSpeed  = 400;
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
 	}
@@ -30,7 +29,12 @@
 	}
 
 	index.prototype.slideCut = function(n) {
-		projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top}, common._animateSpeed);
+		if (projects._ISIPHONE) {
+			$('.l-body').animate({'scrollTop': $(indexObj._mCut).height() * n}, common._animateSpeed);
+		} else {
+			projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top}, common._animateSpeed);
+		}
+
 		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(n).addClass('is-curr');
 		if (n !== 0) {
 			projects._media._player.pauseVideo();
@@ -61,11 +65,17 @@
 						indexObj._sectionIndex = 0;
 					}
 
+					if (projects._ISMAC) {
+						var _speed = 1400;
+					} else {
+						var _speed = common._animateSpeed;
+					}
+
 					indexObj.slideCut(indexObj._sectionIndex);
 
 					setTimeout(function(){
 						indexObj._sectionScroll = true;
-					}, common._animateSpeed + 100);
+					}, _speed + 100);
 				}
 			}
 		});

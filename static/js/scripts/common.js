@@ -134,9 +134,15 @@
 		});
 
 		$(common._top).on('click', function(){
-			projects.$b.animate({
-				scrollTop: 0
-			}, common._animateSpeed);
+			if (projects._ISIPHONE) {
+				$('.l-body').animate({
+					scrollTop: 0
+				}, common._animateSpeed);
+			} else {
+				projects.$b.animate({
+					scrollTop: 0
+				}, common._animateSpeed);
+			}
 
 			common.offClick(common._sitemap);
 			$('.sitemap-wrap').removeClass('is-show');

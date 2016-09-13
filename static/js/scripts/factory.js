@@ -4,15 +4,16 @@
     var projects = new factory();
 
     function factory() {
-        this.$w      = jQuery(window);
-        this.$d      = jQuery(document);
-        this.$hb     = jQuery('html , body');
-        this.$b      = jQuery('body');
-        this._ORIGIN = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
-        this._HREF   = window.location.href;
-        this._EVENTS = 'click touchstart';
-        this._ISMAC  = navigator.platform.match(/Mac/i) ? true : false;
-        this._media  = {
+        this.$w        = jQuery(window);
+        this.$d        = jQuery(document);
+        this.$hb       = jQuery('html , body');
+        this.$b        = jQuery('body');
+        this._ORIGIN   = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
+        this._HREF     = window.location.href;
+        this._EVENTS   = 'click touchstart';
+        this._ISMAC    = navigator.platform.match(/Mac/i) ? true : false;
+        this._ISIPHONE = navigator.platform.match(/iPhone/i) ? true : false;
+        this._media    = {
             _id         : null,
             _play       : null,
             $element    : null,
