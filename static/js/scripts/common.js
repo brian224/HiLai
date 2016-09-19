@@ -65,7 +65,10 @@
 
 	projects.$w.load(function(){
 		common.countHeight();
-		$('.m-datepicker').DatePicker();
+
+		if ($('.m-datepicker').length !== 0) {
+			$('.m-datepicker').DatePicker();
+		}
 
 		$(common._arrow).each(function(){
 			var $this = $(this),
@@ -165,7 +168,12 @@
 			$('.jQ-owl-xs').trigger('destroy.owl');
 		} else {
 			projects.owlCarousel('.jQ-owl-xs');
+		}
+
+		if ( projects.device() !== 'PC') {
 			$('.jQ-owl-md').trigger('destroy.owl');
+		} else {
+			projects.owlCarousel('.jQ-owl-md');
 		}
 	});
 
@@ -177,11 +185,15 @@
 
 	projects.$w.resize(function(){
 		if (projects.$w.width() >= 740) {
-			projects.owlCarousel('.jQ-owl-md');
 			$('.jQ-owl-xs').trigger('destroy.owl');
 		} else {
-			$('.jQ-owl-md').trigger('destroy.owl');
 			projects.owlCarousel('.jQ-owl-xs');
+		}
+
+		if (projects.$w.width() >= 768) {
+			projects.owlCarousel('.jQ-owl-md');
+		} else {
+			$('.jQ-owl-md').trigger('destroy.owl');
 		}
 	});
 

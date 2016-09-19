@@ -11,7 +11,6 @@
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	height: 560px;
 	position: relative;
 	z-index: 1;
 
@@ -90,7 +89,6 @@
 		}
 
 		.store-content {
-			margin: 0 30px;
 			color: $color-gray-d-p20;
 			font-size: 14px;
 			line-height: 1.5em;
@@ -157,25 +155,22 @@
 	color: $color-major;
 }
 
-.m-table {
-	margin: 8px 0 100px 0;
+.price-list .sub-title {
+	color: $color-major;
+	font-size: 22px;
+	line-height: 1.5em;
+}
 
-	.m-icon {
-		margin-bottom: 15px;
-		display: block;
-		color: $color-gray;
-		font-size: 84px;
-	}
+.m-table .m-icon {
+	margin-bottom: 15px;
+	display: block;
+	color: $color-gray;
 }
 
 .notice-info {
 	color: $color-gray-d-p10;
 	font-size: 14px;
 	line-height: 24px;
-
-	.notice-title {
-		margin-bottom: 24px;
-	}
 
 	.notice-list {
 		padding-left: 20px;
@@ -210,6 +205,10 @@
 	left: 0;
 	right: 0;
 	overflow: hidden;
+}
+
+.b-normalize > *:not(img) {
+	padding: 0 16px;
 }
 
 @-moz-document url-prefix() {}
@@ -248,6 +247,10 @@
 		}
 	}
 
+	.m-content-bd {
+		height: 560px;
+	}
+
 	.booking {
 		.m-datepicker, .m-inputbox {
 			max-width: 164px;
@@ -277,8 +280,8 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.b-normalize > *:not(img) {
-		padding: 0 16px;
+	.m-content-bd .store-list .store-content {
+		margin: 0 30px;
 	}
 
 	.m-section-hd {
@@ -289,16 +292,20 @@
 		font-size: 48px;
 	}
 
-	.price-list {
-		.m-section-bd {
-			padding: 50px;
-		}
+	.price-list .m-section-bd {
+		padding: 50px;
+	}
 
-		.sub-title {
-			color: $color-major;
-			font-size: 22px;
-			line-height: 1.5em;
+	.m-table {
+		margin: 8px 0 100px 0;
+
+		.m-icon {
+			font-size: 84px;
 		}
+	}
+
+	.notice-info .notice-title {
+		margin-bottom: 24px;
 	}
 
 	.booking {
@@ -332,11 +339,17 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
+	.l-content {
+		position: relative;
+	}
+
 	.m-content {
 		padding: 0 12px;
 	}
 
 	.m-content-hd {
+		height: 100vh;
+
 		.logo-wrap {
 			margin-bottom: 36px;
 			padding: 3px;
@@ -362,6 +375,28 @@
 		}
 	}
 
+	.m-content-bd {
+		padding-bottom: 68px;
+	}
+
+	.booking {
+		overflow: hidden;
+
+		.booking-step {
+			margin: 0 auto;
+			width: 256px;
+
+			> * {
+				display: block;
+			}
+	
+			*:not(.m-icon) {
+				width: 100%;
+				@include box-sizing(border-box);
+			}
+		}
+	}
+
 	.brand-img {
 		height: calc(100vh - 60px);
 		top: 60px;
@@ -374,6 +409,31 @@
 }
 
 @include respond(Mobiles) {
+	.m-content-bd .store-list .store-content {
+		margin: 0 18px;
+	}
+
+	.m-section-hd {
+		align-items: flex-start;
+	}
+
+	.store-info {
+		.m-section-bd {
+			margin: 0 auto;
+			width: 256px;
+			overflow: visible;
+
+			.store-list .list {
+				margin: 0 auto 50px auto;
+				width: 236px;
+			}
+		}
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+	}
+
 	.section-title {
 		font-size: 36px;
 		line-height: 64px;
@@ -387,6 +447,42 @@
 		.m-btn-radius {
 			display: block;
 			width: 100%;
+		}
+	}
+
+	.price-list {
+		.m-section-bd {
+			padding: 20px;
+		}
+
+		.sub-title {
+
+		}
+	}
+
+	.m-table {
+		margin: 8px 0 36px 0;
+
+		.m-icon {
+			font-size: 36px;
+		}
+	}
+
+	.notice-info .notice-title {
+		margin-bottom: 15px;
+		font-size: 15px;
+	}
+
+	.booking {
+		padding: 28px 0;
+
+		.booking-step {
+	
+			.m-box-holder {
+				margin-bottom: 22px;
+				display: block;
+				overflow: hidden;
+			}
 		}
 	}
 }

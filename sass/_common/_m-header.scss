@@ -48,7 +48,7 @@
 		flex-direction: column;
 		justify-content: center;
 		font-size: 16px;
-		line-height: 48px;
+		line-height: 32px;
 
 		.list:last-child > .text {
 			&:after {
@@ -61,6 +61,7 @@
 		}
 
 		.text {
+			padding: 8px 0;
 			display: block;
 			position: relative;
 			cursor: pointer;
@@ -240,6 +241,10 @@
 				border: 1px solid $color-gray-l-p30;
 				border-radius: 50%;
 				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
 			}
 
 			.community-name {

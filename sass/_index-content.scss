@@ -255,7 +255,6 @@
 		margin: 0 6px 38px 6px;
 
 		.img-wrap {
-			height: 215px;
 			overflow: hidden;
 
 			img {
@@ -818,6 +817,10 @@
 		.news-list .list {
 			width: 260px;
 			box-shadow: 3px 3px 3px rgba(191, 191, 191, 0.35);
+
+			.img-wrap {
+				height: 215px;
+			}
 		}
 	}
 

@@ -20,10 +20,15 @@
 		padding: 5px;
 		height: 45px;
 		color: $color-gray-d-p20;
-		font-size: 16px;
 		line-height: 1.5em;
 		text-align: center;
 		@include box-sizing(border-box);
+
+		em {
+			display: inline-block;
+			word-wrap: break-word;
+			word-break: break-word;
+		}
 	}
 
 	tbody {
@@ -48,8 +53,18 @@
 
 @include respond(Desktops) {}
 
-@include respond(Desktops-Tablets) {}
+@include respond(Desktops-Tablets) {
+	.m-table td em {
+		font-size: 16px;
+	}
+}
 
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-table td em {
+		font-size: 12px;
+	}
+}
