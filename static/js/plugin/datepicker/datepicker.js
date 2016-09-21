@@ -354,6 +354,12 @@
 			$b.append(DP.tpl.wrap);
 			DP._calendar(dateValue);
 			DP._dateOpen();
+
+			$('.' + DP.tpl.datepicker).css({
+				top : ( $('.' + DP.tpl.datepicker).height() + coming.element.offset().top >= $b.height() ) ?
+						coming.element.offset().top - $('.' + DP.tpl.datepicker).height() :
+						coming.element.offset().top + coming.element.outerHeight()
+			});
 		},
 		_remove : function() {
 			var coming = DP.coming;
@@ -372,7 +378,6 @@
 				holiday;
 
 			$('.' + DP.tpl.datepicker).css({
-				top    : coming.element.offset().top + coming.element.outerHeight(),
 				left   : coming.element.offset().left,
 				width  : coming.width ? ( /%/g.test(coming.width) ? coming.width : getScalar(coming.width) ) : coming.element.outerWidth(),
 				height : coming.height ? ( /%/g.test(coming.height) ? coming.height : getScalar(coming.height) ) : null

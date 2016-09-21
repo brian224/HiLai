@@ -40,6 +40,14 @@
 		&:not(.m-box-holder) {
 			padding: 0 15px;
 		}
+
+		&:first-child {
+			padding-right: 5px;
+		}
+
+		.m-icon-index {
+			font-size: 24px;
+		}
 	}
 }
 
@@ -81,6 +89,14 @@
 				&:not(.m-box-holder) {
 					padding: 0 0 0 8px;
 				}
+
+				.m-icon-index {
+					font-size: 20px;
+				}
+			}
+
+			&:first-child .b-link {
+				padding-left: 0;
 			}
 
 			.b-link {

@@ -6,6 +6,7 @@
 	function page() {
 		this._lFooter      = '.l-footer';
 		this._quickList    = '.quick-list';
+		this._mTable       = '.m-table';
 		this._subMenu      = '.jq-sub-menu';
 		this._search       = '.jq-search';
 		this._searchClose  = '.jq-search-close';
@@ -63,11 +64,44 @@
 		});
 	}
 
+	page.prototype.mobileTable = function() {
+		$(common._mTable).each(function(){
+			var _tdLength = $(this).find('thead td').length,
+				_trLength = $(this).find('tr').length,
+				_tArray   = [],
+				_str      = '';
+
+			for (var i = 0; i < _trLength; i++) {
+				_tArray.push($(this).find('tr').eq(i).find('td').eq(0).html());
+
+				for (var j = 0; j < _tdLength - 1; j++) {
+					_tArray.push($(this).find('tr').eq(i).find('td').eq(j + 1).html());
+				}
+			}
+
+			for (var k = 1; k < _tdLength; k++) {
+				_str += '<table class="m-table b-hide-dt"><thead><tr><td>' + _tArray[k] + '</td><td></td></tr></thead><tbody>';
+
+				for (var l = 1; l < _tArray.length / _tdLength; l++) {
+					_str += '<tr><td>' + _tArray[_tdLength * l] + '</td><td>' + _tArray[_tdLength * l + 1] + '</td></tr>';
+				}
+
+				_str += '</tbody></table>';
+			}
+
+			$(this).after(_str);
+		});
+	}
+
 	projects.$w.load(function(){
 		common.countHeight();
 
 		if ($('.m-datepicker').length !== 0) {
 			$('.m-datepicker').DatePicker();
+		}
+
+		if ($(common._mTable).length !== 0 && projects.$w.width() <= 740) {
+			common.mobileTable();
 		}
 
 		$(common._arrow).each(function(){

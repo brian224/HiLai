@@ -1,20 +1,9 @@
-﻿body {
-	overflow-x: hidden;
-}
-
-.l-content {
+﻿.l-content {
 	background: $color-gray-l-p40;
 }
 
 .m-content-hd {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	justify-content: center;
-	position: relative;
-	z-index: 1;
-
-	.brand-title, .sub-title {
+	.branch-title, .sub-title {
 		color: $color-white;
 	}
 }
@@ -127,8 +116,6 @@
 }
 
 .m-table .m-icon {
-	margin-bottom: 15px;
-	display: block;
 	color: $color-gray;
 }
 
@@ -153,14 +140,6 @@
 	}
 }
 
-.brand-img {
-	width: 100vw;
-	position: absolute;
-	left: 0;
-	right: 0;
-	overflow: hidden;
-}
-
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
@@ -183,10 +162,12 @@
 
 		.brand-title {
 			font-size: 72px;
+			line-height: 1.2em;
 		}
 
 		.sub-title {
-			font-size: 24px;
+			font-size: 60px;
+			line-height: 1.2em;
 		}
 	}
 
@@ -221,16 +202,6 @@
 			}
 		}
 	}
-
-	.brand-img {
-		height: 560px;
-		top: 0;
-
-		img {
-			min-width: 100vw;
-			min-height: 100%;
-		}
-	}
 }
 
 @include respond(Desktops-Tablets) {
@@ -244,6 +215,8 @@
 	}
 
 	.m-table .m-icon {
+		margin-bottom: 15px;
+		display: block;
 		font-size: 84px;
 	}
 
@@ -334,9 +307,7 @@
 	}
 
 	.m-content-hd {
-		height: 100vh;
-
-		.brand-title {
+		.branch-title {
 			margin-bottom: 15px;
 			font-size: 60px;
 			line-height: 72px;
@@ -369,16 +340,6 @@
 			}
 		}
 	}
-
-	.brand-img {
-		height: calc(100vh - 60px);
-		top: 60px;
-
-		img {
-			min-width: 100vw;
-			min-height: 100%;
-		}
-	}
 }
 
 @include respond(Mobiles) {
@@ -397,11 +358,9 @@
 			line-height: 1.5em;
 		}
 
-		.link-wrap {
-			.m-btn-radius {
-				margin-bottom: 15px;
-				display: block;
-			}
+		.link-wrap .m-btn-radius {
+			margin-bottom: 15px;
+			display: block;
 		}
 	}
 
@@ -409,7 +368,8 @@
 		margin: 8px 0 36px 0;
 
 		.m-icon {
-			font-size: 36px;
+			margin-right: 10px;
+			font-size: 48px;
 		}
 	}
 

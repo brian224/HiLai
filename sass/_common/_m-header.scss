@@ -1,4 +1,4 @@
-.m-logo {
+.m-logo .b-link {
 	background: $color-major;
 	display: flex;
 	align-items: center;
@@ -8,10 +8,6 @@
 	z-index: 6;
 	color: #fff;
 	font-size: 96px;
-
-	img {
-		max-height: 100%;
-	}
 }
 
 .menu-wrap {
@@ -358,16 +354,11 @@
 }
 
 @include respond(Desktops) {
-	.m-logo {
+	.m-logo .b-link {
 		width: 148px;
 		height: 118px;
 		top: 24px;
 		left: 53px;
-
-		img {
-			width: 92px;
-			max-width: 92px;
-		}
 	}
 
 	.menu-wrap {
@@ -593,7 +584,7 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
-	.m-logo {
+	.m-logo .b-link {
 		width: 72px;
 		height: 60px;
 		top: 0;

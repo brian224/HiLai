@@ -1,0 +1,126 @@
+﻿.l-content {
+	background: $color-gray-l-p40;
+}
+
+.m-content-hd {
+	.news-title, .sub-title {
+		color: $color-white;
+	}
+}
+
+.m-content-bd {
+	padding: 22px 0 98px 0;
+}
+
+.section-title {
+	color: $color-major;
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 40px;
+	}
+
+	.m-content {
+		padding: 0 20px;
+		width: 100%;
+		@include box-sizing(border-box);
+	}
+
+	.m-content-hd {
+		height: 560px;
+
+		.brand-title {
+			font-size: 72px;
+			line-height: 1.2em;
+		}
+
+		.sub-title {
+			font-size: 60px;
+			line-height: 1.2em;
+		}
+	}
+
+	.branch-info {
+		.branch-slider {
+			position: relative;
+		}
+	}
+
+	.info-bd {
+		margin-top: 20px;
+		overflow: hidden;
+	}
+
+	.branch-slider .m-owl-arrow {
+		cursor: pointer;
+	}
+
+	.booking {
+		.m-datepicker, .m-inputbox {
+			max-width: 164px;
+			@include box-sizing(border-box);
+		}
+
+		.booking-step {
+			padding: 17px 0 30px 0;
+			height: 100%;
+
+			.m-btn-radius {
+				margin: 0 auto;
+				display: block;
+			}
+		}
+	}
+
+	.brand-img {
+		height: 560px;
+		top: 0;
+
+		img {
+			min-width: 100vw;
+			min-height: 100%;
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+
+	.m-content {
+		margin: 0 auto;
+		padding: 0;
+		width: 948px;
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.l-content {
+		position: relative;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 20px;
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		align-items: flex-start;
+	}
+}
+
+@include browsers('IE') {}
