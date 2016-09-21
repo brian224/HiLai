@@ -1,0 +1,135 @@
+.m-branch-list {
+	position: relative;
+
+	.list {
+		margin: 0 6px 54px 6px;
+		padding-bottom: 28px;
+		background: $color-white;
+		min-height: 484px;
+		position: relative;
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+		@include box-sizing(border-box);
+	}
+
+	.img-wrap {
+		position: relative;
+		height: 224px;
+		overflow: hidden;
+
+		img {
+			min-width: 100%;
+			min-height: 100%;
+		}
+
+		.img-desc {
+			background: rgba(0, 0, 0, 0.5);
+			width: 100%;
+			height: 36px;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			color: $color-white;
+			font-size: 16px;
+			line-height: 36px;
+			text-align: center;
+		}
+	}
+
+	.store-content {
+		color: $color-gray-d-p20;
+		font-size: 14px;
+		line-height: 1.5em;
+
+		.store-title {
+			height: 50px;
+			border-bottom: 1px solid $color-gray-l-p40;
+			color: $color-major;
+			font-size: 26px;
+			line-height: 50px;
+		}
+
+		.btn-tel, .addr, .meal-time {
+			padding: 5px 0 5px 18px;
+			display: block;
+			position: relative;
+		}
+
+		.btn-tel {
+			color: $color-gray-d-p20;
+		}
+
+		.btn-tel .m-icon, .addr .m-icon {
+			top: 9px;
+		}
+
+		.meal-time .icon-list {
+			top: 5px;
+		}
+
+		.btn-tel .m-icon, .addr .m-icon, .meal-time .icon-list {
+			position: absolute;
+			left: 0;
+		}
+
+		.m-icon {
+			color: $color-gray;
+		}
+	}
+
+	.m-owl-dots.is-absolute {
+		text-align: center;
+	}
+
+	.btn-booking {
+		margin-left: -50px;
+		display: block;
+		min-width: 100px;
+		position: absolute;
+		top: auto;
+		bottom: -8px;
+		left: 50%;
+		text-align: center;
+
+		&:hover {
+			top: auto;
+			bottom: -12px;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-branch-list .store-content {
+		margin: 0 30px;
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-branch {
+		.m-section-bd {
+			margin: 0 auto;
+			width: 256px;
+			overflow: visible;
+
+			.m-branch-list {
+				.list {
+					margin: 0 auto 50px auto;
+					width: 236px;
+				}
+
+				.store-content {
+					margin: 0 18px;
+				}
+			}
+		}
+
+		.owl-stage-outer {
+			overflow: visible;
+		}
+	}
+}

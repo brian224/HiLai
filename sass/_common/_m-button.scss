@@ -118,20 +118,30 @@
 }
 
 .m-btn-radius {
-	background: #ff4b4b;
+	display: inline-block;
 	height: 36px;
 	min-width: 138px;
 	position: relative;
 	top: -2px;
 	border-radius: 5px;
-	box-shadow: 0 4px 0 #d41313;
 	color: $color-white;
 	font-size: 18px;
 	line-height: 36px;
+	text-align: center;
 
 	&:hover {
 		top: 2px;
-		box-shadow: none;
+		box-shadow: none !important;
+	}
+
+	&.is-major {
+		background: #ff4b4b;
+		box-shadow: 0 4px 0 #d41313;
+	}
+
+	&.is-minor {
+		background: $color-gray-l-p10;
+		box-shadow: 0 4px 0 $color-gray;
 	}
 }
 

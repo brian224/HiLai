@@ -158,22 +158,30 @@
 		$(common._next).on('click', function(){
 			$(this).parents('.jQ-owl-md').trigger('next.owl');
 		});
+
+		$('.jQ-owl').on('changed.owl.carousel' , function(e){
+			projects.owlArrowHide();
+		});
 	});
 
 	projects.$d.ready(function(){
 		projects.owlCarousel();
 
-		if ( projects.device() !== 'Mobile') {
-			common.showFooter();
-			$('.jQ-owl-xs').trigger('destroy.owl');
-		} else {
-			projects.owlCarousel('.jQ-owl-xs');
+		if ($('.jQ-owl-xs').length !== 0) {
+			if ( projects.device() !== 'Mobile') {
+				common.showFooter();
+				$('.jQ-owl-xs').trigger('destroy.owl');
+			} else {
+				projects.owlCarousel('.jQ-owl-xs');
+			}
 		}
 
-		if ( projects.device() !== 'PC') {
-			$('.jQ-owl-md').trigger('destroy.owl');
-		} else {
-			projects.owlCarousel('.jQ-owl-md');
+		if ($('.jQ-owl-md').length !== 0) {
+			if ( projects.device() !== 'PC') {
+				$('.jQ-owl-md').trigger('destroy.owl');
+			} else {
+				projects.owlCarousel('.jQ-owl-md');
+			}
 		}
 	});
 
@@ -184,16 +192,20 @@
 	});
 
 	projects.$w.resize(function(){
-		if (projects.$w.width() >= 740) {
-			$('.jQ-owl-xs').trigger('destroy.owl');
-		} else {
-			projects.owlCarousel('.jQ-owl-xs');
+		if ($('.jQ-owl-xs').length !== 0) {
+			if (projects.$w.width() >= 740) {
+				$('.jQ-owl-xs').trigger('destroy.owl');
+			} else {
+				projects.owlCarousel('.jQ-owl-xs');
+			}
 		}
 
-		if (projects.$w.width() >= 768) {
-			projects.owlCarousel('.jQ-owl-md');
-		} else {
-			$('.jQ-owl-md').trigger('destroy.owl');
+		if ($('.jQ-owl-md').length !== 0) {
+			if (projects.$w.width() >= 768) {
+				projects.owlCarousel('.jQ-owl-md');
+			} else {
+				$('.jQ-owl-md').trigger('destroy.owl');
+			}
 		}
 	});
 

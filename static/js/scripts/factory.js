@@ -265,17 +265,17 @@
 
             if ( $self.data('loop') !== true ) {
                 if ( _position !== 0 ) {
-                    if ( $self.find(''+_ctrlClass+' .is-prev').hasClass(_HIDE) ) {
-                        $self.find(''+_ctrlClass+' .is-prev').removeClass(_HIDE);
+                    if ( $self.find('' + _ctrlClass + ' .is-prev').hasClass(_HIDE) ) {
+                        $self.find('' + _ctrlClass + ' .is-prev').removeClass(_HIDE);
                     }
                 } else {
-                    $self.find(''+_ctrlClass+' .is-prev').addClass(_HIDE);
+                    $self.find('' + _ctrlClass + ' .is-prev').addClass(_HIDE);
                 }
 
                 if ( _stageWidth === ( _width + _position ) ) {
-                    $self.find(''+_ctrlClass+' .is-next').addClass(_HIDE);
+                    $self.find('' + _ctrlClass + ' .is-next').addClass(_HIDE);
                 } else {
-                    $self.find(''+_ctrlClass+' .is-next').removeClass(_HIDE);
+                    $self.find('' + _ctrlClass + ' .is-next').removeClass(_HIDE);
                 }
             }
         });
