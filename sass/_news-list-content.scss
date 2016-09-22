@@ -3,8 +3,29 @@
 }
 
 .m-content-hd {
-	.news-title, .sub-title {
-		color: $color-white;
+	.main-title {
+		position: relative;
+		color: $color-major;
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 5px;
+			position: absolute;
+			@include transform(skew(-30deg));
+			@include transform-origin(left, bottom);
+		}
+
+		&:before {
+			background: $color-major;
+			position: absolute;
+			left: 0;
+			opacity: 0.7;
+		}
+
+		&:after {
+			background: $color-gray-l-p30;
+		}
 	}
 }
 
@@ -16,6 +37,50 @@
 	color: $color-major;
 }
 
+.news-list {
+	.list {
+		margin: 0 20px 38px 20px;
+		display: inline-block;
+	}
+
+	.img-wrap {
+		overflow: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.news-content {
+		padding: 10px 16px 50px 16px;
+		background: #fff;
+		position: relative;
+		color: $color-gray-d-p20;
+		text-align: left;
+	}
+
+	.news-title, .desc {
+		overflow: hidden;
+	}
+
+	.btn-more {
+		margin-left: -50px;
+		padding: 0;
+		display: block;
+		width: 100px;
+		min-width: 0;
+		position: absolute;
+		top: calc(100% - 28px);
+		left: 50%;
+		font-size: 14px;
+		text-align: center;
+
+		&:hover {
+			top: calc(100% - 23px);
+		}
+	}
+}
+
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
@@ -24,7 +89,7 @@
 	}
 
 	.m-breadcrumb {
-		margin-bottom: 40px;
+		margin-bottom: 24px;
 	}
 
 	.m-content {
@@ -34,63 +99,55 @@
 	}
 
 	.m-content-hd {
-		height: 560px;
+		height: 290px;
 
-		.brand-title {
+		.main-title {
+			padding-left: 65px;
 			font-size: 72px;
 			line-height: 1.2em;
-		}
 
-		.sub-title {
-			font-size: 60px;
-			line-height: 1.2em;
-		}
-	}
+			&:before {
+				height: 35px;
+				bottom: 11px;
+				left: 0;
+			}
 
-	.branch-info {
-		.branch-slider {
-			position: relative;
-		}
-	}
-
-	.info-bd {
-		margin-top: 20px;
-		overflow: hidden;
-	}
-
-	.branch-slider .m-owl-arrow {
-		cursor: pointer;
-	}
-
-	.booking {
-		.m-datepicker, .m-inputbox {
-			max-width: 164px;
-			@include box-sizing(border-box);
-		}
-
-		.booking-step {
-			padding: 17px 0 30px 0;
-			height: 100%;
-
-			.m-btn-radius {
-				margin: 0 auto;
-				display: block;
+			&:after {
+				height: 84px;
+				bottom: 18px;
+				left: 15px;
 			}
 		}
 	}
 
-	.brand-img {
-		height: 560px;
-		top: 0;
-
-		img {
-			min-width: 100vw;
-			min-height: 100%;
-		}
+	.kv-img {
+		height: 290px;
 	}
 }
 
 @include respond(Desktops-Tablets) {
+	.news-list {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.list {
+			margin: 0 10px 38px 10px;
+			width: calc((100% - 60px) / 3);
+	
+			.news-title {
+				height: 64px;
+				font-size: 24px;
+				line-height: 32px;
+			}
+	
+			.desc {
+				height: 52px;
+				font-size: 14px;
+				line-height: 26px;
+			}
+		}
+	}
 }
 
 @include respond(HD) {
@@ -103,6 +160,18 @@
 		padding: 0;
 		width: 948px;
 	}
+
+	.m-section-hd {
+		display: block;
+	}
+
+	.news-list .list {
+		width: 260px;
+
+		.img-wrap {
+			height: 215px;
+		}
+	}
 }
 
 @include respond(Tablets) {}
@@ -112,14 +181,72 @@
 		position: relative;
 	}
 
+	.m-content {
+		padding: 0 12px;
+	}
+
+	.m-content-hd .main-title {
+		margin-bottom: 32px;
+		padding-left: 52px;
+		font-size: 38px;
+
+		&:before {
+			height: 27px;
+			bottom: 8px;
+			left: 0;
+		}
+
+		&:after {
+			height: 64px;
+			bottom: 14px;
+			left: 15px;
+		}
+	}
+
+	.m-content-bd {
+		padding-bottom: 68px;
+	}
+
 	.m-breadcrumb {
 		margin-bottom: 20px;
+	}
+
+	.news-list .list {
+		margin: 0 auto 38px auto;
+
+		.img-wrap {
+			height: 154px;
+		}
+
+		.news-title {
+			height: 54px;
+			font-size: 18px;
+			line-height: 27px;
+		}
+
+		.desc {
+			height: 54px;
+			font-size: 12px;
+			line-height: 18px;
+		}
 	}
 }
 
 @include respond(Mobiles) {
+	.m-content-hd {
+		height: 290px;
+	}
+
 	.m-section-hd {
 		align-items: flex-start;
+	}
+
+	.kv-img {
+		height: 230px;
+
+		img {
+			height: 100%;
+		}
 	}
 }
 

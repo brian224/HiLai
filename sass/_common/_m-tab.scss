@@ -1,0 +1,137 @@
+﻿.m-tab {
+	.arrow-prev, .arrow-next {
+		display: none;
+	}
+}
+
+.m-tab-list {
+	display: block;
+	border-bottom: 1px solid $color-gray-l-p30;
+	font-size: 0;
+
+	.list {
+		margin-bottom: -1px;
+		display: inline-block;
+	}
+
+	.btn-tab {
+		display: block;
+		position: relative;
+		color: $color-gray-d-p10;
+		text-align: center;
+		@include transition(ease-in all 0.3s);
+
+		&:hover, &.is-active {
+			color: $color-major;
+
+			&:after {
+				margin-left: calc(-100% / 2);
+				width: 100%;
+				height: 4px;
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			content: '';
+			margin-left: calc(-60% / 2);
+			background: $color-major;
+			display: block;
+			width: 60%;
+			height: 1px;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			opacity: 0;
+			@include transition(ease-in all 0.3s);
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-tab {
+		margin-bottom: 32px;
+
+		.btn-tab {
+			min-width: 124px;
+			height: 56px;
+			font-size: 18px;
+			line-height: 56px;
+		}
+	}
+}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Tablets) {}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		position: relative;
+	}
+
+	.m-tab {
+		margin-bottom: 20px;
+		width: 100%;
+		overflow: scroll;
+
+		.m-tab-list {
+			white-space: nowrap;
+		}
+
+		.btn-tab {
+			padding: 0 10px;
+			height: 40px;
+			font-size: 16px;
+			line-height: 40px;
+		}
+
+		.arrow-prev, .arrow-next {
+			padding: 0;
+			width: 50px;
+			position: absolute;
+			top: 0;
+
+			&:before {
+				content: '';
+				margin-top: -5px;
+				display: block;
+				width: 10px;
+				height: 10px;
+				position: absolute;
+				top: 50%;
+				border-top: 2px solid $color-major;
+				border-left: 2px solid $color-major;
+				@include box-sizing(border-box);
+			}
+
+			&.is-show {
+				display: block;
+			}
+		}
+
+		.arrow-prev {
+			background: linear-gradient(to left, rgba(232, 232, 232, 0) 0, $color-gray-l-p40 80%);
+			left: 0;
+
+			&:before {
+				margin-left: 3px;
+				left: 0;
+				@include transform(rotate(-45deg));
+			}
+		}
+
+		.arrow-next {
+			background: linear-gradient(to right, rgba(232, 232, 232, 0) 0, $color-gray-l-p40 80%);
+			right: 0;
+
+			&:before {
+				margin-right: 3px;
+				right: 0;
+				@include transform(rotate(135deg));
+			}
+		}
+	}
+}

@@ -23,6 +23,10 @@
 
 		> * {
 			color: $color-gray-d-p10;
+
+			&:hover {
+				color: $color-major;
+			}
 		}
 	}
 

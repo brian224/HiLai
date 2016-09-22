@@ -82,7 +82,9 @@
 
 @include respond(Tablets-Mobiles) {
 	.m-content-hd {
+		padding-top: 60px;
 		height: 100vh;
+		@include box-sizing(border-box);
 	}
 
 	.kv-img {
