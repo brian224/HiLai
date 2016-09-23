@@ -7,6 +7,7 @@
 		this._lFooter      = '.l-footer';
 		this._quickList    = '.quick-list';
 		this._mTable       = '.m-table';
+		this._mTab         = '.m-tab';
 		this._subMenu      = '.jq-sub-menu';
 		this._search       = '.jq-search';
 		this._searchClose  = '.jq-search-close';
@@ -28,6 +29,12 @@
 			$(common._lFooter).addClass('is-show');
 		} else {
 			$(common._lFooter).removeClass('is-show');
+			$(common._sitemap).removeClass('is-active');
+			$(common._quickList).stop().animate({
+				height: $(common._quickList + ' .list').eq(-1).offset().top - $(common._quickList).offset().top + $(common._quickList + ' .list').height()
+			}, common._animateSpeed, function() {
+				$(common._quickList).attr('style', '');
+			});
 		}
 	}
 
@@ -64,6 +71,7 @@
 		});
 	}
 
+	// M版<table>生成
 	page.prototype.mobileTable = function() {
 		$(common._mTable).each(function(){
 			var _tdLength = $(this).find('thead td').length,
@@ -93,6 +101,55 @@
 		});
 	}
 
+	// M版 tab function
+	page.prototype.mobileTab = function() {
+		$(common._mTab).each(function(){
+			var $this         = $(this),
+				$slider       = $this.find('.m-tab-list'),
+				$prev         = $this.prev('.arrow-prev'),
+				$next         = $this.next('.arrow-next'),
+				_wrapWidth    = $this.outerWidth(true),
+				_wrapOffset   = $this.offset().left,
+				_sliderWidth  = 0;
+
+			for (var i = 0; i < $this.find('.list').length; i++) {
+				_sliderWidth += $this.find('.list').eq(i).outerWidth(true);
+			}
+
+			if (_sliderWidth > _wrapWidth && Math.abs($slider.offset().left) + _wrapOffset + _wrapWidth !== _sliderWidth) {
+				$next.addClass('b-block-xs');
+			}
+
+			$this.on('scroll', function(){
+				var _sliderOffset = $slider.offset().left;
+
+				if (_sliderOffset < _wrapOffset) {
+					$prev.addClass('b-block-xs');
+				} else {
+					$prev.removeClass('b-block-xs');
+				}
+
+				if (Math.abs(_sliderOffset) + _wrapOffset + _wrapWidth >= _sliderWidth - 1) {
+					$next.removeClass('b-block-xs');
+				} else {
+					$next.addClass('b-block-xs');
+				}
+			});
+
+			$prev.on('click', function(){
+				$this.animate({
+					scrollLeft: $this.scrollLeft() - _wrapWidth
+				}, common._animateSpeed);
+			});
+
+			$next.on('click', function(){
+				$this.animate({
+					scrollLeft: $this.scrollLeft() + _wrapWidth
+				}, common._animateSpeed);
+			});
+		});
+	}
+
 	projects.$w.load(function(){
 		common.countHeight();
 
@@ -100,8 +157,12 @@
 			$('.m-datepicker').DatePicker();
 		}
 
-		if ($(common._mTable).length !== 0 && projects.$w.width() <= 740) {
+		if ($(common._mTable).length !== 0) {
 			common.mobileTable();
+		}
+
+		if ($(common._mTab).length !== 0 && projects.$w.width() <= 740) {
+			common.mobileTab();
 		}
 
 		$(common._arrow).each(function(){
@@ -131,11 +192,10 @@
 
 		$(common._sitemap).on('click', function(){
 			var $quickList  = $(common._quickList),
-				_quickListH = $quickList.find('.list').height(),
+				_quickListH = $(common._quickList + ' .list').eq(-1).offset().top - $(common._quickList).offset().top + $(common._quickList + ' .list').height(),
 				_mapH       = $('.sitemap-wrap').outerHeight();
 
 			$(this).toggleClass('is-active');
-			$('.sitemap-wrap').toggleClass('is-show');
 
 			if ( projects.device() === 'PC') {
 				if ($(this).hasClass('is-active')) {
@@ -217,6 +277,10 @@
 				projects.owlCarousel('.jQ-owl-md');
 			}
 		}
+
+		if ( projects.device() === 'PC' ) {
+			$('.sitemap-wrap').css({'top' : $(common._quickList + ' .list').eq(-1).offset().top - $(common._quickList).offset().top + $(common._quickList + ' .list').height()});
+		}
 	});
 
 	projects.$w.on('scroll' , function(){
@@ -240,6 +304,20 @@
 			} else {
 				$('.jQ-owl-md').trigger('destroy.owl');
 			}
+		}
+
+		if ($(common._mTab).length !== 0 && projects.$w.width() <= 740) {
+			common.mobileTab();
+		}
+
+		if ( projects.device() === 'PC' ) {
+			$('.sitemap-wrap').css({'top' : $(common._quickList + ' .list').eq(-1).offset().top - $(common._quickList).offset().top + $(common._quickList + ' .list').height()});
+
+			if ($(common._sitemap).hasClass('is-active')) {
+				$(common._quickList).height($('.sitemap-wrap').outerHeight() + parseInt($('.sitemap-wrap').css('top'), 10));
+			}
+		} else {
+			$('.sitemap-wrap').attr('style', '');
 		}
 	});
 

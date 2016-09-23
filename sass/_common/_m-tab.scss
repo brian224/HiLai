@@ -1,19 +1,4 @@
-﻿.m-tab {
-	.arrow-prev, .arrow-next {
-		display: none;
-	}
-}
-
-.m-tab-list {
-	display: block;
-	border-bottom: 1px solid $color-gray-l-p30;
-	font-size: 0;
-
-	.list {
-		margin-bottom: -1px;
-		display: inline-block;
-	}
-
+﻿.m-section-hd {
 	.btn-tab {
 		display: block;
 		position: relative;
@@ -46,40 +31,49 @@
 			@include transition(ease-in all 0.3s);
 		}
 	}
+
+	.arrow-prev, .arrow-next {
+		display: none;
+	}
+}
+
+.m-tab-list {
+	display: block;
+	border-bottom: 1px solid $color-gray-l-p30;
+	font-size: 0;
+
+	.list {
+		margin-bottom: -1px;
+		display: inline-block;
+	}
 }
 
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
-	.m-tab {
+	.m-section-hd {
 		margin-bottom: 32px;
+	}
 
-		.btn-tab {
-			min-width: 124px;
-			height: 56px;
-			font-size: 18px;
-			line-height: 56px;
-		}
+	.btn-tab {
+		min-width: 124px;
+		height: 56px;
+		font-size: 18px;
+		line-height: 56px;
 	}
 }
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-tab {
+		display: block;
+	}
+}
 
 @include respond(Mobiles) {
 	.m-section-hd {
 		position: relative;
-	}
-
-	.m-tab {
-		margin-bottom: 20px;
-		width: 100%;
-		overflow: scroll;
-
-		.m-tab-list {
-			white-space: nowrap;
-		}
 
 		.btn-tab {
 			padding: 0 10px;
@@ -93,6 +87,8 @@
 			width: 50px;
 			position: absolute;
 			top: 0;
+			z-index: 1;
+			@include translateZ(99px);
 
 			&:before {
 				content: '';
@@ -106,15 +102,11 @@
 				border-left: 2px solid $color-major;
 				@include box-sizing(border-box);
 			}
-
-			&.is-show {
-				display: block;
-			}
 		}
 
 		.arrow-prev {
-			background: linear-gradient(to left, rgba(232, 232, 232, 0) 0, $color-gray-l-p40 80%);
 			left: 0;
+			@include background-image(linear-gradient(to left, rgba(232, 232, 232, 0) 0%, $color-gray-l-p40 60%));
 
 			&:before {
 				margin-left: 3px;
@@ -124,14 +116,25 @@
 		}
 
 		.arrow-next {
-			background: linear-gradient(to right, rgba(232, 232, 232, 0) 0, $color-gray-l-p40 80%);
 			right: 0;
+			@include background-image(linear-gradient(to right, rgba(232, 232, 232, 0) 0%, $color-gray-l-p40 60%));
 
 			&:before {
 				margin-right: 3px;
 				right: 0;
 				@include transform(rotate(135deg));
 			}
+		}
+	}
+
+	.m-tab {
+		margin-bottom: 20px;
+		width: 100%;
+		overflow: scroll;
+
+		.m-tab-list {
+			display: table-cell;
+			white-space: nowrap;
 		}
 	}
 }

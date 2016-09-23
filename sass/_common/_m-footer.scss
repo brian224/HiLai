@@ -173,7 +173,7 @@
 @include respond(Desktops) {
 	.m-footer {
 		.quick-list {
-			padding-right: 70px;
+			padding: 0 70px 0 220px;
 			position: relative;
 			text-align: right;
 	
@@ -182,6 +182,10 @@
 				display: inline-block;
 				height: 28px;
 				line-height: 28px;
+
+				> *:hover {
+					color: $color-text-minor;
+				}
 			}
 		}
 
@@ -216,16 +220,22 @@
 }
 
 @include respond(HD) {
-	.m-footer .sitemap-wrap {
-		padding-right: 50px;
-		padding-left: 270px;
-		right: 0;
+	.m-footer {
+		.quick-list {
+			padding: 0 70px 0 270px;
+		}
 
-		.sitemap-list {
-			width: 200px;
-
-			&.double-column {
-				width: 370px;
+		.sitemap-wrap {
+			padding-right: 50px;
+			padding-left: 270px;
+			right: 0;
+	
+			.sitemap-list {
+				width: 200px;
+	
+				&.double-column {
+					width: 370px;
+				}
 			}
 		}
 	}

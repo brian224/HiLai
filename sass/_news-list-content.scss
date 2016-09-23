@@ -3,6 +3,8 @@
 }
 
 .m-content-hd {
+	height: 290px;
+
 	.main-title {
 		position: relative;
 		color: $color-major;
@@ -98,25 +100,21 @@
 		@include box-sizing(border-box);
 	}
 
-	.m-content-hd {
-		height: 290px;
+	.m-content-hd .main-title {
+		padding-left: 65px;
+		font-size: 72px;
+		line-height: 1.2em;
 
-		.main-title {
-			padding-left: 65px;
-			font-size: 72px;
-			line-height: 1.2em;
+		&:before {
+			height: 35px;
+			bottom: 11px;
+			left: 0;
+		}
 
-			&:before {
-				height: 35px;
-				bottom: 11px;
-				left: 0;
-			}
-
-			&:after {
-				height: 84px;
-				bottom: 18px;
-				left: 15px;
-			}
+		&:after {
+			height: 84px;
+			bottom: 18px;
+			left: 15px;
 		}
 	}
 
@@ -161,10 +159,6 @@
 		width: 948px;
 	}
 
-	.m-section-hd {
-		display: block;
-	}
-
 	.news-list .list {
 		width: 260px;
 
@@ -174,7 +168,11 @@
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-section-hd {
+		display: block;
+	}
+}
 
 @include respond(Tablets-Mobiles) {
 	.l-content {
@@ -186,7 +184,6 @@
 	}
 
 	.m-content-hd .main-title {
-		margin-bottom: 32px;
 		padding-left: 52px;
 		font-size: 38px;
 
@@ -230,16 +227,6 @@
 			line-height: 18px;
 		}
 	}
-}
-
-@include respond(Mobiles) {
-	.m-content-hd {
-		height: 290px;
-	}
-
-	.m-section-hd {
-		align-items: flex-start;
-	}
 
 	.kv-img {
 		height: 230px;
@@ -247,6 +234,12 @@
 		img {
 			height: 100%;
 		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		align-items: flex-start;
 	}
 }
 

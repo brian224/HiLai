@@ -555,11 +555,13 @@
 			padding: 0 18px;
 			background: #fff;
 			display: none;
+			max-height: 50vh;
 			position: absolute;
 			left: 0;
 			bottom: 100%;
 			border-radius: 2px;
 			box-shadow: 0 0 16px rgba(191, 191, 191, 0.35);
+			overflow-y: scroll;
 
 			.list {
 				white-space: nowrap;
