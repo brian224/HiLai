@@ -45,6 +45,7 @@
 		position: relative;
 		border-radius: 4px;
 		line-height: 28px;
+		@include transition(ease-in all 0.3s);
 
 		&:after {
 			content: '';
@@ -65,11 +66,8 @@
 
 			.m-icon {
 				opacity: 0;
+				@include transition(ease-in all 0.3s);
 			}
-		}
-
-		.m-icon {
-			@include transition(ease-in all 0.3s);
 		}
 	}
 
@@ -185,6 +183,11 @@
 
 				> *:hover {
 					color: $color-text-minor;
+
+					&:after {
+						border-top-color: $color-text-minor;
+						border-right-color: $color-text-minor;
+					}
 				}
 			}
 		}

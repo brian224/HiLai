@@ -38,7 +38,7 @@
 		}
 	}
 
-	page.prototype.countHeight = function() {
+	page.prototype.footerHeight = function() {
 		$(common._countHeight).each(function(){
 			var $list   = $(this).find('.item'),
 				_middle = Math.round($list.length / 2);
@@ -151,7 +151,7 @@
 	}
 
 	projects.$w.load(function(){
-		common.countHeight();
+		common.footerHeight();
 
 		if ($('.m-datepicker').length !== 0) {
 			$('.m-datepicker').DatePicker();
@@ -169,7 +169,7 @@
 			var $this = $(this),
 				$base = $this.parent().prev();
 
-			$this.css('top', $base.offset().top - parseInt($('.m-header').css('top'), 10) + ($base.height() / 2) - ($this.outerHeight() / 2));
+			$this.css('top', $base.offset().top - parseInt($('.m-header').css('top'), 10) + ($base.outerHeight() / 2) - ($this.outerHeight() / 2));
 		});
 
 		$(common._search).on('click', function(){

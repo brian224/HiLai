@@ -46,7 +46,7 @@
 		font-size: 16px;
 		line-height: 32px;
 
-		.list:last-child > .text {
+		> .list:last-child .text {
 			&:after {
 				background: none;
 			}
@@ -83,7 +83,6 @@
 	}
 
 	.sub-menu {
-		padding-top: 40px;
 		position: absolute;
 		left: 100%;
 		overflow: hidden;
@@ -111,7 +110,6 @@
 		.text {
 			padding: 0 27px;
 			text-align: left;
-			white-space: nowrap;
 		}
 	}
 }
@@ -434,21 +432,33 @@
 				@include transition(ease-in all 0.3s);
 			}
 
-			.place-list .text {
-				&:after {
-					margin-left: -73px;
-					background: #d2d2d2;
-					width: 146px;
+			.place-list {
+				.list:last-child .text:after {
+					background: none;
 				}
 
-				&:hover:after {
-					background: $color-major;
+				.text {
+					padding: 6px 27px;
+					line-height: 30px;
+	
+					&:after {
+						margin-left: 0;
+						background: #d2d2d2;
+						width: auto;
+						left: 27px;
+						right: 27px;
+					}
+	
+					&:hover:after {
+						background: $color-major;
+					}
 				}
 			}
 		}
 
 		.sub-menu {
 			margin-left: 1px;
+			padding: 40px 0 260px 0;
 			width: auto;
 			top: 0;
 			bottom: 0;
@@ -472,9 +482,13 @@
 				padding: 0 27px;
 			}
 
-			.text:hover ~ .detail-list {
-				overflow: visible;
-				@include transform(rotateY(0deg));
+			.text {
+				white-space: nowrap;
+
+				&:hover ~ .detail-list, &.is-hover ~ .detail-list {
+					overflow: visible;
+					@include transform(rotateY(0deg));
+				}
 			}
 		}
 	}
