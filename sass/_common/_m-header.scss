@@ -440,18 +440,6 @@
 				.text {
 					padding: 6px 27px;
 					line-height: 30px;
-	
-					&:after {
-						margin-left: 0;
-						background: #d2d2d2;
-						width: auto;
-						left: 27px;
-						right: 27px;
-					}
-	
-					&:hover:after {
-						background: $color-major;
-					}
 				}
 			}
 		}
@@ -460,6 +448,7 @@
 			margin-left: 1px;
 			padding: 40px 0 260px 0;
 			width: auto;
+			min-width: 198px;
 			top: 0;
 			bottom: 0;
 
@@ -483,7 +472,20 @@
 			}
 
 			.text {
+				position: relative;
 				white-space: nowrap;
+
+				&:after {
+					margin-left: 0 !important;
+					background: #d2d2d2;
+					width: auto;
+					left: 27px;
+					right: 27px;
+				}
+
+				&:hover:after {
+					background: $color-major !important;
+				}
 
 				&:hover ~ .detail-list, &.is-hover ~ .detail-list {
 					overflow: visible;

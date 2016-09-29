@@ -172,8 +172,24 @@
 	}
 
 	.branch-info {
-		.branch-slider {
+		.info-hd {
+			padding-left: 468px;
+			min-height: 428px;
 			position: relative;
+		}
+
+		.link-wrap .m-btn-radius {
+			margin-bottom: 10px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		.branch-slider {
+			position: absolute;
+			top: 0;
+			left: 0;
 		}
 	}
 
@@ -209,9 +225,15 @@
 		height: 120px;
 	}
 
-	.branch-info .section-title {
-		font-size: 36px;
-		line-height: 1.5em;
+	.branch-info {
+		.section-title {
+			font-size: 36px;
+			line-height: 1.5em;
+		}
+
+		.branch-slider {
+			width: 444px;
+		}
 	}
 
 	.m-table .m-icon {
@@ -256,12 +278,6 @@
 			margin-top: 0;
 		}
 
-		.info-hd {
-			padding-left: 468px;
-			min-height: 428px;
-			position: relative;
-		}
-
 		.detail-info .intro {
 			padding: 20px 0;
 			line-height: 36px;
@@ -276,13 +292,6 @@
 				margin-bottom: 10px;
 				min-width: 128px;
 			}
-		}
-
-		.branch-slider {
-			width: 444px;
-			position: absolute;
-			top: 0;
-			left: 0;
 		}
 	}
 
@@ -321,6 +330,10 @@
 
 	.m-content-bd {
 		padding-bottom: 68px;
+	}
+
+	.branch-info .branch-slider {
+		margin: 0 auto;
 	}
 
 	.booking {

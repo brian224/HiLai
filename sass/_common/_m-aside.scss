@@ -1,0 +1,14 @@
+@include respond(Desktops) {
+	.m-aside {
+		width: 200px;
+		float: right;
+	}
+}
+
+@include respond(Desktops-Tablets) {}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {}

@@ -110,11 +110,7 @@
 				$next         = $this.next('.arrow-next'),
 				_wrapWidth    = $this.outerWidth(true),
 				_wrapOffset   = $this.offset().left,
-				_sliderWidth  = 0;
-
-			for (var i = 0; i < $this.find('.list').length; i++) {
-				_sliderWidth += $this.find('.list').eq(i).outerWidth(true);
-			}
+				_sliderWidth  = $slider.outerWidth(true);
 
 			if (_sliderWidth > _wrapWidth && Math.abs($slider.offset().left) + _wrapOffset + _wrapWidth !== _sliderWidth) {
 				$next.addClass('b-block-xs');
@@ -123,16 +119,26 @@
 			$this.on('scroll', function(){
 				var _sliderOffset = $slider.offset().left;
 
+				// 左箭頭隱藏與否
 				if (_sliderOffset < _wrapOffset) {
 					$prev.addClass('b-block-xs');
 				} else {
 					$prev.removeClass('b-block-xs');
 				}
 
-				if (Math.abs(_sliderOffset) + _wrapOffset + _wrapWidth >= _sliderWidth - 1) {
-					$next.removeClass('b-block-xs');
+				// 右箭頭隱藏與否
+				if (_sliderOffset < 0) {
+					if (Math.abs(_sliderOffset) + _wrapOffset + _wrapWidth >= _sliderWidth - 1) {
+						$next.removeClass('b-block-xs');
+					} else {
+						$next.addClass('b-block-xs');
+					}
 				} else {
-					$next.addClass('b-block-xs');
+					if (_wrapOffset + _wrapWidth >= _sliderWidth - 1) {
+						$next.removeClass('b-block-xs');
+					} else {
+						$next.addClass('b-block-xs');
+					}
 				}
 			});
 

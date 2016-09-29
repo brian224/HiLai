@@ -88,42 +88,16 @@
 			position: absolute;
 			top: 0;
 			z-index: 1;
-			@include translateZ(99px);
-
-			&:before {
-				content: '';
-				margin-top: -5px;
-				display: block;
-				width: 10px;
-				height: 10px;
-				position: absolute;
-				top: 50%;
-				border-top: 2px solid $color-major;
-				border-left: 2px solid $color-major;
-				@include box-sizing(border-box);
-			}
 		}
 
 		.arrow-prev {
 			left: 0;
 			@include background-image(linear-gradient(to left, rgba(232, 232, 232, 0) 0%, $color-gray-l-p40 60%));
-
-			&:before {
-				margin-left: 3px;
-				left: 0;
-				@include transform(rotate(-45deg));
-			}
 		}
 
 		.arrow-next {
 			right: 0;
 			@include background-image(linear-gradient(to right, rgba(232, 232, 232, 0) 0%, $color-gray-l-p40 60%));
-
-			&:before {
-				margin-right: 3px;
-				right: 0;
-				@include transform(rotate(135deg));
-			}
 		}
 	}
 
