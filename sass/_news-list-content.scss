@@ -107,13 +107,13 @@
 
 		&:before {
 			height: 35px;
-			bottom: 11px;
+			top: 40px;
 			left: 0;
 		}
 
 		&:after {
 			height: 84px;
-			bottom: 18px;
+			top: -16px;
 			left: 15px;
 		}
 	}
@@ -189,13 +189,13 @@
 
 		&:before {
 			height: 27px;
-			bottom: 8px;
+			top: 25px;
 			left: 0;
 		}
 
 		&:after {
 			height: 64px;
-			bottom: 14px;
+			top: -18px;
 			left: 15px;
 		}
 	}

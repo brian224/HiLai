@@ -672,7 +672,7 @@
 			width: 600px;
 
 			&.is-show {
-				height: 402px;
+				height: 49vh;
 				overflow-y: scroll;
 			}
 
@@ -918,7 +918,7 @@
 		justify-content: center;
 
 		> * {
-			height: 100vh;
+			height: 100%;
 		}
 	}
 
@@ -1294,15 +1294,20 @@
 		}
 	}
 
-	.news-cut .news-list .list {
-		margin-bottom: 20px;
+	.news-cut .news-list {
+		margin: 0 auto;
+		width: 226px;
 
-		.news-content {
-			padding-bottom: 40px;
-		}
-
-		.img-wrap {
-			height: 120px;
+		.list {
+			margin-bottom: 20px;
+	
+			.news-content {
+				padding-bottom: 40px;
+			}
+	
+			.img-wrap {
+				height: 120px;
+			}
 		}
 	}
 }

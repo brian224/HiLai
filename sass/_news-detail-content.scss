@@ -80,12 +80,16 @@
 	}
 
 	.info-type {
+		padding-left: 22px;
+		position: relative;
 		color: $color-major;
 		font-size: 18px;
 		font-weight: bold;
 
-		> * {
-			vertical-align: middle;
+		.m-icon {
+			position: absolute;
+			top: 4px;
+			left: 0;
 		}
 	}
 }
@@ -126,6 +130,7 @@
 
 	.m-article .article-title {
 		font-size: 48px;
+		line-height: 1.5em;
 	}
 
 	.m-aside {
@@ -241,6 +246,7 @@
 
 	.m-article .article-title {
 		font-size: 24px;
+		line-height: 1.5em;
 	}
 
 	.m-aside {

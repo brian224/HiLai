@@ -66,6 +66,10 @@
 			width: 100%;
 		}
 
+		.owl-stage .owl-item {
+			vertical-align: middle;
+		}
+
 		.m-owl-arrow {
 			margin-top: -35px;
 			background: rgba(0, 0, 0, 0.2);
@@ -160,13 +164,13 @@
 	.m-content-hd {
 		height: 560px;
 
-		.brand-title {
+		.branch-title {
 			font-size: 72px;
 			line-height: 1.2em;
 		}
 
 		.sub-title {
-			font-size: 60px;
+			font-size: 48px;
 			line-height: 1.2em;
 		}
 	}
@@ -324,7 +328,7 @@
 		}
 
 		.sub-title {
-			font-size: 18px;
+			font-size: 36px;
 		}
 	}
 
