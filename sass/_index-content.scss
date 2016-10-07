@@ -1119,6 +1119,10 @@
 
 		.booking {
 			padding-bottom: 20px;
+
+			.m-selection, .m-inputbox {
+				width: 100%;
+			}
 		}
 	}
 

@@ -66,18 +66,6 @@
 
 			&:hover, &.is-hover {
 				color: $color-major;
-
-				&:after {
-					margin-left: -74px;
-					background: $color-major;
-					width: 148px;
-					height: 4px;
-				}
-
-				~ .sub-menu {
-					overflow: visible;
-					@include transform(rotateY(0deg));
-				}
 			}
 		}
 	}
@@ -90,11 +78,6 @@
 		@include transition(ease-in all 0.3s);
 		@include transform(rotateY(90deg));
 		@include transform-origin(left);
-
-		&:hover, &.is-hover {
-			overflow: visible;
-			@include transform(rotateY(0deg));
-		}
 
 		.location {
 			display: block;
@@ -178,31 +161,6 @@
 		font-size: 26px;
 		line-height: 26px;
 		@include transition(ease-in all 0.3s);
-
-		&:hover, &.is-hover {
-			&.icon-fb {
-				color: #4c76be;
-			}
-
-			&.icon-line {
-				color: #0ab90a;
-			}
-
-			&.icon-youtube {
-				color: #e62117;
-			}
-
-			&:before {
-				content: '';
-				display: block;
-				width: 44px;
-				height: 44px;
-				position: absolute;
-				bottom: 0;
-				left: 100%;
-				z-index: 1;
-			}
-		}
 	}
 
 	.community-list {
@@ -420,16 +378,32 @@
 				width: 100%;
 			}
 
-			.text:after {
-				content: '';
-				margin-left: -43px;
-				background: #d2d2d2;
-				width: 86px;
-				height: 1px;
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				@include transition(ease-in all 0.3s);
+			.text {
+				&:after {
+					content: '';
+					margin-left: -43px;
+					background: #d2d2d2;
+					width: 86px;
+					height: 1px;
+					position: absolute;
+					bottom: 0;
+					left: 50%;
+					@include transition(ease-in all 0.3s);
+				}
+
+				&:hover {
+					&:after {
+						margin-left: -74px;
+						background: $color-major;
+						width: 148px;
+						height: 4px;
+					}
+
+					~ .sub-menu {
+						overflow: visible;
+						@include transform(rotateY(0deg));
+					}
+				}
 			}
 
 			.place-list {
@@ -451,6 +425,11 @@
 			min-width: 198px;
 			top: 0;
 			bottom: 0;
+
+			&:hover, &.is-hover {
+				overflow: visible;
+				@include transform(rotateY(0deg));
+			}
 
 			&:before {
 				content: '';
@@ -564,6 +543,31 @@
 
 			> .b-link {
 				padding-top: 16px;
+
+				&:hover {
+					&.icon-fb {
+						color: #4c76be;
+					}
+
+					&.icon-line {
+						color: #0ab90a;
+					}
+
+					&.icon-youtube {
+						color: #e62117;
+					}
+
+					&:before {
+						content: '';
+						display: block;
+						width: 44px;
+						height: 44px;
+						position: absolute;
+						bottom: 0;
+						left: 100%;
+						z-index: 1;
+					}
+				}
 			}
 		}
 
@@ -667,9 +671,19 @@
 			.text {
 				padding: 12px 0;
 
-				&.is-hover ~ .sub-menu {
-					left: 0;
-					overflow: visible;
+				&:hover, &.is-hover {
+					&:after {
+						margin-left: -74px;
+						background: $color-major;
+						width: 148px;
+						height: 4px;
+					}
+
+					~ .sub-menu {
+						left: 0;
+						overflow: visible;
+						@include transform(rotateY(0deg));
+					}
 				}
 			}
 		}
@@ -682,6 +696,11 @@
 			box-shadow: 0 9px 6px rgba(0, 0, 0, 0.15);
 			z-index: 1;
 			@include box-sizing(border-box);
+
+			&.is-hover {
+				overflow: visible;
+				@include transform(rotateY(0deg));
+			}
 
 			> .list {
 				display: table;
@@ -827,6 +846,31 @@
 				font-size: 28px;
 				line-height: 24px;
 
+				&.is-hover {
+					&.icon-fb {
+						color: #4c76be;
+					}
+
+					&.icon-line {
+						color: #0ab90a;
+					}
+
+					&.icon-youtube {
+						color: #e62117;
+					}
+
+					&:before {
+						content: '';
+						display: block;
+						width: 44px;
+						height: 44px;
+						position: absolute;
+						bottom: 0;
+						left: 100%;
+						z-index: 1;
+					}
+				}
+
 				.m-icon {
 					margin-top: -14px;
 					position: absolute;
@@ -867,5 +911,11 @@
 	.m-banner {
 		margin: 0 auto 10px auto;
 		position: relative;
+	}
+}
+
+@-moz-document url-prefix() {
+	.m-community .community-list {
+		bottom: 90%;
 	}
 }
