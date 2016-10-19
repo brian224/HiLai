@@ -1,0 +1,337 @@
+﻿.l-content {
+	background: $color-gray-l-p40;
+}
+
+.m-content-hd {
+	height: 290px;
+
+	.main-title {
+		position: relative;
+		color: $color-white;
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 5px;
+			position: absolute;
+			@include transform(skew(-30deg));
+			@include transform-origin(left, bottom);
+		}
+
+		&:before {
+			background: $color-major;
+			position: absolute;
+			left: 0;
+			opacity: 0.7;
+		}
+
+		&:after {
+			background: $color-gray-l-p30;
+		}
+	}
+}
+
+.m-content-bd {
+	padding: 22px 0 98px 0;
+}
+
+.section-title, .sub-title {
+	color: $color-major;
+}
+
+.sub-title {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 2em;
+}
+
+.introdution {
+	color: $color-gray-d-p40;
+	line-height: 1.6em;
+}
+
+.m-branch-list .btn-light {
+	text-align: left;
+}
+
+.photo-list, .preview-list {
+	position: relative;
+	font-size: 0;
+
+	.img-wrap {
+		display: inline-block;
+	}
+
+	.m-owl-arrow {
+		background: rgba(0, 0, 0, 0.2);
+
+		&:hover {
+			background: $color-major;
+		}
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 24px;
+	}
+
+	.m-content {
+		padding: 0 20px;
+		width: 100%;
+		@include box-sizing(border-box);
+	}
+
+	.m-content-hd .main-title {
+		padding-left: 65px;
+		font-size: 72px;
+		line-height: 1.2em;
+
+		&:before {
+			height: 35px;
+			top: 40px;
+			left: 0;
+		}
+
+		&:after {
+			height: 84px;
+			top: -16px;
+			left: 15px;
+		}
+	}
+
+	.kv-img {
+		height: 290px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-section:not(:nth-child(1)):not(:nth-child(2)) {
+		.m-section-hd {
+			height: 120px;
+		}
+	}
+
+	.m-section .section-title {
+		font-size: 48px;
+	}
+
+	.m-section-bd {
+		&.is-bg {
+			padding: 20px 25px;
+		}
+
+		> .m-table {
+			margin: 8px 0 40px 0;
+		}
+
+		.introdution {
+			font-size: 18px;
+		}
+	}
+
+	.m-lightbox-hd {
+		height: 70px;
+	}
+
+	.photo-list {
+		margin-bottom: 14px;
+		height: 324px;
+		overflow: hidden;
+
+		.img-wrap img {
+			width: 100%;
+		}
+
+		.m-owl-arrow {
+			margin-top: -35px;
+			width: 34px;
+			height: 70px;
+			top: 50%;
+	
+			&.is-prev {
+				left: 0;
+			}
+	
+			&.is-next {
+				right: 0;
+			}
+		}
+	}
+
+	.preview-list {
+		margin: 0 auto;
+		width: 408px;
+
+		.list-block {
+			width: 100%;
+		}
+
+		.m-owl-arrow {
+			width: 34px;
+			top: 0;
+			bottom: 0;
+
+			&.is-prev {
+				left: -34px;
+			}
+
+			&.is-next {
+				right: -34px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+
+	.m-content {
+		margin: 0 auto;
+		padding: 0;
+		width: 948px;
+	}
+}
+
+@include respond(Tablets) {
+	.m-section-hd {
+		display: block;
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+	.l-content {
+		position: relative;
+	}
+
+	.m-content {
+		padding: 0 12px;
+	}
+
+	.m-content-hd .main-title {
+		padding-left: 52px;
+		font-size: 38px;
+
+		&:before {
+			height: 27px;
+			top: 25px;
+			left: 0;
+		}
+
+		&:after {
+			height: 64px;
+			top: -18px;
+			left: 15px;
+		}
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 20px;
+	}
+
+	.kv-img {
+		height: 230px;
+		text-align: center;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section-hd {
+		align-items: flex-start;
+	}
+
+	.m-section-bd {
+		&.is-bg {
+			padding: 20px;
+		}
+
+		> .m-table {
+			margin: 8px 0 32px 0;
+		}
+
+		.introdution {
+			font-size: 15px;
+		}
+	}
+
+	.section-title {
+		font-size: 36px;
+		line-height: 64px;
+	}
+
+	.m-table {
+		&.is-comparison tbody td {
+			&:nth-child(2), &:nth-child(6), &:nth-child(12) {
+				margin-top: 45px;
+	
+				&:after {
+					padding-left: 18px;
+					display: block;
+					width: 100%;
+					height: 45px;
+					position: absolute;
+					bottom: 100%;
+					left: 0;
+					line-height: 45px;
+					@include box-sizing(border-box);
+				}
+			}
+	
+			&:nth-child(2):after {
+				content: '面積尺寸';
+			}
+	
+			&:nth-child(6):after {
+				content: '以人計算';
+			}
+	
+			&:nth-child(12):after {
+				content: '以桌計算';
+			}
+		}
+
+		&.is-capacity tbody td {
+			&:nth-child(2), &:nth-child(5) {
+				margin-top: 45px;
+	
+				&:after {
+					padding-left: 18px;
+					display: block;
+					width: 100%;
+					height: 45px;
+					position: absolute;
+					bottom: 100%;
+					left: 0;
+					line-height: 45px;
+					@include box-sizing(border-box);
+				}
+			}
+	
+			&:nth-child(2):after {
+				content: '宴會安排';
+			}
+	
+			&:nth-child(5):after {
+				content: '面積尺寸';
+			}
+		}
+
+		&.is-cost tbody td:before {
+			width: 45%;
+		}
+	}
+}
+
+@include browsers('IE') {}

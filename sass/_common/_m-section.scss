@@ -12,6 +12,7 @@
 @include respond(Desktops-Tablets) {
 	.m-section-hd {
 		display: table;
+		width: 100%;
 
 		> * {
 			display: table-cell;

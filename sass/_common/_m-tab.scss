@@ -51,7 +51,7 @@
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
-	.m-section-hd {
+	.m-section:nth-child(2) .m-section-hd {
 		margin-bottom: 32px;
 	}
 
@@ -108,6 +108,7 @@
 
 		.m-tab-list {
 			display: table-cell;
+			width: 740px;
 			white-space: nowrap;
 		}
 	}

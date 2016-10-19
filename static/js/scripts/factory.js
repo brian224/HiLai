@@ -4,16 +4,15 @@
     var projects = new factory();
 
     function factory() {
-        this.$w        = jQuery(window);
-        this.$d        = jQuery(document);
-        this.$hb       = jQuery('html , body');
-        this.$b        = jQuery('body');
-        this._ORIGIN   = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
-        this._HREF     = window.location.href;
-        this._EVENTS   = 'click touchstart';
-        this._ISMAC    = navigator.platform.match(/Mac/i) ? true : false;
-        this._ISIPHONE = navigator.platform.match(/iPhone/i) ? true : false;
-        this._media    = {
+        this.$w      = jQuery(window);
+        this.$d      = jQuery(document);
+        this.$hb     = jQuery('html , body');
+        this.$b      = jQuery('body');
+        this._ORIGIN = /^file\:\/\/\//.exec(window.location.href) ? '' : ( /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i.exec(window.location.href)[0] );
+        this._HREF   = window.location.href;
+        this._EVENTS = 'click touchstart';
+        this._ISMAC  = navigator.platform.match(/Mac/i) ? true : false;
+        this._media  = {
             _id         : null,
             _play       : null,
             $element    : null,
@@ -212,7 +211,7 @@
         var _CLASSNAME     = 'm-owl-arrow',
             _PREVCLASSNAME = 'is-prev',
             _NEXTCLASSNAME = 'is-next',
-            _HIDE          = 'b-hide';
+            _HIDE          = $element.data('loop') !== true ? 'b-hide' : '';
         var _prev          = null,
             _next          = null;
 
@@ -265,17 +264,17 @@
 
             if ( $self.data('loop') !== true ) {
                 if ( _position !== 0 ) {
-                    if ( $self.find('' + _ctrlClass + ' .is-prev').hasClass(_HIDE) ) {
-                        $self.find('' + _ctrlClass + ' .is-prev').removeClass(_HIDE);
+                    if ( $self.find(''+_ctrlClass+' .is-prev').hasClass(_HIDE) ) {
+                        $self.find(''+_ctrlClass+' .is-prev').removeClass(_HIDE);
                     }
                 } else {
-                    $self.find('' + _ctrlClass + ' .is-prev').addClass(_HIDE);
+                    $self.find(''+_ctrlClass+' .is-prev').addClass(_HIDE);
                 }
 
                 if ( _stageWidth === ( _width + _position ) ) {
-                    $self.find('' + _ctrlClass + ' .is-next').addClass(_HIDE);
+                    $self.find(''+_ctrlClass+' .is-next').addClass(_HIDE);
                 } else {
-                    $self.find('' + _ctrlClass + ' .is-next').removeClass(_HIDE);
+                    $self.find(''+_ctrlClass+' .is-next').removeClass(_HIDE);
                 }
             }
         });

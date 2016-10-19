@@ -1,5 +1,6 @@
-.m-table {
+﻿.m-table {
 	width: 100%;
+	@include translateZ(1px);
 
 	thead td {
 		position: relative;
@@ -8,7 +9,6 @@
 	td {
 		padding: 5px;
 		height: 45px;
-		color: $color-gray-d-p20;
 		line-height: 1.5em;
 		text-align: center;
 		@include box-sizing(border-box);
@@ -16,13 +16,12 @@
 		em {
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 16px;
 			word-wrap: break-word;
 			word-break: break-word;
 		}
 	}
 
-	tbody {
+	&:not(.table-rotate) tbody {
 		tr:nth-child(odd) {
 			background: #f4e6ec;
 	
@@ -33,7 +32,12 @@
 
 		td {
 			border-right: 1px solid $color-gray-l-p40;
+			color: $color-gray-d-p20;
 		}
+	}
+
+	&.table-rotate td {
+		color: $color-gray-d-p10;
 	}
 }
 
@@ -41,20 +45,71 @@
 
 @include respond(Desktops-Tablets) {
 	.m-table {
-		thead td:after {
-			content: '';
-			background: $color-gray-l-p40;
-			display: block;
-			width: 1px;
-			height: calc(100% - 10px);
-			position: absolute;
-			top: 0;
-			right: -1px;
+		&:not(.table-rotate) {
+			thead td:after {
+				content: '';
+				background: $color-gray-l-p40;
+				display: block;
+				width: 1px;
+				height: calc(100% - 10px);
+				position: absolute;
+				top: 0;
+				right: -1px;
+			}
+
+			tbody td:first-child {
+				width: 20%;
+				color: $color-gray;
+			}
+
+			td em {
+				font-size: 16px;
+			}
 		}
 
-		tbody td:first-child {
-			width: 20%;
-			color: $color-gray;
+		&.table-rotate {
+			overflow: hidden;
+
+			thead {
+				background: #f4e6ec;
+
+				td:not(:first-child) {
+					border-left: 1px solid #dbcdd3;
+				}
+				
+				tr:first-child td:not(:first-child) {
+					position: relative;
+
+					&:before {
+						content: '';
+						background: #dbcdd3;
+						display: block;
+						width: 1px;
+						height: 1000px;
+						position: absolute;
+						top: 0;
+						left: -1px;
+					}
+				}
+
+				tr:not(:first-child) td {
+					border-top: 1px solid #dbcdd3;
+				}
+			}
+
+			tbody {
+				tr:nth-child(even) {
+					background: #f4e6ec;
+				}
+
+				td:first-child {
+					border-right: 1px solid #dbcdd3;
+				}
+			}
+
+			td em {
+				font-size: 14px;
+			}
 		}
 	}
 }
@@ -69,8 +124,97 @@
 			text-align: left;
 		}
 
-		tbody td:first-child {
+		&:not(.table-rotate) tbody td:first-child {
 			border-left: 1px solid $color-gray-l-p40;
+		}
+
+		&.table-rotate {
+			thead {
+				display: none;
+			}
+
+
+			tbody {
+				tr:nth-child(odd) {
+					background: #f4e6ec;
+				}
+
+				tr {
+					display: block;
+					max-height: 45px;
+					position: relative;
+					overflow: hidden;
+					@include transition(ease-in all 0.3s);
+
+					&:after {
+						content: '';
+						display: block;
+						width: 8px;
+						height: 8px;
+						position: absolute;
+						top: 19px;
+						right: 15px;
+						border-bottom: 1px solid $color-gray;
+						border-left: 1px solid $color-gray;
+						@include transition(ease-in all 0.3s);
+						@include transform(rotate(-135deg));
+						@include box-sizing(border-box);
+					}
+
+					&.is-show {
+						max-height: 2000px;
+
+						&:after {
+							@include transform(rotate(-45deg));
+						}
+
+						td:first-child:after {
+							opacity: 1;
+						}
+					}
+				}
+
+				td {
+					display: table;
+					width: 100%;
+					position: relative;
+					font-size: 14px;
+					text-align: left;
+	
+					&:first-child {
+						&:before {
+							padding-left: 18px;
+						}
+
+						&:after {
+							content: '';
+							background: $color-gray;
+							display: block;
+							width: calc(100% - 28px);
+							height: 1px;
+							position: absolute;
+							bottom: 0;
+							left: 14px;
+							opacity: 0;
+							@include transition(ease-in all 0.3s);
+						}
+					}
+	
+					> * {
+						padding-left: 18px;
+						display: table-cell;
+						text-align: left;
+					}
+	
+					&:before {
+						content: attr(data-label);
+						padding-left: 30px;
+						display: table-cell;
+						width: 35%;
+						vertical-align: middle;
+					}
+				}
+			}
 		}
 	}
 }

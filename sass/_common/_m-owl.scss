@@ -11,6 +11,35 @@
 	}
 }
 
+.m-owl-arrow {
+	position: absolute;
+	cursor: pointer;
+
+	i {
+		margin-top: -6px;
+		display: block;
+		width: 12px;
+		height: 12px;
+		position: absolute;
+		top: 50%;
+		border-bottom: 2px solid $color-white;
+		border-left: 2px solid $color-white;
+		@include box-sizing(border-box);
+	}
+
+	&.is-prev i {
+		margin-left: -4px;
+		left: 50%;
+		@include transform(rotate(45deg));
+	}
+
+	&.is-next i {
+		margin-right: -4px;
+		right: 50%;
+		@include transform(rotate(-135deg));
+	}
+}
+
 .m-owl-dots {
 	&.disabled {
 		display: none;

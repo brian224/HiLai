@@ -73,32 +73,38 @@
 
 	// M版<table>生成
 	page.prototype.mobileTable = function() {
-		$(common._mTable).each(function(){
-			var _tdLength = $(this).find('thead td').length,
-				_trLength = $(this).find('tr').length,
-				_tArray   = [],
-				_str      = '';
+		if (!$(common._mTable).hasClass('table-rotate')) {
+			$(common._mTable).each(function(){
+				var _tdLength = $(this).find('thead td').length,
+					_trLength = $(this).find('tr').length,
+					_tArray   = [],
+					_str      = '';
 
-			for (var i = 0; i < _trLength; i++) {
-				_tArray.push($(this).find('tr').eq(i).find('td').eq(0).html());
+				for (var i = 0; i < _trLength; i++) {
+					_tArray.push($(this).find('tr').eq(i).find('td').eq(0).html());
 
-				for (var j = 0; j < _tdLength - 1; j++) {
-					_tArray.push($(this).find('tr').eq(i).find('td').eq(j + 1).html());
-				}
-			}
-
-			for (var k = 1; k < _tdLength; k++) {
-				_str += '<table class="m-table b-hide-dt"><thead><tr><td>' + _tArray[k] + '</td><td></td></tr></thead><tbody>';
-
-				for (var l = 1; l < _tArray.length / _tdLength; l++) {
-					_str += '<tr><td>' + _tArray[_tdLength * l] + '</td><td>' + _tArray[_tdLength * l + 1] + '</td></tr>';
+					for (var j = 0; j < _tdLength - 1; j++) {
+						_tArray.push($(this).find('tr').eq(i).find('td').eq(j + 1).html());
+					}
 				}
 
-				_str += '</tbody></table>';
-			}
+				for (var k = 1; k < _tdLength; k++) {
+					_str += '<table class="m-table b-hide-dt"><thead><tr><td>' + _tArray[k] + '</td><td></td></tr></thead><tbody>';
 
-			$(this).after(_str);
-		});
+					for (var l = 1; l < _tArray.length / _tdLength; l++) {
+						_str += '<tr><td>' + _tArray[_tdLength * l] + '</td><td>' + _tArray[_tdLength * l + 1] + '</td></tr>';
+					}
+
+					_str += '</tbody></table>';
+				}
+
+				$(this).after(_str);
+			});
+		} else {
+			$(common._mTable + ' tr').on('click', function(){
+				$(this).toggleClass('is-show');
+			});
+		}
 	}
 
 	// M版 tab function
@@ -188,6 +194,7 @@
 		});
 
 		$('.btn-menu').on('click', function(){
+			$('.l-body').toggleClass('no-scroll');
 			$(this).toggleClass('is-active');
 			$(this).next('.menu-wrap').toggleClass('is-show');
 
@@ -228,6 +235,7 @@
 					}
 				} else {
 					$(this).toggleClass('is-hover');
+					$('.menu-wrap').animate({scrollTop: 0});
 				}
 			}
 		});

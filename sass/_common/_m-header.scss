@@ -8,13 +8,17 @@
 	z-index: 6;
 	color: #fff;
 	font-size: 96px;
+
+	> * {
+		display: block;
+	}
 }
 
 .menu-wrap {
 	@include transition(ease-in all 0.3s);
 
 	.about-list {
-		background: rgba(152,7,71,0.95);
+		background: rgba(152, 7, 71, 0.95);
 		@include box-sizing(border-box);
 		@include transition(ease-in all 0.3s);
 
@@ -771,11 +775,12 @@
 	}
 
 	.detail-list {
-		padding: 24px 54px 40px 48px;
+		padding: 24px 54px 70px 48px;
 		width: 100vw;
-		height: calc(100vh - 61px);
+		/*height: calc(100vh - 61px);*/
 		z-index: 1;
 		@include box-sizing(border-box);
+		@include transform-origin(right);
 
 		> .list {
 			padding-left: 44px;
@@ -836,10 +841,6 @@
 			padding: 0 6px;
 			border-bottom: 1px solid $color-gray-l-p30;
 
-			.is-hover ~ .community-list {
-				left: 0;
-			}
-
 			> .b-link {
 				padding: 10px 0 10px 36px;
 				display: block;
@@ -868,6 +869,10 @@
 						bottom: 0;
 						left: 100%;
 						z-index: 1;
+					}
+
+					~ .community-list {
+						left: 0;
 					}
 				}
 
