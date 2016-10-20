@@ -6,7 +6,6 @@
 }
 
 .m-lightbox-hd {
-	padding: 0 30px;
 	display: table;
 	width: 100%;
 	position: relative;
@@ -37,16 +36,21 @@
 }
 
 .m-lightbox-bd {
-	.m-box-holder .m-selection {
-		background: $color-gray-d-p40;
-		color: $color-white;
+	.m-box-holder {
+		margin-bottom: 10px;
 
-		option {
+		.m-selection {
+			background: $color-gray-d-p40;
 			color: $color-white;
+	
+			option {
+				color: $color-white;
+			}
 		}
 	}
 
 	.desc-title {
+		margin-bottom: 10px;
 		color: $color-major;
 		border-bottom: 1px solid $color-gray-l-p40;
 	}
@@ -56,15 +60,24 @@
 	}
 }
 
-@include respond(Desktops) {}
-
-@include respond(Desktops-Tablets) {
+@include respond(Desktops) {
 	.m-lightbox {
 		width: 948px;
 	}
 
-	.m-lightbox-hd .btn-close {
-		right: 30px;
+	.m-lightbox-bd .m-lightbox-content {
+		width: 660px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-lightbox-hd {
+		padding: 0 30px;
+		height: 70px;
+
+		.btn-close {
+			right: 30px;
+		}
 	}
 
 	.m-lightbox-bd {
@@ -77,12 +90,12 @@
 			width: 214px;
 		}
 
-		.m-lightbox-content {
-			width: 660px;
-		}
+		.m-lightbox-content .photo-list .img-wrap {
+			width: 100%;
 
-		.m-box-holder {
-			margin-bottom: 10px;
+			img {
+				max-width: 100%;
+			}
 		}
 
 		.m-box-holder, .m-box-holder .m-selection {
@@ -93,7 +106,6 @@
 		}
 
 		.desc-title {
-			margin-bottom: 10px;
 			padding: 4px 0;
 			font-size: 26px;
 			line-height: 1.5em;
@@ -106,8 +118,39 @@
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-lightbox {
+		width: 740px;
+	}
+
+	.m-lightbox-bd .m-lightbox-content {
+		width: 452px;
+	}
+}
 
 @include respond(Tablets-Mobiles) {}
 
-@include respond(Mobiles) {}
+@include respond(Mobiles) {
+	.m-lightbox {
+		width: calc(100vw - 8px);
+	}
+
+	.m-lightbox-hd {
+		padding: 0 15px;
+		height: 48px;
+
+		.btn-close {
+			right: 15px;
+		}
+	}
+
+	.m-lightbox-bd {
+		.m-lightbox-side {
+			margin-bottom: 20px;
+		}
+
+		.desc-title {
+			font-size: 20px;
+		}
+	}
+}

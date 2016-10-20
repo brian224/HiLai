@@ -3,9 +3,11 @@
 	overflow-x: hidden;
 
 	&.show-lightbox .l-lightbox {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		@include animation(open-box 0.3s ease-in-out forwards);
+	}
+
+	&.close-lightbox .l-lightbox {
+		@include animation(close-box 0.3s ease-in-out forwards);
 	}
 }
 
@@ -50,13 +52,40 @@
 
 .l-lightbox {
 	background: rgba(0, 0, 0, 0.6);
-	display: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 6;
+	opacity: 0;
+	z-index: -1;
+}
+
+@include keyframes(open-box) {
+	0% {
+		opacity: 0;
+		z-index: 6;
+	}
+
+	100% {
+		opacity: 1;
+		z-index: 6;
+	}
+}
+
+@include keyframes(close-box) {
+	0% {
+		opacity: 1;
+		z-index: 6;
+	}
+
+	100% {
+		opacity: 0;
+		z-index: 6;
+	}
 }
 
 @include respond(Desktops) {

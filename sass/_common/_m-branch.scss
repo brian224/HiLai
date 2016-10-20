@@ -5,7 +5,6 @@
 		margin: 0 6px 54px 6px;
 		padding-bottom: 28px;
 		background: $color-white;
-		min-height: 484px;
 		position: relative;
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 		@include box-sizing(border-box);
@@ -13,12 +12,10 @@
 
 	.img-wrap {
 		position: relative;
-		height: 224px;
 		overflow: hidden;
 
 		img {
 			min-width: 100%;
-			min-height: 100%;
 		}
 
 		.img-desc {
@@ -105,7 +102,21 @@
 	}
 }
 
-@include respond(Desktops) {}
+@include respond(Desktops) {
+	.m-branch-list {
+		.list {
+			min-height: 484px;
+		}
+
+		.img-wrap {
+			height: 224px;
+
+			img {
+				min-height: 100%;
+			}
+		}
+	}
+}
 
 @include respond(Desktops-Tablets) {
 	.m-branch-list .store-content {
@@ -115,7 +126,17 @@
 
 @include respond(Tablets) {}
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-branch-list {
+		.img-wrap {
+			height: 140px;
+	
+			img {
+				height: 100%;
+			}
+		}
+	}
+}
 
 @include respond(Mobiles) {
 	.m-branch {

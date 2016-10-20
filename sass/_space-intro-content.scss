@@ -51,6 +51,7 @@
 }
 
 .m-branch-list .btn-light {
+	width: 100%;
 	text-align: left;
 }
 
@@ -67,6 +68,43 @@
 
 		&:hover {
 			background: $color-major;
+		}
+	}
+}
+
+.photo-list {
+	overflow: hidden;
+
+	.m-owl-arrow {
+		margin-top: -35px;
+		width: 34px;
+		height: 70px;
+		top: 50%;
+
+		&.is-prev {
+			left: 0;
+		}
+
+		&.is-next {
+			right: 0;
+		}
+	}
+}
+
+.preview-list {
+	margin: 0 auto;
+
+	.m-owl-arrow {
+		width: 34px;
+		top: 0;
+		bottom: 0;
+
+		&.is-prev {
+			left: -34px;
+		}
+
+		&.is-next {
+			right: -34px;
 		}
 	}
 }
@@ -109,6 +147,18 @@
 	.kv-img {
 		height: 290px;
 	}
+
+	.photo-list {
+		height: 324px;
+	}
+
+	.preview-list {
+		width: 400px;
+
+		.img-wrap {
+			width: 100px;
+		}
+	}
 }
 
 @include respond(Desktops-Tablets) {
@@ -136,56 +186,16 @@
 		}
 	}
 
-	.m-lightbox-hd {
-		height: 70px;
-	}
-
 	.photo-list {
 		margin-bottom: 14px;
-		height: 324px;
-		overflow: hidden;
 
 		.img-wrap img {
 			width: 100%;
 		}
-
-		.m-owl-arrow {
-			margin-top: -35px;
-			width: 34px;
-			height: 70px;
-			top: 50%;
-	
-			&.is-prev {
-				left: 0;
-			}
-	
-			&.is-next {
-				right: 0;
-			}
-		}
 	}
 
-	.preview-list {
-		margin: 0 auto;
-		width: 408px;
-
-		.list-block {
-			width: 100%;
-		}
-
-		.m-owl-arrow {
-			width: 34px;
-			top: 0;
-			bottom: 0;
-
-			&.is-prev {
-				left: -34px;
-			}
-
-			&.is-next {
-				right: -34px;
-			}
-		}
+	.preview-list .list-block {
+		width: 100%;
 	}
 }
 
@@ -204,6 +214,18 @@
 @include respond(Tablets) {
 	.m-section-hd {
 		display: block;
+	}
+
+	.photo-list {
+		height: 222px;
+	}
+
+	.preview-list {
+		width: 384px;
+
+		.img-wrap {
+			width: 96px;
+		}
 	}
 }
 
@@ -330,6 +352,36 @@
 
 		&.is-cost tbody td:before {
 			width: 45%;
+		}
+	}
+
+	.m-lightbox-bd {
+		padding: 0 15px 15px 15px;
+	}
+
+	.photo-list {
+		margin-bottom: 10px;
+		height: calc((100vw - 38px) * 0.4909);
+
+		.img-wrap {
+			width: 100%;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+
+	.preview-list {
+		width: calc(100vw - 106px);
+
+		.img-wrap {
+			background: #000;
+			width: calc((100vw - 106px) / 3);
+
+			img {
+				width: 100%;
+			}
 		}
 	}
 }

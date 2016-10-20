@@ -67,6 +67,15 @@
 						height: $(common._quickList).find('.list').height()
 					}, common._animateSpeed);
 				}
+			} else if (_target === '.m-lightbox') {
+				// 關閉 lightbox
+				e.stopPropagation();
+
+				if (!$(e.target).is(spaceObj._btnLightbox + ', ' + spaceObj._btnLightbox + ' *,' + _target + ', ' + _target + ' *') && $(spaceObj._lBody).hasClass('show-lightbox')) {
+					$(spaceObj._lBody).addClass('close-lightbox').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
+						$(spaceObj._lBody).removeClass('show-lightbox close-lightbox').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
+					});
+				}
 			}
 		});
 	}
@@ -332,6 +341,10 @@
 			}
 		} else {
 			$('.sitemap-wrap').attr('style', '');
+		}
+
+		if ( projects.device() !== 'Mobile') {
+			common.showFooter();
 		}
 	});
 
