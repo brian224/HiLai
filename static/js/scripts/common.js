@@ -230,6 +230,8 @@
 					}, common._animateSpeed);
 				}
 				common.offClick(common._sitemap);
+			} else {
+				$('.sitemap-wrap').toggleClass('is-show');
 			}
 		});
 

@@ -1,4 +1,4 @@
-﻿.m-section-hd {
+﻿.m-tab-wrap {
 	.btn-tab {
 		display: block;
 		position: relative;
@@ -51,8 +51,9 @@
 @include respond(Desktops) {}
 
 @include respond(Desktops-Tablets) {
-	.m-section:nth-child(2) .m-section-hd {
+	.m-tab-wrap {
 		margin-bottom: 32px;
+		display: block;
 	}
 
 	.btn-tab {
@@ -72,7 +73,12 @@
 }
 
 @include respond(Mobiles) {
-	.m-section-hd {
+	.m-tab-wrap {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+		align-items: flex-start;
+		width: 100%;
 		position: relative;
 
 		.btn-tab {

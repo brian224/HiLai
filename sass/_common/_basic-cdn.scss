@@ -388,6 +388,10 @@
     .b-col-sm-5d {
         width : 20% !important;
     }
+
+    .b-normalize img {
+        max-width: 100%;
+    }
 }
 
 @include respond(Mobiles) {

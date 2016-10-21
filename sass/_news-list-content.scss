@@ -239,10 +239,6 @@
 }
 
 @include respond(Mobiles) {
-	.m-section-hd {
-		align-items: flex-start;
-	}
-
 	.news-list .list {
 		width: 100%;
 	}

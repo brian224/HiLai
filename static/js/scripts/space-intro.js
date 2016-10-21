@@ -13,8 +13,12 @@
 	index.prototype.previewOwl = function(num) {
 		$(spaceObj._previewList).trigger('destroy.owl');
 
-		if ($(spaceObj._previewList + ' .list').parent().hasClass('list-block')) {
-			$(spaceObj._previewList + ' .list').unwrap();
+		if ($(spaceObj._previewList + ' .img-wrap').parent().hasClass('list-block')) {
+			$(spaceObj._previewList + ' .img-wrap').unwrap();
+		}
+
+		for (var i = 0; i < $(spaceObj._previewList + ' .img-wrap').length; i++) {
+			$(spaceObj._previewList + ' .img-wrap').eq(i).attr('data-index', i);
 		}
 
 		wrap(num);
@@ -30,6 +34,10 @@
 	}
 
 	projects.$w.load(function(){
+		$(spaceObj._previewList + ' .img-wrap').on('click', function(){
+			$('.photo-list').trigger('to.owl.carousel', $(this).data('index'));
+		});
+
 		$(spaceObj._btnLightbox).on('click', function(){
 			$(spaceObj._lBody).addClass('show-lightbox');
 			common.offClick('.m-lightbox');

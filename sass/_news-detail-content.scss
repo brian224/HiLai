@@ -75,29 +75,6 @@
 	border-bottom: 1px solid $color-gray-l-p20;
 }
 
-.info-list .list {
-	> * {
-		display: block;
-		color: $color-gray-d-p10;
-		font-size: 16px;
-		line-height: 1.5em;
-	}
-
-	.info-type {
-		padding-left: 22px;
-		position: relative;
-		color: $color-major;
-		font-size: 18px;
-		font-weight: bold;
-
-		.m-icon {
-			position: absolute;
-			top: 4px;
-			left: 0;
-		}
-	}
-}
-
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
@@ -132,14 +109,8 @@
 		line-height: 1.5em;
 	}
 
-	.m-aside {
-		.community-reaction {
-			padding-bottom: 20px;
-		}
-
-		.info-list .list {
-			margin-top: 20px;
-		}
+	.m-aside .community-reaction {
+		padding-bottom: 20px;
 	}
 
 	.kv-img {
@@ -205,22 +176,7 @@
 	}
 }
 
-@include respond(Tablets) {
-	.m-aside .info-list {
-		font-size: 0;
-
-		.list {
-			display: inline-block;
-			width: 50%;
-			vertical-align: top;
-			@include box-sizing(border-box);
-
-			&:nth-child(even) {
-				padding-left: 5px;
-			}
-		}
-	}
-}
+@include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
 	.m-content {
@@ -244,14 +200,8 @@
 		line-height: 1.5em;
 	}
 
-	.m-aside {
-		.community-reaction {
-			padding: 20px 0;
-		}
-
-		.info-list .list {
-			margin-top: 10px;
-		}
+	.m-aside .community-reaction {
+		padding: 20px 0;
 	}
 }
 

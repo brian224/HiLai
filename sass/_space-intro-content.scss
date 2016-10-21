@@ -157,6 +157,7 @@
 
 		.img-wrap {
 			width: 100px;
+			cursor: pointer;
 		}
 	}
 }
@@ -212,10 +213,6 @@
 }
 
 @include respond(Tablets) {
-	.m-section-hd {
-		display: block;
-	}
-
 	.photo-list {
 		height: 222px;
 	}

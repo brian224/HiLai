@@ -1,3 +1,34 @@
+.info-list .list {
+	> * {
+		display: block;
+		color: $color-gray-d-p10;
+		font-size: 16px;
+		line-height: 1.5em;
+	}
+
+	.info-type {
+		position: relative;
+		color: $color-major;
+		font-size: 18px;
+		font-weight: bold;
+
+		&.has-icon {
+			padding-left: 22px;
+		}
+
+		.m-icon {
+			position: absolute;
+			top: 4px;
+			left: 0;
+		}
+	}
+
+	.b-link.is-curr {
+		color: #000;
+		font-weight: bold;
+	}
+}
+
 @include respond(Desktops) {
 	.m-content-bd.has-aside {
 		.m-section {
@@ -8,6 +39,10 @@
 		.m-aside {
 			width: 200px;
 			float: right;
+
+			.info-list .list {
+				margin-top: 20px;
+			}
 		}
 	}
 }
@@ -16,8 +51,27 @@
 
 @include respond(HD) {}
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-aside .info-list {
+		font-size: 0;
 
-@include respond(Tablets-Mobiles) {}
+		.list {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			@include box-sizing(border-box);
+
+			&:nth-child(even) {
+				padding-left: 5px;
+			}
+		}
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+	.m-aside .info-list .list {
+		margin-top: 10px;
+	}
+}
 
 @include respond(Mobiles) {}
