@@ -1,11 +1,20 @@
 @include respond(Desktops) {
-	.m-aside {
-		width: 200px;
-		float: right;
+	.m-content-bd.has-aside {
+		.m-section {
+			width: calc(100% - 240px);
+			float: left;
+		}
+
+		.m-aside {
+			width: 200px;
+			float: right;
+		}
 	}
 }
 
 @include respond(Desktops-Tablets) {}
+
+@include respond(HD) {}
 
 @include respond(Tablets) {}
 
