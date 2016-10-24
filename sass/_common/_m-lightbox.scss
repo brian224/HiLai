@@ -36,6 +36,16 @@
 }
 
 .m-lightbox-bd {
+	&.has-aside .preview-list .m-owl-arrow {
+		&.is-prev {
+			left: -34px;
+		}
+
+		&.is-next {
+			right: -34px;
+		}
+	}
+
 	.m-box-holder {
 		margin-bottom: 10px;
 
@@ -58,6 +68,70 @@
 	.desc {
 		color: $color-gray-d-p20;
 	}
+
+	.photo-list, .preview-list {
+		position: relative;
+		font-size: 0;
+
+		.img-wrap {
+			display: inline-block;
+		}
+
+		.m-owl-arrow {
+			background: rgba(0, 0, 0, 0.2);
+
+			&:hover {
+				background: $color-major;
+			}
+		}
+	}
+
+	.photo-list {
+		overflow: hidden;
+
+		.m-owl-arrow {
+			margin-top: -35px;
+			width: 34px;
+			height: 70px;
+			top: 50%;
+
+			&.is-prev {
+				left: 0;
+			}
+
+			&.is-next {
+				right: 0;
+			}
+		}
+	}
+
+	.preview-list {
+		margin: 0 auto;
+		@include box-sizing(border-box);
+
+		.img-wrap {
+			background: $color-white;
+			@include transition(ease-in all 0.3s);
+
+			&.is-curr {
+				opacity: 0.3;
+			}
+		}
+
+		.m-owl-arrow {
+			width: 34px;
+			top: 0;
+			bottom: 0;
+
+			&.is-prev {
+				left: 0;
+			}
+
+			&.is-next {
+				right: 0;
+			}
+		}
+	}
 }
 
 @include respond(Desktops) {
@@ -65,15 +139,57 @@
 		width: 948px;
 	}
 
-	.m-lightbox-bd .m-lightbox-content {
-		width: 660px;
+	.m-lightbox-bd {
+		.photo-list {
+			height: 434px;
+		}
+
+		.preview-list .img-wrap {
+			width: 100px;
+			cursor: pointer;
+		}
+
+		&.has-aside {
+			.m-lightbox-content {
+				width: 660px;
+			}
+
+			.photo-list {
+				height: 324px;
+			}
+
+			.preview-list {
+				padding: 0;
+				width: 400px;
+
+				.m-owl-arrow {
+					width: 34px;
+				}
+			}
+		}
+
+		.preview-list {
+			padding: 0 44px;
+
+			.list-block {
+				width: 100%;
+			}
+
+			.m-owl-arrow {
+				width: 44px;
+			}
+		}
 	}
 }
 
 @include respond(Desktops-Tablets) {
 	.m-lightbox-hd {
 		padding: 0 30px;
-		height: 70px;
+		height: 50px;
+
+		.m-lightbox-title {
+			padding: 10px 0;
+		}
 
 		.btn-close {
 			right: 30px;
@@ -85,9 +201,13 @@
 		display: flex;
 		flex-direction: row-reverse;
 
-		.m-lightbox-side {
+		&.has-aside .m-lightbox-side {
 			margin-left: 14px;
 			width: 214px;
+		}
+
+		.m-lightbox-content, .preview-list {
+			width: 100%;
 		}
 
 		.m-lightbox-content .photo-list .img-wrap {
@@ -115,6 +235,18 @@
 			font-size: 14px;
 			line-height: 1.6em;
 		}
+
+		.photo-list {
+			margin-bottom: 14px;
+
+			.img-wrap img {
+				width: 100%;
+			}
+		}
+
+		.preview-list {
+			padding: 0 34px;
+		}
 	}
 }
 
@@ -123,12 +255,47 @@
 		width: 740px;
 	}
 
-	.m-lightbox-bd .m-lightbox-content {
-		width: 452px;
+	.m-lightbox-bd {
+		&.has-aside {
+			.m-lightbox-content {
+				width: 452px;
+			}
+
+			.photo-list {
+				height: 222px;
+			}
+
+			.preview-list {
+				width: 384px;
+
+				.img-wrap {
+					width: 96px;
+				}
+			}
+		}
+
+		.photo-list {
+			height: 334px;
+		}
+
+		.preview-list {
+			padding: 0;
+			width: calc(100% - 68px);
+		}
 	}
 }
 
-@include respond(Tablets-Mobiles) {}
+@include respond(Tablets-Mobiles) {
+	.m-lightbox-bd .preview-list .m-owl-arrow {
+		&.is-prev {
+			left: -34px;
+		}
+
+		&.is-next {
+			right: -34px;
+		}
+	}
+}
 
 @include respond(Mobiles) {
 	.m-lightbox {
@@ -145,12 +312,40 @@
 	}
 
 	.m-lightbox-bd {
+		padding: 0 15px 15px 15px;
+
 		.m-lightbox-side {
 			margin-bottom: 20px;
 		}
 
 		.desc-title {
 			font-size: 20px;
+		}
+
+		.photo-list {
+			margin-bottom: 10px;
+			height: calc((100vw - 38px) * 0.4909);
+
+			.img-wrap {
+				width: 100%;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.preview-list {
+			width: calc(100vw - 106px);
+
+			.img-wrap {
+				background: #000;
+				width: calc((100vw - 106px) / 3);
+
+				img {
+					width: 100%;
+				}
+			}
 		}
 	}
 }
