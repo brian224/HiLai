@@ -22,11 +22,13 @@
 		this._countHeight  = '.jq-count-height';
 		this._btnLightbox  = '.jq-lightbox';
 		this._btnBoxClose  = '.jq-box-close';
+		this._btnAccordion = '.jq-btn-accordion';
 		this._animateSpeed = 400;
 		this._BCOffsetTop  = $(this._breadcrumb).offset().top;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
 	}
 
+	// 將麵包屑訂在頂部
 	page.prototype.breadcrumb = function() {
 		if (projects.device() === 'PC') {
 			if (projects.$d.scrollTop() >= common._BCOffsetTop) {
@@ -61,6 +63,7 @@
 		}
 	}
 
+	// 計算 footer 高度
 	page.prototype.footerHeight = function() {
 		$(common._countHeight).each(function(){
 			var $list   = $(this).find('.item'),
@@ -194,6 +197,7 @@
 		});
 	}
 
+	// 封裝 slideahow group
 	page.prototype.previewOwl = function(num) {
 		$(common._previewList).trigger('destroy.owl');
 
@@ -263,7 +267,7 @@
 		});
 
 		$('.btn-menu').on('click', function(){
-			$('.l-body').toggleClass('no-scroll');
+			$(common._lBody).toggleClass('no-scroll');
 			$(this).toggleClass('is-active');
 			$(this).next('.menu-wrap').toggleClass('is-show');
 
@@ -317,7 +321,7 @@
 
 		$(common._top).on('click', function(){
 			if (projects._ISIPHONE) {
-				$('.l-body').animate({
+				$(common._lBody).animate({
 					scrollTop: 0
 				}, common._animateSpeed);
 			} else {
@@ -329,7 +333,7 @@
 			common.offClick(common._sitemap);
 			$('.sitemap-wrap').removeClass('is-show');
 
-			if ($('.l-body').hasClass('index')) {
+			if ($(common._lBody).hasClass('index')) {
 				$('.pagination .cut-dot .list').removeClass('is-curr').eq(0).addClass('is-curr');
 			}
 		});
@@ -356,6 +360,14 @@
 			$(common._lBody).addClass('close-lightbox').on('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend', function(){
 				$(common._lBody).removeClass('show-lightbox close-lightbox').off('webkitAnimationEnd oAnimationend oAnimationEnd msAnimationEnd animationend');
 			});
+		});
+
+		$(common._btnAccordion).on('click', function(){
+			$(this).parents('.m-accordion').toggleClass('is-open');
+
+			if ( projects.device() === 'PC') {
+				$(this).parents('.m-accordion').siblings().removeClass('is-open');
+			}
 		});
 	});
 

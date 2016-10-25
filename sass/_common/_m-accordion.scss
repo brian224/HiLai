@@ -1,0 +1,94 @@
+.m-accordion {
+	&:not(:last-child) .m-accordion-bd {
+		border-bottom: 1px solid $color-gray-l-p20;
+	}
+
+	&.is-open {
+		.btn-switch:after {
+			@include transform(rotate(0deg));
+		}
+
+		.m-accordion-bd {
+			max-height: 1000px;
+		}
+	}
+}
+
+.m-accordion-hd {
+	.accordion-title {
+		color: $color-gray-d-p40;
+		line-height: 2em;
+	}
+
+	.btn-switch {
+		padding-left: 8px;
+		display: block;
+		width: 100%;
+		position: relative;
+		text-align: left;
+
+		&:before, &:after {
+			content: '';
+			background: $color-gray-d-p40;
+			display: block;
+			width: 19px;
+			height: 1px;
+			position: absolute;
+			top: 50%;
+			right: 0;
+		}
+
+		&:after {
+			@include transform(rotate(90deg));
+			@include transition(ease-in all 0.3s);
+		}
+	}
+}
+
+.m-accordion-bd {
+	max-height: 0;
+	overflow: hidden;
+	@include transition(ease-in max-height 0.3s);
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-accordion {
+		padding: 10px 32px 0 32px;
+	}
+
+	.m-accordion-hd {
+		padding-bottom: 10px;
+
+		.accordion-title {
+			font-size: 24px;
+		}
+
+		.btn-switch {
+			line-height: 60px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-accordion {
+		padding: 6px 20px 0 20px;
+	}
+
+	.m-accordion-hd {
+		padding-bottom: 6px;
+
+		.accordion-title {
+			font-size: 18px;
+		}
+
+		.btn-switch {
+			line-height: 2em;
+		}
+	}
+}

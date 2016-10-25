@@ -1,0 +1,282 @@
+﻿.l-content {
+	background: $color-gray-l-p40;
+}
+
+.m-content-hd {
+	height: 290px;
+
+	.main-title {
+		position: relative;
+		color: $color-white;
+
+		&:before, &:after {
+			content: '';
+			display: block;
+			width: 5px;
+			position: absolute;
+			@include transform(skew(-30deg));
+			@include transform-origin(left, bottom);
+		}
+
+		&:before {
+			background: $color-major;
+			position: absolute;
+			left: 0;
+			opacity: 0.7;
+		}
+
+		&:after {
+			background: $color-gray-l-p30;
+		}
+	}
+}
+
+.m-content-bd {
+	padding: 22px 0 98px 0;
+}
+
+.section-title, .sub-title {
+	color: $color-major;
+}
+
+.m-section {
+	.m-section-bd {
+		overflow: inherit;
+
+		.img-wrap img {
+			max-width: 100%;
+		}
+
+		.info {
+			display: inline-block;
+			font-size: 16px;
+			line-height: 1.5em;
+
+			> * {
+				vertical-align: middle;
+			}
+
+			.m-icon {
+				color: $color-major;
+			}
+
+			.desc, .b-link {
+				color: #000;
+				font-weight: bold;
+			}
+		}
+
+		.gmap {
+			margin-top: 24px;
+			display: block;
+			width: 100%;
+		}
+	}
+
+	.traffic-list {
+		.list {
+			margin-top: 24px;
+
+			> .desc {
+				font-size: 14px;
+				line-height: 2em;
+			}
+		}
+
+		.m-icon {
+			font-size: 20px;
+		}
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 24px;
+	}
+
+	.m-content {
+		padding: 0 20px;
+		width: 100%;
+		@include box-sizing(border-box);
+	}
+
+	.m-content-hd .main-title {
+		padding-left: 65px;
+		font-size: 72px;
+		line-height: 1.2em;
+
+		&:before {
+			height: 35px;
+			top: 40px;
+			left: 0;
+		}
+
+		&:after {
+			height: 84px;
+			top: -16px;
+			left: 15px;
+		}
+	}
+
+	.m-content-bd {
+		overflow: hidden;
+	}
+
+	.m-aside .info-list .list {
+		margin-top: 20px;
+	}
+
+	.kv-img {
+		height: 290px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-section {
+		.section-title {
+			font-size: 48px;
+			line-height: 2em;
+		}
+
+		.sub-title {
+			margin-top: 30px;
+			font-size: 18px;
+			line-height: 1.5em;
+		}
+
+		.m-section-bd {
+			padding: 15px 30px 30px 30px;
+
+			.info {
+				padding-right: 40px;
+			}
+
+			.gmap {
+				height: 265px;
+			}
+		}
+
+		.traffic-list .list {
+			padding-left: 25px;
+
+			.info {
+				text-indent: -13px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+
+	.m-content {
+		margin: 0 auto;
+		padding: 0;
+		width: 948px;
+	}
+}
+
+@include respond(Tablets) {
+	.m-aside .info-list {
+		font-size: 0;
+
+		.list {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			@include box-sizing(border-box);
+
+			&:nth-child(even) {
+				padding-left: 5px;
+			}
+		}
+	}
+}
+
+@include respond(Tablets-Mobiles) {
+	.m-content {
+		padding: 0 12px;
+	}
+
+	.m-content-hd .main-title {
+		padding-left: 52px;
+		font-size: 38px;
+
+		&:before {
+			height: 27px;
+			top: 25px;
+			left: 0;
+		}
+
+		&:after {
+			height: 64px;
+			top: -18px;
+			left: 15px;
+		}
+	}
+
+	.m-content-bd {
+		padding-bottom: 68px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 20px;
+	}
+
+	.kv-img {
+		height: 230px;
+		text-align: center;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	.m-aside {
+		.community-reaction {
+			padding: 20px 0;
+		}
+
+		.info-list .list {
+			margin-top: 10px;
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section {
+		.m-section-bd {
+			margin-bottom: 10px;
+			padding: 20px 20px 40px 20px;
+
+			.btn-more {
+				display: block;
+				width: 100%;
+			}
+		}
+
+		.section-title {
+			font-size: 36px;
+			line-height: 2em;
+		}
+
+		.sub-title {
+			margin-top: 20px;
+		}
+
+		.sub-title, .m-item-bd {
+			font-size: 14px;
+			line-height: 2em;
+		}
+	}
+}
+
+@include browsers('IE') {}

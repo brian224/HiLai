@@ -5,6 +5,7 @@
 		color: $color-gray-d-p10;
 		text-align: center;
 		@include transition(ease-in all 0.3s);
+		@include box-sizing(border-box);
 
 		&:hover, &.is-active {
 			color: $color-major;
@@ -57,6 +58,7 @@
 	}
 
 	.btn-tab {
+		padding: 0 5px;
 		min-width: 124px;
 		height: 56px;
 		font-size: 18px;
