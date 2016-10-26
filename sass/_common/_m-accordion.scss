@@ -9,7 +9,7 @@
 		}
 
 		.m-accordion-bd {
-			max-height: 1000px;
+			max-height: 2500px;
 		}
 	}
 }
@@ -46,9 +46,9 @@
 }
 
 .m-accordion-bd {
-	max-height: 0;
+	max-height: 0px;
 	overflow: hidden;
-	@include transition(ease-in max-height 0.3s);
+	@include transition(ease-in-out max-height 0.3s);
 }
 
 @include respond(Desktops) {}

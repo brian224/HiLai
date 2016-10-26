@@ -45,24 +45,51 @@
 	line-height: 2em;
 }
 
-.introdution {
-	color: $color-gray-d-p40;
-	line-height: 1.6em;
+.m-section-bd {
+	.introdution {
+		color: $color-gray-d-p40;
+		line-height: 1.6em;
+	}
+
+	.info-link {
+		&:not(:last-child) {
+			border-bottom: 1px solid $color-gray-l-p20;
+		}
+
+		.b-link {
+			display: block;
+			position: relative;
+			color: $color-gray-d-p40;
+			line-height: 2em;
+
+			.m-icon {
+				margin-top: -10px;
+				font-size: 20px;
+				position: absolute;
+				top: 50%;
+				right: 0;
+			}
+		}
+	}
 }
 
-.m-accordion-bd .info-list {
-	position: relative;
-	font-size: 16px;
-	line-height: 2em;
+.m-accordion-bd {
+	.info-list {
+		position: relative;
+		font-size: 16px;
+		line-height: 2em;
 
-	.info-title {
-		color: $color-gray-d-p40;
-		font-weight: bold;
-		@include box-sizing(border-box);
+		.info-title {
+			color: $color-gray-d-p40;
+			font-weight: bold;
+			@include box-sizing(border-box);
+		}
 	}
 
 	.info-desc {
 		color: $color-gray-d-p40;
+		font-size: 16px;
+		line-height: 2em;
 
 		&.b-link {
 			color: $color-major;
@@ -76,6 +103,14 @@
 			display: inline-block;
 			vertical-align: middle;
 		}
+	}
+
+	.info-wrap > .b-link {
+		display: block;
+	}
+
+	.m-table td {
+		padding: 5px 10px;
 	}
 }
 
@@ -130,35 +165,78 @@
 		}
 	}
 
-	.m-section-bd .introdution {
-		font-size: 18px;
+	.m-section-bd {
+		.introdution {
+			font-size: 18px;
+		}
+
+		.info-link {
+			margin: 0 35px;
+
+			.b-link {
+				padding: 16px 8px;
+				font-size: 24px;
+			}
+		}
 	}
 
-	.m-accordion-bd .info-list {
-		padding: 0 0 24px 212px;
-
-		.info-title {
-			padding-right: 32px;
+	.m-accordion-bd {
+		.info-list {
+			padding: 0 0 24px 212px;
 			display: inline-block;
-			width: 212px;
-			position: absolute;
-			left: 0;
-			text-align: right;
-
-			&:after {
-				content: '';
-				margin-top: -8px;
-				background: $color-gray-l-p20;
-				width: 1px;
-				height: 16px;
+			vertical-align: top;
+	
+			.info-title {
+				padding-right: 32px;
+				display: inline-block;
+				width: 212px;
 				position: absolute;
-				top: 50%;
-				right: 0;
+				left: 0;
+				text-align: right;
+	
+				&:after {
+					content: '';
+					margin-top: -8px;
+					background: $color-gray-l-p20;
+					width: 1px;
+					height: 16px;
+					position: absolute;
+					top: 50%;
+					right: 0;
+				}
+			}
+	
+			.info-desc {
+				padding-left: 32px;
 			}
 		}
 
-		.info-desc {
-			padding-left: 32px;
+		.info-wrap {
+			padding: 0 30px 20px 30px;
+
+			> .b-link:not(:last-child) {
+				padding-bottom: 12px;
+			}
+		}
+
+		.m-table {
+			margin: 0 0 30px 0;
+			border: 1px solid $color-gray-l-p40;
+			border-collapse: inherit;
+
+			&.table-rotate tbody td:first-child {
+				border: 0;
+			}
+
+			&.is-member-info tbody td {
+				&:nth-child(2) {
+					white-space: nowrap;
+				}
+
+				&:last-child {
+					text-align: left;
+				}
+			}
 		}
 	}
 }
@@ -232,8 +310,19 @@
 		align-items: flex-start;
 	}
 
-	.m-section-bd .introdution {
-		font-size: 15px;
+	.m-section-bd {
+		.introdution {
+			font-size: 15px;
+		}
+
+		.info-link {
+			margin: 0 20px;
+
+			.b-link {
+				padding: 6px 8px;
+				font-size: 18px;
+			}
+		}
 	}
 
 	.section-title {
@@ -241,15 +330,63 @@
 		line-height: 64px;
 	}
 
-	.m-accordion-bd .info-list {
-		padding-left: 26px;
-
-		.list {
-			margin-bottom: 20px;
+	.m-accordion-bd {
+		.info-list {
+			padding-left: 26px;
+	
+			.list {
+				margin-bottom: 20px;
+			}
+	
+			.info-title {
+				display: block;
+			}
 		}
 
-		.info-title {
-			display: block;
+		.info-wrap {
+			padding-bottom: 15px;
+
+			.m-table.is-dividend-info tbody td {
+				&:nth-child(2), &:nth-child(4) {
+					margin-top: 45px;
+		
+					&:after {
+						padding-left: 18px;
+						display: block;
+						width: 100%;
+						height: 45px;
+						position: absolute;
+						bottom: 100%;
+						left: 0;
+						line-height: 45px;
+						@include box-sizing(border-box);
+					}
+				}
+		
+				&:nth-child(2):after {
+					content: '現金股利';
+				}
+		
+				&:nth-child(4):after {
+					content: '股票股利';
+				}
+
+				&:before {
+					width: 40%;
+				}
+			}
+
+			> .b-link {
+				padding-left: 8px;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+		> .m-table {
+			margin-bottom: 15px;
 		}
 	}
 }

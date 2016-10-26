@@ -70,7 +70,6 @@
 	}
 
 	.photo-list, .preview-list {
-		position: relative;
 		font-size: 0;
 
 		.img-wrap {
@@ -242,10 +241,6 @@
 			.img-wrap img {
 				width: 100%;
 			}
-		}
-
-		.preview-list {
-			padding: 0 34px;
 		}
 	}
 }
