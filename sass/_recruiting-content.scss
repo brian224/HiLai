@@ -1,0 +1,253 @@
+﻿.l-content {
+    background: $color-gray-l-p40;
+}
+
+.m-content-hd {
+    height: 290px;
+
+    .main-title {
+        position: relative;
+        color: $color-white;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 5px;
+            position: absolute;
+            @include transform(skew(-30deg));
+            @include transform-origin(left, bottom);
+        }
+
+        &:before {
+            background: $color-major;
+            position: absolute;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        &:after {
+            background: $color-gray-l-p30;
+        }
+    }
+}
+
+.m-content-bd {
+    padding: 22px 0 98px 0;
+}
+
+.sub-title {
+    font-size   : 18px;
+    font-weight : bold;
+    line-height : 2em;
+    color       : $color-major;
+
+    .m-icon {
+        font-size : 22px;
+    }
+
+    > * {
+        vertical-align: middle;
+    }
+}
+
+.m-section-bd {
+    .introdution {
+        color: $color-gray-d-p40;
+        line-height: 1.6em;
+    }
+
+    .m-item-bd {
+        color : $color-gray-d-p10;
+
+        > li {
+            margin-top : 0;
+        }
+
+        > li:not(:first-child) {
+            > em {
+                border-top: 1px solid $color-gray-l-p40;
+            }
+        }
+    }
+
+    .b-link {
+        display: block;
+        position: relative;
+        color: $color-gray-d-p40;
+        line-height: 2em;
+
+        > .m-icon {
+            margin-top: -10px;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            right: 0;
+        }
+    }
+}
+
+@include respond(Desktops) {
+    .l-content {
+        padding: 0 0 0 220px;
+    }
+
+    .m-breadcrumb {
+        margin-bottom: 24px;
+    }
+
+    .m-content {
+        padding: 0 20px;
+        width: 100%;
+        @include box-sizing(border-box);
+    }
+
+    .m-content-hd .main-title {
+        padding-left: 65px;
+        font-size: 72px;
+        line-height: 1.2em;
+
+        &:before {
+            height: 35px;
+            top: 40px;
+            left: 0;
+        }
+
+        &:after {
+            height: 84px;
+            top: -16px;
+            left: 15px;
+        }
+    }
+
+    .kv-img {
+        height: 290px;
+    }
+}
+
+@include respond(Desktops-Tablets) {
+    .m-section {
+        &:not(:nth-child(1)):not(:last-child) {
+            margin-bottom: 32px
+        }
+    }
+
+    .m-section-bd {
+        &.is-bg {
+            padding: 20px 25px;
+        }
+
+        .introdution {
+            font-size: 18px;
+        }
+
+        .m-item-bd {
+            font-size : 16px;
+
+            > li {
+                &:before {
+                    padding : 10px 5px 10px 0;
+                }
+
+                > em {
+                    padding : 10px 0;
+                }
+            }
+        }
+    }
+
+    .recruiting-list {
+        padding : 20px;
+    }
+}
+
+@include respond(HD) {
+    .l-content {
+        padding: 0 0 0 270px;
+    }
+
+    .m-content {
+        margin: 0 auto;
+        padding: 0;
+        width: 948px;
+    }
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+    .l-content {
+        position: relative;
+    }
+
+    .m-content {
+        padding: 0 12px;
+    }
+
+    .m-content-hd .main-title {
+        padding-left: 52px;
+        font-size: 38px;
+
+        &:before {
+            height: 27px;
+            top: 25px;
+            left: 0;
+        }
+
+        &:after {
+            height: 64px;
+            top: -18px;
+            left: 15px;
+        }
+    }
+
+    .m-breadcrumb {
+        margin-bottom: 20px;
+    }
+
+    .kv-img {
+        height: 230px;
+        text-align: center;
+
+        img {
+            height: 100%;
+        }
+    }
+}
+
+@include respond(Mobiles) {
+    .m-section {
+        &:not(:nth-child(1)):not(:last-child) {
+            margin-bottom: 20px
+        }
+    }
+
+    .m-section-bd {
+        &.is-bg {
+            padding: 20px;
+        }
+
+        .introdution {
+            font-size: 15px;
+        }
+
+        > *:not(:first-child) {
+            margin-top : 20px;
+        }
+
+        .m-item-bd {
+            font-size : 14px;
+
+            > li {
+                &:before {
+                    padding : 8px 3px 8px 0;
+                }
+
+                > em {
+                    padding : 8px 0;
+                }
+            }
+        }
+    }
+}
+
+@include browsers('IE') {}

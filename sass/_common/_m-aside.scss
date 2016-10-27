@@ -31,7 +31,7 @@
 
 @include respond(Desktops) {
 	.m-content-bd.has-aside {
-		.m-section {
+		> .m-section, > .m-section-group {
 			width: calc(100% - 240px);
 			float: left;
 		}

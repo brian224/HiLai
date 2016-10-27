@@ -1,0 +1,260 @@
+﻿.l-content {
+    background: $color-gray-l-p40;
+}
+
+.m-content-hd {
+    height: 290px;
+
+    .main-title {
+        position: relative;
+        color: $color-white;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            width: 5px;
+            position: absolute;
+            @include transform(skew(-30deg));
+            @include transform-origin(left, bottom);
+        }
+
+        &:before {
+            background: $color-major;
+            position: absolute;
+            left: 0;
+            opacity: 0.7;
+        }
+
+        &:after {
+            background: $color-gray-l-p30;
+        }
+    }
+}
+
+.m-content-bd {
+    padding: 22px 0 98px 0;
+}
+
+.section-title {
+    color: $color-major;
+}
+
+.m-section-bd {
+    .introdution {
+        color       : $color-gray-d-p40;
+        line-height : 1.6em;
+    }
+}
+
+.m-branch-list {
+    justify-content : space-around;
+    flex-wrap       : wrap;
+    @include display(flex);
+
+    .img-wrap {
+        height : 225px;
+        @include clearfix;
+
+        img {
+            height : auto;
+        }
+    }
+}
+
+@include respond(Desktops) {
+    .l-content {
+        padding: 0 0 0 220px;
+    }
+
+    .m-breadcrumb {
+        margin-bottom: 24px;
+    }
+
+    .m-content {
+        padding: 0 20px;
+        width: 100%;
+        @include box-sizing(border-box);
+    }
+
+    .m-content-hd .main-title {
+        padding-left: 65px;
+        font-size: 72px;
+        line-height: 1.2em;
+
+        &:before {
+            height: 35px;
+            top: 40px;
+            left: 0;
+        }
+
+        &:after {
+            height: 84px;
+            top: -16px;
+            left: 15px;
+        }
+    }
+
+    .m-content-bd {
+        overflow: hidden;
+    }
+
+    .m-aside .info-list .list {
+        margin-top: 20px;
+    }
+
+    .kv-img {
+        height: 290px;
+    }
+}
+
+@include respond(Desktops-Tablets) {
+    .m-section {
+        .m-section-hd {
+            height : 120px;
+        }
+
+        .section-title {
+            font-size : 48px;
+        }
+    }
+
+    .m-section-bd {
+        &.is-bg {
+            padding: 20px 25px;
+        }
+
+        .introdution {
+            font-size: 18px;
+        }
+    }
+
+    .m-section-group {
+        > *:not(:first-child) {
+            margin-top : 32px;
+        }
+    }
+
+    .m-branch-list {
+        .list {
+            width : calc((100% - 40px) / 2 );
+        }
+    }
+}
+
+@include respond(HD) {
+    .l-content {
+        padding: 0 0 0 270px;
+    }
+
+    .m-content {
+        margin: 0 auto;
+        padding: 0;
+        width: 948px;
+    }
+}
+
+@include respond(Tablets) {
+    .m-aside .info-list {
+        font-size: 0;
+
+        .list {
+            display: inline-block;
+            width: 50%;
+            vertical-align: top;
+            @include box-sizing(border-box);
+
+            &:nth-child(even) {
+                padding-left: 5px;
+            }
+        }
+    }
+}
+
+@include respond(Tablets-Mobiles) {
+    .l-content {
+        position: relative;
+    }
+
+    .m-content {
+        padding: 0 12px;
+    }
+
+    .m-content-hd .main-title {
+        padding-left: 52px;
+        font-size: 38px;
+
+        &:before {
+            height: 27px;
+            top: 25px;
+            left: 0;
+        }
+
+        &:after {
+            height: 64px;
+            top: -18px;
+            left: 15px;
+        }
+    }
+
+    .m-breadcrumb {
+        margin-bottom: 20px;
+    }
+
+    .kv-img {
+        height: 230px;
+        text-align: center;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .m-aside {
+        .community-reaction {
+            padding: 20px 0;
+        }
+
+        .info-list .list {
+            margin-top: 10px;
+        }
+    }
+}
+
+@include respond(Mobiles) {
+    .m-section-hd {
+        align-items: flex-start;
+    }
+
+    .m-section-bd {
+        &.is-bg {
+            padding: 20px;
+        }
+
+        .introdution {
+            font-size: 15px;
+        }
+    }
+
+    .section-title {
+        font-size: 36px;
+        line-height: 64px;
+    }
+
+    .m-section-group {
+        > *:not(:first-child) {
+            margin-top : 20px;
+        }
+    }
+
+    .m-branch .m-section-bd {
+        width : 100%;
+    }
+
+    .m-branch-list {
+        .list {
+            width : 100% !important;
+        }
+    }
+}
+
+@include browsers('IE') {}

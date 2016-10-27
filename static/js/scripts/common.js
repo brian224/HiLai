@@ -24,7 +24,7 @@
 		this._btnBoxClose  = '.jq-box-close';
 		this._btnAccordion = '.jq-btn-accordion';
 		this._animateSpeed = 400;
-		this._BCOffsetTop  = $(this._breadcrumb).offset().top;
+		this._BCOffsetTop  = ($(this._breadcrumb).length !== 0) ? $(this._breadcrumb).offset().top : 0;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
 	}
 
