@@ -10,6 +10,7 @@
 		this._mTable       = '.m-table';
 		this._mTab         = '.m-tab';
 		this._breadcrumb   = '.m-breadcrumb';
+		this._photoList    = '.photo-list';
 		this._previewList  = '.preview-list';
 		this._subMenu      = '.jq-sub-menu';
 		this._search       = '.jq-search';
@@ -197,6 +198,21 @@
 		});
 	}
 
+	// 設定 data-index
+	page.prototype.photoOwl = function(num) {
+		$(common._photoList).trigger('destroy.owl');
+
+		$(common._photoList).each(function(){
+			var $this = $(this);
+
+			for (var i = 0; i < $this.find('.img-wrap').length; i++) {
+				$this.find('.img-wrap').eq(i).attr('data-index', i);
+			}
+		});
+
+		projects.owlCarousel(common._photoList);
+	}
+
 	// 封裝 slideahow group
 	page.prototype.previewOwl = function(num) {
 		$(common._previewList).trigger('destroy.owl');
@@ -348,8 +364,23 @@
 
 		$(common._previewList + ' .img-wrap').on('click', function(){
 			$(this).addClass('is-curr').siblings().removeClass('is-curr');
-			$('.photo-list').trigger('to.owl.carousel', $(this).data('index'));
+			$(common._photoList).trigger('to.owl.carousel', $(this).data('index'));
 		});
+
+		if ($(common._previewList).length !== 0) {
+			$(common._photoList + ' .m-owl-arrow').on('click', function(){
+				var _idx = $(common._photoList + ' .owl-item.active .img-wrap').data('index');
+
+				$(common._previewList + ' .is-curr').removeClass('is-curr');
+				$(common._previewList + ' .img-wrap[data-index="' + _idx + '"]').addClass('is-curr');
+
+				if ($(this).hasClass('is-next') && $(common._previewList).find('.active .img-wrap.is-curr').index() === -1) {
+					$(common._previewList).trigger('next.owl.carousel');
+				} else if ($(this).hasClass('is-prev') && $(common._previewList).find('.active .img-wrap.is-curr').index() === -1) {
+					$(common._previewList).trigger('prev.owl.carousel');
+				}
+			});
+		}
 
 		$(common._btnLightbox).on('click', function(){
 			$(common._lBody).addClass('show-lightbox');
@@ -373,7 +404,14 @@
 
 	projects.$d.ready(function(){
 		projects.owlCarousel();
-		common.previewOwl();
+
+		if ($(common._photoList).length !== 0) {
+			common.photoOwl();
+		}
+
+		if ($(common._previewList).length !== 0) {
+			common.previewOwl();
+		}
 
 		if ($('.jQ-owl-xs').length !== 0) {
 			if ( projects.device() !== 'Mobile') {

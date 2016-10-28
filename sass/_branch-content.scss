@@ -85,35 +85,10 @@
 
 			&.is-prev {
 				left: 0;
-
-				i:before {
-					margin-left: -4px;
-					left: 50%;
-					@include transform(rotate(-135deg));
-				}
 			}
 
 			&.is-next {
 				right: 0;
-
-				i:before {
-					margin-right: -4px;
-					right: 50%;
-					@include transform(rotate(45deg));
-				}
-			}
-
-			i:before {
-				content: '';
-				margin-top: -6px;
-				display: inline-block;
-				width: 12px;
-				height: 12px;
-				position: absolute;
-				top: 50%;
-				border-top: 2px solid $color-white;
-				border-right: 2px solid $color-white;
-				@include box-sizing(border-box);
 			}
 		}
 	}

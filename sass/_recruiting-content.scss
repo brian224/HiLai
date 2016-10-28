@@ -158,6 +158,10 @@
     .recruiting-list {
         padding : 20px;
     }
+
+    .b-link {
+        padding : 10px 0;
+    }
 }
 
 @include respond(HD) {
@@ -247,6 +251,10 @@
                 }
             }
         }
+    }
+
+    .b-link {
+        padding : 8px 0;
     }
 }
 

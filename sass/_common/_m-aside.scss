@@ -23,9 +23,11 @@
 		}
 	}
 
-	.b-link.is-curr {
-		color: #000;
-		font-weight: bold;
+	.b-link {
+		&:hover, &.is-curr {
+			color: #000;
+			font-weight: bold;
+		}
 	}
 }
 

@@ -57,6 +57,17 @@
 				color: $color-white;
 			}
 		}
+
+		&.is-selector:after {
+			margin-top: -7px;
+			width: 8px;
+			height: 8px;
+			border-top: 0;
+			border-right: 0;
+			border-bottom: 1px solid $color-white;
+			border-left: 1px solid $color-white;
+			@include transform(rotate(-45deg));
+		}
 	}
 
 	.desc-title {
@@ -86,6 +97,7 @@
 	}
 
 	.photo-list {
+		position: relative;
 		overflow: hidden;
 
 		.m-owl-arrow {
@@ -106,10 +118,12 @@
 
 	.preview-list {
 		margin: 0 auto;
+		position: relative;
 		@include box-sizing(border-box);
 
 		.img-wrap {
 			background: $color-white;
+			overflow: hidden;
 			@include transition(ease-in all 0.3s);
 
 			&.is-curr {

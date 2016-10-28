@@ -104,6 +104,8 @@
 
 @include respond(Desktops) {
 	.m-branch-list {
+		margin: 0 -6px;
+
 		.list {
 			min-height: 484px;
 		}
