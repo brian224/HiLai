@@ -2,12 +2,36 @@
 	display: inline-block;
 }
 
+.m-lab {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+
+	.m-checkbox {
+		margin: 0;
+		width: 20px;
+		height: 20px;
+	}
+}
+
 .m-box-holder {
 	background: $color-white;
 	display: inline-block;
 	position: relative;
 	border: 1px solid $color-gray-l-p30;
 	@include box-sizing(border-box);
+
+	&.is-underline {
+		border: 0;
+		vertical-align: top;
+
+		.m-selection, .m-inputbox {
+			padding: 0 !important;
+			height: 32px;
+			border-bottom: 1px solid $color-gray-l-p30;
+			@include box-sizing(border-box);
+		}
+	}
 
 	&.is-selector {
 		&:after {
@@ -26,6 +50,13 @@
 		.m-selection, .m-inputbox {
 			padding-right: 36px;
 		}
+	}
+
+	&.is-checkbox {
+		margin-right: 5px;
+		background: #ff4b4b;
+		border: 0;
+		border-radius: 4px;
 	}
 
 	.m-icon {

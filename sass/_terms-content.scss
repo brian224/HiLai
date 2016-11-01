@@ -31,60 +31,6 @@
 	padding: 22px 0 98px 0;
 }
 
-.section-title, .sub-title {
-	color: $color-major;
-}
-
-.m-section {
-	.m-section-bd {
-		overflow: inherit;
-
-		.img-wrap img {
-			max-width: 100%;
-		}
-
-		.info {
-			display: inline-block;
-			font-size: 16px;
-			line-height: 1.5em;
-
-			> * {
-				vertical-align: middle;
-			}
-
-			.m-icon {
-				color: $color-major;
-			}
-
-			.desc, .b-link {
-				color: #000;
-				font-weight: bold;
-			}
-		}
-
-		.gmap {
-			margin-top: 24px;
-			display: block;
-			width: 100%;
-		}
-	}
-
-	.traffic-list {
-		.list {
-			margin-top: 24px;
-
-			> .desc {
-				font-size: 14px;
-				line-height: 2em;
-			}
-		}
-
-		.m-icon {
-			font-size: 20px;
-		}
-	}
-}
-
 @-moz-document url-prefix() {}
 
 @include respond(Desktops) {
@@ -124,47 +70,14 @@
 		overflow: hidden;
 	}
 
-	.m-aside .info-list .list {
-		margin-top: 20px;
-	}
-
 	.kv-img {
 		height: 290px;
 	}
 }
 
 @include respond(Desktops-Tablets) {
-	.m-section {
-		.section-title {
-			font-size: 48px;
-			line-height: 2em;
-		}
-
-		.sub-title {
-			margin-top: 30px;
-			font-size: 18px;
-			line-height: 1.5em;
-		}
-
-		.m-section-bd {
-			padding: 15px 30px 30px 30px;
-
-			.info {
-				padding-right: 40px;
-			}
-
-			.gmap {
-				height: 265px;
-			}
-		}
-
-		.traffic-list .list {
-			padding-left: 25px;
-
-			.info {
-				text-indent: -13px;
-			}
-		}
+	.m-section-bd {
+		padding: 40px;
 	}
 }
 
@@ -180,22 +93,7 @@
 	}
 }
 
-@include respond(Tablets) {
-	.m-aside .info-list {
-		font-size: 0;
-
-		.list {
-			display: inline-block;
-			width: 50%;
-			vertical-align: top;
-			@include box-sizing(border-box);
-
-			&:nth-child(even) {
-				padding-left: 5px;
-			}
-		}
-	}
-}
+@include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
 	.m-content {
@@ -235,16 +133,6 @@
 			height: 100%;
 		}
 	}
-
-	.m-aside {
-		.community-reaction {
-			padding: 20px 0;
-		}
-
-		.info-list .list {
-			margin-top: 10px;
-		}
-	}
 }
 
 @include respond(Mobiles) {
@@ -252,25 +140,6 @@
 		.m-section-bd {
 			margin-bottom: 10px;
 			padding: 20px 20px 40px 20px;
-
-			.btn-more {
-				display: block;
-				width: 100%;
-			}
-		}
-
-		.section-title {
-			font-size: 36px;
-			line-height: 2em;
-		}
-
-		.sub-title {
-			margin-top: 20px;
-		}
-
-		.sub-title, .m-item-bd {
-			font-size: 14px;
-			line-height: 2em;
 		}
 	}
 }

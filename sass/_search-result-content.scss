@@ -1,0 +1,163 @@
+﻿.m-content-hd {
+	align-items: flex-start;
+}
+
+.m-content-bd {
+	padding: 22px 0 98px 0;
+}
+
+.keyword-title {
+	color: $color-major;
+}
+
+.result-count {
+	color: $color-gray;
+	font-weight: bold;
+
+	.count {
+		padding: 0 0.5em;
+	}
+}
+
+.result-list {
+	.list {
+		@include transition(ease-in all 0.3s);
+
+		.b-link {
+			display: block;
+			border-bottom: 1px solid $color-gray-l-p20;
+		}
+	}
+
+	.result-title {
+		color: $color-gray-d-p20;
+		font-weight: bold;
+		line-height: 1.5em;
+	}
+
+	.result-content {
+		color: $color-gray-d-p20;
+		line-height: 2em;
+	}
+
+	.highlight {
+		color: #ff3f3f;
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-content {
+		padding: 0 20px;
+		width: 100%;
+		@include box-sizing(border-box);
+
+		.m-content-hd {
+			padding-top: 64px;
+		}
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-content .m-section-ft {
+		padding: 40px 0;
+	}
+
+	.keyword-title {
+		font-size: 48px;
+	}
+
+	.result-count {
+		font-size: 18px;
+	}
+
+	.result-list {
+		.list {
+			&:hover {
+				background: #f8f8f8;
+			}
+
+			.b-link {
+				margin: 0 40px;
+				padding: 22px 0;
+			}
+		}
+
+		.result-title {
+			font-size: 24px;
+		}
+
+		.result-content {
+			font-size: 16px;
+		}
+	}
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+
+	.m-content {
+		margin: 0 auto;
+		padding: 0;
+		width: 948px;
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.l-content {
+		position: relative;
+	}
+
+	.m-content {
+		padding: 0 12px;
+	}
+
+	.m-content-hd {
+		padding-top: 80px;
+		height: auto;
+	}
+
+	.m-content-bd {
+		padding-bottom: 68px;
+	}
+}
+
+@include respond(Mobiles) {
+	.m-content .m-section-ft {
+		padding: 20px 0;
+	}
+
+	.keyword-title {
+		font-size: 24px;
+	}
+
+	.result-count {
+		font-size: 14px;
+	}
+
+	.result-list {
+		.list .b-link {
+			margin: 0 20px;
+			padding: 11px 0;
+		}
+
+		.result-title {
+			font-size: 20px;
+		}
+
+		.result-content {
+			font-size: 14px;
+		}
+	}
+}
+
+@include browsers('IE') {}
