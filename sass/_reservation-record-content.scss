@@ -1,0 +1,298 @@
+﻿.info-title {
+	color: $color-major;
+	font-size: 18px;
+	font-weight: bold;
+
+	> * {
+		vertical-align: middle;
+	}
+}
+
+.booking-list {
+	font-size: 14px;
+
+	.list:not(:first-child) {
+		border-top: 1px solid $color-gray-l-p30;
+	}
+
+	.info-wrap {
+		.main-info {
+			display: flex;
+		}
+
+		.booking-time .date {
+			display: block;
+			line-height: 1em;
+		}
+
+		.booking-store {
+			border-left: 1px solid $color-gray-l-p30;
+		}
+
+		.detail-info-list {
+			.sub-info {
+				display: flex;
+			}
+
+			.info-type {
+				color: $color-major;
+				font-weight: bold;
+				white-space: nowrap;
+			}
+	
+			.info-detail {
+				color: $color-gray-d-p40;
+			}
+		}
+	}
+
+	.react-wrap {
+		text-align: center;
+
+		.info-response {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #ff4b4b;
+			font-size: 18px;
+			font-weight: bold;
+
+			> * {
+				padding: 0 5px;
+			}
+		}
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 24px;
+	}
+
+	.kv-img {
+		display: flex;
+		align-items: center;
+		height: 290px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-section {
+		padding: 25px 32px;
+	}
+
+	.booking-list {
+		.list {
+			&:first-child {
+				padding-top: 25px;
+			}
+
+			&:not(:first-child) {
+				padding-top: 50px;
+			}
+		}
+
+		.info-wrap {
+			padding-left: 344px;
+			min-height: 240px;
+			position: relative;
+
+			.main-info {
+				margin-bottom: 15px;
+			}
+
+			.booking-time {
+				padding-top: 2px;
+
+				.date {
+					font-size: 30px;
+				}
+			}
+
+			.booking-store {
+				margin-left: 15px;
+				padding-left: 15px;
+				font-size: 30px;
+				line-height: 40px;
+
+				> * {
+					display: block;
+				}
+			}
+
+			.img-wrap {
+				width: 320px;
+				height: 240px;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.react-wrap {
+			padding: 40px 0;
+
+			> * {
+				margin: 0 10px;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+
+	.booking-list .info-wrap {
+		padding-left: 424px;
+		min-height: 300px;
+
+		.booking-time .date {
+			font-size: 40px;
+		}
+
+		.booking-store {
+			margin-left: 30px;
+			padding-left: 30px;
+			font-size: 36px;
+			line-height: 44px;
+		}
+
+		.img-wrap {
+			width: 400px;
+			height: 300px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.m-breadcrumb {
+		margin-bottom: 20px;
+	}
+
+	.kv-img {
+		height: 230px;
+		text-align: center;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section {
+		padding: 10px;
+
+		.m-section-bd {
+			margin-bottom: 10px;
+			padding: 20px;
+		}
+
+		.m-section-ft {
+			padding-bottom: 40px;
+		}
+	}
+
+	.m-tab-wrap {
+		.btn-tab {
+			border-bottom: 1px solid $color-gray-l-p30;
+		}
+
+		.arrow-prev {
+			@include background-image(linear-gradient(to left, rgba(255, 255, 255, 0) 0%, $color-white 60%));
+		}
+
+		.arrow-next {
+			@include background-image(linear-gradient(to right, rgba(255, 255, 255, 0) 0%, $color-white 60%));
+		}
+	}
+
+	.booking-list {
+		.list {
+			padding-top: 20px;
+		}
+
+		.info-wrap {
+			display: flex;
+			flex-direction: column;
+	
+			.main-info {
+				align-items: center;
+
+				.booking-store {
+					padding-left: 10px;
+					height: 100%;
+					position: relative;
+					font-size: 0;
+	
+					&:before {
+						content: '';
+						font-size: 0;
+						height: 100%;
+						line-height: 0;
+						zoom: 1;
+					}
+	
+					> * {
+						font-size: 24px;
+						line-height: 30px;
+						@include inline-block;
+					}
+				}
+			}
+
+			.booking-time {
+				margin-right: -1px;
+				padding-right: 10px;
+				border-right: 1px solid $color-gray-l-p30;
+				white-space: nowrap;
+
+				.date {
+					font-size: 32px;
+				}
+
+				.week, .hours {
+					font-size: 12px;
+				}
+			}
+	
+			.detail-info-list {
+				order: 2;
+			}
+	
+			.img-wrap {
+				margin: 20px 0;
+				width: 100%;
+				overflow: hidden;
+	
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.react-wrap {
+			padding: 20px 0;
+
+			> * {
+				margin: 10px 0;
+			}
+		}
+	}
+}
+
+@include browsers('IE') {}
