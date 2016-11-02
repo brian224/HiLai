@@ -24,6 +24,7 @@
 		this._btnLightbox  = '.jq-lightbox';
 		this._btnBoxClose  = '.jq-box-close';
 		this._btnAccordion = '.jq-btn-accordion';
+		this._checkbox     = '.jq-checkbox';
 		this._animateSpeed = 400;
 		this._BCOffsetTop  = ($(this._breadcrumb).length !== 0) ? $(this._breadcrumb).offset().top : 0;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
@@ -398,6 +399,14 @@
 
 			if ( projects.device() === 'PC') {
 				$(this).parents('.m-accordion').siblings().removeClass('is-open');
+			}
+		});
+
+		$(common._checkbox).on('click', function(){
+			if($(this).find('input[type="checkbox"]:checked').length !== 0) {
+				$(this).addClass('is-checked');
+			} else {
+				$(this).removeClass('is-checked');
 			}
 		});
 	});

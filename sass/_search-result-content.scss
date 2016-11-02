@@ -1,9 +1,6 @@
 ﻿.m-content-hd {
 	align-items: flex-start;
-}
-
-.m-content-bd {
-	padding: 22px 0 98px 0;
+	height: auto;
 }
 
 .keyword-title {
@@ -52,14 +49,8 @@
 		padding: 0 0 0 220px;
 	}
 
-	.m-content {
-		padding: 0 20px;
-		width: 100%;
-		@include box-sizing(border-box);
-
-		.m-content-hd {
-			padding-top: 64px;
-		}
+	.m-content .m-content-hd {
+		padding-top: 64px;
 	}
 }
 
@@ -102,12 +93,6 @@
 	.l-content {
 		padding: 0 0 0 270px;
 	}
-
-	.m-content {
-		margin: 0 auto;
-		padding: 0;
-		width: 948px;
-	}
 }
 
 @include respond(Tablets) {}
@@ -117,17 +102,9 @@
 		position: relative;
 	}
 
-	.m-content {
-		padding: 0 12px;
-	}
-
 	.m-content-hd {
 		padding-top: 80px;
 		height: auto;
-	}
-
-	.m-content-bd {
-		padding-bottom: 68px;
 	}
 }
 
