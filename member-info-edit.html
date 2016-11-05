@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="static/js/plugin/datepicker/datepicker.css?CSS=20160420_01">
 	<link rel="stylesheet" href="static/js/plugin/owl.carousel/owl.carousel.css?CSS=20160420_01">
 	<link rel="stylesheet" href="static/css/style.css?CSS=20160420_01">
-	<link rel="stylesheet" href="static/css/reservation-record.css?CSS=20160420_01">
+	<link rel="stylesheet" href="static/css/member-info.css?CSS=20160420_01">
 	<link rel="shortcut icon" type="image/x-icon" href="static/css/img/shared/favicon.ico">
 </head>
 <body>
@@ -336,8 +336,8 @@
 									<button class="btn-tab arrow-prev"></button>
 									<div class="m-tab">
 										<ul class="m-tab-list">
-											<li class="list"><a href="member-info.html" class="btn-tab">基本資料</a></li>
-											<li class="list"><a href="reservation-record.html" class="btn-tab is-active">訂位紀錄</a></li>
+											<li class="list"><a href="member-info.html" class="btn-tab is-active">基本資料</a></li>
+											<li class="list"><a href="reservation-record.html" class="btn-tab">訂位紀錄</a></li>
 											<li class="list"><a href="change-password.html" class="btn-tab">變更密碼</a></li>
 											<li class="list"><a href="e-letter.html" class="btn-tab">電子報訂閱/取消</a></li>
 										</ul>
@@ -347,141 +347,157 @@
 							</div>
 							<div class="m-section-bd">
 								<h3 class="info-title">
-									<i class="m-icon m-icon-edit"></i>
-									<em class="text">您的訂位記錄</em>
+									<i class="m-icon m-icon-member"></i>
+									<em class="text">個人資訊</em>
+									<span class="hint is-required">為必填項目</span>
 								</h3>
-								<ul class="booking-list">
-									<li class="list">
-										<div class="info-wrap">
-											<div class="main-info">
-												<time class="booking-time">
-													<span class="year">2016</span>
-													<em class="date">8/23</em>
-													<span class="week">星期二</span>
-													<span class="hours">11:30</span>
-												</time>
-												<h4 class="booking-store">
-													<em class="store-name">漢來海港餐廳</em>
-													<span class="shop">台茂店</span>
-												</h4>
-											</div>
-											<ul class="detail-info-list">
-												<li class="sub-info">
-													<em class="info-type">訂位編號：</em>
-													<span class="info-detail">6719128</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位姓名：</em>
-													<span class="info-detail">金城武</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">手機號碼：</em>
-													<span class="info-detail">0900111111</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳名稱：</em>
-													<span class="info-detail">漢來海港餐廳 (台茂店)</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳地址：</em>
-													<span class="info-detail">106台北市大安區敦化南路一段246號</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">服務專線：</em>
-													<span class="info-detail">03-352-1528</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">用餐日期：</em>
-													<span class="info-detail">2016-08-23</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位時間：</em>
-													<span class="info-detail">11：30</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位人數：</em>
-													<span class="info-detail">2</span>
-												</li>
-											</ul>
-											<figure class="img-wrap">
-												<img src="static/img/my-account/booking/01.jpg" alt="漢來海港餐廳台茂店">
-											</figure>
-										</div>
-										<div class="react-wrap">
-											<button class="m-btn-radius is-minor has-icon">
-												<em>取消訂位</em>
-												<i class="m-icon m-icon-info"></i>
-											</button>
-											<button class="m-btn-radius is-major has-icon">
-												<em>修改訂位</em>
-												<i class="m-icon m-icon-info"></i>
-											</button>
+								<ul class="info-list">
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">會員姓名</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="" value="蔡依琳">
 										</div>
 									</li>
-									<li class="list">
-										<div class="info-wrap">
-											<div class="main-info">
-												<time class="booking-time">
-													<span class="year">2016</span>
-													<em class="date">6/18</em>
-													<span class="week">星期六</span>
-													<span class="hours">13:00</span>
-												</time>
-												<h4 class="booking-store">
-													<em class="store-name">翠園小館</em>
-													<span class="shop">台中SOGO店</span>
-												</h4>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">E-Mail</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="email" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="" value="Jolin945@gmail.com">
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12">*您將透過此郵件信箱，接收漢來美食會員訊息</span>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required set-password">
+										<em class="text b-col-dt-6 b-col-xs-12">設定密碼</em>
+										<em class="text b-col-dt-6 b-col-xs-12">確認密碼</em>
+										<div class="m-box-holder is-underline b-col-dt-6 b-col-xs-12">
+											<input type="password" class="m-inputbox b-col-dt-11 b-col-xs-12" placeholder="" value="8463284">
+										</div>
+										<div class="m-box-holder is-underline b-col-dt-6 b-col-xs-12">
+											<input type="password" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="" value="8463284">
+										</div>
+										<span class="alert b-col-dt-12 b-col-xs-12">*請使用8個字元以上混合使用數字和英文字大小寫的密碼</span>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">會員稱謂</em>
+										<div class="m-form b-col-dt-12 b-col-xs-12">
+											<label class="m-lab jq-radio b-col-dt-3 b-col-xs-6">
+												<div class="m-box-holder is-radio">
+													<input type="radio" name="gender" class="m-radio" value="female">
+												</div>
+												<em class="text">女士</em>
+											</label>
+											<label class="m-lab jq-radio b-col-dt-3 b-col-xs-6">
+												<div class="m-box-holder is-radio">
+													<input type="radio" name="gender" class="m-radio" value="male">
+												</div>
+												<em class="text">先生</em>
+											</label>
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">身分證字號</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="" value="A222116330" maxlength="10">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">行動電話</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="tel" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="" value="0910945945" maxlength="10">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt is-required">
+										<em class="text">出生年月日</em>
+										<div class="m-box-holder is-underline is-selector b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox m-datepicker b-col-dt-12 b-col-xs-12" data-types="YYYY/MM/DD" data-min-date="2016/08/14" data-max-date="2016/08/29" data-width="265" placeholder="2016/08/15">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt">
+										<em class="text b-col-dt-12 b-col-xs-12">室內電話</em>
+										<div class="m-box-holder is-underline b-col-dt-2 b-col-xs-3">
+											<input type="tel" class="m-inputbox b-col-dt-11 b-col-xs-10" placeholder="區碼" value="02" maxlength="2">
+										</div>
+										<div class="m-box-holder is-underline b-col-dt-10 b-col-xs-9">
+											<input type="tel" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="電話號碼" value="22339450" maxlength="8">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt">
+										<em class="text b-col-dt-12 b-col-xs-12">地址</em>
+										<div class="m-box-holder is-underline is-selector b-col-dt-3 b-col-xs-6">
+											<select class="m-selection b-col-dt-11 b-col-xs-11">
+												<option>台北市</option>
+											</select>
+										</div>
+										<div class="m-box-holder is-underline is-selector b-col-dt-4 b-col-xs-6">
+											<select class="m-selection b-col-dt-11 b-col-xs-12">
+												<option>中正區 100</option>
+											</select>
+										</div>
+										<div class="m-box-holder is-underline b-col-dt-5 b-col-xs-12">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入地址">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt">
+										<em class="text b-col-dt-8 b-col-xs-8">辦公室電話</em>
+										<em class="text b-col-dt-4 b-col-xs-4">分機</em>
+										<div class="m-box-holder is-underline b-col-dt-3 b-col-xs-3">
+											<input type="text" class="m-inputbox b-col-dt-11 b-col-xs-11" placeholder="區碼" maxlength="2">
+										</div>
+										<div class="m-box-holder is-underline b-col-dt-5 b-col-xs-5">
+											<input type="text" class="m-inputbox b-col-dt-11 b-col-xs-11" placeholder="電話號碼" maxlength="8">
+										</div>
+										<div class="m-box-holder is-underline b-col-dt-4 b-col-xs-4">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="分機號碼">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt">
+										<em class="text">推薦人姓名</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入姓名">
+										</div>
+									</li>
+									<li class="list b-col-dt-6 b-col-xs-12 b-float-left-dt">
+										<em class="text">推薦人行動電話</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入電話" maxlength="10">
+										</div>
+									</li>
+									<li class="list b-col-dt-12 b-col-xs-12 b-float-left-dt">
+										<label class="m-lab jq-checkbox is-checked">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" class="m-checkbox">
 											</div>
-											<ul class="detail-info-list">
-												<li class="sub-info">
-													<em class="info-type">訂位編號：</em>
-													<span class="info-detail">6719128</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位姓名：</em>
-													<span class="info-detail">金城武</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">手機號碼：</em>
-													<span class="info-detail">0900111111</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳名稱：</em>
-													<span class="info-detail">翠園小館 (台中SOGO店)</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳地址：</em>
-													<span class="info-detail">106台北市大安區敦化南路一段246號</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">服務專線：</em>
-													<span class="info-detail">03-352-1528</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">用餐日期：</em>
-													<span class="info-detail">2016-06-18</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位時間：</em>
-													<span class="info-detail">13：00</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位人數：</em>
-													<span class="info-detail">2</span>
-												</li>
-											</ul>
-											<figure class="img-wrap">
-												<img src="static/img/my-account/booking/02.jpg" alt="翠園小館台中SOGO店">
-											</figure>
-										</div>
-										<div class="react-wrap">
-											<em class="info-response has-icon">
-												<i class="m-icon m-icon-timeout"></i>
-												<span>用餐已結束</span>
-											</em>
-										</div>
+											<em class="text">我已閱讀並同意漢來美食<a href="javascript:;" class="b-link">會員細則及條款</a>。</em>
+										</label>
+									</li>
+									<li class="list b-col-dt-12 b-col-xs-12 b-float-left-dt">
+										<label class="m-lab jq-checkbox is-checked">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" class="m-checkbox">
+											</div>
+											<em class="text">我願意收到各項簡訊通知</em>
+										</label>
+									</li>
+									<li class="list b-col-dt-12 b-col-xs-12 b-float-left-dt">
+										<label class="m-lab jq-checkbox">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" class="m-checkbox">
+											</div>
+											<em class="text">我願意訂閱優惠訊息電子報。</em>
+										</label>
+									</li>
+									<li class="list b-col-dt-12 b-col-xs-12 b-float-left-dt">
+										<label class="m-lab jq-checkbox">
+											<div class="m-box-holder is-checkbox">
+												<input type="checkbox" class="m-checkbox">
+											</div>
+											<em class="text">我願意接受郵寄通知購物相關訊息。</em>
+										</label>
 									</li>
 								</ul>
+							</div>
+							<div class="m-section-ft">
+								<a href="javascript:;" class="m-btn-radius is-minor"><em>取消</em></a>
+								<a href="javascript:;" class="m-btn-radius is-major"><em>儲存</em></a>
 							</div>
 						</div>
 					</div>

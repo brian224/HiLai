@@ -77,6 +77,15 @@
 	}
 
 	.desc {
+		font-size: 14px;
+		line-height: 1.6em;
+	}
+
+	.text {
+		font-size: 18px;
+	}
+
+	.desc, .text {
 		color: $color-gray-d-p20;
 	}
 
@@ -196,6 +205,10 @@
 }
 
 @include respond(Desktops-Tablets) {
+	.m-lightbox.xs-box {
+		width: 300px;
+	}
+
 	.m-lightbox-hd {
 		padding: 0 30px;
 		height: 50px;
@@ -242,11 +255,6 @@
 			padding: 4px 0;
 			font-size: 26px;
 			line-height: 1.5em;
-		}
-
-		.desc {
-			font-size: 14px;
-			line-height: 1.6em;
 		}
 
 		.photo-list {
@@ -309,6 +317,10 @@
 @include respond(Mobiles) {
 	.m-lightbox {
 		width: calc(100vw - 8px);
+
+		&.xs-box {
+			width: 280px;
+		}
 	}
 
 	.m-lightbox-hd {

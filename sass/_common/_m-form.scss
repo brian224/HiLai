@@ -3,18 +3,24 @@
 }
 
 .m-lab {
-	display: flex;
-	align-items: center;
-	cursor: pointer;
+	display: inline-block;
 
-	&.is-checked .m-box-holder:before {
-		opacity: 1;
+	&.is-checked .m-box-holder {
+		&.is-checkbox {
+			background: #ff4b4b;
+
+			&:before {
+				opacity: 1;
+			}
+		}
+
+		&.is-radio {
+			border: 7px solid #e71825;
+		}
 	}
 
-	.m-checkbox {
-		margin: 0;
-		width: 20px;
-		height: 20px;
+	> * {
+		vertical-align: middle;
 	}
 }
 
@@ -24,6 +30,7 @@
 	position: relative;
 	border: 1px solid $color-gray-l-p30;
 	@include box-sizing(border-box);
+	@include transition(ease-in all 0.3s);
 
 	&.is-underline {
 		border: 0;
@@ -34,6 +41,11 @@
 			height: 32px;
 			border-bottom: 1px solid $color-gray-l-p30;
 			@include box-sizing(border-box);
+			@include transition(ease-in all 0.2s);
+		}
+
+		.m-inputbox:focus {
+			border-bottom: 2px solid $color-major;
 		}
 	}
 
@@ -58,7 +70,9 @@
 
 	&.is-checkbox {
 		margin-right: 5px;
-		background: #ff4b4b;
+		background: $color-gray-l-p40;
+		width: 20px;
+		height: 20px;
 		position: relative;
 		border: 0;
 		border-radius: 4px;
@@ -78,6 +92,16 @@
 			@include transform(rotate(-45deg));
 			@include transition(ease-in all 0.3s);
 		}
+	}
+
+	&.is-radio {
+		margin-right: 5px;
+		background: $color-gray-l-p40;
+		width: 18px;
+		height: 18px;
+		position: relative;
+		border: 0 solid #e71825;
+		border-radius: 50%;
 	}
 
 	.m-icon {
@@ -117,7 +141,7 @@
 @include browsers('IE') {}
 
 @include respond(Desktops) {
-	.m-datepicker {
+	.m-datepicker, .m-lab {
 		cursor: pointer;
 	}
 }
@@ -127,3 +151,16 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-lab {
+		padding-left: 25px;
+		position: relative;
+
+		.m-box-holder {
+			position: absolute;
+			top: 6px;
+			left: 0;
+		}
+	}
+}

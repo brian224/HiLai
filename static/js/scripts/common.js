@@ -25,6 +25,7 @@
 		this._btnBoxClose  = '.jq-box-close';
 		this._btnAccordion = '.jq-btn-accordion';
 		this._checkbox     = '.jq-checkbox';
+		this._radio        = '.jq-radio';
 		this._animateSpeed = 400;
 		this._BCOffsetTop  = ($(this._breadcrumb).length !== 0) ? $(this._breadcrumb).offset().top : 0;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
@@ -407,6 +408,15 @@
 				$(this).addClass('is-checked');
 			} else {
 				$(this).removeClass('is-checked');
+			}
+		});
+
+		$(common._radio).on('click', function(){
+			if($(this).find('input[type="radio"]:checked').length !== 0) {
+				var _name = $(this).find('input[type="radio"]:checked').attr('name');
+
+				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
+				$(this).addClass('is-checked');
 			}
 		});
 	});

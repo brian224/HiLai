@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="static/js/plugin/datepicker/datepicker.css?CSS=20160420_01">
 	<link rel="stylesheet" href="static/js/plugin/owl.carousel/owl.carousel.css?CSS=20160420_01">
 	<link rel="stylesheet" href="static/css/style.css?CSS=20160420_01">
-	<link rel="stylesheet" href="static/css/reservation-record.css?CSS=20160420_01">
+	<link rel="stylesheet" href="static/css/member-info.css?CSS=20160420_01">
 	<link rel="shortcut icon" type="image/x-icon" href="static/css/img/shared/favicon.ico">
 </head>
 <body>
@@ -337,9 +337,9 @@
 									<div class="m-tab">
 										<ul class="m-tab-list">
 											<li class="list"><a href="member-info.html" class="btn-tab">基本資料</a></li>
-											<li class="list"><a href="reservation-record.html" class="btn-tab is-active">訂位紀錄</a></li>
+											<li class="list"><a href="reservation-record.html" class="btn-tab">訂位紀錄</a></li>
 											<li class="list"><a href="change-password.html" class="btn-tab">變更密碼</a></li>
-											<li class="list"><a href="e-letter.html" class="btn-tab">電子報訂閱/取消</a></li>
+											<li class="list"><a href="e-letter.html" class="btn-tab is-active">電子報訂閱/取消</a></li>
 										</ul>
 									</div>
 									<button class="btn-tab arrow-next"></button>
@@ -347,141 +347,30 @@
 							</div>
 							<div class="m-section-bd">
 								<h3 class="info-title">
-									<i class="m-icon m-icon-edit"></i>
-									<em class="text">您的訂位記錄</em>
+									<i class="m-icon m-icon-epaper"></i>
+									<em class="text">電子報訂閱/取消</em>
 								</h3>
-								<ul class="booking-list">
-									<li class="list">
-										<div class="info-wrap">
-											<div class="main-info">
-												<time class="booking-time">
-													<span class="year">2016</span>
-													<em class="date">8/23</em>
-													<span class="week">星期二</span>
-													<span class="hours">11:30</span>
-												</time>
-												<h4 class="booking-store">
-													<em class="store-name">漢來海港餐廳</em>
-													<span class="shop">台茂店</span>
-												</h4>
+								<div class="info-content">
+									<em class="text">漢來美食會員電子報</em>
+									<p class="desc">透過email或簡訊發送，通知您最新美食活動及優惠資訊。</p>
+									<div class="m-form">
+										<label class="m-lab jq-radio">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="subscription" class="m-radio" value="yes">
 											</div>
-											<ul class="detail-info-list">
-												<li class="sub-info">
-													<em class="info-type">訂位編號：</em>
-													<span class="info-detail">6719128</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位姓名：</em>
-													<span class="info-detail">金城武</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">手機號碼：</em>
-													<span class="info-detail">0900111111</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳名稱：</em>
-													<span class="info-detail">漢來海港餐廳 (台茂店)</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳地址：</em>
-													<span class="info-detail">106台北市大安區敦化南路一段246號</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">服務專線：</em>
-													<span class="info-detail">03-352-1528</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">用餐日期：</em>
-													<span class="info-detail">2016-08-23</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位時間：</em>
-													<span class="info-detail">11：30</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位人數：</em>
-													<span class="info-detail">2</span>
-												</li>
-											</ul>
-											<figure class="img-wrap">
-												<img src="static/img/my-account/booking/01.jpg" alt="漢來海港餐廳台茂店">
-											</figure>
-										</div>
-										<div class="react-wrap">
-											<button class="m-btn-radius is-minor has-icon">
-												<em>取消訂位</em>
-												<i class="m-icon m-icon-info"></i>
-											</button>
-											<button class="m-btn-radius is-major has-icon">
-												<em>修改訂位</em>
-												<i class="m-icon m-icon-info"></i>
-											</button>
-										</div>
-									</li>
-									<li class="list">
-										<div class="info-wrap">
-											<div class="main-info">
-												<time class="booking-time">
-													<span class="year">2016</span>
-													<em class="date">6/18</em>
-													<span class="week">星期六</span>
-													<span class="hours">13:00</span>
-												</time>
-												<h4 class="booking-store">
-													<em class="store-name">翠園小館</em>
-													<span class="shop">台中SOGO店</span>
-												</h4>
+											<em class="text">訂閱</em>
+										</label>
+										<label class="m-lab jq-radio">
+											<div class="m-box-holder is-radio">
+												<input type="radio" name="subscription" class="m-radio" value="no">
 											</div>
-											<ul class="detail-info-list">
-												<li class="sub-info">
-													<em class="info-type">訂位編號：</em>
-													<span class="info-detail">6719128</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位姓名：</em>
-													<span class="info-detail">金城武</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">手機號碼：</em>
-													<span class="info-detail">0900111111</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳名稱：</em>
-													<span class="info-detail">翠園小館 (台中SOGO店)</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">餐廳地址：</em>
-													<span class="info-detail">106台北市大安區敦化南路一段246號</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">服務專線：</em>
-													<span class="info-detail">03-352-1528</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">用餐日期：</em>
-													<span class="info-detail">2016-06-18</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位時間：</em>
-													<span class="info-detail">13：00</span>
-												</li>
-												<li class="sub-info">
-													<em class="info-type">訂位人數：</em>
-													<span class="info-detail">2</span>
-												</li>
-											</ul>
-											<figure class="img-wrap">
-												<img src="static/img/my-account/booking/02.jpg" alt="翠園小館台中SOGO店">
-											</figure>
-										</div>
-										<div class="react-wrap">
-											<em class="info-response has-icon">
-												<i class="m-icon m-icon-timeout"></i>
-												<span>用餐已結束</span>
-											</em>
-										</div>
-									</li>
-								</ul>
+											<em class="text">取消</em>
+										</label>
+									</div>
+									<button class="m-btn-radius is-major jq-lightbox"><em>完成</em></button>
+									<p class="desc">*漢來美食會員電子報：新增或取消訂閱，將在變更後2個工作天內生效。</p>
+									<p class="desc">**若依上述說明取消訂閱後仍有收到，請您<a href="javascript:;" class="b-link">聯絡我們</a>，謝謝</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -578,6 +467,18 @@
 				</ul>
 			</div>
 		</footer>
+		<div class="l-lightbox">
+			<div class="m-lightbox xs-box">
+				<header class="m-lightbox-hd">
+					<button class="btn-close jq-box-close"><em class="b-hide-text">Close</em></button>
+				</header>
+				<div class="m-lightbox-bd">
+					<div class="m-lightbox-content b-text-center">
+						<em class="text">您已變更成功！</em>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 <script defer src="static/js/plugin/jquery/jquery.min.js?JS=20160216_01"></script>
