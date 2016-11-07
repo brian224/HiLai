@@ -21,10 +21,6 @@
 .l-guide .m-btn {
 	height: 48px;
 	font-size: 20px;
-
-	&:hover {
-		color: $color-text-minor;
-	}
 }
 
 .l-nav {
@@ -35,6 +31,23 @@
 
 	.m-btn {
 		width: 40px;
+		position: relative;
+
+		.count {
+			background: $color-text-major;
+			display: block;
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			border-radius: 50%;
+			color: $color-white;
+			font: 12px $font-family;
+			font-weight: bold;
+			line-height: 20px;
+			text-align: center;
+		}
 	}
 }
 
@@ -99,6 +112,14 @@
 
 		.m-btn {
 			color: $color-white;
+
+			&:hover {
+				color: $color-text-major;
+
+				.count {
+					color: $color-white;
+				}
+			}
 		}
 	}
 

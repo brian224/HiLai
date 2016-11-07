@@ -135,13 +135,23 @@
 	}
 
 	&.is-major {
-		background: #ff4b4b;
+		background: $color-text-major;
 		box-shadow: 0 4px 0 #d41313;
 	}
 
 	&.is-minor {
 		background: $color-gray-l-p10;
 		box-shadow: 0 4px 0 $color-gray;
+	}
+
+	&.is-facebook {
+		background: $color-facebook;
+		box-shadow: 0 4px 0 #0d1323;
+	}
+
+	&.is-googleplus {
+		background: $color-googleplus;
+		box-shadow: 0 4px 0 #bf0609;
 	}
 }
 

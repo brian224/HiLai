@@ -15,6 +15,8 @@
 		this._subMenu      = '.jq-sub-menu';
 		this._search       = '.jq-search';
 		this._searchClose  = '.jq-search-close';
+		this._login        = '.jq-login';
+		this._order        = '.jq-order';
 		this._back         = '.jq-back';
 		this._arrow        = '.jq-arrow';
 		this._top          = '.jq-top';
@@ -85,6 +87,18 @@
 
 				if (!$(e.target).is(common._search + ', ' + common._search + ' *,' + _target + ', ' + _target + ' *')) {
 					$('.m-search-bar').removeClass('is-show');
+				}
+			} else if (_target === '.login-state' && $(_target).hasClass('is-show')) {
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._login + ', ' + common._login + ' *,' + _target + ', ' + _target + ' *')) {
+					$('.login-state').removeClass('is-show');
+				}
+			} else if (_target === '.m-order' && $(_target).hasClass('is-show')) {
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._order + ', ' + common._order + ' *,' + _target + ', ' + _target + ' *')) {
+					$('.m-order').removeClass('is-show');
 				}
 			} else if (_target === common._sitemap && $(_target).hasClass('is-active')) {
 				// 關閉網站地圖
@@ -277,11 +291,22 @@
 
 		$(common._search).on('click', function(){
 			$('.m-search-bar').addClass('is-show');
+			$('.m-form-wrap').removeClass('is-show');
 			common.offClick('.m-search-bar');
 		});
 
 		$(common._searchClose).on('click', function(){
 			$('.m-search-bar').removeClass('is-show');
+		});
+
+		$(common._login).on('click', function(){
+			$('.login-state').toggleClass('is-show').siblings().removeClass('is-show');
+			common.offClick('.login-state');
+		});
+
+		$(common._order).on('click', function(){
+			$('.m-order').toggleClass('is-show').siblings().removeClass('is-show');
+			common.offClick('.m-order');
 		});
 
 		$('.btn-menu').on('click', function(){

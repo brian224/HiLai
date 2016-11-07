@@ -1,0 +1,157 @@
+.m-step-list {
+	display: flex;
+	justify-content: center;
+	position: relative;
+
+	&:before {
+		content: '';
+		background: $color-gray-l-p20;
+		width: 100%;
+		height: 1px;
+		position: absolute;
+		left: 0;
+	}
+
+	.list {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		color: $color-gray-l-p20;
+		font-weight: bold;
+
+		&:first-child:before, &:last-child:after {
+			display: none;
+		}
+
+		&:before, &:after {
+			content: '';
+			background: $color-gray-l-p20;
+			display: block;
+			height: 4px;
+			position: absolute;
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+
+		.m-icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 2px solid $color-gray-l-p20;
+			border-radius: 50%;
+			@include box-sizing(border-box);
+		}
+
+		&.is-complete {
+			color: $color-major;
+
+			&:before, &:after {
+				background: $color-major;
+			}
+
+			.m-icon {
+				border-color: $color-major;
+			}
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-step-list {
+		margin-bottom: 36px;
+
+		&:before {
+			top: 66px;
+		}
+
+		.list {
+			width: 194px;
+
+			&:before, &:after {
+				width: 72px;
+				top: 25px;
+			}
+		}
+
+		.m-icon {
+			margin-bottom: 22px;
+			width: 52px;
+			height: 52px;
+			font-size: 22px;
+		}
+
+		.text {
+			font-size: 16px;
+			line-height: 2em;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-step-list {
+		margin: 15px 0;
+		padding-bottom: 36px;
+		width: 100%;
+		
+		&:before {
+			top: 45px;
+		}
+
+		.list {
+			width: 96px;
+
+			&:before, &:after {
+				width: 30px;
+				top: 16px;
+			}
+
+			&.is-curr .text {
+				display: block;
+				width: 288px;
+				position: absolute;
+				top: 100%;
+				text-align: center;
+			}
+
+			&:first-child.is-curr .text {
+				left: 0;
+			}
+
+			&:nth-child(2).is-curr .text {
+				margin-left: -144px;
+				left: 50%;
+			}
+
+			&:last-child.is-curr .text {
+				right: 0;
+			}
+		}
+
+		.m-icon {
+			margin-bottom: 10px;
+			width: 36px;
+			height: 36px;
+			font-size: 16px;
+		}
+
+		.text {
+			display: none;
+			font-size: 18px;
+			line-height: 2em;
+			white-space: nowrap;
+		}
+	}
+}

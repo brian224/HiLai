@@ -7,7 +7,7 @@
 
 	&.is-checked .m-box-holder {
 		&.is-checkbox {
-			background: #ff4b4b;
+			background: $color-text-major;
 
 			&:before {
 				opacity: 1;
@@ -15,7 +15,7 @@
 		}
 
 		&.is-radio {
-			border: 7px solid #e71825;
+			border: 7px solid $color-text-major;
 		}
 	}
 
@@ -44,7 +44,8 @@
 			@include transition(ease-in all 0.2s);
 		}
 
-		.m-inputbox:focus {
+		.m-inputbox:not(.m-datepicker):focus {
+			margin: 1px 0 -1px 0;
 			border-bottom: 2px solid $color-major;
 		}
 	}
@@ -57,7 +58,7 @@
 			position: absolute;
 			top: 50%;
 			right: 12px;
-			border-top: 6px solid #ff4b4b;
+			border-top: 6px solid $color-text-major;
 			border-right: 5px solid transparent;
 			border-left: 5px solid transparent;
 			pointer-events: none;
@@ -100,7 +101,7 @@
 		width: 18px;
 		height: 18px;
 		position: relative;
-		border: 0 solid #e71825;
+		border: 0 solid $color-text-major;
 		border-radius: 50%;
 	}
 
