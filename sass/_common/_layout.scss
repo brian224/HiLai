@@ -2,8 +2,18 @@
 	position: relative;
 	overflow-x: hidden;
 
-	&.show-lightbox .l-lightbox {
-		@include animation(open-box 0.3s ease-in-out forwards);
+	&.show-lightbox {
+		.l-lightbox {
+			@include animation(open-box 0.3s ease-in-out forwards);
+		}
+
+		&[data-type=record] .m-lightbox[data-type=record] {
+			display: block;
+		}
+
+		&[data-type=confirm] .m-lightbox[data-type=confirm] {
+			display: block;
+		}
 	}
 
 	&.close-lightbox .l-lightbox {

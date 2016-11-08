@@ -385,7 +385,7 @@
 			$(this).parents('.jQ-owl-md').trigger('next.owl');
 		});
 
-		$('.jQ-owl').on('changed.owl.carousel' , function(e){
+		$(projects._owlClass).on('changed.owl.carousel' , function(e){
 			projects.owlArrowHide();
 		});
 
@@ -410,7 +410,10 @@
 		}
 
 		$(common._btnLightbox).on('click', function(){
-			$(common._lBody).addClass('show-lightbox');
+			var _type = $(this).data('type');
+
+			$(common._lBody).addClass('show-lightbox').attr('data-type', _type);
+			$('.m-form-wrap').removeClass('is-show');
 			common.offClick('.m-lightbox');
 		});
 

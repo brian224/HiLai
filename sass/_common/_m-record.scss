@@ -1,0 +1,165 @@
+.m-record {
+	font-size: 14px;
+	
+	.main-info {
+		display: flex;
+	}
+
+	.booking-time .date {
+		display: block;
+		line-height: 1em;
+	}
+
+	.booking-store {
+		border-left: 1px solid $color-gray-l-p30;
+	}
+
+	.detail-info-list {
+		.sub-info {
+			display: flex;
+		}
+
+		.info-type {
+			color: $color-major;
+			font-weight: bold;
+			white-space: nowrap;
+		}
+
+		.info-detail {
+			color: $color-gray-d-p40;
+		}
+	}
+}
+
+@include respond(Desktops) {}
+
+@include respond(Desktops-Tablets) {
+	.m-record {
+		padding-left: 344px;
+		min-height: 240px;
+		position: relative;
+
+		.main-info {
+			margin-bottom: 15px;
+		}
+
+		.booking-time {
+			padding-top: 2px;
+
+			.date {
+				font-size: 30px;
+			}
+		}
+
+		.booking-store {
+			margin-left: 15px;
+			padding-left: 15px;
+			font-size: 30px;
+			line-height: 40px;
+
+			> * {
+				display: block;
+			}
+		}
+
+		.img-wrap {
+			width: 320px;
+			height: 240px;
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@include respond(HD) {
+	.m-record {
+		padding-left: 424px;
+		min-height: 300px;
+
+		.booking-time .date {
+			font-size: 40px;
+		}
+
+		.booking-store {
+			margin-left: 30px;
+			padding-left: 30px;
+			font-size: 36px;
+			line-height: 44px;
+		}
+
+		.img-wrap {
+			width: 400px;
+			height: 300px;
+		}
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {}
+
+@include respond(Mobiles) {
+	.m-record {
+		display: flex;
+		flex-direction: column;
+
+		.main-info {
+			align-items: center;
+
+			.booking-store {
+				padding-left: 10px;
+				height: 100%;
+				position: relative;
+				font-size: 0;
+
+				&:before {
+					content: '';
+					font-size: 0;
+					height: 100%;
+					line-height: 0;
+					zoom: 1;
+				}
+
+				> * {
+					font-size: 24px;
+					line-height: 30px;
+					@include inline-block;
+				}
+			}
+		}
+
+		.booking-time {
+			margin-right: -1px;
+			padding-right: 10px;
+			border-right: 1px solid $color-gray-l-p30;
+			white-space: nowrap;
+
+			.date {
+				font-size: 32px;
+			}
+
+			.week, .hours {
+				font-size: 12px;
+			}
+		}
+
+		.detail-info-list {
+			order: 2;
+		}
+
+		.img-wrap {
+			margin: 20px 0;
+			width: 100%;
+			overflow: hidden;
+
+			img {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,6 +1,6 @@
 .m-lightbox {
 	background: $color-white;
-	display: block;
+	display: none;
 	overflow: hidden;
 	border-radius: 4px;
 }
@@ -20,10 +20,7 @@
 	}
 
 	.btn-close {
-		margin-top: -12px;
 		display: block;
-		width: 24px;
-		height: 24px;
 		position: absolute;
 		top: 50%;
 
@@ -154,11 +151,66 @@
 			}
 		}
 	}
+
+	.m-form-wrap {
+		background: none;
+		width: auto;
+		max-height: none;
+		position: relative;
+		top: 0;
+		border-radius: 0;
+		box-shadow: none;
+
+		.m-form-wrap-hd {
+			padding: 0;
+
+			.text {
+				margin-top: 15px;
+				display: block;
+				color: $color-gray-l-p10;
+				font-size: 14px;
+			}
+		}
+
+		.m-form-wrap-bd {
+			padding: 0;
+
+			.text {
+				font-size: 12px;
+			}
+
+			.m-inputbox {
+				@include placeholder($color-gray-l-p10);
+			}
+		}
+
+		.btn-wrap {
+			padding-bottom: 4px;
+			display: flex;
+			width: 100%;
+
+			.m-btn-radius {
+				margin: 0 5px;
+				flex: 50%;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
 }
 
 @include respond(Desktops) {
-	.m-lightbox {
-		width: 948px;
+	.m-lightbox-hd .btn-close {
+		margin-top: -12px;
+		width: 24px;
+		height: 24px;
+		right: 30px;
 	}
 
 	.m-lightbox-bd {
@@ -205,8 +257,9 @@
 }
 
 @include respond(Desktops-Tablets) {
-	.m-lightbox.xs-box {
-		width: 300px;
+	.m-lightbox {
+		max-width: 948px;
+		min-width: 300px;
 	}
 
 	.m-lightbox-hd {
@@ -215,10 +268,6 @@
 
 		.m-lightbox-title {
 			padding: 10px 0;
-		}
-
-		.btn-close {
-			right: 30px;
 		}
 	}
 
@@ -303,33 +352,46 @@
 }
 
 @include respond(Tablets-Mobiles) {
-	.m-lightbox-bd .preview-list .m-owl-arrow {
-		&.is-prev {
-			left: -34px;
+	.m-lightbox-hd .btn-close {
+		margin-top: -22px;
+		width: 44px;
+		height: 44px;
+		right: 3px;
+	}
+
+	.m-lightbox-bd {
+		.preview-list .m-owl-arrow {
+			&.is-prev {
+				left: -34px;
+			}
+	
+			&.is-next {
+				right: -34px;
+			}
 		}
 
-		&.is-next {
-			right: -34px;
+		.m-form-wrap {
+			margin-left: 0;
+			left: 0;
+
+			.m-btn-radius {
+				min-width: 0;
+			}
 		}
 	}
 }
 
 @include respond(Mobiles) {
 	.m-lightbox {
-		width: calc(100vw - 8px);
-
-		&.xs-box {
-			width: 280px;
-		}
+		max-width: calc(100vw - 8px);
+		max-height: calc(100vh - 8px);
+		min-width: 280px;
+		overflow-y: scroll;
 	}
 
 	.m-lightbox-hd {
 		padding: 0 15px;
 		height: 48px;
-
-		.btn-close {
-			right: 15px;
-		}
 	}
 
 	.m-lightbox-bd {

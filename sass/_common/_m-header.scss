@@ -385,9 +385,15 @@
 		}
 	}
 
-	&.m-order .hint-link {
-		padding-top: 20px;
-		padding-bottom: 20px;
+	&.m-order {
+		.hint-link {
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.btn-order-search {
+			width: 100%;
+		}
 	}
 
 	.m-form-wrap-bd {
@@ -437,6 +443,7 @@
 
 	.btn-wrap {
 		margin-top: 15px;
+		font-size: 0;
 
 		.m-btn-radius {
 			margin: 12px 0;
