@@ -203,6 +203,21 @@
 			}
 		}
 	}
+
+	.m-record:not(:first-child) {
+		margin-top: 40px;
+		position: relative;
+
+		&:before {
+			content: '';
+			background: $color-gray-l-p30;
+			width: 100%;
+			height: 1px;
+			position: absolute;
+			top: -20px;
+			left: 0;
+		}
+	}
 }
 
 @include respond(Desktops) {
@@ -259,7 +274,9 @@
 @include respond(Desktops-Tablets) {
 	.m-lightbox {
 		max-width: 948px;
+		max-height: 100vh;
 		min-width: 300px;
+		overflow-y: auto;
 	}
 
 	.m-lightbox-hd {

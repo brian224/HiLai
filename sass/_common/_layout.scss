@@ -14,6 +14,14 @@
 		&[data-type=confirm] .m-lightbox[data-type=confirm] {
 			display: block;
 		}
+
+		&[data-type=preview] .m-lightbox[data-type=preview] {
+			display: block;
+		}
+
+		&[data-type=subscription] .m-lightbox[data-type=subscription] {
+			display: block;
+		}
 	}
 
 	&.close-lightbox .l-lightbox {

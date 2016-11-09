@@ -23,7 +23,7 @@
 				<nav class="l-nav b-middle">
 					<button class="m-btn jq-search m-icon m-icon-zoom"></button>
 					<button class="m-btn jq-login m-icon m-icon-member"></button>
-					<button class="m-btn jq-order m-icon m-icon-order"><em class="count">2</em></button>
+					<button class="m-btn jq-order m-icon m-icon-order"></button>
 				</nav>
 			</div>
 			<button class="m-btn btn-menu b-hide-text"><em>MENU</em></button>
@@ -318,7 +318,7 @@
 				<input type="text" class="m-inputbox" placeholder="請輸入搜尋文字">
 				<button class="btn-search-close jq-search-close b-hide-text">close</button>
 			</div>
-			<div class="m-form-wrap login-state is-login">
+			<div class="m-form-wrap login-state">
 				<div class="not-login">
 					<div class="m-form-wrap-hd"><h3 class="hd-title b-text-center">漢來美食會員登入</h3></div>
 					<div class="m-form-wrap-bd">
@@ -357,7 +357,7 @@
 						</div>
 						<div class="hint-link b-text-center">
 							<a href="javascript:;" class="b-link">忘記密碼</a>
-							<a href="javascript:;" class="b-link">重發會員認證信</a>
+							<button class="b-link jq-lightbox" data-type="confirm">重發會員認證信</button>
 						</div>
 					</div>
 					<div class="m-form-wrap-ft">
@@ -403,19 +403,19 @@
 						<li class="list b-col-dt-12 b-col-xs-12">
 							<em class="text">訂單編號</em>
 							<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
-								<input type="email" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的訂單編號" value="">
+								<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的訂單編號" value="">
 							</div>
 						</li>
 						<li class="list b-col-dt-12 b-col-xs-12">
 							<em class="text">訂位手機號碼</em>
 							<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
-								<input type="password" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的訂位手機號碼" value="">
+								<input type="tel" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的訂位手機號碼" value="">
 							</div>
 						</li>
 						<li class="list b-col-dt-12 b-col-xs-12">
 							<em class="text">驗証圖字</em>
 							<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
-								<input type="password" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入下方驗証圖字" value="">
+								<input type="text" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="請輸入下方驗証圖字" value="">
 							</div>
 						</li>
 					</ul>
@@ -427,7 +427,7 @@
 						</div>
 					</div>
 					<div class="btn-wrap">
-						<button class="m-btn-radius btn-order-search is-major jq-lightbox"><em>查詢</em></button>
+						<button class="m-btn-radius btn-order-search is-major jq-lightbox" data-type="record"><em>查詢</em></button>
 					</div>
 					<div class="hint-link b-clearfix">
 						<div class="b-col-dt-4 b-col-xs-4 b-float-left">
@@ -997,6 +997,107 @@
 				</ul>
 			</div>
 		</footer>
+		<div class="l-lightbox">
+			<div class="m-lightbox" data-type="record">
+				<header class="m-lightbox-hd">
+					<button class="btn-close jq-box-close"><em class="b-hide-text">Close</em></button>
+				</header>
+				<div class="m-lightbox-bd">
+					<div class="m-lightbox-content">
+						<div class="m-record">
+							<div class="main-info">
+								<time class="booking-time">
+									<span class="year">2016</span>
+									<em class="date">8/23</em>
+									<span class="week">星期二</span>
+									<span class="hours">11:30</span>
+								</time>
+								<h4 class="booking-store">
+									<em class="store-name">漢來海港餐廳</em>
+									<span class="shop">台茂店</span>
+								</h4>
+							</div>
+							<ul class="detail-info-list">
+								<li class="sub-info">
+									<em class="info-type">訂位編號：</em>
+									<span class="info-detail">6719128</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">訂位姓名：</em>
+									<span class="info-detail">金城武</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">手機號碼：</em>
+									<span class="info-detail">0900111111</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">餐廳名稱：</em>
+									<span class="info-detail">漢來海港餐廳 (台茂店)</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">餐廳地址：</em>
+									<span class="info-detail">106台北市大安區敦化南路一段246號</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">服務專線：</em>
+									<span class="info-detail">03-352-1528</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">用餐日期：</em>
+									<span class="info-detail">2016-08-23</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">訂位時間：</em>
+									<span class="info-detail">11：30</span>
+								</li>
+								<li class="sub-info">
+									<em class="info-type">訂位人數：</em>
+									<span class="info-detail">2</span>
+								</li>
+							</ul>
+							<figure class="img-wrap">
+								<img src="static/img/my-account/booking/01.jpg" alt="漢來海港餐廳台茂店">
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="m-lightbox" data-type="confirm">
+				<header class="m-lightbox-hd">
+					<button class="btn-close jq-box-close"><em class="b-hide-text">Close</em></button>
+				</header>
+				<div class="m-lightbox-bd">
+					<div class="m-lightbox-content">
+						<div class="m-form-wrap">
+							<div class="m-form-wrap-hd">
+								<h3 class="hd-title b-text-center">重發會員認證信</h3>
+								<span class="text b-text-center">請輸入您所註冊的E-mail 、密碼我們會再發送一次<br class="b-hide-xs">會員認證信給您。</span>
+							</div>
+							<div class="m-form-wrap-bd">
+								<ul class="form-list b-clearfix">
+									<li class="list b-col-dt-12 b-col-xs-12">
+										<em class="text">電子郵件</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="email" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的電子郵件" value="">
+										</div>
+									</li>
+									<li class="list b-col-dt-12 b-col-xs-12">
+										<em class="text">密碼</em>
+										<div class="m-box-holder is-underline b-col-dt-12 b-col-xs-12">
+											<input type="password" class="m-inputbox b-col-dt-12 b-col-xs-12" placeholder="輸入您的密碼" value="">
+										</div>
+									</li>
+								</ul>
+								<div class="btn-wrap">
+									<button class="m-btn-radius btn-order-search is-minor"><em>取消</em></button>
+									<button class="m-btn-radius btn-order-search is-major"><em>確定送出</em></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 <script defer src="static/js/plugin/jquery/jquery.min.js?JS=20160216_01"></script>
