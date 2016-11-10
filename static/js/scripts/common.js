@@ -359,7 +359,11 @@
 		});
 
 		$(common._back).on('click', function(){
-			$(this).parent().parent().prev(common._subMenu).removeClass('is-hover');
+			if ($(this).parent().parent().hasClass('sub-menu')) {
+				$(this).parent().parent().parent().prev(common._subMenu).removeClass('is-hover');
+			} else {
+				$(this).parent().parent().prev(common._subMenu).removeClass('is-hover');
+			}
 		});
 
 		$(common._top).on('click', function(){

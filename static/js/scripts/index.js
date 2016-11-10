@@ -33,7 +33,7 @@
 
 	index.prototype.slideCut = function(n) {
 		if (projects._ISIPHONE) {
-			$('.l-body').animate({'scrollTop': $(indexObj._mCut).height() * n}, common._animateSpeed);
+			$(common._lBody).animate({'scrollTop': $(indexObj._mCut).height() * n}, common._animateSpeed);
 		} else {
 			projects.$hb.animate({'scrollTop': $(indexObj._mCut).eq(n).offset().top}, common._animateSpeed);
 		}
@@ -175,9 +175,19 @@
 	projects.$w.on('scroll' , function(){
 		if ( projects.device() === 'PC') {
 			indexObj.mousewheel();
-		} else {
-			$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(Math.floor(projects.$w.scrollTop() / projects.$w.height())).addClass('is-curr');
 		}
+	});
+
+	projects.$b.on('touchmove', function(e) {
+		var _scrollTop;
+
+		if (projects._ISIPHONE) {
+			_scrollTop = $(common._lBody).scrollTop();
+		} else {
+			_scrollTop = projects.$w.scrollTop();
+		}
+
+		$(indexObj._pagination).find('.cut-dot .list').removeClass('is-curr').eq(Math.floor(_scrollTop / projects.$w.height())).addClass('is-curr');
 	});
 
 	projects.$w.resize(function(){
