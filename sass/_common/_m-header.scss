@@ -604,7 +604,7 @@
 					@include transition(ease-in all 0.3s);
 				}
 
-				&:hover {
+				&:hover, &.is-hover {
 					&:after {
 						margin-left: -74px;
 						background: $color-major;
@@ -821,6 +821,10 @@
 		&.login-state .already-login .member-menu .b-link:hover {
 			color: $color-major;
 		}
+
+		&.m-order .m-form-wrap-bd .hint-link *:first-child .b-link:hover, .not-login .m-form-wrap-bd .hint-link .b-link:hover {
+			text-decoration: underline;
+		}
 	}
 }
 
@@ -919,7 +923,7 @@
 			.text {
 				padding: 12px 0;
 
-				&:hover, &.is-hover {
+				&.is-hover {
 					&:after {
 						margin-left: -74px;
 						background: $color-major;

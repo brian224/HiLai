@@ -22,7 +22,7 @@
 	index.prototype.checkCutLength = function() {
 		if ($(indexObj._mCut).length > 1) {
 			var _str = '',
-				_idx = Math.round(projects.$b.scrollTop() / ($(indexObj._mCut).height()));
+				_idx = (projects._browsers.firefox) ? Math.round(projects.$hb.scrollTop() / ($(indexObj._mCut).height())) : Math.round(projects.$b.scrollTop() / ($(indexObj._mCut).height()));
 
 			for (var i = 0; i < $(indexObj._mCut).length; i++) {
 				_str += '<li class="list"><button class="btn-dot jq-slide-cut"></button></li>';

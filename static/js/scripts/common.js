@@ -53,7 +53,7 @@
 	page.prototype.showFooter = function() {
 		var _totalH  = projects.$hb.height(),
 			_cutH    = projects.$w.height(),
-			_scrollH = projects.$b.scrollTop();
+			_scrollH = (projects._browsers.firefox) ? projects.$hb.scrollTop() : projects.$b.scrollTop();
 
 		if (_totalH === _cutH + _scrollH) {
 			$(common._lFooter).addClass('is-show');

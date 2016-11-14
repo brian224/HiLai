@@ -93,6 +93,10 @@
 			@include transform(rotate(-45deg));
 			@include transition(ease-in all 0.3s);
 		}
+
+		.m-checkbox {
+			opacity: 0;
+		}
 	}
 
 	&.is-radio {
@@ -103,6 +107,10 @@
 		position: relative;
 		border: 0 solid $color-text-major;
 		border-radius: 50%;
+
+		.m-radio {
+			opacity: 0;
+		}
 	}
 
 	.m-icon {
