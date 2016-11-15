@@ -40,6 +40,7 @@
 			padding: 0 !important;
 			height: 32px;
 			border-bottom: 1px solid $color-gray-l-p30;
+			line-height: 32px;
 			@include box-sizing(border-box);
 			@include transition(ease-in all 0.2s);
 		}

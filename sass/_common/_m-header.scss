@@ -1205,3 +1205,9 @@
 		bottom: 90%;
 	}
 }
+
+@include browsers('IE') {
+	.m-form-wrap .confirm-humanity .btn-react {
+		overflow: visible;
+	}
+}

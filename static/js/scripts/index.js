@@ -15,6 +15,7 @@
 		this._clearSearch   = '.jq-clear-search';
 		this._sectionIndex  = 0;
 		this._sectionScroll = true;
+		this._once          = true;
 		this._mCutHeight    = projects.$w.height();
 		this._isYouTube;
 	}
@@ -22,7 +23,7 @@
 	index.prototype.checkCutLength = function() {
 		if ($(indexObj._mCut).length > 1) {
 			var _str = '',
-				_idx = (projects._browsers.firefox) ? Math.round(projects.$hb.scrollTop() / ($(indexObj._mCut).height())) : Math.round(projects.$b.scrollTop() / ($(indexObj._mCut).height()));
+				_idx = (projects._browsers.chrome) ? Math.round(projects.$b.scrollTop() / ($(indexObj._mCut).height())) : Math.round(projects.$hb.scrollTop() / ($(indexObj._mCut).height()));
 
 			for (var i = 0; i < $(indexObj._mCut).length; i++) {
 				_str += '<li class="list"><button class="btn-dot jq-slide-cut"></button></li>';
@@ -111,7 +112,13 @@
 	}
 
 	projects.$w.load(function(){
-		indexObj.checkCutLength();
+		if (projects._browsers.msie) {
+			setTimeout(function(){
+				indexObj.checkCutLength();
+			}, 500);
+		} else {
+			indexObj.checkCutLength();
+		}
 
 		$(indexObj._slideDown).on('click', function(){
 			indexObj.slideCut(1);
@@ -146,7 +153,7 @@
 			}
 		});
 
-		$(indexObj._slideCut, indexObj._pagination).on('click', function(){
+		$(indexObj._pagination).on('click', indexObj._slideCut, function(){
 			indexObj.slideCut($(this).parent('.list').index());
 		});
 	});

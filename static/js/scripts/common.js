@@ -53,9 +53,9 @@
 	page.prototype.showFooter = function() {
 		var _totalH  = projects.$hb.height(),
 			_cutH    = projects.$w.height(),
-			_scrollH = (projects._browsers.firefox) ? projects.$hb.scrollTop() : projects.$b.scrollTop();
+			_scrollH = (projects._browsers.chrome) ? projects.$b.scrollTop() : projects.$hb.scrollTop();
 
-		if (_totalH === _cutH + _scrollH) {
+		if (_totalH <= _cutH + _scrollH) {
 			$(common._lFooter).addClass('is-show');
 		} else {
 			$(common._lFooter).removeClass('is-show');
@@ -269,6 +269,7 @@
 	projects.$w.load(function(){
 		common.breadcrumb();
 		common.footerHeight();
+		common.showFooter();
 
 		if ($('.m-datepicker').length !== 0) {
 			$('.m-datepicker').DatePicker();
@@ -382,6 +383,7 @@
 
 			if ($(common._lBody).hasClass('index')) {
 				$('.pagination .cut-dot .list').removeClass('is-curr').eq(0).addClass('is-curr');
+				projects._media._player.playVideo();
 			}
 		});
 
