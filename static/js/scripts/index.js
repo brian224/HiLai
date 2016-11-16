@@ -43,7 +43,7 @@
 
 		if (indexObj._isYouTube && n !== 0 && typeof projects._media._player.pauseVideo !== 'undefined') {
 			projects._media._player.pauseVideo();
-		} else if (indexObj._isYouTube && n === 0 && typeof projects._media._player.playVideo !== 'undefined') {
+		} else if (indexObj._isYouTube && n === 0 && typeof projects._media._player.playVideo !== 'undefined' && projects.device() === 'PC') {
 			projects._media._player.playVideo();
 		}
 	}

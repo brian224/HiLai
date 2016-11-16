@@ -28,6 +28,7 @@
 		this._btnAccordion = '.jq-btn-accordion';
 		this._checkbox     = '.jq-checkbox';
 		this._radio        = '.jq-radio';
+		this._breadcrumb   = '.jq-breadcrumb';
 		this._animateSpeed = 400;
 		this._BCOffsetTop  = ($(this._breadcrumb).length !== 0) ? $(this._breadcrumb).offset().top : 0;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
@@ -381,7 +382,7 @@
 			common.offClick(common._sitemap);
 			$('.sitemap-wrap').removeClass('is-show');
 
-			if ($(common._lBody).hasClass('index')) {
+			if ($(common._lBody).hasClass('index') && projects.device() === 'PC') {
 				$('.pagination .cut-dot .list').removeClass('is-curr').eq(0).addClass('is-curr');
 				projects._media._player.playVideo();
 			}
@@ -452,6 +453,10 @@
 				$('input[type="radio"][name="' + _name + '"]').parents(common._radio).removeClass('is-checked');
 				$(this).addClass('is-checked');
 			}
+		});
+
+		$(common._breadcrumb).on('change', function(){
+			window.location.href = $(this).val();
 		});
 	});
 
