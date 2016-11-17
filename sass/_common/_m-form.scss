@@ -68,6 +68,11 @@
 		.m-selection, .m-inputbox {
 			padding-right: 36px;
 		}
+
+		*[disabled] {
+			cursor: default;
+			color: $color-gray-l-p30;
+		}
 	}
 
 	&.is-checkbox {

@@ -449,3 +449,9 @@
 		}
 	}
 }
+
+@include devices('iphone') {
+	.m-lightbox {
+		max-height: calc(100vh - 88px);
+	}
+}
