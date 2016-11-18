@@ -4,7 +4,7 @@
     var _shop = [{
         location : '台北天母SOGO',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         }]
     } , {
@@ -16,13 +16,13 @@
     } , {
         location : '台北敦化SOGO',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         }]
     } , {
         location : '桃園台茂購物中心',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         },{
             store : '漢來蔬食',
@@ -31,7 +31,7 @@
     } , {
         location : '台中廣三SOGO',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         },{
             store : '翠園小館',
@@ -40,7 +40,7 @@
     } , {
         location : '南坊購物中心',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         },{
             store : '漢來蔬食',
@@ -55,7 +55,7 @@
     } , {
         location : '高雄漢神巨蛋購物廣場',
         area     : [{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '午餐、下午餐、晚餐'
         },{
             store : '漢來蔬食',
@@ -88,7 +88,7 @@
             store : '名人坊高級粵菜餐廳',
             time  : '午餐、晚餐'
         },{
-            store : '海港自助餐廳',
+            store : '漢來海港餐廳',
             time  : '早餐、午餐、下午餐、晚餐'
         },{
             store : '鐵板燒',
@@ -116,14 +116,14 @@
         $('.jq-booking-shop').append(_shopStr);
 
         $('.jq-booking-shop').on('change', function(){
-            var _restStr = '',
+            var _restStr = '<option>請選擇餐廳</option>',
                 _idx     = $(this).find('option:selected').data('shop');
 
             for (var j = 0; j < window._shop[_idx].area.length; j++) {
                 _restStr += '<option data-time="' + window._shop[_idx].area[j].time + '">' + window._shop[_idx].area[j].store + '</option>';
             }
 
-            $('.jq-booking-rest').append(_restStr).prop('disabled', false);
+            $('.jq-booking-rest').html(_restStr).prop('disabled', false);
         });
 
         $('.jq-booking-rest').on('change', function(){
