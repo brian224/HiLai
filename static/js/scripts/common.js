@@ -101,6 +101,13 @@
 				if (!$(e.target).is(common._order + ', ' + common._order + ' *,' + _target + ', ' + _target + ' *')) {
 					$('.m-order').removeClass('is-show');
 				}
+			} else if (_target === '.btn-menu' && $(_target).hasClass('is-active')) {
+				e.stopPropagation();
+
+				if (!$(e.target).is('.about-list, .about-list *,' + _target + ', ' + _target + ' *')) {
+					$('.btn-menu').removeClass('is-active');
+					$('.menu-wrap').removeClass('is-show');
+				}
 			} else if (_target === common._sitemap && $(_target).hasClass('is-active')) {
 				// 關閉網站地圖
 				e.stopPropagation();
@@ -267,6 +274,7 @@
 		projects.owlCarousel(common._previewList);
 	}
 
+	// 自製 scroller
 	page.prototype.menuScroller = function() {
 		$('.sub-menu').each(function(){
 			var $this   = $(this),
@@ -392,6 +400,8 @@
 
 			if ( projects.device() !== 'PC' ) {
 				$(common._subMenu).removeClass('is-hover');
+			} else {
+				common.offClick('.btn-menu');
 			}
 		});
 

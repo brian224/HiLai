@@ -151,8 +151,12 @@
 @include respond(Tablets) {}
 
 @include respond(Tablets-Mobiles) {
-	.m-content-hd .main-title {
-		font-size: 60px;
+	.m-content-hd {
+		height: 100vh !important;
+		
+		.main-title {
+			font-size: 60px;
+		}
 	}
 
 	.m-breadcrumb {
