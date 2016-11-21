@@ -151,6 +151,20 @@
 	.m-inputbox {
 		@include placeholder($color-gray-d-p10);
 	}
+
+	.m-textarea {
+		border: 1px solid $color-gray-l-p30;
+		outline: none;
+		resize: none;
+		color: $color-gray-d-p10;
+		@include box-sizing(border-box);
+		@include transition(ease-in all 0.2s);
+
+		&:focus {
+			border: 1px solid $color-major;
+			box-shadow: inset 1px 1px 0 $color-major, inset -1px -1px 0 $color-major;
+		}
+	}
 }
 
 @include browsers('IE') {}

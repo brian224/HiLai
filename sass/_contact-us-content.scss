@@ -1,0 +1,162 @@
+﻿.info-list {
+	font-size: 0;
+
+	.list {
+		margin-top: 20px;
+		color: $color-gray-d-p20;
+
+		&.is-required > .text:before {
+			content: '*';
+			padding-right: 3px;
+			color: $color-text-major;
+		}
+	}
+
+	.m-selection, .m-inputbox, .m-textarea {
+		font-size: 16px;
+		line-height: 32px;
+		@include placeholder($color-gray-l-p10);
+	}
+
+	.text {
+		display: inline-block;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 32px;
+	}
+
+	.m-lab .text {
+		font-size: 16px;
+	}
+
+	.m-textarea {
+		padding: 0 10px;
+	}
+
+	.confirm-humanity img {
+		max-width: 100%;
+		border: 1px solid $color-gray-l-p30;
+	}
+}
+
+.info-content {
+	margin-top: 20px;
+
+	.desc {
+		display: block;
+		color: $color-gray;
+		font-size: 16px;
+		line-height: 24px;
+	}
+
+	.b-link {
+		padding: 0 3px;
+		color: $color-major;
+		text-decoration: underline;
+	}
+}
+
+@-moz-document url-prefix() {}
+
+@include respond(Desktops) {
+	.l-content {
+		padding: 0 0 0 220px;
+	}
+
+	.m-breadcrumb {
+		margin-bottom: 24px;
+	}
+
+	.info-content .b-link {
+		&:hover, &.btn-tel {
+			text-decoration: none;
+		}
+
+		&.btn-tel {
+			color: $color-gray;
+		}
+	}
+
+	.kv-img {
+		display: flex;
+		align-items: center;
+		height: 290px;
+	}
+}
+
+@include respond(Desktops-Tablets) {
+	.m-section {
+		margin-bottom: 24px;
+
+		&.is-bg {
+			padding: 25px 32px 50px 32px;
+		}
+	}
+
+	.m-section-ft {
+		padding-top: 50px;
+
+		> * {
+			margin: 0 10px;
+		}
+	}
+
+	.info-list .list, .info-content {
+		padding: 0 20px;
+	}
+
+	.info-list {
+		display: flex;
+		align-content: stretch;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
+
+@include respond(HD) {
+	.l-content {
+		padding: 0 0 0 270px;
+	}
+}
+
+@include respond(Tablets) {}
+
+@include respond(Tablets-Mobiles) {
+	.m-breadcrumb {
+		margin-bottom: 20px;
+	}
+
+	.kv-img {
+		height: 230px;
+		text-align: center;
+
+		img {
+			height: 100%;
+		}
+	}
+}
+
+@include respond(Mobiles) {
+	.m-section {
+		margin-bottom: 20px;
+
+		&.is-bg {
+			padding: 10px;
+	
+			.m-section-bd {
+				margin-bottom: 10px;
+				padding: 20px;
+			}
+	
+			.m-section-ft {
+				padding: 0 20px 40px 20px;
+	
+				> * {
+					margin: 10px 0;
+				}
+			}
+		}
+	}
+}
+
+@include browsers('IE') {}

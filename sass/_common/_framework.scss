@@ -10,7 +10,7 @@ button {
 	@include button-default;
 }
 
-input {
+input, textarea {
 	padding: 0;
 	font-family: $font-family;
 	@include appearance(none);
