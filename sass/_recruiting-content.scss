@@ -1,4 +1,8 @@
-﻿.sub-title {
+﻿.section-title, .sub-title {
+    color: $color-major;
+}
+
+.sub-title {
     font-size   : 18px;
     font-weight : bold;
     line-height : 2em;
@@ -70,6 +74,10 @@
         }
     }
 
+    .m-section .section-title {
+        font-size: 36px;
+    }
+
     .m-section-bd {
         &.is-bg {
             padding: 20px 25px;
@@ -137,6 +145,10 @@
         }
     }
 
+    .m-section-hd {
+        align-items: flex-start;
+    }
+
     .m-section-bd {
         &.is-bg {
             padding: 20px;
@@ -163,6 +175,11 @@
                 }
             }
         }
+    }
+
+    .section-title {
+        font-size: 36px;
+        line-height: 64px;
     }
 
     .b-link {

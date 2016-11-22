@@ -849,7 +849,7 @@
 			color: $color-major;
 		}
 
-		&.m-order .m-form-wrap-bd .hint-link *:first-child .b-link:hover, .not-login .m-form-wrap-bd .hint-link .b-link:hover {
+		.not-login .m-form-wrap-bd .hint-link .b-link:hover {
 			text-decoration: underline;
 		}
 	}

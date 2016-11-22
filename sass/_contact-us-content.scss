@@ -104,13 +104,6 @@
 	.info-list .list, .info-content {
 		padding: 0 20px;
 	}
-
-	.info-list {
-		display: flex;
-		align-content: stretch;
-		justify-content: center;
-		flex-wrap: wrap;
-	}
 }
 
 @include respond(HD) {
