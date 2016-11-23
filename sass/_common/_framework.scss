@@ -19,6 +19,7 @@ input, textarea {
 
 select {
 	font-family: $font-family;
+	border-radius: 0;
 	@include appearance(none);
 
 	&::-ms-expand {

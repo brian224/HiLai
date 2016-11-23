@@ -22,6 +22,10 @@
 		&[data-type=subscription] .m-lightbox[data-type=subscription] {
 			display: block;
 		}
+
+		&[data-type=forget-psw] .m-lightbox[data-type=forget-psw] {
+			display: block;
+		}
 	}
 
 	&.close-lightbox .l-lightbox {

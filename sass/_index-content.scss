@@ -555,9 +555,15 @@
 		}
 
 		.booking {
-			.booking-step > * {
-				margin-top: 17px;
-				margin-bottom: 17px;
+			.booking-step {
+				> * {
+					margin-top: 17px;
+					margin-bottom: 17px;
+				}
+
+				&:not(:first-child) {
+					display: none;
+				}
 			}
 
 			.m-owl-dots.is-absolute {
