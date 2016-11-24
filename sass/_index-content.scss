@@ -472,6 +472,10 @@
 				padding: 17px 0 30px 0;
 				height: 100%;
 
+				&:not(:first-child) {
+					display: none;
+				}
+
 				.m-selection {
 					max-width: 200px;
 				}
@@ -547,6 +551,7 @@
 	.main-cut {
 		.main-title {
 			font-size: 72px;
+			line-height: 1.5em;
 		}
 
 		.sub-title {
@@ -555,15 +560,9 @@
 		}
 
 		.booking {
-			.booking-step {
-				> * {
-					margin-top: 17px;
-					margin-bottom: 17px;
-				}
-
-				&:not(:first-child) {
-					display: none;
-				}
+			.booking-step > *:not(.btn-close) {
+				margin-top: 17px;
+				margin-bottom: 17px;
 			}
 
 			.m-owl-dots.is-absolute {
@@ -984,6 +983,11 @@
 
 			> * {
 				display: block;
+
+				&:not(.m-icon) {
+					width: 100%;
+					@include box-sizing(border-box);
+				}
 			}
 		}
 
@@ -1082,10 +1086,11 @@
 	.search-cut {
 		.main-title {
 			font-size: 38px;
+			line-height: 1.5em;
 		}
 
 		.booking {
-			width: 264px;
+			min-width: 264px;
 		}
 
 		.m-form {

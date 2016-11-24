@@ -627,6 +627,10 @@
 				.text {
 					padding: 6px 27px;
 					line-height: 30px;
+
+					&:hover:after, &.is-hover:after {
+						width: calc(100% - 54px);
+					}
 				}
 			}
 		}
