@@ -14,6 +14,10 @@
 		position: relative;
 		overflow: hidden;
 
+		.b-link {
+			display: block;
+		}
+
 		img {
 			min-width: 100%;
 		}
@@ -41,9 +45,12 @@
 		.store-title {
 			padding: 5px 0;
 			border-bottom: 1px solid $color-gray-l-p40;
-			color: $color-major;
 			font-size: 26px;
 			line-height: 40px;
+
+			.b-link {
+				color: $color-major;
+			}
 		}
 
 		.btn-tel, .addr, .meal-time {

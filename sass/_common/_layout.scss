@@ -26,6 +26,10 @@
 		&[data-type=forget-psw] .m-lightbox[data-type=forget-psw] {
 			display: block;
 		}
+
+		&[data-type=notice] .m-lightbox[data-type=notice] {
+			display: block;
+		}
 	}
 
 	&.close-lightbox .l-lightbox {
