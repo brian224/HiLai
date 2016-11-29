@@ -17,6 +17,7 @@
 		this._searchClose  = '.jq-search-close';
 		this._login        = '.jq-login';
 		this._order        = '.jq-order';
+		this._language     = '.jq-language';
 		this._back         = '.jq-back';
 		this._arrow        = '.jq-arrow';
 		this._top          = '.jq-top';
@@ -100,6 +101,13 @@
 
 				if (!$(e.target).is(common._order + ', ' + common._order + ' *,' + _target + ', ' + _target + ' *')) {
 					$('.m-order').removeClass('is-show');
+				}
+			} else if (_target === '.m-language' && $(_target).hasClass('is-show')) {
+				// 切換語系
+				e.stopPropagation();
+
+				if (!$(e.target).is(common._language + ', ' + common._language + ' *')) {
+					$('.m-language').removeClass('is-show');
 				}
 			} else if (_target === '.btn-menu' && $(_target).hasClass('is-active')) {
 				e.stopPropagation();
@@ -391,6 +399,11 @@
 		$(common._order).on('click', function(){
 			$('.m-order').toggleClass('is-show').siblings().removeClass('is-show');
 			common.offClick('.m-order');
+		});
+
+		$(common._language).on('click', function(){
+			$('.m-language').toggleClass('is-show').siblings().removeClass('is-show');
+			common.offClick('.m-language');
 		});
 
 		$('.btn-menu').on('click', function(){

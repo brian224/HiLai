@@ -226,3 +226,9 @@
 		position: relative;
 	}
 }
+
+@include respond(Iphone5) {
+	.l-nav {
+		padding-right: 10px;
+	}
+}
