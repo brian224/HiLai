@@ -33,6 +33,11 @@
 					color: $color-text-minor;
 				}
 			}
+
+			.title {
+				display: block;
+				color: $color-white;
+			}
 		}
 	}
 }
@@ -584,6 +589,22 @@
 			.list {
 				padding: 0 20px;
 				display: inline-block;
+
+				&:first-child {
+					position: relative;
+
+					&:after {
+						content: '';
+						margin-top: -24px;
+						background: $color-white;
+						display: block;
+						width: 1px;
+						height: 48px;
+						position: absolute;
+						top: 50%;
+						right: 0;
+					}
+				}
 			}
 		}
 	}
@@ -953,8 +974,8 @@
 					border-top: 1px solid $color-gray-l-p30;
 				}
 	
-				.b-link {
-				padding: 12px 0;
+				> * {
+					padding: 12px 0;
 				}
 			}
 		}
