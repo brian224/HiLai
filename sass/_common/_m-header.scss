@@ -1104,9 +1104,8 @@
 	}
 
 	.detail-list {
-		padding: 24px 54px 70px 48px;
+		padding: 24px 54px 35px 48px;
 		width: 100vw;
-		/*height: calc(100vh - 61px);*/
 		z-index: 1;
 		@include box-sizing(border-box);
 		@include transform-origin(right);
