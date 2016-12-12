@@ -24,6 +24,15 @@
 		.intro {
 			color: $color-gray-d-p10;
 			font-size: 16px;
+
+			.b-link {
+				color: $color-major;
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
 		}
 
 		> *:not(.intro) {
