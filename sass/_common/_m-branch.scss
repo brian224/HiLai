@@ -114,7 +114,7 @@
 		margin: 0 -6px;
 
 		.list {
-			min-height: 484px;
+			min-height: 400px;
 		}
 
 		.img-wrap {
@@ -133,7 +133,11 @@
 	}
 }
 
-@include respond(Tablets) {}
+@include respond(Tablets) {
+	.m-branch-list .list {
+		min-height: 420px;
+	}
+}
 
 @include respond(Tablets-Mobiles) {
 	.m-branch-list {
