@@ -50,7 +50,7 @@
 
 	index.prototype.mousewheel = function() {
 		projects.mousewheel(projects.$hb, function(e){
-			if (!$(e.target).is('.sub-menu, .sub-menu *, .search-result-list, .search-result-list *')) {
+			if (!$(e.target).is('.sub-menu, .sub-menu *, .search-result-list, .search-result-list *, .l-footer, .l-footer *')) {
 				e.preventDefault();
 				e.stopPropagation();
 

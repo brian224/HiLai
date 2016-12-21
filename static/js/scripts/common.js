@@ -74,10 +74,12 @@
 	page.prototype.footerHeight = function() {
 		$(common._countHeight).each(function(){
 			var $list   = $(this).find('.item'),
-				_middle = Math.round($list.length / 2);
+				_column = $(this).data('column'),
+				_middle = Math.round($list.length / _column);
 
-			$(this).find('.item:gt(' + ($list.length - _middle - 1) + ')').wrapAll('<div class="list-block"></div>');
-			$(this).find('.item:lt(' + _middle + ')').wrapAll('<div class="list-block"></div>');
+			for (var i = 0; i < _middle; i++) {
+				$(this).find('> .item:lt(' + _middle + ')').wrapAll('<div class="list-block b-col-dt-' + (12 / _column) + '"></div>');
+			}
 		});
 	}
 
