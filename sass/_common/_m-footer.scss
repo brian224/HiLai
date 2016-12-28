@@ -152,7 +152,7 @@
 		}
 
 		.b-link {
-			display: block;
+			display: inline-block;
 			color: $color-white;
 
 			&:hover {
@@ -169,6 +169,7 @@
 
 			.b-link {
 				padding-left: 14px;
+				display: block;
 				position: relative;
 				color: $color-white;
 	
