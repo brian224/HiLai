@@ -162,7 +162,7 @@
 					_str += '<table class="m-table b-hide-dt"><thead><tr><td>' + _tArray[k] + '</td><td></td></tr></thead><tbody>';
 
 					for (var l = 1; l < _tArray.length / _tdLength; l++) {
-						_str += '<tr><td>' + _tArray[_tdLength * l] + '</td><td>' + _tArray[_tdLength * l + 1] + '</td></tr>';
+						_str += '<tr><td>' + _tArray[_tdLength * l] + '</td><td>' + _tArray[_tdLength * l + k] + '</td></tr>';
 					}
 
 					_str += '</tbody></table>';
