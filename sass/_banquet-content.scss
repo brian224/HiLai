@@ -42,8 +42,16 @@
 
 	.m-section-bd {
 		padding-right: 20px;
+		padding-bottom: 90px;
 		padding-left: calc(60% + 30px);
 		height: 350px;
+		position: relative;
+		@include box-sizing(border-box);
+
+		.project-info {
+			max-height: 260px;
+			overflow: hidden;
+		}
 
 		.section-title {
 			margin-bottom: 10px;
@@ -54,9 +62,6 @@
 		}
 
 		.desc {
-			margin-bottom: 20px;
-			height: 160px;
-			overflow: hidden;
 			font-size: 16px;
 			line-height: 2em;
 		}
@@ -70,6 +75,17 @@
 
 			img {
 				height: 100%;
+			}
+		}
+
+		.btn-more {
+			position: absolute;
+			top: auto;
+			bottom: 34px;
+			left: 600px;
+
+			&:hover {
+				bottom: 30px;
 			}
 		}
 	}

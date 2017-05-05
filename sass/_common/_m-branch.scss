@@ -1,10 +1,16 @@
 .m-branch-list {
 	position: relative;
 
+	.owl-stage {
+		@include display-flex;
+		@include align-items(stretch);
+	}
+
 	.list {
 		margin: 0 6px 54px 6px;
 		padding-bottom: 28px;
 		background: $color-white;
+		height: calc(100% - 54px);
 		position: relative;
 		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 		@include box-sizing(border-box);
@@ -112,10 +118,6 @@
 @include respond(Desktops) {
 	.m-branch-list {
 		margin: 0 -6px;
-
-		.list {
-			min-height: 400px;
-		}
 
 		.img-wrap {
 			height: 224px;
