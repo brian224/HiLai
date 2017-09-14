@@ -728,6 +728,7 @@
 
 				&:hover:after {
 					background: $color-major !important;
+					width: auto;
 				}
 
 				&:hover ~ .detail-list, &.is-hover ~ .detail-list {
