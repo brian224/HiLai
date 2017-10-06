@@ -29,7 +29,6 @@
 		this._btnAccordion = '.jq-btn-accordion';
 		this._checkbox     = '.jq-checkbox';
 		this._radio        = '.jq-radio';
-		this._breadcrumb   = '.jq-breadcrumb';
 		this._animateSpeed = 400;
 		this._BCOffsetTop  = ($(this._breadcrumb).length !== 0) ? $(this._breadcrumb).offset().top : 0;
 		this._paddingTop   = parseInt($('.m-content-bd').css('padding-top'), 10);
@@ -38,13 +37,13 @@
 	// 將麵包屑訂在頂部
 	page.prototype.breadcrumb = function() {
 		if (projects.device() === 'PC') {
-			if (projects.$d.scrollTop() >= common._BCOffsetTop) {
+			if (projects.$hb.scrollTop() >= common._BCOffsetTop) {
 				$(common._breadcrumb).parent().addClass('is-fixed');
 			} else {
 				$(common._breadcrumb).parent().removeClass('is-fixed');
 			}
 		} else if (projects.device() === 'Tablet') {
-			if (projects.$d.scrollTop() + $('.l-header').height() + common._paddingTop >= common._BCOffsetTop) {
+			if (projects.$hb.scrollTop() + $('.l-header').height() + common._paddingTop >= common._BCOffsetTop) {
 				$(common._breadcrumb).parent().addClass('is-fixed');
 			} else {
 				$(common._breadcrumb).parent().removeClass('is-fixed');
@@ -55,7 +54,7 @@
 	page.prototype.showFooter = function() {
 		var _totalH  = projects.$hb.height(),
 			_cutH    = projects.$w.height(),
-			_scrollH = (projects._browsers.chrome) ? projects.$b.scrollTop() : projects.$hb.scrollTop();
+			_scrollH = projects.$hb.scrollTop();
 
 		if (_totalH <= _cutH + _scrollH) {
 			$(common._lFooter).addClass('is-show');
@@ -473,7 +472,7 @@
 					scrollTop: 0
 				}, common._animateSpeed);
 			} else {
-				projects.$b.animate({
+				projects.$hb.animate({
 					scrollTop: 0
 				}, common._animateSpeed);
 			}
